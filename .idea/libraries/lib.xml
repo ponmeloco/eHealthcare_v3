@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/temp/lib/javax.mail-1.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/javaee-api-8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/mysql-connector-java-5.1.49-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/jcalendar-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/KControls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/activation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/temp/lib/sqlite-jdbc-3.34.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
