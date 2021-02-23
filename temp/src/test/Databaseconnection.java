@@ -6,7 +6,7 @@ import java.time.Year;
 //source https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html
 //source https://www.youtube.com/watch?v=JPsWaI5Z3gs
 
-public class Databaseconnection {
+class Databaseconnection {
     private static Connection connection;
     private static boolean hasData = false;
 

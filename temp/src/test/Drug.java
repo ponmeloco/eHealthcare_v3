@@ -1,4 +1,5 @@
 package test;
+
 class Drug {
 
     private String name;

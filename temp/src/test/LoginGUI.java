@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Amar
  */
-public class LoginGUI extends javax.swing.JFrame {
+class LoginGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form loginV2

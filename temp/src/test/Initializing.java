@@ -1,7 +1,7 @@
 package test;
 import javax.swing.*;
 
-public class Initializing{
+class Initializing{
 
 
         public static void initializeProgram(){

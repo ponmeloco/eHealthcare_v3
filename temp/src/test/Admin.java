@@ -1,5 +1,5 @@
 package test;
-public class Admin extends User {
+class Admin extends User {
 
     private String AdminName;
     Admin(String _emailAddress, String _firstName, String _lastName, String _city,

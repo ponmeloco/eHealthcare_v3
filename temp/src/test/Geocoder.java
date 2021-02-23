@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 
 
-public class Geocoder {
+class Geocoder {
 
     private static double latlat;
     private static double lnglng;

@@ -1,5 +1,5 @@
 package test;
-public class DosageMgperKg {
+class DosageMgperKg {
     private float DosageInMgPerKg;
     private int timesperday;
 

@@ -1,11 +1,9 @@
 package test;
-import java.io.IOException;
+
 import java.sql.SQLException;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class testMain {
 
@@ -14,7 +12,7 @@ public class testMain {
 
 
         //test database!
-        //test patientfunctions
+        //test patientFunctions
         Databaseconnection databaseconnection = new Databaseconnection();
         try{
             Patient patient = databaseconnection.getPatient("Patient");
@@ -57,7 +55,7 @@ public class testMain {
         }
 
         try{
-            Appointment appointment = new Appointment(databaseconnection.getPatient(1), databaseconnection.getPhysician(2), LocalDateTime.of(2021,02,01,18,30));
+            Appointment appointment = new Appointment(databaseconnection.getPatient(1), databaseconnection.getPhysician(2), LocalDateTime.of(2021,2,1,18,30));
             databaseconnection.addAppointment(appointment);
         }catch(Exception e){
             System.out.println(e.getMessage());

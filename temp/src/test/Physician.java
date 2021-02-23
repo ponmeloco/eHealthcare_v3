@@ -1,7 +1,7 @@
 package test;
-import java.util.Date;
 
-public class Physician extends User {
+
+class Physician extends User {
     private String [] specialization;
 
 

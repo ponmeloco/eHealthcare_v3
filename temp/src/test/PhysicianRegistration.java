@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 
-public class PhysicianRegistration implements ActionListener {
+class PhysicianRegistration implements ActionListener {
 
 
     private static JFrame registerFrame;

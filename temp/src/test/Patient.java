@@ -1,7 +1,5 @@
 package test;
-import java.io.IOException;
-
-public class Patient extends User {
+class Patient extends User {
 
     private String birthday;
     private String insuranceType;

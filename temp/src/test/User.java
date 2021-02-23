@@ -1,5 +1,5 @@
 package test;
-public abstract class User {
+abstract class User {
     private LatLong geolocation;
     private String UserType;
     private String passwordhash;

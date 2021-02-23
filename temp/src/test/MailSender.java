@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
 
 
 
-    public class MailSender {
+class MailSender {
 
 		protected Session mailSession;
                 String username = "amaramkooooo@gmail.com";

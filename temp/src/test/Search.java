@@ -2,7 +2,7 @@ package test;
 
 import java.sql.SQLException;
 
-public class Search {
+class Search {
 
     public static Physician findPhysician(){
         return null;
