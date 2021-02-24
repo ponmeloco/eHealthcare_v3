@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Arrays;
 
@@ -158,7 +159,8 @@ class PatientRegistration implements ActionListener {
         } else if(!Arrays.equals(patientRegistrationPassword1.getPassword(),patientRegistrationPassword2.getPassword())) {
             JOptionPane.showMessageDialog(PatientRegistration.registerFrame, "Passwords do not match!");
         } else {
-            Patient patientRegister = new Patient(
+            Patient patientRegister = null;
+            patientRegister = new Patient(
                     patientRegistrationEmailAddress.getText(),
                     patientRegistrationSurname.getText(),
                     patientRegistrationLastName.getText(),

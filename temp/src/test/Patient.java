@@ -1,4 +1,8 @@
 package test;
+
+import java.io.*;
+import java.util.Date;
+
 class Patient extends User {
 
     private String birthday;
@@ -96,4 +100,17 @@ class Patient extends User {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+    public void exportHealthInf() throws IOException{
+
+        File file=new File("Health information.txt");
+        FileWriter fw= new FileWriter(file);
+        PrintWriter pw = new PrintWriter(fw);
+        for(int i=0;i<symptoms.length;i++){
+            pw.print(symptoms[i].getDescription()+"\n"+symptoms[i].getName()+"\n"+symptoms[i].getSevereness()+"\n"+"\n");
+
+        }
+
+        pw.close();
+    }
+
 }

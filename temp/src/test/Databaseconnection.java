@@ -1776,6 +1776,26 @@ class Databaseconnection {
 
     }
 
+    public boolean checkPhysician(String email) throws SQLException, ClassNotFoundException {
+        if(connection == null){
+            connect();
+        }
+        Statement statement = connection.createStatement();
+        ResultSet res = statement.executeQuery("SELECT User.*, Physician.ID FROM (User JOIN Physician ON User.ID = Physician.ID) WHERE emailAddress ='" + email + "';");
+
+
+        return res.next();
+    }
+    public boolean checkPatient(String email) throws SQLException, ClassNotFoundException {
+        if(connection == null){
+            connect();
+        }
+        Statement statement = connection.createStatement();
+        ResultSet res = statement.executeQuery("SELECT User.*, Patient.ID FROM (User JOIN Patient ON User.ID = Patient.ID) WHERE emailAddress ='" + email + "';");
+
+
+        return res.next();
+    }
 
 }
 

@@ -50,7 +50,7 @@ class Geocoder {
             latlat = Double.parseDouble(position.get("lat").asText());
             lnglng = Double.parseDouble(position.get("lng").asText());
         }
-        return new LatLong(latlat,lnglng);
+        return new LatLong(latlat, lnglng);
     }
 
 }

@@ -1,13 +1,19 @@
 package test;
 
+import org.mindrot.jbcrypt.BCrypt;
+
+import javax.xml.crypto.Data;
+import java.io.IOException;
 import java.sql.SQLException;
 
+import java.text.ParseException;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 public class testMain {
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException, InterruptedException, ParseException {
 
 
 
@@ -62,7 +68,8 @@ public class testMain {
         }
 
         //END test database
-
+        //timer tim = new timer();
+        //tim.reminder(2021,1,24,10,39);
 
 
 
