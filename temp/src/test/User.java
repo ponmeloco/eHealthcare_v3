@@ -1,4 +1,8 @@
 package test;
+
+/**
+ * Abstract class for Physician and Patient fo sharing attributes and methods
+ */
 abstract class User {
     private LatLong geolocation;
     private String UserType;
@@ -112,6 +116,9 @@ abstract class User {
         }
     }
 
+    /**
+     * Hashes a entered password with the BCrypt algorithm open-source from the Internet
+     */
     public static String hashPassword(String pw) {
         pw = org.mindrot.jbcrypt.BCrypt.hashpw(pw, org.mindrot.jbcrypt.BCrypt.gensalt());
         return pw;

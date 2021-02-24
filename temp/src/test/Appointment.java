@@ -1,7 +1,12 @@
 package test;
-import java.time.LocalDate;
+import javax.swing.*;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.util.*;
+import java.util.Timer;
+import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 
 
 class Appointment {
@@ -47,6 +52,36 @@ class Appointment {
 
     public void setPhysician(Physician physician) {
         this.physician = physician;
+    }
+
+    /**
+     * reminds the user with entered variables at a certain time
+     * @param y     = year
+     * @param m     = month
+     * @param d     = day
+     * @param hh    = hour
+     * @param mm    = minute
+     * @param minutesBefore = Time before the appointment, where the reminder shall message the user
+     */
+    public static void reminder(int y, int m, int d, int hh, int mm, int minutesBefore) {
+        final long ONE_MINUTE_IN_MILLIS=60000;  //milliSec
+        Calendar reminderCalendar = new GregorianCalendar(y, m, d, hh, mm);
+        long t= reminderCalendar.getTimeInMillis();
+        Date afterAddingTenMin = new Date(t - (minutesBefore * ONE_MINUTE_IN_MILLIS));
+        System.out.println("Your reminder Date is: "+ afterAddingTenMin);
+
+        Timer timer = new Timer();
+        TimerTask tt = new TimerTask() {
+
+            public void run() {
+                Date now = new Date();
+                if (afterAddingTenMin.before(now)) {
+                    JOptionPane.showMessageDialog(null,"Appointment in " + minutesBefore +" minutes. E-Mail has been sent as a reminder too.", "Appointment", JOptionPane.INFORMATION_MESSAGE);  // when timer true execute
+                    timer.cancel(); // stop timer instantly
+                }
+            }
+        };
+        timer.schedule(tt, 1000, 1000);
     }
 
 }

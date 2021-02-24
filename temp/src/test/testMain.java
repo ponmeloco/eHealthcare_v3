@@ -68,8 +68,8 @@ public class testMain {
         }
 
         //END test database
-        timer tim = new timer();
-        tim.reminder(2021,1,24,13,4,0);
+
+        //Appointment.reminder(2021,1,24,13,4,0);
 
 
 
