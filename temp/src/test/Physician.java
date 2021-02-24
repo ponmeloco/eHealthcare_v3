@@ -1,6 +1,8 @@
 package test;
 
 
+import java.io.IOException;
+
 class Physician extends User {
     private String [] specialization;
 
@@ -12,7 +14,7 @@ class Physician extends User {
         setUserType("Physician");
     }
     Physician(String _emailAddress, String _firstName, String _lastName, String _city,
-              String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password){
+              String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password) throws IOException, InterruptedException {
         setEmailAddress(_emailAddress);
         setFirstName(_firstName);
         setLastName(_lastName);
@@ -23,12 +25,13 @@ class Physician extends User {
         setPhoneNUmber(_phoneNumber);
         setTitle(_title);
         setPasswordhash(_password);
+        setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
         setUserType("Physician");
 
     }
 
     Physician(String _emailAddress, String _firstName, String _lastName, String _city,
-              String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password, String[] _specialization) {
+              String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password, String[] _specialization) throws IOException, InterruptedException {
         setEmailAddress(_emailAddress);
         setFirstName(_firstName);
         setLastName(_lastName);
@@ -41,6 +44,7 @@ class Physician extends User {
         setPasswordhash(_password);
         setSpecialization(_specialization);
         setUserType("Physician");
+        setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
     }
 
     Physician(String _emailAddress, String _firstName, String _lastName, String _city,

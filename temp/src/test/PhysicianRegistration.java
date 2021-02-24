@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Arrays;
 
@@ -166,18 +167,23 @@ class PhysicianRegistration implements ActionListener {
         } else {
 
             String[] specialization = userRegistrationSpecialization.getText().split(",");
-            Physician physicianRegister = new Physician(
-                    userRegistrationEmailAddress.getText(),
-                    userRegistrationSurname.getText(),
-                    userRegistrationLastName.getText(),
-                    userRegistrationCity.getText(),
-                    userRegistrationStreet.getText(),
-                    userRegistrationHouseNumber.getText(),
-                    userRegistrationPLZ.getText(),
-                    userRegistrationPhoneNumber.getText(),
-                    userRegistrationTitle.getText(),
-                    String.valueOf(userRegistrationPassword1.getPassword()),
-                    specialization);
+            Physician physicianRegister = null;
+            try {
+                physicianRegister = new Physician(
+                        userRegistrationEmailAddress.getText(),
+                        userRegistrationSurname.getText(),
+                        userRegistrationLastName.getText(),
+                        userRegistrationCity.getText(),
+                        userRegistrationStreet.getText(),
+                        userRegistrationHouseNumber.getText(),
+                        userRegistrationPLZ.getText(),
+                        userRegistrationPhoneNumber.getText(),
+                        userRegistrationTitle.getText(),
+                        String.valueOf(userRegistrationPassword1.getPassword()),
+                        specialization);
+            } catch (IOException | InterruptedException ioException) {
+                ioException.printStackTrace();
+            }
 
             try {
                 Databaseconnection databaseconnection = new Databaseconnection();
