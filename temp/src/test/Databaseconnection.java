@@ -1776,6 +1776,11 @@ class Databaseconnection {
 
     }
 
+    /**
+     * checks if user is physician
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public boolean checkPhysician(String email) throws SQLException, ClassNotFoundException {
         if(connection == null){
             connect();
@@ -1786,6 +1791,12 @@ class Databaseconnection {
 
         return res.next();
     }
+
+    /**
+     * checks if user is patient
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public boolean checkPatient(String email) throws SQLException, ClassNotFoundException {
         if(connection == null){
             connect();

@@ -1,16 +1,23 @@
 package test;
 
 
+/**
+ * Class with two parameters (latitude, longitude) for easier handling the distances for patient and physician
+ */
 class LatLong {
 
-    private double longitude;
     private double latitude;
+    private double longitude;
+
 
     LatLong(double latitude, double longitude){
         setLatitude(latitude);
         setLongitude(longitude);
     }
 
+    /**
+     * Calculates the distance in kilometer from two given latitudes and longitudes as double
+     */
     public static double distanceInKm(LatLong patient, LatLong physician) {
         int radius = 6371;
 

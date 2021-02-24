@@ -1,7 +1,6 @@
 package test;
-
 import java.io.*;
-import java.util.Date;
+
 
 class Patient extends User {
 

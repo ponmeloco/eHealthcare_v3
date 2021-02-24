@@ -19,6 +19,11 @@ class Geocoder {
     private static final String GEOCODING_RESOURCE = "https://geocode.search.hereapi.com/v1/geocode";
     private static final String API_KEY = "KsnUri8CIPkGUdbmUqTKAwNZuG9im4N3dJ3wmcMvxgg";
 
+    /**
+     * sends query to here-API for geocoding the address
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public static String GeocodeSync(String query) throws IOException, InterruptedException {
 
         HttpClient httpClient = HttpClient.newHttpClient();
@@ -35,6 +40,11 @@ class Geocoder {
         return geocodingResponse.body();
     }
 
+    /**
+     * Strips out the latitude and longitude of the returned object from here-API into object LatLong
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public static LatLong decode(String location) throws IOException, InterruptedException {
 
         ObjectMapper mapper = new ObjectMapper();
