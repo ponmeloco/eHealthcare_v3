@@ -99,6 +99,11 @@ class Patient extends User {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    /***
+     * Copying and exporting the symptoms in form of a text file
+     * @throws IOException
+     */
     public void exportHealthInf() throws IOException{
 
         File file=new File("Health information.txt");
