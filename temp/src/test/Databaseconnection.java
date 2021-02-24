@@ -6,6 +6,10 @@ import java.time.Year;
 //source https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html
 //source https://www.youtube.com/watch?v=JPsWaI5Z3gs
 
+/**
+ * Class to establish and connect to a database persistently saving the data provided by the Software.
+ * @author Archy
+ */
 class Databaseconnection {
     private static Connection connection;
     private static boolean hasData = false;
@@ -21,6 +25,13 @@ class Databaseconnection {
         }
     }
 
+    /**
+     * Fetches the hashedpassword from an user account.
+     * @param email The registered emailaddress of the User.
+     * @return The hashed passwort saved in the database.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public String getUserPw(String email) throws SQLException, ClassNotFoundException {
         if(connection == null){
             connect();
@@ -29,6 +40,13 @@ class Databaseconnection {
         return statement.executeQuery("SELECT password FROM User WHERE emailAddress ='" + email + "';").getString(1);
     }
 
+    /**
+     * Save all relevant attributes of a patient not yet within the database.
+     * @param patient The Instance of the Patient class resembling the Information about the User.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     * @author Archy
+     */
     public void addUser(Patient patient) throws SQLException, ClassNotFoundException {
         if (connection == null) {
             connect();
@@ -77,6 +95,13 @@ class Databaseconnection {
             throw new SQLException("User already registered.");
         }
     }
+
+    /**
+     * Save all relevant attributes of a physician not yet within the database.
+     * @param physician The Instance of the Physician class resembling the Information about the User.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void addUser(Physician physician) throws SQLException, ClassNotFoundException{
         if(connection == null){
             connect();
@@ -115,6 +140,13 @@ class Databaseconnection {
             throw new SQLException("User already registered.");
         }
     }
+
+    /**
+     * Save all relevant attributes of a admin not yet within the database.
+     * @param admin The Instance of the Admin class resembling the Information about the User.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void addUser(Admin admin) throws SQLException, ClassNotFoundException {
         if (connection == null) {
             connect();
@@ -145,6 +177,12 @@ class Databaseconnection {
         }
     }
 
+    /**
+     * Update a patient already existing within the database.
+     * @param patient The Instance of the Patient class resembling the Information about the User.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void updateUser(Patient patient) throws SQLException, ClassNotFoundException{
         if (connection == null) {
             connect();
@@ -237,6 +275,13 @@ class Databaseconnection {
             throw new SQLException("User not registered yet. If you tried to change the Emailadress please note, \n  this address is used to uniquely identify each user.\n Please use the method changeEmail not updateuser.");
         }
     }
+
+    /**
+     * Updates a physician already existing within the database.
+     * @param physician The Instance of the Physician class resembling the Information about the User.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void updateUser(Physician physician) throws SQLException, ClassNotFoundException{
         if (connection == null) {
             connect();
@@ -311,6 +356,13 @@ class Databaseconnection {
             throw new SQLException("User not registered yet. If you tried to change the Emailadress please note, \n  this address is used to uniquely identify each user.\n Please use the method changeEmail not updateuser.");
         }
     }
+
+    /**
+     * Updates an admin already existing within the database.
+     * @param admin The Instance of the Admin class resembling the Information about the User.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void updateUser(Admin admin) throws SQLException, ClassNotFoundException{
         if (connection == null) {
             connect();
@@ -383,6 +435,13 @@ class Databaseconnection {
         }
     }
 
+    /**
+     * Fetches an instance of the Patient class from the database uniquely identified by its email.
+     * @param email The registered emailaddress of the User.
+     * @return Instance of a Patient from the database
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Patient      getPatient(String email) throws SQLException, ClassNotFoundException{
         if(connection == null){
             connect();
@@ -412,6 +471,14 @@ class Databaseconnection {
         return new Patient(email,firstName,lastName,city,street,houseNumber,postalCode,
                 phoneNumber, title, pwhash, dateOfBirth, insurancename, symptoms, medications, weight, latlong);
     }
+
+    /**
+     * Fetches an instance of the Physician class from the database uniquely identified by its email.
+     * @param email The registered emailaddress of the User.
+     * @return  Instance of a Physician from the database
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Physician    getPhysician(String email) throws SQLException, ClassNotFoundException{
         if(connection == null){
             connect();
@@ -443,6 +510,14 @@ class Databaseconnection {
             throw new SQLException("User not found");
         }
     }
+
+    /**
+     * Fetches an instance of the Admin class from the database uniquely identified by its email.
+     * @param email The registered emailaddress of the User.
+     * @return Instance of an Admin from the database
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Admin        getAdmin(String email) throws SQLException, ClassNotFoundException{
         if(connection == null){
             connect();
@@ -464,6 +539,14 @@ class Databaseconnection {
         return new Admin(email,firstName,lastName,city,street,houseNumber,postalCode,
                 phoneNumber, title, pwhash, latlong);
     }
+
+    /**
+     * Fetches an instance of the Patient class from the database uniquely identified by its UserID.
+     * @param patientID The UserID of the patient within the database.
+     * @return Instance of a Patient from the database
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Patient      getPatient(int patientID) throws SQLException, ClassNotFoundException{
         if(connection == null){
             connect();
@@ -494,6 +577,14 @@ class Databaseconnection {
         return new Patient(email,firstName,lastName,city,street,houseNumber,postalCode,
                 phoneNumber, title, pwhash, dateOfBirth, insurancename, symptoms, medications, weight,latlong);
     }
+
+    /**
+     * Fetches an instance of the Physician class from the database uniquely identified by its UserID.
+     * @param physicianID the UserID of the physician within the database.
+     * @return Instance of a Phyisician from the database.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Physician    getPhysician(int physicianID) throws SQLException, ClassNotFoundException{
         if(connection == null){
             connect();
@@ -527,6 +618,13 @@ class Databaseconnection {
         }
     }
 
+    /**
+     * Fetches the Symptoms of a user from the database. User is uniquely identified by his emailaddress.
+     * @param email The registered emailaddress of the Patient.
+     * @return An array containing the Instances of the Symptomclass related to the patient identified by the emailaddress
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Symptom[]       getSymptoms(String email) throws SQLException,ClassNotFoundException{
         if(connection == null){
             connect();
@@ -555,6 +653,14 @@ class Databaseconnection {
         }
         return symptoms;
     }
+
+    /**
+     * Fetches the Symptoms of a user from the database. User is uniquely identified by his emailaddress.
+     * @param email The registered emailaddress of the Patient.
+     * @return An array containing the Instances of the Medication class related to the patient identified by the emailaddress.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Medication[]    getMedication(String email) throws SQLException,ClassNotFoundException{
         if(connection == null){
             connect();
@@ -578,6 +684,14 @@ class Databaseconnection {
         }
         return medication;
     }
+
+    /**
+     * Fetches the Specializations of a physician from the database. The Physician is uniquely identified by the emailaddress.
+     * @param email The registered emailaddress of the Physician.
+     * @return An array containing the Strings of the Specializations related to the physician identified by the emailaddress.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public String[]        getSpecialization(String email) throws SQLException,ClassNotFoundException{
         if(connection == null){
             connect();
@@ -604,6 +718,14 @@ class Databaseconnection {
 
         return specialization;
     }
+
+    /**
+     * Fetches the instance of a Drug from the database. The drug is uniquely identified by its name.
+     * @param drugName A String containing the name of the drug.
+     * @return An Instance of the Drug Class identified by its name.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Drug            getDrug(String drugName)throws SQLException,ClassNotFoundException{
         if(connection == null){
             connect();
@@ -613,6 +735,14 @@ class Databaseconnection {
         ResultSet res = statement.executeQuery("SELECT Drug.name, Drug.description FROM Drug Where name ='"+ drugName +"';");
         return new Drug(res.getString(1),res.getString(2));
     }
+
+    /**
+     * Fetches the instance of a Drug from the database. The drug is uniquely identified by its name.
+     * @param drugID An intger containing the unique ID of the drug within the database.
+     * @return An Instance of the Drug Class identified by its ID.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Drug            getDrug(int drugID) throws SQLException,ClassNotFoundException{
         if(connection == null){
             connect();
@@ -623,6 +753,14 @@ class Databaseconnection {
         return new Drug(res.getString(1),res.getString(2));
 
     }
+
+    /**
+     * Fetches all Appointments of an user identified by the emailaddress.
+     * @param email The registered emailaddress of the User.
+     * @return An array of all Instances of the Appointment class related to the User uniquely identified by the emailaddress.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Appointment[]   getAppointment(String email) throws SQLException,ClassNotFoundException{
         if(connection == null){
             connect();
@@ -653,6 +791,13 @@ class Databaseconnection {
         }
     }
 
+    /**
+     * Fetches an Array of all Physicians that are specialized on the treatment of the Symptoms defined as parameter.
+     * @param symptoms An array
+     * @return An array containing Instances of the Symptomclass.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public Physician[] searchPhysician(Symptom[] symptoms) throws SQLException,ClassNotFoundException{
         if(connection == null){
             connect();
@@ -690,6 +835,13 @@ class Databaseconnection {
     }
 
 
+    /**
+     * Sets the Symptoms of the patient uniquely identified by the emailaddress to the Symptoms conatained in the Symptom[] Parameter.
+     * @param email The registered emailaddress of the User.
+     * @param symptoms An array containing Instances of the Symptomclass.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     private void setSymptoms(String email,Symptom[] symptoms)throws SQLException,ClassNotFoundException{
         if (connection == null) {
             connect();
@@ -723,6 +875,14 @@ class Databaseconnection {
             System.out.println("Error while updating Symptoms.");
         }
     }
+
+    /**
+     * Sets the Medication of the patient uniquely identified by the emailaddress to the Medication conatained in the medications[] Parameter.
+     * @param email The registered emailaddress of the User.
+     * @param medications An array containing Instances of the Medication class.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     private void setMedications(String email,Medication[] medications)throws SQLException,ClassNotFoundException{
         if (connection == null) {
             connect();
@@ -762,6 +922,14 @@ class Databaseconnection {
         }
 
     }
+
+    /**
+     * Sets the Specializations of the physician uniquely identified by the emailaddress to the specializations conatained in the specialization[] Parameter.
+     * @param email The registered emailaddress of the User.
+     * @param specialization An array containing Strings of the specialization.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     private void setSpecialization(String email, String[] specialization) throws SQLException, ClassNotFoundException{
         if (connection == null) {
             connect();
@@ -786,6 +954,13 @@ class Databaseconnection {
         }
 
     }
+
+    /**
+     * Adds an appointment to the database. The attributes are provided by an Instance of the Appointment class.
+     * @param appointment An instance of the Appointment Class. Representing a scheduled meeting between physician and patient.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void addAppointment(Appointment appointment) throws SQLException, ClassNotFoundException{
         if(connection == null){
             connect();
@@ -803,12 +978,21 @@ class Databaseconnection {
     }
 
 
+    /**
+     * Establishes an connection to the database. No Parameters given, as the database path and structure are constant.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     private void connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         connection = DriverManager.getConnection("jdbc:sqlite:eHealthcareUsers.db");
         initialise();
     }
 
+    /**
+     * Initialises a Database if no database is existent within the file. The Database is created at the same location as the executable.
+     * @throws SQLException
+     */
     private void initialise() throws SQLException {
         if(!hasData){
             hasData = true;
@@ -840,6 +1024,11 @@ class Databaseconnection {
 
         }
     }
+
+    /**
+     * creates the Table User within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildUserTable() throws SQLException{
         System.out.println("Building User table...");
         Statement state = connection.createStatement();
@@ -904,6 +1093,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the Table InsuranceType within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildInsuranceTypeTable() throws SQLException{
         System.out.println("Building InsuranceType table...");
         Statement state = connection.createStatement();
@@ -924,6 +1118,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the Table Insurance within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildInsuranceTable() throws SQLException{
         System.out.println("Building Insurance table...");
         Statement state = connection.createStatement();
@@ -952,6 +1151,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the Table Physician within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildPhysicianTable() throws SQLException {
         System.out.println("Building Physician table...");
 
@@ -970,6 +1174,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the Table Patient within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildPatientTable() throws SQLException {
         System.out.println("Building Patient table...");
 
@@ -995,6 +1204,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the Table Admin within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildAdminTable() throws SQLException {
         System.out.println("Building Admin table...");
 
@@ -1007,6 +1221,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the Table Specialization within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildSpecializationTable() throws SQLException{
         System.out.println("Building Specialization table...");
 
@@ -1147,6 +1366,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the table SpecializationPhysician within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildSpecializationPhysicianTable() throws SQLException {
         System.out.println("Building SpecializationPhysician table...");
 
@@ -1176,6 +1400,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the table Symptom within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildSymptomTable() throws SQLException{
         System.out.println("Building Symptom table...");
         Statement state = connection.createStatement();
@@ -1273,6 +1502,11 @@ class Databaseconnection {
 
         }
     }
+
+    /**
+     * creates the table Severeness within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildSeverenessTable() throws  SQLException{
         System.out.println("Building Severeness table...");
 
@@ -1300,6 +1534,11 @@ class Databaseconnection {
 
         System.out.println("complete.");
     }
+
+    /**
+     * creates the table SymptomPatient within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildSymptomPatientTable() throws SQLException{
         System.out.println("Building SymptomPatient table...");
         Statement state = connection.createStatement();
@@ -1330,6 +1569,11 @@ class Databaseconnection {
         preparedStatement.setInt(2, 6);
         preparedStatement.execute();
     }
+
+    /**
+     * creates the table Drug within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildDrugTable() throws SQLException{
         System.out.println("Building Drug table...");
 
@@ -1378,6 +1622,11 @@ class Databaseconnection {
 
 
     }
+
+    /**
+     * creates the table Medication within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildMedicationTable() throws SQLException{
         System.out.println("Building Medication table...");
         Statement state = connection.createStatement();
@@ -1411,6 +1660,11 @@ class Databaseconnection {
         preparedStatement.setInt(4, 15);
         preparedStatement.execute();
     }
+
+    /**
+     * creates the table Appointment within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildAppointmentTable() throws SQLException{
         System.out.println("Building Appointment table...");
 
@@ -1451,7 +1705,10 @@ class Databaseconnection {
         System.out.println("complete.");
     }
 
-
+    /**
+     * creates the table SymptomSpecialization within the database and defines its attributes.
+     * @throws SQLException
+     */
     private void buildSymptomSpecializationTable() throws SQLException{
         System.out.println("Building SymptomSpecializationTable table...");
 
