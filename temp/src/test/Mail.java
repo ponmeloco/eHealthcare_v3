@@ -30,9 +30,9 @@ public class Mail {
 	DateFormat dateFormatter = new SimpleDateFormat("E yyyy/MM/dd/  HH:mm:ss");
 
 
-
-
-
+	/***
+	 *  Configuring the properties for the authentication and logging in
+	 */
 	private void login() {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", smtpHost);
@@ -53,6 +53,17 @@ public class Mail {
 		System.out.println("Eingeloggt.");
 	}
 
+	/***
+	 *  Format and prepare the email for sending
+	 * @param senderMail Sender's Email address
+	 * @param senderName Sender's Name
+	 * @param receiverAddresses Receiver's Email address
+	 * @param subject	Subject
+	 * @param message   Message
+	 * @throws MessagingException
+	 * @throws IllegalStateException
+	 * @throws UnsupportedEncodingException
+	 */
 	private void send(String senderMail, String senderName, String receiverAddresses, String subject, String message)
 			throws MessagingException, IllegalStateException, UnsupportedEncodingException {
 		if (mailSession == null) {
@@ -77,6 +88,11 @@ public class Mail {
 		System.out.println("E-Mail versendet.");
 	}
 
+	/*** Sending an appointment request to the Physician
+	 *
+	 * @param appointment  Patient appointment object
+	 *
+	 */
 	public void sendAppointmentRequest(Appointment appointment){
 
 		String senderName=appointment.getPatient().getFirstName()+appointment.getPatient().getLastName();
@@ -95,8 +111,10 @@ public class Mail {
 	}
 
 
-
-
+	/***
+	 * Sending an alternative mail request to the Physician
+	 * @param appointment  Physician appointment object
+	 */
 	public void sendAlternativeMail(Appointment appointment){
 
 		String senderName=appointment.getPhysician().getFirstName()+appointment.getPhysician().getLastName();
@@ -116,6 +134,12 @@ public class Mail {
 		}
 
 	}
+
+	/***
+	 * Sending an Appointment confirmation mail request to the Patient
+	 *
+	 * @param appointment Physician appointment object
+	 */
 	public void sendAppointmentConfirm(Appointment appointment){
 		String senderName=appointment.getPhysician().getFirstName()+appointment.getPhysician().getLastName();
 		String receiverMail=appointment.getPatient().getEmailAddress();
