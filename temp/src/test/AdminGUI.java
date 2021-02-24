@@ -197,7 +197,7 @@ public class AdminGUI extends javax.swing.JFrame {
         welcomenameLbl.setText("Planincic");
 
         appointmenMenagmentBtn.setBorder(null);
-        appointmenMenagmentBtn.setText("Appointment management");
+        appointmenMenagmentBtn.setText("Appointment Management");
         appointmenMenagmentBtn.setkEndColor(new java.awt.Color(255, 255, 255));
         appointmenMenagmentBtn.setkHoverEndColor(new java.awt.Color(255, 255, 255));
         appointmenMenagmentBtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
