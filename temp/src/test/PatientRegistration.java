@@ -160,21 +160,17 @@ class PatientRegistration implements ActionListener {
             JOptionPane.showMessageDialog(PatientRegistration.registerFrame, "Passwords do not match!");
         } else {
             Patient patientRegister = null;
-            try {
-                patientRegister = new Patient(
-                        patientRegistrationEmailAddress.getText(),
-                        patientRegistrationSurname.getText(),
-                        patientRegistrationLastName.getText(),
-                        patientRegistrationCity.getText(),
-                        patientRegistrationStreet.getText(),
-                        patientRegistrationHouseNumber.getText(),
-                        patientRegistrationPLZ.getText(),
-                        patientRegistrationPhoneNumber.getText(),
-                        patientRegistrationTitle.getText(),
-                        String.valueOf(patientRegistrationPassword1.getPassword()));
-            } catch (IOException | InterruptedException ioException) {
-                ioException.printStackTrace();
-            }
+            patientRegister = new Patient(
+                    patientRegistrationEmailAddress.getText(),
+                    patientRegistrationSurname.getText(),
+                    patientRegistrationLastName.getText(),
+                    patientRegistrationCity.getText(),
+                    patientRegistrationStreet.getText(),
+                    patientRegistrationHouseNumber.getText(),
+                    patientRegistrationPLZ.getText(),
+                    patientRegistrationPhoneNumber.getText(),
+                    patientRegistrationTitle.getText(),
+                    String.valueOf(patientRegistrationPassword1.getPassword()));
             try {
                 Databaseconnection databaseconnection = new Databaseconnection();
                 databaseconnection.addUser(patientRegister);
