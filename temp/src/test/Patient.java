@@ -1,4 +1,7 @@
 package test;
+
+import java.io.IOException;
+
 class Patient extends User {
 
     private String birthday;
@@ -15,7 +18,7 @@ class Patient extends User {
         setCity(_city);
     }
     Patient(String _emailAddress, String _firstName, String _lastName, String _city,
-            String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password) {
+            String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password) throws IOException, InterruptedException {
         setEmailAddress(_emailAddress);
         setFirstName(_firstName);
         setLastName(_lastName);
@@ -26,6 +29,7 @@ class Patient extends User {
         setPhoneNUmber(_phoneNumber);
         setTitle(_title);
         setPasswordhash(_password);
+        setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
     }
     Patient(String _emailAddress, String _firstName, String _lastName, String _city,
             String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password,
