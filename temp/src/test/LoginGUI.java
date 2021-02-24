@@ -140,7 +140,11 @@ public class LoginGUI extends javax.swing.JFrame {
         logintBtn.setkStartColor(new java.awt.Color(0, 102, 204));
         logintBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logintBtnActionPerformed(evt);
+                try {
+                    logintBtnActionPerformed(evt);
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         });
 
@@ -723,7 +727,7 @@ public class LoginGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-    private void logintBtnActionPerformed(java.awt.event.ActionEvent evt) {
+    private void logintBtnActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, ClassNotFoundException {
         Databaseconnection databaseconnection = new Databaseconnection();
         String DatabasePw = null;
         try {
@@ -742,9 +746,20 @@ public class LoginGUI extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(loginPanel, "Fields cannot be empty! Please enter your data.");
                         break;
                     } else if ((org.mindrot.jbcrypt.BCrypt.checkpw(password,DatabasePw))) {
-                        JOptionPane.showMessageDialog(loginPanel, "Login successful!");
-                        check = 0;
-                        dispose();
+
+                        if(databaseconnection.checkPhysician(userNameTexFld.getText())){
+                            JOptionPane.showMessageDialog(loginPanel, "Login successful!");
+                            dispose();
+                            check = 0;
+                            PhysicianGUI phyG = new PhysicianGUI();
+                            phyG.setVisible(true);
+                        }else if(databaseconnection.checkPatient(userNameTexFld.getText())){
+                            JOptionPane.showMessageDialog(loginPanel, "Login successful!");
+                            dispose();
+                            check = 0;
+                            PatientGUI patG = new PatientGUI();
+                            patG.setVisible(true);
+                        }
                     } else {
                         System.out.println(User.hashPassword(password));
                         JOptionPane.showMessageDialog(loginPanel, "Login unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
