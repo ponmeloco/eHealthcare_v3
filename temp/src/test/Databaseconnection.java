@@ -867,11 +867,10 @@ class Databaseconnection {
             Appointment[] appointments = new Appointment[countAppointments];
             res = statement.executeQuery("SELECT * FROM Appointment WHERE PatientID = "+userID+" OR PhysicianID ="+userID+";");
 
-            for (int i = 0; i<countAppointments; i++){
+            for (int i = 0; res.next(); i++){
                 int patientID =     res.getInt(2);
                 int physicianID =   res.getInt(3);
                 appointments[i] =   new Appointment(getPatient(patientID), getPhysician(physicianID), LocalDateTime.of(res.getInt(4), res.getInt(5), res.getInt(6), res.getInt(7), res.getInt(8)));
-                res.next();
             }
 
             return appointments;
