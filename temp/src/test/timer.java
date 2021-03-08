@@ -16,15 +16,15 @@ class timer {
         final long ONE_MINUTE_IN_MILLIS=60000;  //milliSec
         Calendar reminderCalendar = new GregorianCalendar(y, m, d, hh, mm);
         long t= reminderCalendar.getTimeInMillis();
-        Date afterAddingTenMin = new Date(t - (minutesBefore * ONE_MINUTE_IN_MILLIS));
-        System.out.println("Your reminder Date is: "+ afterAddingTenMin);
+        Date afterSubtractingMin = new Date(t - (minutesBefore * ONE_MINUTE_IN_MILLIS));
+        System.out.println("Your reminder Date is: "+ afterSubtractingMin);
 
         Timer timer = new Timer();
         TimerTask tt = new TimerTask() {
 
             public void run() {
                 Date now = new Date();
-                if (afterAddingTenMin.before(now)) {
+                if (afterSubtractingMin.before(now)) {
                     JOptionPane.showMessageDialog(null,"Appointment in " + minutesBefore +" minutes. E-Mail has been sent as a reminder too" +
                             "", "Appointment", JOptionPane.INFORMATION_MESSAGE);  // when timer true execute
                     timer.cancel(); // stop timer instantly
