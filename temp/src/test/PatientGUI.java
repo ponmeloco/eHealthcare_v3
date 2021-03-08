@@ -992,10 +992,10 @@ public class PatientGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Appointment date cannot be set in the past !");
     }
 
-    private void populateTable(Patient patient){
+    private void populateTable(Patient patient) {
 
         // appointments=new Appointment[]{app1,app2};// get appointments from database
-        Patient p1=new Patient();
+       /* Patient p1=new Patient();
         p1.setLastName("PAtient 1");
         p1.setEmailAddress("amaramko@live.com");
         Patient p2=new Patient();
@@ -1014,36 +1014,25 @@ public class PatientGUI extends javax.swing.JFrame {
         app2.setPhysician(ph2);
         app2.setTimeAndDate(LocalDateTime.of(2021,3,1,18,30));
 
-        appointments=new Appointment[]{app1,app2};
-    /*
-    try{
-    DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-     Databaseconnection databaseconnection = new Databaseconnection();
-  appointments=databaseconnection.getAppointment(physician.getEmailAddress());
- for(int i=0;i<appointments.length;i++){
-    LocalDateTime dateTime = appointments[i].getDate();
-     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-     String formattedDateTime = dateTime.format(formatter);
-     model.addRow(new Object[]{appointments[i].getPatient().getLastName(),
-     formattedDateTime,appointments[i].getPatient().getEmailAddress()});
+        appointments=new Appointment[]{app1,app2};*/
 
- }
-  }catch (Exception e){
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            Databaseconnection databaseconnection = new Databaseconnection();
+            appointments = databaseconnection.getAppointment(patient.getEmailAddress());
+            for (int i = 0; i < appointments.length; i++) {
+                LocalDateTime dateTime = appointments[i].getDate();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                String formattedDateTime = dateTime.format(formatter);
+                model.addRow(new Object[]{appointments[i].getPatient().getLastName(),
+                        formattedDateTime, appointments[i].getPatient().getEmailAddress()});
+
+            }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-   */
 
-        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
-        for(int i=0;i<appointments.length;i++){
-            LocalDateTime dateTime = appointments[i].getDate();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-            String formattedDateTime = dateTime.format(formatter);
-            model.addRow(new Object[]{appointments[i].getPatient().getLastName(),"test",
-                    formattedDateTime,appointments[i].getPatient().getEmailAddress()});
+
         }
-
-        //////////////////////-----------------------
-
-
     }
 
     private void populateEditProfilePnl(Patient p){
