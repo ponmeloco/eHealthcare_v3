@@ -25,7 +25,8 @@ class timer {
             public void run() {
                 Date now = new Date();
                 if (afterAddingTenMin.before(now)) {
-                    JOptionPane.showMessageDialog(null,"Appointment in " + minutesBefore +" minutes. E-Mail has been sent as a reminder too.", "Appointment", JOptionPane.INFORMATION_MESSAGE);  // when timer true execute
+                    JOptionPane.showMessageDialog(null,"Appointment in " + minutesBefore +" minutes. E-Mail has been sent as a reminder too" +
+                            "", "Appointment", JOptionPane.INFORMATION_MESSAGE);  // when timer true execute
                     timer.cancel(); // stop timer instantly
                 }
             }
