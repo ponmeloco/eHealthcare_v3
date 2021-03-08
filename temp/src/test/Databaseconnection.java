@@ -791,6 +791,42 @@ class Databaseconnection {
         }
     }
 
+    /** Fetches all Appointments from the Database to ensure easy access to appointments for admins. (Only viable for small scale database, Prototype only method)
+     *
+     * @return An array of all Instances of the Appointment class registered within the database.
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public Appointment[]   getAllAppointments() throws SQLException, ClassNotFoundException{
+        if(connection == null){
+            connect();
+        }
+        Statement statement = connection.createStatement();
+
+        ResultSet res = statement.executeQuery("SELECT * FROM Appointment ;");
+        if(!res.next()){
+            throw new SQLException("No Appointments found.");
+        }
+        else{
+            int countAppointments = 0;
+            while(res.next()){
+                countAppointments++;
+            }
+            Appointment[] appointments = new Appointment[countAppointments];
+            res = statement.executeQuery("SELECT * FROM Appointment;");
+
+            for (int i = 0; i<countAppointments; i++){
+                int patientID =     res.getInt(2);
+                int physicianID =   res.getInt(3);
+                appointments[i] =   new Appointment(getPatient(patientID), getPhysician(physicianID), LocalDateTime.of(res.getInt(4), res.getInt(5), res.getInt(6), res.getInt(7), res.getInt(8)));
+                res.next();
+            }
+
+            return appointments;
+        }
+
+    }
+
     /**
      * Fetches an Array of all Physicians that are specialized on the treatment of the Symptoms defined as parameter.
      * @param symptoms An array
@@ -810,7 +846,8 @@ class Databaseconnection {
         Statement statement = connection.createStatement();
 
         for (int i = 0; i < symptoms.length; i++){
-            specializationIDs[i] = statement.executeQuery("SELECT SpecializationID FROM SymptomSpecialization WHERE SymptomID = (SELECT Symptom.ID FROM Symptom WHERE Name='"+symptoms[i].getName()+"');").getInt(1);
+            specializationIDs[i] = statement.executeQuery("SELECT SpecializationID FROM SymptomSpecialization WHERE SymptomID = " +
+                    "(SELECT Symptom.ID FROM Symptom WHERE Name='"+symptoms[i].getName()+"');").getInt(1);
         }
         if(specializationIDs != null){
             for(int i= 0; i<specializationIDs.length; i++){
@@ -974,7 +1011,8 @@ class Databaseconnection {
         int day = dateTime.getDayOfMonth();
         int hour = dateTime.getHour();
         int min = dateTime.getMinute();
-        statement.execute("INSERT INTO Appointment (PhysicianID, PatientID, Year, Month, Day, Hour, Minute) VALUES (" + PhysicianID + "," + PatientID + "," + year + "," + month + "," + day + "," + hour + "," + min + ");");
+        statement.execute("INSERT INTO Appointment (PhysicianID, PatientID, Year, Month, Day, Hour, Minute) " +
+                "VALUES (" + PhysicianID + "," + PatientID + "," + year + "," + month + "," + day + "," + hour + "," + min + ");");
     }
 
 
