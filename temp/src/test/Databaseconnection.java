@@ -859,6 +859,7 @@ class Databaseconnection {
             throw new SQLException("No Appointments found.");
         }
         else{
+            res = statement.executeQuery("SELECT * FROM Appointment WHERE PatientID = "+userID+" OR PhysicianID ="+userID+";");
             int countAppointments = 0;
             while(res.next()){
                 countAppointments++;

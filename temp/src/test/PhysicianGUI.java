@@ -730,12 +730,12 @@ public class PhysicianGUI extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
             Databaseconnection databaseconnection = new Databaseconnection();
             appointments=databaseconnection.getAppointment(physician.getEmailAddress());
-            for(int i=0;i<appointments.length;i++){
-                LocalDateTime dateTime = appointments[i].getDate();
+            for (Appointment appointment : appointments) {
+                LocalDateTime dateTime = appointment.getDate();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 String formattedDateTime = dateTime.format(formatter);
-                model.addRow(new Object[]{appointments[i].getPatient().getLastName(),
-                        formattedDateTime,appointments[i].getPatient().getEmailAddress()});
+                model.addRow(new Object[]{appointment.getPatient().getLastName(),
+                        formattedDateTime, appointment.getPatient().getEmailAddress()});
 
             }
         }catch (Exception e) {
