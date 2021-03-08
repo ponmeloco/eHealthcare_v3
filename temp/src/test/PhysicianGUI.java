@@ -6,6 +6,7 @@
 package test;
 
 import java.awt.Color;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -29,22 +30,7 @@ public class PhysicianGUI extends javax.swing.JFrame {
     Appointment [] appointments;
     Appointment selectedAppointment;
 
-    public PhysicianGUI() {
-
-
-        Physician test = new Physician("dtestmail", "Bruce", "Banner", "Berlin", "Hauptstraße", "2", "60001", "110", "Dr.", "abcd",null, new LatLong(50.00000,8.00000));
-       /*Physician p=new Physician();
-       p.setFirstName("Amar");
-       p.setLastName("Planincic");
-       p.setCity("Steinbach");
-       p.setEmailAddress("amaramko@live.com");
-       p.setHouseNumber("25");
-       p.setPhoneNUmber("0346");
-       p.setPostalCode("614433339");
-       p.setStreet("Hesse2156161nring");
-       p.setTitle("Dr.");*/
-
-
+    public PhysicianGUI(Physician physician) {
 
 
         setUndecorated(true);
@@ -87,10 +73,10 @@ public class PhysicianGUI extends javax.swing.JFrame {
         phoneTxtFld.setEditable(false);
 
         jTable1.getTableHeader().setBackground(Color.WHITE);
-        welcomeLbl.setText(test.getLastName());
+        welcomeLbl.setText(physician.getLastName());
 
-        populateTable(test);
-        populateEditProfilePnl(test);
+        populateTable(physician);
+        populateEditProfilePnl(physician);
 
 
 
@@ -856,9 +842,9 @@ public class PhysicianGUI extends javax.swing.JFrame {
         LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
 
 
-        for(int i=0;i<appointments.length;i++){
-            if(appointments[i].getPatient().getLastName()==jLabel4.getText()&&appointments[i].getDate().equals(dateTime)){
-                selectedAppointment=appointments[i];
+        for (Appointment appointment : appointments) {
+            if (appointment.getPatient().getLastName().equals(jLabel4.getText()) && appointment.getDate().equals(dateTime)) {
+                selectedAppointment = appointment;
             }
         }
     }
@@ -896,7 +882,8 @@ public class PhysicianGUI extends javax.swing.JFrame {
 
 
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
+        Databaseconnection databaseconnection = new Databaseconnection();
         /* Set the Nimbus look and feel
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -924,7 +911,11 @@ public class PhysicianGUI extends javax.swing.JFrame {
          Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PhysicianGUI().setVisible(true);
+                try {
+                    new PhysicianGUI(databaseconnection.getPhysician("Doctor")).setVisible(true);
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         });
     }
