@@ -5,6 +5,8 @@ package test;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.text.*;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -27,7 +29,10 @@ public class Mail {
 	private   String password = "Mnb12345!";
 	private String smtpHost="smtp.gmail.com";
 	private String smtPort="587";
-	DateFormat dateFormatter = new SimpleDateFormat("E yyyy/MM/dd/  HH:mm:ss");
+	DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+	DateFormat dateFormatter2 = new SimpleDateFormat("dd-MM-yyyy");
+
+
 
 
 	/***
@@ -64,6 +69,7 @@ public class Mail {
 	 * @throws IllegalStateException
 	 * @throws UnsupportedEncodingException
 	 */
+
 	private void send(String senderMail, String senderName, String receiverAddresses, String subject, String message)
 			throws MessagingException, IllegalStateException, UnsupportedEncodingException {
 		if (mailSession == null) {
@@ -93,6 +99,8 @@ public class Mail {
 	 * @param appointment  Patient appointment object
 	 *
 	 */
+
+
 	public void sendAppointmentRequest(Appointment appointment){
 
 		String senderName=appointment.getPatient().getFirstName()+appointment.getPatient().getLastName();
@@ -115,12 +123,14 @@ public class Mail {
 	 * Sending an alternative mail request to the Physician
 	 * @param appointment  Physician appointment object
 	 */
-	public void sendAlternativeMail(Appointment appointment){
+
+	public void sendAlternativeMail(Appointment appointment,Date alternativeDate,String note){
 
 		String senderName=appointment.getPhysician().getFirstName()+appointment.getPhysician().getLastName();
 		String receiverMail=appointment.getPatient().getEmailAddress();
 		String subject="Appointment reschedule request";
-		String message="Due to some unforeseen circumstances , we are afraid that we will not be able to keep the appointment we made for the"+appointment.getDate()+" . Kindly reschedule the appointment to (Insert date from Texfield phyisician GUI here). I am really sorry for the inconvenience it may cause you. Let me know if the new date and time are suitable for your schedule.";
+		String message="Due to some unforeseen circumstances , we are afraid that we will not be able to keep the appointment we made for the "+dateFormatter.format(appointment.getDate())+" ."+
+				" Kindly reschedule the appointment to "+dateFormatter2.format(alternativeDate)+ ". I am really sorry for the inconvenience it may cause you. Let me know if the new date and time are suitable for your schedule."+note;
 
 		Mail newMsg = new Mail();
 		newMsg.login();
@@ -140,6 +150,7 @@ public class Mail {
 	 *
 	 * @param appointment Physician appointment object
 	 */
+
 	public void sendAppointmentConfirm(Appointment appointment){
 		String senderName=appointment.getPhysician().getFirstName()+appointment.getPhysician().getLastName();
 		String receiverMail=appointment.getPatient().getEmailAddress();
