@@ -1,14 +1,11 @@
 package test;
 
-import org.mindrot.jbcrypt.BCrypt;
-
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.sql.SQLException;
 
 import java.text.ParseException;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 
 public class testMain {
@@ -23,7 +20,7 @@ public class testMain {
         try{
             Patient patient = databaseconnection.getPatient("Patient");
             Patient test = new Patient("testmail", "Tessy",  "Test", "Berlin","Hauptstraße",  "1",  "60001",  "112",  "Dr.", "_password",
-                    "2020-01-01",  "AOK", databaseconnection.getSymptoms("Patient"), databaseconnection.getMedication("Patient"), 12, new LatLong(50.22222,8.88888));
+                    "2020-01-01",  "AOK", patient.getSymptoms(), databaseconnection.getMedication("Patient"), 12, new LatLong(50.22222,8.88888));
 
 
             databaseconnection.addUser(test);
@@ -64,6 +61,47 @@ public class testMain {
             Appointment appointment = new Appointment(databaseconnection.getPatient(1), databaseconnection.getPhysician(2), LocalDateTime.of(2021,2,1,18,30));
             databaseconnection.addAppointment(appointment);
         }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+           Physician[] physicians = databaseconnection.getAllPhysicians();
+           String[] test = physicians[0].getSpecialization();
+            System.out.println(test[0]);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            Patient[] patients = databaseconnection.getAllPatients();
+            Medication[] test = patients[0].getMedications();
+            System.out.println(test[0].getDrug().getDescription());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            Admin testadmin = new Admin("testadmin@gmx.de","Gabe","Newell", "Auckland", "Dominion Road", "1", "1041"
+                    , "425-889-9642", "Our Lord" ,"penis", new LatLong(-36.87087339448538, 174.7523596984722));
+            databaseconnection.addUser(testadmin);
+            testadmin.setPhoneNUmber("0800 5 46 46");
+            databaseconnection.updateUser(testadmin);
+            Admin testadmin2 = databaseconnection.getAdmin(testadmin.getEmailAddress());
+            System.out.println(testadmin2.getPhoneNUmber());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            Drug testdrug = databaseconnection.getDrug("Ibuprofen");
+            System.out.println(testdrug.getDescription());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            Appointment[] allAppointments = databaseconnection.getAllAppointments();
+            System.out.println(allAppointments[0].getDate() + allAppointments[0].getPatient().getLastName());
+        }catch (Exception e){
             System.out.println(e.getMessage());
         }
 

@@ -25,7 +25,7 @@ class Physician extends User {
         setPhoneNUmber(_phoneNumber);
         setTitle(_title);
         setPasswordhash(_password);
-        setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
+        setGeolocation(Geocoder.decode(_city +" "+ _street +" "+ _houseNumber +" "+ _postalCode));
         setUserType("Physician");
 
     }
