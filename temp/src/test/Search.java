@@ -2,6 +2,9 @@ package test;
 
 import java.sql.SQLException;
 
+/**
+ *
+ */
 class Search {
 
     /**
