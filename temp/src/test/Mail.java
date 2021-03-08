@@ -5,6 +5,7 @@ package test;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.text.*;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
@@ -100,12 +101,12 @@ public class Mail {
 	 */
 
 
-	public void sendAppointmentRequest(Appointment appointment){
+	public void sendAppointmentRequest(Appointment appointment,Date alternativeDate1,String note,Date alternativeDate2){
 
-		String senderName=appointment.getPatient().getFirstName()+appointment.getPatient().getLastName();
-		String receiverMail=appointment.getPhysician().getEmailAddress();
+		String senderName=appointment.getPhysician().getFirstName()+appointment.getPhysician().getLastName();
+		String receiverMail=appointment.getPatient().getEmailAddress();
 		String subject="Appointment request";
-		String message="You have a new appointment request on : "+appointment.getDate();
+		String message="You have a new appointment request  on : "+dateFormatter2.format(alternativeDate1)+"and alternatively on :  Note :  "+note;
 		Mail newMsg = new Mail();
 		newMsg.login();
 		try {

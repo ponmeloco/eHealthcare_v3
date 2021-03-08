@@ -16,7 +16,7 @@ public class testMain {
 
         //test database!
         //test patientFunctions
-        Databaseconnection databaseconnection = new Databaseconnection();
+       Databaseconnection databaseconnection = new Databaseconnection();
         try{
             Patient patient = databaseconnection.getPatient("Patient");
             Patient test = new Patient("testmail", "Tessy",  "Test", "Berlin","Hauptstraße",  "1",  "60001",  "112",  "Dr.", "_password",
@@ -111,7 +111,8 @@ public class testMain {
 
 
 
-
+        LoginGUI phyG = new LoginGUI();
+        phyG.setVisible(true);
 
 
 
