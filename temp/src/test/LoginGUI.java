@@ -755,7 +755,8 @@ public class LoginGUI extends javax.swing.JFrame {
                         }else if(databaseconnection.checkPatient(userNameTexFld.getText())){
                             JOptionPane.showMessageDialog(loginPanel, "Login successful!");
                             dispose();
-                            new PatientGUI(databaseconnection.getPatient(userNameTexFld.getText()));
+                            new PatientGUI(databaseconnection.getPatient(userNameTexFld.getText())).setVisible(true);
+
                             break;
                         }
                     } else {
