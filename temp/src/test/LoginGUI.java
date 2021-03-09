@@ -739,8 +739,8 @@ public class LoginGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(loginPanel,"eMail-Address not found", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             String password = String.valueOf(jPasswordField1.getPassword());
-            int check = -1;
-            while (check == -1) {
+
+            while (true) {
                 if (evt.getSource() == logintBtn) {
                     if (userNameTexFld.getText().equals("") || password.equals("")) {
                         JOptionPane.showMessageDialog(loginPanel, "Fields cannot be empty! Please enter your data.");
@@ -750,15 +750,14 @@ public class LoginGUI extends javax.swing.JFrame {
                         if(databaseconnection.checkPhysician(userNameTexFld.getText())){
                             JOptionPane.showMessageDialog(loginPanel, "Login successful!");
                             dispose();
-                            check = 0;
-                            PhysicianGUI phyG = new PhysicianGUI(databaseconnection.getPhysician(userNameTexFld.getText()));
-                            phyG.setVisible(true);
+                            new PhysicianGUI(databaseconnection.getPhysician(userNameTexFld.getText()));
+                            break;
                         }else if(databaseconnection.checkPatient(userNameTexFld.getText())){
                             JOptionPane.showMessageDialog(loginPanel, "Login successful!");
                             dispose();
-                            check = 0;
-                            PatientGUI patG = new PatientGUI();
-                            patG.setVisible(true);
+                            new PatientGUI(databaseconnection.getPatient(userNameTexFld.getText())).setVisible(true);
+
+                            break;
                         }
                     } else {
                         System.out.println(User.hashPassword(password));
@@ -821,38 +820,8 @@ public class LoginGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginGUI().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify
     private javax.swing.JTextField AddressTxtFld1;

@@ -77,6 +77,7 @@ public class PhysicianGUI extends javax.swing.JFrame {
 
         populateTable(physician);
         populateEditProfilePnl(physician);
+        setVisible(true);
 
 
 
@@ -315,10 +316,9 @@ public class PhysicianGUI extends javax.swing.JFrame {
         jTable1.setBackground(new java.awt.Color(153, 204, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-
                 },
                 new String [] {
-                        "Name", "Date adn time", "E-Mail", "Status"
+                        "Name", "Date and time", "E-Mail", "Status"
                 }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -477,131 +477,131 @@ public class PhysicianGUI extends javax.swing.JFrame {
         javax.swing.GroupLayout porfilePnlLayout = new javax.swing.GroupLayout(porfilePnl);
         porfilePnl.setLayout(porfilePnlLayout);
         porfilePnlLayout.setHorizontalGroup(
-                porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                .addComponent(phoneLbl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(phoneTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel11))
-                                        .addComponent(SaveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                .addGap(129, 300, Short.MAX_VALUE)
-                                                .addComponent(jLabel23))
-                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                                                .addComponent(jLabel10)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(postalCodeTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
-                                                                                .addComponent(SpecificationLbl)
-                                                                                .addGap(69, 69, 69)
-                                                                                .addComponent(specificationTxtFld))
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
-                                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                        .addComponent(streetLbl)
-                                                                                        .addComponent(houseNumberLbl))
-                                                                                .addGap(59, 59, 59)
-                                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                        .addComponent(houseNumberTxtFld)
-                                                                                        .addComponent(streetTxtFld)))
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
-                                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                        .addComponent(FamilyNameTexfld)
-                                                                                        .addComponent(nameLbl)
-                                                                                        .addComponent(TitleLbl))
-                                                                                .addGap(70, 70, 70)
-                                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                        .addComponent(titleTxtFld)
-                                                                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                        .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                        .addComponent(familyNameTexFld, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGap(0, 0, Short.MAX_VALUE)))))
-                                                                .addGap(5, 5, 5))
-                                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(cityLbl)
-                                                                        .addComponent(emailLbl))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(cityTxtFld, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                                                        .addComponent(emailTxtFld))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING))))
-                                .addGap(167, 167, 167))
+        porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addGap(57, 57, 57)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addComponent(phoneLbl)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(phoneTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jLabel11))
+        .addComponent(SaveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addGap(129, 300, Short.MAX_VALUE)
+        .addComponent(jLabel23))
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addComponent(jLabel10)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(postalCodeTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+        .addComponent(SpecificationLbl)
+        .addGap(69, 69, 69)
+        .addComponent(specificationTxtFld))
+        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(streetLbl)
+        .addComponent(houseNumberLbl))
+        .addGap(59, 59, 59)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(houseNumberTxtFld)
+        .addComponent(streetTxtFld)))
+        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(FamilyNameTexfld)
+        .addComponent(nameLbl)
+        .addComponent(TitleLbl))
+        .addGap(70, 70, 70)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(titleTxtFld)
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(familyNameTexFld, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(0, 0, Short.MAX_VALUE)))))
+        .addGap(5, 5, 5))
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(cityLbl)
+        .addComponent(emailLbl))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        .addComponent(cityTxtFld, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+        .addComponent(emailTxtFld))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING))))
+        .addGap(167, 167, 167))
         );
         porfilePnlLayout.setVerticalGroup(
-                porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(nameLbl)
-                                        .addComponent(nameTxtFld))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(FamilyNameTexfld)
-                                        .addComponent(familyNameTexFld))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(TitleLbl)
-                                                .addComponent(titleTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(SpecificationLbl)
-                                                .addComponent(specificationTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(streetLbl)
-                                                .addComponent(streetTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(houseNumberTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(houseNumberLbl)
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(postalCodeTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel10))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(cityTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cityLbl)))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(emailLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(emailTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(phoneLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(phoneTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37))
+        porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(porfilePnlLayout.createSequentialGroup()
+        .addGap(33, 33, 33)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(nameLbl)
+        .addComponent(nameTxtFld))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(FamilyNameTexfld)
+        .addComponent(familyNameTexFld))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        .addComponent(TitleLbl)
+        .addComponent(titleTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        .addComponent(SpecificationLbl)
+        .addComponent(specificationTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        .addComponent(streetLbl)
+        .addComponent(streetTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(houseNumberTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(houseNumberLbl)
+        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(postalCodeTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addComponent(jLabel10))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        .addComponent(cityTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(cityLbl)))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        .addComponent(emailLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(emailTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+        .addGap(18, 18, 18)
+        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        .addComponent(phoneLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(phoneTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+        .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(37, 37, 37))
         );
 
         jPanel3.add(porfilePnl, "card4");
@@ -722,7 +722,6 @@ public class PhysicianGUI extends javax.swing.JFrame {
                 String formattedDateTime = dateTime.format(formatter);
                 model.addRow(new Object[]{appointment.getPatient().getLastName(),
                         formattedDateTime, appointment.getPatient().getEmailAddress()});
-
             }
         }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -751,69 +750,69 @@ public class PhysicianGUI extends javax.swing.JFrame {
         emailTxtFld.setText(p.getEmailAddress());
         phoneTxtFld.setText(p.getPhoneNUmber());
 
-    }
+        }
 
-    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {
 
         sendAtrernativePnl.setVisible(false);
         porfilePnl.setVisible(false);
         homePanel.setVisible(true);
 
 
-    }
+        }
 
-    private void editprofileBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        private void editprofileBtnActionPerformed(java.awt.event.ActionEvent evt) {
 
         sendAtrernativePnl.setVisible(false);
         homePanel.setVisible(false);
         porfilePnl.setVisible(true);
 
         // TODO add your handling code here:
-    }
+        }
 
-    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {
 
         dispose();
 
-    }
-
-    private void mouseEntered(java.awt.event.MouseEvent evt) {
-        if(evt.getSource()==jLabel11){
-            jLabel11.setBackground(new Color(153,204,255));
         }
-    }
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {
+        private void mouseEntered(java.awt.event.MouseEvent evt) {
+        if(evt.getSource()==jLabel11){
+        jLabel11.setBackground(new Color(153,204,255));
+        }
+        }
+
+        private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {
         phoneTxtFld.setEditable(true);
-    }
+        }
 
-    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {
+        private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {
         titleTxtFld.setEditable(true);
-    }
+        }
 
-    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {
+        private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {
         streetTxtFld.setEditable(true);
-    }
+        }
 
-    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {
+        private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {
 
         specificationTxtFld.setEditable(true);
-    }
+        }
 
-    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {
+        private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {
         emailTxtFld.setEditable(true);
-    }
+        }
 
-    private void sendAlternativekButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        private void sendAlternativekButtonActionPerformed(java.awt.event.ActionEvent evt) {
         porfilePnl.setVisible(false);
         homePanel.setVisible(false);
         sendAtrernativePnl.setVisible(true);
 
-    }
+        }
 
 
 
-    private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {
 
         LocalDateTime now = LocalDateTime.now();
         Date date1 =(java.sql.Timestamp.valueOf(now));
@@ -822,15 +821,15 @@ public class PhysicianGUI extends javax.swing.JFrame {
 
 
         if (date1.before(date2)) {
-            new Mail().sendAlternativeMail(selectedAppointment,date2,jTextArea1.getText()); }
+        new Mail().sendAlternativeMail(selectedAppointment,date2,jTextArea1.getText()); }
         else
-            JOptionPane.showMessageDialog(this,"Appointment date cannot be set in the past !");
+        JOptionPane.showMessageDialog(this,"Appointment date cannot be set in the past !");
 
 
 
-    }
+        }
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
+        private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
         int index=jTable1.getSelectedRow();
         TableModel model=jTable1.getModel();
         jLabel6.setText(model.getValueAt(index,2).toString());
@@ -843,19 +842,19 @@ public class PhysicianGUI extends javax.swing.JFrame {
 
 
         for (Appointment appointment : appointments) {
-            if (appointment.getPatient().getLastName().equals(jLabel4.getText()) && appointment.getDate().equals(dateTime)) {
-                selectedAppointment = appointment;
-            }
+        if (appointment.getPatient().getLastName().equals(jLabel4.getText()) && appointment.getDate().equals(dateTime)) {
+        selectedAppointment = appointment;
         }
-    }
+        }
+        }
 
-    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {
         setVisible(false);
         new LoginGUI().setVisible(true);
 
-    }
+        }
 
-    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {
         titleTxtFld.setEditable(false);
         specificationTxtFld.setEditable(false);
         streetTxtFld.setEditable(false);
@@ -865,118 +864,83 @@ public class PhysicianGUI extends javax.swing.JFrame {
         cityTxtFld.setEditable(false);
         houseNumberTxtFld.setEditable(false);
         //update database function
-    }
+        }
 
     private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {
         postalCodeTxtFld.setEditable(true);
+        postalCodeTxtFld.setOpaque(true);
     }
 
     private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {
         cityTxtFld.setEditable(true);
+        cityTxtFld.setOpaque(true);
     }
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {
         houseNumberTxtFld.setEditable(true);
+        houseNumberTxtFld.setOpaque(true);
     }
 
 
 
 
-    public static void main(String[] args) {
-        Databaseconnection databaseconnection = new Databaseconnection();
-        /* Set the Nimbus look and feel
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PhysicianGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PhysicianGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PhysicianGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PhysicianGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        // Variables declaration - do not modify
+        private javax.swing.JLabel FamilyNameTexfld;
+        private keeptoo.KButton SaveButton;
+        private javax.swing.JLabel SpecificationLbl;
+        private javax.swing.JLabel TitleLbl;
+        private javax.swing.JLabel cityLbl;
+        private javax.swing.JTextField cityTxtFld;
+        private keeptoo.KButton confirmkButton;
+        private keeptoo.KButton editprofileBtn;
+        private javax.swing.JLabel emailLbl;
+        private javax.swing.JTextField emailTxtFld;
+        private keeptoo.KButton exitBtn;
+        private javax.swing.JLabel familyNameTexFld;
+        private keeptoo.KButton homeBtn;
+        private keeptoo.KGradientPanel homePanel;
+        private javax.swing.JScrollPane homeTable;
+        private javax.swing.JLabel houseNumberLbl;
+        private javax.swing.JTextField houseNumberTxtFld;
+        private javax.swing.JLabel jLabel1;
+        private javax.swing.JLabel jLabel10;
+        private javax.swing.JLabel jLabel11;
+        private javax.swing.JLabel jLabel19;
+        private javax.swing.JLabel jLabel2;
+        private javax.swing.JLabel jLabel21;
+        private javax.swing.JLabel jLabel22;
+        private javax.swing.JLabel jLabel23;
+        private javax.swing.JLabel jLabel24;
+        private javax.swing.JLabel jLabel25;
+        private javax.swing.JLabel jLabel26;
+        private javax.swing.JLabel jLabel3;
+        private javax.swing.JLabel jLabel4;
+        private javax.swing.JLabel jLabel5;
+        private javax.swing.JLabel jLabel6;
+        private javax.swing.JLabel jLabel7;
+        private javax.swing.JLabel jLabel8;
+        private javax.swing.JPanel jPanel1;
+        private javax.swing.JPanel jPanel2;
+        private javax.swing.JPanel jPanel3;
+        private javax.swing.JScrollPane jScrollPane2;
+        private javax.swing.JTable jTable1;
+        private javax.swing.JTextArea jTextArea1;
+        private keeptoo.KButton logoutBtn;
+        private keeptoo.KGradientPanel mainPnl;
+        private javax.swing.JLabel nameLbl;
+        private javax.swing.JLabel nameTxtFld;
+        private javax.swing.JLabel phoneLbl;
+        private javax.swing.JTextField phoneTxtFld;
+        private keeptoo.KGradientPanel porfilePnl;
+        private javax.swing.JTextField postalCodeTxtFld;
+        private keeptoo.KButton sendAlternativekButton;
+        private com.toedter.calendar.JDateChooser sendAternativejDateChooser;
+        private keeptoo.KGradientPanel sendAtrernativePnl;
+        private keeptoo.KButton sendBtn;
+        private javax.swing.JTextField specificationTxtFld;
+        private javax.swing.JLabel streetLbl;
+        private javax.swing.JTextField streetTxtFld;
+        private javax.swing.JTextField titleTxtFld;
+        private javax.swing.JLabel welcomeLbl;
+        // End of variables declaration
         }
-        //</editor-fold>
-        //</editor-fold>
-
-         Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new PhysicianGUI(databaseconnection.getPhysician("Doctor")).setVisible(true);
-                } catch (SQLException | ClassNotFoundException throwables) {
-                    throwables.printStackTrace();
-                }
-            }
-        });
-    }
-
-    // Variables declaration - do not modify
-    private javax.swing.JLabel FamilyNameTexfld;
-    private keeptoo.KButton SaveButton;
-    private javax.swing.JLabel SpecificationLbl;
-    private javax.swing.JLabel TitleLbl;
-    private javax.swing.JLabel cityLbl;
-    private javax.swing.JTextField cityTxtFld;
-    private keeptoo.KButton confirmkButton;
-    private keeptoo.KButton editprofileBtn;
-    private javax.swing.JLabel emailLbl;
-    private javax.swing.JTextField emailTxtFld;
-    private keeptoo.KButton exitBtn;
-    private javax.swing.JLabel familyNameTexFld;
-    private keeptoo.KButton homeBtn;
-    private keeptoo.KGradientPanel homePanel;
-    private javax.swing.JScrollPane homeTable;
-    private javax.swing.JLabel houseNumberLbl;
-    private javax.swing.JTextField houseNumberTxtFld;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private keeptoo.KButton logoutBtn;
-    private keeptoo.KGradientPanel mainPnl;
-    private javax.swing.JLabel nameLbl;
-    private javax.swing.JLabel nameTxtFld;
-    private javax.swing.JLabel phoneLbl;
-    private javax.swing.JTextField phoneTxtFld;
-    private keeptoo.KGradientPanel porfilePnl;
-    private javax.swing.JTextField postalCodeTxtFld;
-    private keeptoo.KButton sendAlternativekButton;
-    private com.toedter.calendar.JDateChooser sendAternativejDateChooser;
-    private keeptoo.KGradientPanel sendAtrernativePnl;
-    private keeptoo.KButton sendBtn;
-    private javax.swing.JTextField specificationTxtFld;
-    private javax.swing.JLabel streetLbl;
-    private javax.swing.JTextField streetTxtFld;
-    private javax.swing.JTextField titleTxtFld;
-    private javax.swing.JLabel welcomeLbl;
-    // End of variables declaration
-}

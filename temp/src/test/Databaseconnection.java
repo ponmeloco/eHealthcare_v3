@@ -453,16 +453,16 @@ class Databaseconnection {
         String pwhash =             res.getString(3);
         String firstName =          res.getString(4);
         String lastName =           res.getString(5);
-        String city =                   res.getString(6);
-        String street =                 res.getString(7);
-        String houseNumber =      res.getString(8);
+        String city =               res.getString(6);
+        String street =             res.getString(7);
+        String houseNumber =        res.getString(8);
         String postalCode =         res.getString(9);
-        String phoneNumber =     res.getString(10);
-        String title =                  res.getString(11);
-        String dateOfBirth =        res.getString(12);
-        LatLong latlong =           new LatLong(res.getDouble(14), res.getDouble(13));
-        int weight =                       res.getInt(15);
-        String insurancename =        res.getString(16);
+        String phoneNumber =        res.getString(10);
+        String title =              res.getString(11);
+        String dateOfBirth =        res.getString(14);
+        LatLong latlong =           new LatLong(res.getDouble(13), res.getDouble(12));
+        int weight =                res.getInt(15);
+        String insurancename =      res.getString(16);
         Medication[] medications =  getMedication(email);
         Symptom[] symptoms =        getSymptoms(email);
 
@@ -510,7 +510,7 @@ class Databaseconnection {
 
     /**
      * Fetches an instance of the Admin class from the database uniquely identified by its email.
-     * @param email The registered emailaddress of the User.
+     * @param email The registered emailAddress of the User.
      * @return Instance of an Admin from the database
      * @throws SQLException a SQLException
      * @throws ClassNotFoundException a ClassNotFoundException
@@ -563,10 +563,10 @@ class Databaseconnection {
         String postalCode =         res.getString(9);
         String phoneNumber =        res.getString(10);
         String title =              res.getString(11);
-        String dateOfBirth =        res.getString(12);
-        int weight =                res.getInt(13);
-        LatLong latlong =           new LatLong(res.getDouble(14), res.getDouble(13));
-        String insurancename =      res.getString(14);
+        String dateOfBirth =        res.getString(14);
+        int weight =                res.getInt(15);
+        LatLong latlong =           new LatLong(res.getDouble(13), res.getDouble(12));
+        String insurancename =      res.getString(16);
         Medication[] medications =  getMedication(email);
         Symptom[] symptoms =        getSymptoms(email);
 
@@ -859,12 +859,14 @@ class Databaseconnection {
             throw new SQLException("No Appointments found.");
         }
         else{
+
             res = statement.executeQuery("SELECT * FROM Appointment WHERE PatientID = "+userID+" OR PhysicianID ="+userID+";");
             int countAppointments = 0;
             while(res.next()){
                 countAppointments++;
             }
             Appointment[] appointments = new Appointment[countAppointments];
+
             res = statement.executeQuery("SELECT * FROM Appointment WHERE PatientID = "+userID+" OR PhysicianID ="+userID+";");
 
             for (int i = 0; res.next(); i++){
@@ -1165,7 +1167,7 @@ class Databaseconnection {
      * @throws SQLException a SQLException
      * @throws ClassNotFoundException a ClassNotFoundException
      */
-    private void connect() throws SQLException, ClassNotFoundException {
+    public void connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         connection = DriverManager.getConnection("jdbc:sqlite:eHealthcareUsers.db");
         initialise();

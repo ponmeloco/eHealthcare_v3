@@ -6,6 +6,9 @@
 package test;
 
 import java.awt.Color;
+import java.sql.SQLOutput;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -15,13 +18,14 @@ import javax.swing.table.*;
  */
 public class AdminGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AdminGUI
-     */
+    Appointment [] appointments;
+
     public AdminGUI() {
         setUndecorated(true);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         initComponents();
+        populateTable();
+
     }
 
     /**
@@ -957,7 +961,28 @@ public class AdminGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-    private void userMnagmentBtnActionPerformed(java.awt.event.ActionEvent evt) {
+    private void populateTable(){
+
+
+        try{
+            DefaultTableModel model = (DefaultTableModel)EditAppointmentjTable1.getModel();
+            Databaseconnection databaseconnection = new Databaseconnection();
+            appointments=databaseconnection.getAllAppointments();
+            for (Appointment appointment : appointments) {
+                LocalDateTime dateTime = appointment.getDate();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                String formattedDateTime = dateTime.format(formatter);
+                model.addRow(new Object[]{appointment.getPatient().getLastName(),
+                        formattedDateTime, appointment.getPatient().getEmailAddress()});
+
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+        private void userMnagmentBtnActionPerformed(java.awt.event.ActionEvent evt) {
         createAppointmentPnl.setVisible(false);
         editPatientPnl.setVisible(false);
         editPhyPnl.setVisible(false);

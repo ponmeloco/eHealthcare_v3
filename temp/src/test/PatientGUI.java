@@ -6,20 +6,31 @@
 package test;
 
 import java.awt.Color;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class PatientGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form v1PatientGUI
-     */
-    public PatientGUI() {
+    Appointment [] appointments;
+    Appointment selectedAppointment;
+
+    public PatientGUI(Patient patient) {
 
         setUndecorated(true);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         initComponents();
+
+
+
+
+        populateTable(patient);
+        populateEditProfilePnl(patient);
 
     }
 
@@ -50,9 +61,10 @@ public class PatientGUI extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         yourAppointmenstLbl = new javax.swing.JLabel();
         sendAlternativekButton7 = new keeptoo.KButton();
+        reminderkButton = new keeptoo.KButton();
         porfilePnl = new keeptoo.KGradientPanel();
         nameLbl = new javax.swing.JLabel();
-        NameTxtfld = new javax.swing.JLabel();
+        nameTxtfld = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         familyNameLbl = new javax.swing.JLabel();
         userNameLbl = new javax.swing.JLabel();
@@ -95,6 +107,10 @@ public class PatientGUI extends javax.swing.JFrame {
         addnoteTexFld = new javax.swing.JTextArea();
         addNotelbl = new javax.swing.JLabel();
         sendAppointmntRequestBtn = new keeptoo.KButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -267,19 +283,17 @@ public class PatientGUI extends javax.swing.JFrame {
         jTable2.setBackground(new java.awt.Color(204, 255, 204));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {" Leo Najman", "Spec1", "22.8.21", "E-Mail info@arzt-frankfurt.de."},
-                        {"Thomas Fischer ", "Neck, nose ear doctor", "15.1.21", "info@fischer-stgb.de."},
-                        {null, null, null, null},
-                        {null, null, "", null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
+
                 },
                 new String [] {
                         "Physician", "Specalization", "Appointment date", "Physician E-Mail"
                 }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         patientAppointmentTable.setViewportView(jTable2);
 
         yourAppointmenstLbl.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
@@ -301,6 +315,22 @@ public class PatientGUI extends javax.swing.JFrame {
             }
         });
 
+        reminderkButton.setBorder(null);
+        reminderkButton.setText("Reminder");
+        reminderkButton.setkEndColor(new java.awt.Color(102, 255, 102));
+        reminderkButton.setkForeGround(new java.awt.Color(0, 0, 0));
+        reminderkButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        reminderkButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        reminderkButton.setkHoverStartColor(new java.awt.Color(102, 255, 102));
+        reminderkButton.setkPressedColor(new java.awt.Color(204, 255, 204));
+        reminderkButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        reminderkButton.setkStartColor(new java.awt.Color(255, 255, 255));
+        reminderkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reminderkButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
         p1.setLayout(p1Layout);
         p1Layout.setHorizontalGroup(
@@ -313,11 +343,13 @@ public class PatientGUI extends javax.swing.JFrame {
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                                                 .addComponent(patientAppointmentTable, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                                                .addGap(18, 18, 18))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sendAlternativekButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
+                                                .addGap(18, 18, 18))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(sendAlternativekButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(reminderkButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addContainerGap())))
                         .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                                         .addContainerGap(470, Short.MAX_VALUE)
@@ -331,7 +363,9 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addComponent(yourAppointmenstLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                 .addComponent(patientAppointmentTable, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(107, 107, 107)
+                                .addGap(31, 31, 31)
+                                .addComponent(reminderkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
                                 .addComponent(sendAlternativekButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39))
                         .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,7 +382,7 @@ public class PatientGUI extends javax.swing.JFrame {
 
         nameLbl.setText("Name");
 
-        NameTxtfld.setText("jLabel10");
+        nameTxtfld.setText("jLabel10");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/edit.png"))); // NOI18N
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -518,7 +552,7 @@ public class PatientGUI extends javax.swing.JFrame {
                                                         .addComponent(nameLbl))
                                                 .addGap(70, 70, 70)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(NameTxtfld, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(nameTxtfld, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(familynameTxtfld, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 99, Short.MAX_VALUE)))
                                 .addContainerGap(216, Short.MAX_VALUE))
@@ -533,7 +567,7 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addGap(63, 63, 63)
                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(nameLbl)
-                                        .addComponent(NameTxtfld))
+                                        .addComponent(nameTxtfld))
                                 .addGap(18, 18, 18)
                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(familyNameLbl)
@@ -544,7 +578,7 @@ public class PatientGUI extends javax.swing.JFrame {
                                         .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(userNameLbl)
                                                 .addComponent(usernameTxtfld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(titleLbl)
@@ -572,7 +606,7 @@ public class PatientGUI extends javax.swing.JFrame {
                                         .addComponent(phoneLbl)
                                         .addComponent(phoneTxtfld, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                                .addGap(33, 33, 33)
                                 .addComponent(logoutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(44, 44, 44))
         );
@@ -724,6 +758,19 @@ public class PatientGUI extends javax.swing.JFrame {
         sendAppointmntRequestBtn.setkPressedColor(new java.awt.Color(51, 255, 51));
         sendAppointmntRequestBtn.setkSelectedColor(new java.awt.Color(255, 255, 255));
         sendAppointmntRequestBtn.setkStartColor(new java.awt.Color(102, 255, 102));
+        sendAppointmntRequestBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendAppointmntRequestBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Patient name");
+
+        jLabel4.setText("Name");
+
+        jLabel5.setText("E-Mail");
+
+        jLabel6.setText("example@live.com");
 
         javax.swing.GroupLayout SendAlternativeLayout = new javax.swing.GroupLayout(SendAlternative);
         SendAlternative.setLayout(SendAlternativeLayout);
@@ -731,43 +778,54 @@ public class PatientGUI extends javax.swing.JFrame {
                 SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(SendAlternativeLayout.createSequentialGroup()
                                 .addContainerGap(176, Short.MAX_VALUE)
-                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SendAlternativeLayout.createSequentialGroup()
-                                                        .addComponent(chooseFirstAterantivedateLbl)
-                                                        .addGap(318, 318, 318))
+                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(sendAppointmntRequestBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(addNotelbl)
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(SendAlternativeLayout.createSequentialGroup()
                                                         .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabel3)
+                                                                .addComponent(jLabel5))
+                                                        .addGap(29, 29, 29)
+                                                        .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SendAlternativeLayout.createSequentialGroup()
+                                                        .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                 .addComponent(ChooseSecondAterantivedateLbl)
-                                                                .addComponent(addNotelbl))
-                                                        .addGap(303, 303, 303)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SendAlternativeLayout.createSequentialGroup()
-                                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(SendAlternativeLayout.createSequentialGroup()
-                                                                .addGap(0, 212, Short.MAX_VALUE)
-                                                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(sendSecondAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(sendFirstAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(sendAppointmntRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                .addGap(90, 90, 90))))
+                                                                .addComponent(chooseFirstAterantivedateLbl))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(sendFirstAlternativejDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                                                .addComponent(sendSecondAlternativejDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGap(90, 90, 90))
         );
         SendAlternativeLayout.setVerticalGroup(
                 SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(SendAlternativeLayout.createSequentialGroup()
-                                .addGap(57, 57, 57)
+                                .addGap(51, 51, 51)
+                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(chooseFirstAterantivedateLbl)
+                                        .addComponent(sendFirstAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(39, 39, 39)
                                 .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(sendFirstAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(chooseFirstAterantivedateLbl))
-                                .addGap(33, 33, 33)
-                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ChooseSecondAterantivedateLbl, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(sendSecondAlternativejDateChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                                .addComponent(addNotelbl)
+                                        .addComponent(ChooseSecondAterantivedateLbl)
+                                        .addComponent(sendSecondAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
+                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(SendAlternativeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                                .addComponent(addNotelbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
+                                .addGap(18, 18, 18)
                                 .addComponent(sendAppointmntRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49))
         );
@@ -920,46 +978,97 @@ public class PatientGUI extends javax.swing.JFrame {
         SendAlternative.setVisible(true);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {
+        int index=jTable2.getSelectedRow();
+        TableModel model=jTable2.getModel();
+        jLabel6.setText(model.getValueAt(index,3).toString());
+        jLabel4.setText(model.getValueAt(index,0).toString());
+        String sDate1=model.getValueAt(index,2).toString();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PatientGUI().setVisible(true);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
+
+
+        for(int i=0;i<appointments.length;i++){
+            if(appointments[i].getPatient().getLastName().equals(jLabel4.getText())&&appointments[i].getDate().equals(dateTime)){
+                selectedAppointment=appointments[i];
             }
-        });
+        }
+        // TODO add your handling code here:
     }
+
+    private void sendAppointmntRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        LocalDateTime now = LocalDateTime.now();
+        Date date1 =(java.sql.Timestamp.valueOf(now));
+        Date date2 =(sendFirstAlternativejDateChooser.getDate());
+        Date date3 =(sendSecondAlternativejDateChooser.getDate());
+
+
+
+        if (date1.before(date2)&&date1.before(date3)) {
+
+            new Mail().sendAppointmentRequest(selectedAppointment,date2,addnoteTexFld.getText(),date3); }
+        else
+            JOptionPane.showMessageDialog(this,"Appointment date cannot be set in the past !");
+    }
+
+    private void reminderkButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void populateTable(Patient patient) {
+
+
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            Databaseconnection databaseconnection = new Databaseconnection();
+            appointments = databaseconnection.getAppointment(patient.getEmailAddress());
+            for (int i = 0; i < appointments.length; i++) {
+                LocalDateTime dateTime = appointments[i].getDate();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                String formattedDateTime = dateTime.format(formatter);
+                model.addRow(new Object[]{appointments[i].getPatient().getLastName(),"specPap",
+                        formattedDateTime, appointments[i].getPatient().getEmailAddress()});
+
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+/*
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+        for(int i=0;i<appointments.length;i++){
+            LocalDateTime dateTime = appointments[i].getDate();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            String formattedDateTime = dateTime.format(formatter);
+            model.addRow(new Object[]{appointments[i].getPatient().getLastName(),"test",
+                    formattedDateTime,appointments[i].getPatient().getEmailAddress()});
+        }*/
+
+            //////////////////////-----------------------
+
+        }
+    }
+    private void populateEditProfilePnl(Patient p){
+
+        nameTxtfld.setText(p.getFirstName());
+        familynameTxtfld.setText(p.getLastName());
+            /*titleTxtFld.setText(p.getTitle());
+            //specificationTxtFld.setText(p.
+            streetTxtFld.setText(p.getStreet());
+            houseNumberTxtFld.setText(p.getHouseNumber());
+            postalCodeTxtFld.setText(p.getPostalCode());
+            cityTxtFld.setText(p.getCity());
+            emailTxtFld.setText(p.getEmailAddress());
+            phoneTxtFld.setText(p.getPhoneNUmber());*/
+
+    }
+
+
 
     // Variables declaration - do not modify
     private javax.swing.JTextField AddressTxtfld;
     private javax.swing.JLabel ChooseSecondAterantivedateLbl;
-    private javax.swing.JLabel NameTxtfld;
     private keeptoo.KGradientPanel SendAlternative;
     private javax.swing.JLabel addNotelbl;
     private javax.swing.JTextArea addnoteTexFld;
@@ -979,6 +1088,10 @@ public class PatientGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -994,6 +1107,7 @@ public class PatientGUI extends javax.swing.JFrame {
     private keeptoo.KButton menuBarHomeBtn;
     private keeptoo.KButton menuBarNewAppBtn;
     private javax.swing.JLabel nameLbl;
+    private javax.swing.JLabel nameTxtfld;
     private keeptoo.KGradientPanel newAppPnl;
     private keeptoo.KGradientPanel p1;
     private javax.swing.JScrollPane patientAppointmentTable;
@@ -1002,6 +1116,7 @@ public class PatientGUI extends javax.swing.JFrame {
     private javax.swing.JLabel physicianListLbl;
     private keeptoo.KGradientPanel porfilePnl;
     private javax.swing.JLabel reminderLbl;
+    private keeptoo.KButton reminderkButton;
     private javax.swing.JTextField searchDistanceTexfld;
     private keeptoo.KButton searchPhysicianBtn;
     private javax.swing.JLabel searchdistanceLbl;

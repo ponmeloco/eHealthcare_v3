@@ -120,9 +120,12 @@ public class testMain {
 
         //Appointment.reminder(2021,1,24,13,4,0);
 
+ */
 
 
 
+        LoginGUI phyG = new LoginGUI();
+        phyG.setVisible(true);
 
 
 
