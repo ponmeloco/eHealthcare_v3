@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 
 public class testMain {
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException, InterruptedException, ParseException {
-
-        Databaseconnection databaseconnection = new Databaseconnection();
+    public static void main(String[] args){
 /*
+        Databaseconnection databaseconnection = new Databaseconnection();
+
         //test database!
         //test patientFunctions
 
@@ -65,7 +65,7 @@ public class testMain {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        */
+
 
  //ERROR
         try{
@@ -79,16 +79,16 @@ public class testMain {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-/*
+
         try{
             Drug testdrug = databaseconnection.getDrug("Ibuprofen");
             System.out.println(testdrug.getDescription());
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-*/
 
-   /*
+
+
         try{
             Appointment[] allAppointments = databaseconnection.getAllAppointments();
             System.out.println(allAppointments[0].getDate() + allAppointments[0].getPatient().getLastName());
@@ -120,12 +120,12 @@ public class testMain {
 
         //Appointment.reminder(2021,1,24,13,4,0);
 
- */
 
 
 
-        LoginGUI phyG = new LoginGUI();
-        phyG.setVisible(true);
+
+        LoginGUI guiMain = new LoginGUI();
+        guiMain.setVisible(true);
 
 
 

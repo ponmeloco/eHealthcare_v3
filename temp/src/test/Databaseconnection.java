@@ -77,8 +77,9 @@ class Databaseconnection {
             int patientID = res.getInt(1);
             res = statement.executeQuery("SELECT ID FROM Insurance WHERE name='"+ patient.getInsuranceName() +"';");
             int insuranceID = res.getInt(1);
-            statement.execute("INSERT INTO Patient (ID,InsuranceID, dateOfBirth, weight) VALUES (" + patientID + "," +  insuranceID + "," + patient.getBirthday() + "," + patient.getWeight() +");");
+            statement.execute("INSERT INTO Patient (ID,InsuranceID, dateOfBirth, weight) VALUES (" + patientID + "," +  insuranceID + ", '" + patient.getBirthday() + "'," + patient.getWeight() +");");
 
+            /*
             //Insert Data into SymptomPatient
             int symptomID;
             int severenessID;
@@ -90,6 +91,10 @@ class Databaseconnection {
                 severenessID = res.getInt(1);
                 statement.execute("INSERT INTO SymptomPatient (PatientID, SymptomID, SeverenessID) VALUES (" + patientID + "," +  symptomID + "," + severenessID + ");");
             }
+
+             */
+
+
         }else{
             throw new SQLException("User already registered.");
         }
@@ -132,7 +137,7 @@ class Databaseconnection {
             ResultSet res = statement.executeQuery("SELECT ID FROM User WHERE emailAddress='" + physician.getEmailAddress() + "';");
             ID = res.getInt(1);
             statement.execute("INSERT INTO Physician VALUES (" + ID + ")");
-            res = statement.executeQuery("SELECT ID FROM Specialization WHERE Specialization='" + physician.getSpecialization()[1] + "';");
+            res = statement.executeQuery("SELECT ID FROM Specialization WHERE Specialization='" + physician.getSpecialization()[0] + "';");
             specID = res.getInt(1);
             statement.execute("INSERT INTO SpecializationPhysician(PhysicianID, SpecializationID) VALUES (" + ID + "," + specID + ");");
         }else{
@@ -1681,6 +1686,9 @@ class Databaseconnection {
             preparedStatement.setString(1, "Dysuria");
             preparedStatement.setString(2, "Dysuria refers to difficult urination. Painful urination is also sometimes, but rarely, described as dysuria.");
             preparedStatement.execute();
+            preparedStatement.setString(1, "Healthy");
+            preparedStatement.setString(2, "No symptoms known yet.");
+            preparedStatement.execute();
 
             System.out.println("complete.");
 
@@ -1714,6 +1722,9 @@ class Databaseconnection {
         preparedStatement.execute();
 
         preparedStatement.setString(1, "light");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "no severeness");
         preparedStatement.execute();
 
         System.out.println("complete.");

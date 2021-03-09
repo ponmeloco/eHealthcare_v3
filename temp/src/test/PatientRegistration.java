@@ -160,17 +160,29 @@ class PatientRegistration implements ActionListener {
             JOptionPane.showMessageDialog(PatientRegistration.registerFrame, "Passwords do not match!");
         } else {
             Patient patientRegister = null;
-            patientRegister = new Patient(
-                    patientRegistrationEmailAddress.getText(),
-                    patientRegistrationSurname.getText(),
-                    patientRegistrationLastName.getText(),
-                    patientRegistrationCity.getText(),
-                    patientRegistrationStreet.getText(),
-                    patientRegistrationHouseNumber.getText(),
-                    patientRegistrationPLZ.getText(),
-                    patientRegistrationPhoneNumber.getText(),
-                    patientRegistrationTitle.getText(),
-                    String.valueOf(patientRegistrationPassword1.getPassword()));
+            String insur = "AOK";
+            int weight = 60;
+            String phon = "123123";
+            try {
+                patientRegister = new Patient(
+                        patientRegistrationEmailAddress.getText(),
+                        patientRegistrationSurname.getText(),
+                        patientRegistrationLastName.getText(),
+                        patientRegistrationCity.getText(),
+                        patientRegistrationStreet.getText(),
+                        patientRegistrationHouseNumber.getText(),
+                        patientRegistrationPLZ.getText(),
+                        patientRegistrationPhoneNumber.getText(),
+                        phon,
+                        patientRegistrationTitle.getText(),
+                        String.valueOf(patientRegistrationPassword1.getPassword()),
+                        insur,
+                        weight
+
+                );
+            } catch (IOException | InterruptedException ioException) {
+                ioException.printStackTrace();
+            }
             try {
                 Databaseconnection databaseconnection = new Databaseconnection();
                 databaseconnection.addUser(patientRegister);

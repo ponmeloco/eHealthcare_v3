@@ -18,7 +18,7 @@ class Patient extends User {
         setCity(_city);
     }
     Patient(String _emailAddress, String _firstName, String _lastName, String _city,
-            String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password) {
+            String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password, LatLong _geolocation) {
         setEmailAddress(_emailAddress);
         setFirstName(_firstName);
         setLastName(_lastName);
@@ -29,6 +29,25 @@ class Patient extends User {
         setPhoneNUmber(_phoneNumber);
         setTitle(_title);
         setPasswordhash(_password);
+        setGeolocation(_geolocation);
+    }
+
+    Patient(String _emailAddress, String _firstName, String _lastName, String _city,
+            String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _dateOfBirth, String _title, String _password, String _insuranceName, int _weight) throws IOException, InterruptedException {
+        setEmailAddress(_emailAddress);
+        setFirstName(_firstName);
+        setLastName(_lastName);
+        setCity(_city);
+        setStreet(_street);
+        setHouseNumber(_houseNumber);
+        setPostalCode(_postalCode);
+        setPhoneNUmber(_phoneNumber);
+        setBirthday(_dateOfBirth);
+        setTitle(_title);
+        setPasswordhash(_password);
+        setInsuranceName(_insuranceName);
+        setWeight(_weight);
+        setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
     }
     Patient(String _emailAddress, String _firstName, String _lastName, String _city,
             String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password,
@@ -92,7 +111,7 @@ class Patient extends User {
         this.medications = medications;
     }
 
-    public float getWeight() {
+    public int getWeight() {
         return weight;
     }
 
@@ -102,15 +121,15 @@ class Patient extends User {
 
     /***
      * Copying and exporting the symptoms in form of a text file
-     * @throws IOException
+     * @throws IOException = test
      */
     public void exportHealthInf() throws IOException{
 
         File file=new File("Health information.txt");
         FileWriter fw= new FileWriter(file);
         PrintWriter pw = new PrintWriter(fw);
-        for(int i=0;i<symptoms.length;i++){
-            pw.print(symptoms[i].getDescription()+"\n"+symptoms[i].getName()+"\n"+symptoms[i].getSevereness()+"\n"+"\n");
+        for (Symptom symptom : symptoms) {
+            pw.print(symptom.getDescription() + "\n" + symptom.getName() + "\n" + symptom.getSevereness() + "\n" + "\n");
 
         }
 

@@ -30,6 +30,7 @@ class Physician extends User {
 
     }
 
+
     Physician(String _emailAddress, String _firstName, String _lastName, String _city,
               String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _title, String _password, String[] _specialization) throws IOException, InterruptedException {
         setEmailAddress(_emailAddress);
@@ -43,6 +44,22 @@ class Physician extends User {
         setTitle(_title);
         setPasswordhash(_password);
         setSpecialization(_specialization);
+        setUserType("Physician");
+        setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
+    }
+
+    Physician(String _emailAddress, String _firstName, String _lastName, String _city,
+              String _street, String _houseNumber, String _postalCode, String _phoneNumber, String [] _specialization, String _password) throws IOException, InterruptedException {
+        setEmailAddress(_emailAddress);
+        setFirstName(_firstName);
+        setLastName(_lastName);
+        setCity(_city);
+        setStreet(_street);
+        setHouseNumber(_houseNumber);
+        setPostalCode(_postalCode);
+        setPhoneNUmber(_phoneNumber);
+        setSpecialization(_specialization);
+        setPasswordhash(_password);
         setUserType("Physician");
         setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
     }
