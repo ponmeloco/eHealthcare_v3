@@ -13,10 +13,10 @@ public class testMain {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException, InterruptedException, ParseException {
 
 
-
+/*
         //test database!
         //test patientFunctions
-       Databaseconnection databaseconnection = new Databaseconnection();
+        Databaseconnection databaseconnection = new Databaseconnection();
         try{
             Patient patient = databaseconnection.getPatient("Patient");
             Patient test = new Patient("testmail", "Tessy",  "Test", "Berlin","Hauptstraße",  "1",  "60001",  "112",  "Dr.", "_password",
@@ -108,6 +108,8 @@ public class testMain {
         //END test database
 
         //Appointment.reminder(2021,1,24,13,4,0);
+
+ */
 
 
 
