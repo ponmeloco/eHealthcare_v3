@@ -63,12 +63,12 @@ public class LoginGUI extends javax.swing.JFrame {
         titleTxtFldPhysician = new javax.swing.JTextField();
         postalCodeTextFldPhysician = new javax.swing.JTextField();
         cityTxtFldPhysician = new javax.swing.JTextField();
-        specializationTxtFldPhysician = new javax.swing.JTextField();
         SteetLblPhysician = new javax.swing.JLabel();
         streetTxtFldPhysician = new javax.swing.JTextField();
         registerbtnPhysician = new keeptoo.KButton();
         phoneLblPhysician = new javax.swing.JLabel();
         phoneTxtFldPhysician = new javax.swing.JTextField();
+        specializationComboBox1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         registerPatientPanel = new javax.swing.JPanel();
         registerPatientTransparentPnl = new javax.swing.JPanel();
@@ -294,6 +294,12 @@ public class LoginGUI extends javax.swing.JFrame {
         housenumberLblPhysician.setForeground(new java.awt.Color(255, 255, 255));
         housenumberLblPhysician.setText("House number");
 
+        cityTxtFldPhysician.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityTxtFldPhysicianActionPerformed(evt);
+            }
+        });
+
         SteetLblPhysician.setFont(new java.awt.Font("Californian FB", 0, 18)); // NOI18N
         SteetLblPhysician.setForeground(new java.awt.Color(255, 255, 255));
         SteetLblPhysician.setText("Street");
@@ -312,6 +318,8 @@ public class LoginGUI extends javax.swing.JFrame {
         phoneLblPhysician.setForeground(new java.awt.Color(255, 255, 255));
         phoneLblPhysician.setText("Phone");
 
+        specializationComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allgemeinmedizin", "Anästhesiologie", "Anatomie", "Arbeitsmedizin", "Augenheilkunde", "Biochemie", "Chirurgie", "Chirurgie_Allgemeine Chirurgie", "Forensische Psychiatrie", "Frauenheilkunde und Geburtshilfe", "Gefäßchirurgie", "Gynäkologische Onkologie", "Hals-Nasen-Ohrenheilkunde", "Haut- und Geschlechtskrankheiten", "Herzchirurgie", "Humangenetik", "Hygiene und Umweltmedizin", "Innere Medizin ", "Innere Medizin und Endokrinologie und Diabetologie", "Innere Medizin und Gastroenterologie", "Innere Medizin und Hämatologie und Onkologie", "Innere Medizin und Kardiologie", "Innere Medizin und Nephrologie", "Innere Medizin und Pneumologie", "Innere Medizin und Rheumatologie", "Kinder- und Jugendmedizin", "Kinder- und Jugendpsychiatrie und -psychotherapie", "Kinderchirurgie", "Kinderradiologie", "Klinische Pharmakologie", "Laboratoriumsmedizin", "Mikrobiologie, Virologie und Infektionsepidemiologie", "Mund-Kiefer-Gesichtschirurgie", "Neurochirurgie", "Neurologie", "Neuroradiologie", "Nuklearmedizin", "Orthopädie und Unfallchirurgie", "Pathologie ", "Pharmakologie und Toxikologie", "Phoniatrie und Pädaudiologie", "Physikalische und Rehabilitative Medizin", "Physiologie", "Plastische, Rekonstruktive und Ästhetische Chirurgie", "Psychiatrie und Psychotherapie", "Psychosomatische Medizin und Psychotherapie", "Radiologie", "Rechtsmedizin", "SP Gynäkologische Endokrinologie und Reproduktionsmedizin", "SP Kinder-Hämatologie und -Onkologie", "SP Kinder-Kardiologie", "SP Neonatologie", "SP Neuropädiatrie", "Spezielle Geburtshilfe und Perinatalmedizin", "Strahlentherapie", "Thoraxchirurgie", "Transfusionsmedizin", "Urologie", "Viszeralchirurgie", "Innere Medizin und Angiologie", "Öffentliches Gesundheitswesen", " ", " ", " " }));
+
         javax.swing.GroupLayout registerPhysicainTransparentPnl1Layout = new javax.swing.GroupLayout(registerPhysicainTransparentPnl1);
         registerPhysicainTransparentPnl1.setLayout(registerPhysicainTransparentPnl1Layout);
         registerPhysicainTransparentPnl1Layout.setHorizontalGroup(
@@ -319,57 +327,56 @@ public class LoginGUI extends javax.swing.JFrame {
                         .addGroup(registerPhysicainTransparentPnl1Layout.createSequentialGroup()
                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(registerPhysicainTransparentPnl1Layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(registrationPhysicinaBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(33, 33, 33)
+                                                .addComponent(registerbtnPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(registerPhysicainTransparentPnl1Layout.createSequentialGroup()
                                                 .addGap(113, 113, 113)
                                                 .addComponent(RegistrationLblPhysician))
                                         .addGroup(registerPhysicainTransparentPnl1Layout.createSequentialGroup()
+                                                .addContainerGap()
                                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(registerPhysicainTransparentPnl1Layout.createSequentialGroup()
-                                                                .addGap(72, 72, 72)
                                                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(titleLblPhysician)
                                                                         .addComponent(housenumberLblPhysician)
-                                                                        .addComponent(postalCodeLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(cityLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(specializationLblPhysician)
                                                                         .addComponent(emailLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(passwordLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(SteetLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(lastNameLblPhysician)
-                                                                        .addComponent(phoneLblPhysician))
-                                                                .addGap(33, 33, 33))
+                                                                        .addComponent(phoneLblPhysician)
+                                                                        .addComponent(cityLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                                .addComponent(specializationLblPhysician, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                .addComponent(postalCodeLblPhysician, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                                .addGap(28, 28, 28))
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPhysicainTransparentPnl1Layout.createSequentialGroup()
-                                                                .addGap(47, 47, 47)
-                                                                .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPhysicainTransparentPnl1Layout.createSequentialGroup()
-                                                                                .addComponent(firstNameLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(54, 54, 54))
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPhysicainTransparentPnl1Layout.createSequentialGroup()
-                                                                                .addComponent(registrationPhysicinaBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
-                                                .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(passwordTxtFldPhysician)
-                                                        .addComponent(cityTxtFldPhysician)
-                                                        .addComponent(specializationTxtFldPhysician)
-                                                        .addComponent(houseNummberTxtfldPhysician, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(lastNameTxtFldPhysician)
+                                                                .addComponent(firstNameLblPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(48, 48, 48)))
+                                                .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(lastNameTxtFldPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(streetTxtFldPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(houseNummberTxtfldPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(titleTxtFldPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(postalCodeTextFldPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(phoneTxtFldPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(cityTxtFldPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(emailTxtPhysician, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(specializationComboBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(firstNameTxtFldPhysician)
-                                                        .addComponent(titleTxtFldPhysician)
-                                                        .addComponent(emailTxtPhysician, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                        .addComponent(postalCodeTextFldPhysician)
-                                                        .addComponent(streetTxtFldPhysician)
-                                                        .addComponent(registerbtnPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                                        .addComponent(phoneTxtFldPhysician))))
-                                .addContainerGap(21, Short.MAX_VALUE))
+                                                        .addComponent(passwordTxtFldPhysician, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 128, Short.MAX_VALUE))
         );
         registerPhysicainTransparentPnl1Layout.setVerticalGroup(
                 registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(registerPhysicainTransparentPnl1Layout.createSequentialGroup()
                                 .addContainerGap()
+                                .addComponent(RegistrationLblPhysician)
+                                .addGap(5, 5, 5)
                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(phoneTxtFldPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(registerPhysicainTransparentPnl1Layout.createSequentialGroup()
-                                                .addComponent(RegistrationLblPhysician)
-                                                .addGap(5, 5, 5)
                                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(firstNameTxtFldPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(firstNameLblPhysician))
@@ -402,7 +409,7 @@ public class LoginGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(specializationLblPhysician)
-                                        .addComponent(specializationTxtFldPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(specializationComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(emailLblPhysician)
@@ -411,11 +418,11 @@ public class LoginGUI extends javax.swing.JFrame {
                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(passwordLblPhysician)
                                         .addComponent(passwordTxtFldPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addGroup(registerPhysicainTransparentPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(registerbtnPhysician, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(registrationPhysicinaBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(117, Short.MAX_VALUE))
+                                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         registerPhysicianPanel.add(registerPhysicainTransparentPnl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 400, 570));
@@ -532,7 +539,7 @@ public class LoginGUI extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(registerPatientTransparentPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(registerPatientTransparentPnlLayout.createSequentialGroup()
-                                                .addGap(0, 35, Short.MAX_VALUE)
+                                                .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(registrationPatientBackBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(registerbtnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -653,7 +660,7 @@ public class LoginGUI extends javax.swing.JFrame {
                                 .addGroup(registerPatientTransparentPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(registrationPatientBackBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(registerbtnPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(91, Short.MAX_VALUE))
+                                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         registerPatientPanel.add(registerPatientTransparentPnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 400, 520));
@@ -858,6 +865,10 @@ public class LoginGUI extends javax.swing.JFrame {
         loginPanel.setVisible(true);
     }
 
+    private void cityTxtFldPhysicianActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -967,8 +978,8 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel resetPassLbl;
     private javax.swing.JPanel resetPassPanel;
     private javax.swing.JPanel resetPasswordTransparentPnl;
+    private javax.swing.JComboBox<String> specializationComboBox1;
     private javax.swing.JLabel specializationLblPhysician;
-    private javax.swing.JTextField specializationTxtFldPhysician;
     private javax.swing.JTextField streetTxtFldPatient;
     private javax.swing.JTextField streetTxtFldPhysician;
     private javax.swing.JLabel titleLblPhysician;
