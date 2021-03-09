@@ -739,8 +739,8 @@ public class LoginGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(loginPanel,"eMail-Address not found", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             String password = String.valueOf(jPasswordField1.getPassword());
-            int check = -1;
-            while (check == -1) {
+
+            while (true) {
                 if (evt.getSource() == logintBtn) {
                     if (userNameTexFld.getText().equals("") || password.equals("")) {
                         JOptionPane.showMessageDialog(loginPanel, "Fields cannot be empty! Please enter your data.");
@@ -750,15 +750,13 @@ public class LoginGUI extends javax.swing.JFrame {
                         if(databaseconnection.checkPhysician(userNameTexFld.getText())){
                             JOptionPane.showMessageDialog(loginPanel, "Login successful!");
                             dispose();
-                            check = 0;
-                            PhysicianGUI phyG = new PhysicianGUI(databaseconnection.getPhysician(userNameTexFld.getText()));
-                            phyG.setVisible(true);
+                            new PhysicianGUI(databaseconnection.getPhysician(userNameTexFld.getText()));
+                            break;
                         }else if(databaseconnection.checkPatient(userNameTexFld.getText())){
                             JOptionPane.showMessageDialog(loginPanel, "Login successful!");
                             dispose();
-                            check = 0;
-                            PatientGUI patG = new PatientGUI();
-                            patG.setVisible(true);
+                            new PatientGUI(databaseconnection.getPatient(userNameTexFld.getText()));
+                            break;
                         }
                     } else {
                         System.out.println(User.hashPassword(password));
