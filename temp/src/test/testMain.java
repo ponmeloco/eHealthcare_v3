@@ -12,11 +12,11 @@ public class testMain {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException, InterruptedException, ParseException {
 
-
-
+        Databaseconnection databaseconnection = new Databaseconnection();
+/*
         //test database!
         //test patientFunctions
-        Databaseconnection databaseconnection = new Databaseconnection();
+
         try{
             Patient patient = databaseconnection.getPatient("Patient");
             Patient test = new Patient("testmail", "Tessy",  "Test", "Berlin","Hauptstraße",  "1",  "60001",  "112",  "Dr.", "_password",
@@ -47,22 +47,9 @@ public class testMain {
             System.out.println(e.getMessage());
         }
 
-        try{
-            Appointment[] test = databaseconnection.getAppointment("Doctor");
-            System.out.println(test[0].getPatient().getLastName());
-            System.out.println(test[0].getPhysician().getSpecialization()[0]);
-            System.out.println(test[1].getDate());
 
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
 
-        try{
-            Appointment appointment = new Appointment(databaseconnection.getPatient(1), databaseconnection.getPhysician(2), LocalDateTime.of(2021,2,1,18,30));
-            databaseconnection.addAppointment(appointment);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+
 
         try{
            Physician[] physicians = databaseconnection.getAllPhysicians();
@@ -78,7 +65,9 @@ public class testMain {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        */
 
+ //ERROR
         try{
             Admin testadmin = new Admin("testadmin@gmx.de","Gabe","Newell", "Auckland", "Dominion Road", "1", "1041"
                     , "425-889-9642", "Our Lord" ,"penis", new LatLong(-36.87087339448538, 174.7523596984722));
@@ -90,20 +79,42 @@ public class testMain {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
+/*
         try{
             Drug testdrug = databaseconnection.getDrug("Ibuprofen");
             System.out.println(testdrug.getDescription());
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+*/
 
+   /*
         try{
             Appointment[] allAppointments = databaseconnection.getAllAppointments();
             System.out.println(allAppointments[0].getDate() + allAppointments[0].getPatient().getLastName());
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
+
+        try{
+            Appointment appointment = new Appointment(databaseconnection.getPatient(1), databaseconnection.getPhysician(2), LocalDateTime.of(2021,2,1,18,30));
+            databaseconnection.addAppointment(appointment);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            Appointment[] test = databaseconnection.getAppointment("Doctor");
+            System.out.println(test[0].getPatient().getLastName());
+            System.out.println(test[0].getPhysician().getSpecialization()[0]);
+            System.out.println(test[1].getDate());
+
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+      */
 
         //END test database
 

@@ -1,30 +1,64 @@
 package test;
 import javax.swing.*;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.Timer;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 
 
 class Appointment {
+
     private Patient patient;
     private Physician physician;
     private LocalDateTime date;
+    private int identifier;
+    private Random rnd = new Random();
 
 
-    Appointment(Patient _patient, Physician _physician, LocalDateTime _date){
+    Appointment(Patient _patient, Physician _physician, LocalDateTime _date) throws SQLException, ClassNotFoundException{
         this.patient = _patient;
         this.physician = _physician;
         this.date = _date;
+        this.identifier = rnd.nextInt(2147483647);
+        Databaseconnection databaseconnection = new Databaseconnection();
+        databaseconnection.addAppointment(this);
     }
 
-    Appointment(Patient _patient, Physician _physician, int year, int month, int day, int hour, int minute){
+    Appointment(Patient _patient, Physician _physician, int year, int month, int day, int hour, int minute) throws SQLException, ClassNotFoundException{
         this.patient = _patient;
         this.physician = _physician;
         this.date = LocalDateTime.of(year,month,day,hour,minute);
+        this.identifier = rnd.nextInt(2147483647);
+        Databaseconnection databaseconnection = new Databaseconnection();
+        databaseconnection.addAppointment(this);
+    }
+
+    Appointment(Patient _patient, Physician _physician, int year, int month, int day, int hour, int minute, int _identifier) throws SQLException,ClassNotFoundException {
+        this.patient = _patient;
+        this.physician = _physician;
+        this.date = LocalDateTime.of(year,month,day,hour,minute);
+        this.identifier = _identifier;
+
+
+    }
+    Appointment(Patient _patient, Physician _physician, LocalDateTime _date, int _identifier) throws SQLException,ClassNotFoundException{
+        this.patient = _patient;
+        this.physician = _physician;
+        this.date = _date;
+        this.identifier = _identifier;
+    }
+
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    public void raiseIdentifier(){
+        this.identifier++;
     }
 
     public Patient getPatient() {
@@ -33,6 +67,8 @@ class Appointment {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+        Databaseconnection databaseconnection = new Databaseconnection();
+
     }
 
 

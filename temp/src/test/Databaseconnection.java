@@ -151,10 +151,10 @@ class Databaseconnection {
             connect();
         }
         Statement statement = connection.createStatement();
-        ResultSet checkIfNew = statement.executeQuery("SELECT * FROM USER WHERE emailAddress='" + admin.getEmailAddress() + "')");
+        ResultSet checkIfNew = statement.executeQuery("SELECT * FROM User WHERE emailAddress='" + admin.getEmailAddress() + "';");
 
         if (!checkIfNew.next()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO User(emailAddress, password, firstName, lastName, city, street, houseNumber, postalCode, phoneNumber, title,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?);");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO User (emailAddress, password, firstName, lastName, city, street, houseNumber, postalCode, phoneNumber, title,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
             preparedStatement.setString(1, admin.getEmailAddress());
             preparedStatement.setString(2, admin.getPasswordhash());
             preparedStatement.setString(3, admin.getFirstName());
@@ -870,7 +870,7 @@ class Databaseconnection {
             for (int i = 0; res.next(); i++){
                 int patientID =     res.getInt(2);
                 int physicianID =   res.getInt(3);
-                appointments[i] =   new Appointment(getPatient(patientID), getPhysician(physicianID), LocalDateTime.of(res.getInt(4), res.getInt(5), res.getInt(6), res.getInt(7), res.getInt(8)));
+                appointments[i] =   new Appointment(getPatient(patientID), getPhysician(physicianID), LocalDateTime.of(res.getInt(4), res.getInt(5), res.getInt(6), res.getInt(7), res.getInt(8)), res.getInt(9));
             }
 
             return appointments;
@@ -904,7 +904,7 @@ class Databaseconnection {
             for (int i = 0; i<countAppointments; i++){
                 int patientID =     res.getInt(2);
                 int physicianID =   res.getInt(3);
-                appointments[i] =   new Appointment(getPatient(patientID), getPhysician(physicianID), LocalDateTime.of(res.getInt(4), res.getInt(5), res.getInt(6), res.getInt(7), res.getInt(8)));
+                appointments[i] =   new Appointment(getPatient(patientID), getPhysician(physicianID), LocalDateTime.of(res.getInt(4), res.getInt(5), res.getInt(6), res.getInt(7), res.getInt(8)), res.getInt(9));
                 res.next();
             }
 
@@ -1107,6 +1107,19 @@ class Databaseconnection {
             connect();
         }
         Statement statement = connection.createStatement();
+        //Check wether the identifier already exists and increment it so it is unique. If all integers up to a thousand higher are already taken an error is thrown to avoid loops.
+        ResultSet res = statement.executeQuery("SELECT * FROM Appointment WHERE Identifier = "+appointment.getIdentifier()+";");
+
+        int overflowprotection = 0;
+        while(res.next() && overflowprotection < 1000){
+            appointment.raiseIdentifier();
+            res = statement.executeQuery("SELECT * FROM Appointment WHERE Identifier = "+appointment.getIdentifier()+";");
+            overflowprotection++;
+        }
+        if(overflowprotection >= 999){
+            throw new SQLException("Identifier and 1000 following identifiers already taken. ");
+        }
+
         int PatientID = statement.executeQuery("SELECT ID FROM User WHERE emailAddress= '" + appointment.getPatient().getEmailAddress() + "'").getInt(1);
         int PhysicianID = statement.executeQuery("SELECT ID FROM User WHERE emailAddress = '" + appointment.getPhysician().getEmailAddress() + "'").getInt(1);
         LocalDateTime dateTime = appointment.getDate();
@@ -1115,8 +1128,35 @@ class Databaseconnection {
         int day = dateTime.getDayOfMonth();
         int hour = dateTime.getHour();
         int min = dateTime.getMinute();
-        statement.execute("INSERT INTO Appointment (PhysicianID, PatientID, Year, Month, Day, Hour, Minute) " +
-                "VALUES (" + PhysicianID + "," + PatientID + "," + year + "," + month + "," + day + "," + hour + "," + min + ");");
+        int identifier = appointment.getIdentifier();
+        statement.execute("INSERT INTO Appointment (PhysicianID, PatientID, Year, Month, Day, Hour, Minute, Identifier) " +
+                "VALUES (" + PhysicianID + "," + PatientID + "," + year + "," + month + "," + day + "," + hour + "," + min + ", "+identifier+");");
+    }
+
+    public void updateAppointment(Appointment appointment) throws SQLException, ClassNotFoundException{
+        if(connection == null){
+            connect();
+        }
+        Statement statement = connection.createStatement();
+        int PatientID = statement.executeQuery("SELECT ID FROM User WHERE emailAddress= '" + appointment.getPatient().getEmailAddress() + "'").getInt(1);
+        int PhysicianID = statement.executeQuery("SELECT ID FROM User WHERE emailAddress = '" + appointment.getPhysician().getEmailAddress() + "'").getInt(1);
+        LocalDateTime dateTime = appointment.getDate();
+        int year = dateTime.getYear();
+        int month = dateTime.getMonth().getValue();
+        int day = dateTime.getDayOfMonth();
+        int hour = dateTime.getHour();
+        int min = dateTime.getMinute();
+        int identifier = appointment.getIdentifier();
+        statement.execute("Update Appointment SET PhysicianID = "+PhysicianID+", PatientID = "+PatientID+",Year = "+year+", Month = "+month+", Day ="+day+", Hour = "+hour+", Minute="+min+" WHERE Identifier = "+identifier+";");
+    }
+
+    public void deleteAppointment(Appointment appointment) throws SQLException, ClassNotFoundException{
+        if(connection == null){
+            connect();
+        }
+        int identifier = appointment.getIdentifier();
+        Statement statement = connection.createStatement();
+        statement.execute("DELETE FROM Appointment WHERE Identifier = "+ identifier +";");
     }
 
 
@@ -1813,34 +1853,25 @@ class Databaseconnection {
         Statement state = connection.createStatement();
         state.execute( "CREATE TABLE Appointment (" +
                 "ID INTEGER PRIMARY KEY," +
-                "PatientID int," +
-                "PhysicianID int," +
-                "Year INTEGER," +
-                "Month INTEGER," +
-                "Day INTEGER," +
-                "Hour INTEGER," +
-                "Minute INTEGER,"+
+                "PatientID int NOT NULL," +
+                "PhysicianID int NOT NULL," +
+                "Year INTEGER NOT NULL," +
+                "Month INTEGER NOT NULL," +
+                "Day INTEGER NOT NULL," +
+                "Hour INTEGER NOT NULL," +
+                "Minute INTEGER NOT NULL,"+
+                "Identifier INTEGER NOT NULL," +
                 "FOREIGN KEY (PatientID) REFERENCES User (UserID) ON DELETE CASCADE ON UPDATE CASCADE," +
                 "FOREIGN KEY (PhysicianID) REFERENCES User (UserID) ON DELETE CASCADE ON UPDATE CASCADE" +
                 " )");
         state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (1,2, 2020,02,22,18,35);");
+                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,02,22,18,35,1);");
         state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (1,2, 2020,02,22,09,35);");
+                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,02,22,09,35,2);");
         state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (1,2, 2020,02,25,09,35);");
+                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,02,25,09,35,3);");
         state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (1,2, 2020,03,25,09,35);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (1,4, 2020,03,25,15,35);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (3,2, 2020,03,21,22,35);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (3,4, 2020,03,29,06,35);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (3,2, 2020,05,29,09,35);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute) VALUES (3,4, 2020,06,29,11,35);");
+                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,03,25,09,35,4);");
 
 
 
