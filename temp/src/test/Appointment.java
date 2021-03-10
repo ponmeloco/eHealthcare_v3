@@ -99,25 +99,32 @@ class Appointment {
      * @param mm    = minute
      * @param minutesBefore = Time before the appointment, where the reminder shall message the user
      */
-    public static void reminder(int y, int m, int d, int hh, int mm, int minutesBefore) {
+    public static void reminder(int y, int m, int d, int hh, int mm, int minutesBefore,String timebefore) {
         final long ONE_MINUTE_IN_MILLIS=60000;  //milliSec
         Calendar reminderCalendar = new GregorianCalendar(y, m, d, hh, mm);
-        long t= reminderCalendar.getTimeInMillis();
-        Date afterAddingTenMin = new Date(t - (minutesBefore * ONE_MINUTE_IN_MILLIS));
-        System.out.println("Your reminder Date is: "+ afterAddingTenMin);
+        Date reminderDate = new Date(reminderCalendar.getTimeInMillis());
+        Date now = new Date();
+        if (now.after(reminderDate)){
+            JOptionPane.showMessageDialog(null, "The appointment is in the past!");
 
-        Timer timer = new Timer();
-        TimerTask tt = new TimerTask() {
+        }else {
+            long t = reminderCalendar.getTimeInMillis();
+            Date datetime = new Date(t);
+            Date afterAddingTenMin = new Date(t - (minutesBefore * ONE_MINUTE_IN_MILLIS));
+            JOptionPane.showMessageDialog(null, "Your reminder date ist: "+datetime+". I will remind you "+timebefore+" before that time.", "Appointment", JOptionPane.INFORMATION_MESSAGE);
+            Timer timer = new Timer();
+            TimerTask tt = new TimerTask() {
 
-            public void run() {
-                Date now = new Date();
-                if (afterAddingTenMin.before(now)) {
-                    JOptionPane.showMessageDialog(null,"Appointment in " + minutesBefore +" minutes. E-Mail has been sent as a reminder too.", "Appointment", JOptionPane.INFORMATION_MESSAGE);  // when timer true execute
-                    timer.cancel(); // stop timer instantly
+                public void run() {
+                    Date now = new Date();
+                    if (afterAddingTenMin.before(now)) {
+                        JOptionPane.showMessageDialog(null, "Your appointment " + datetime + " is in "+minutesBefore+" minutes. E-Mail has been sent as a reminder too.", "Appointment", JOptionPane.INFORMATION_MESSAGE);  // when timer true execute
+                        timer.cancel(); // stop timer instantly
+                    }
                 }
-            }
-        };
-        timer.schedule(tt, 1000, 1000);
+            };
+            timer.schedule(tt, 1000, 1000);
+        }
     }
 
 }

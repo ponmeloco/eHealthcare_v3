@@ -6,13 +6,15 @@
 package test;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Objects;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 public class PatientGUI extends javax.swing.JFrame {
 
@@ -21,7 +23,7 @@ public class PatientGUI extends javax.swing.JFrame {
 
     public PatientGUI(Patient patient) {
 
-        setUndecorated(true);
+        setUndecorated(false);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         initComponents();
 
@@ -85,7 +87,7 @@ public class PatientGUI extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         logoutBtn1 = new keeptoo.KButton();
         newAppPnl = new keeptoo.KGradientPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        reminderTimeComboBox = new javax.swing.JComboBox<>();
         reminderLbl = new javax.swing.JLabel();
         searchdistanceLbl = new javax.swing.JLabel();
         searchDistanceTexfld = new javax.swing.JTextField();
@@ -260,6 +262,8 @@ public class PatientGUI extends javax.swing.JFrame {
         sendAlternativekButton6.addActionListener(this::sendAlternativekButton6ActionPerformed);
 
         jTable2.setBackground(new java.awt.Color(204, 255, 204));
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        jTable2.getTableHeader().setResizingAllowed(false);
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
@@ -273,6 +277,7 @@ public class PatientGUI extends javax.swing.JFrame {
                 jTable2MouseClicked(evt);
             }
         });
+
         patientAppointmentTable.setViewportView(jTable2);
 
         yourAppointmenstLbl.setFont(new java.awt.Font("Times New Roman", Font.ITALIC, 18)); // NOI18N
@@ -301,6 +306,66 @@ public class PatientGUI extends javax.swing.JFrame {
         reminderkButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
         reminderkButton.setkStartColor(new java.awt.Color(255, 255, 255));
         reminderkButton.addActionListener(this::reminderkButtonActionPerformed);
+        reminderkButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               int index =  jTable2.getSelectedRow();
+               String sDate1=jTable2.getValueAt(index,2).toString();
+
+               DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+               LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
+               int y = dateTime.getYear();
+               int m = dateTime.getMonthValue()-1;
+               int d = dateTime.getDayOfMonth();
+               int h = dateTime.getHour();
+               int mm =  dateTime.getMinute();
+               int minutesBefore;
+               int indexReminderComboBox = reminderTimeComboBox.getSelectedIndex();
+               String timeInTextBefore;
+                switch (indexReminderComboBox) {
+                    case 0 -> {
+                        minutesBefore = 24 * 60 * 7;
+                        timeInTextBefore = Objects.requireNonNull(reminderTimeComboBox.getSelectedItem()).toString();//7 days
+                    }
+                    case 1 -> {
+                        minutesBefore = 24 * 60 * 3;
+                        timeInTextBefore = Objects.requireNonNull(reminderTimeComboBox.getSelectedItem()).toString();//3 days
+                    }
+                    case 2 -> {
+                        minutesBefore = 60;
+                        timeInTextBefore = Objects.requireNonNull(reminderTimeComboBox.getSelectedItem()).toString();//1 hour
+                    }
+                    case 3 -> {
+                        minutesBefore = 10;
+                        timeInTextBefore = Objects.requireNonNull(reminderTimeComboBox.getSelectedItem()).toString();//10 minutes
+                    }
+                    default -> throw new IllegalStateException("Unexpected value :-): " + indexReminderComboBox);
+                }
+
+               Appointment.reminder(y,m,d,h,mm,minutesBefore,timeInTextBefore);
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
         p1.setLayout(p1Layout);
@@ -583,7 +648,7 @@ public class PatientGUI extends javax.swing.JFrame {
         newAppPnl.setkEndColor(new java.awt.Color(255, 255, 255));
         newAppPnl.setkStartColor(new java.awt.Color(153, 255, 153));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "one week", "3 days", "1 hour", "10 min" }));
+        reminderTimeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "one week", "3 days", "1 hour", "10 min" }));
 
         reminderLbl.setText("Set reminder:");
 
@@ -652,7 +717,7 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(reminderLbl)
                                 .addGap(142, 142, 142)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(reminderTimeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newAppPnlLayout.createSequentialGroup()
                                 .addContainerGap(348, Short.MAX_VALUE)
@@ -687,7 +752,7 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(reminderLbl)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(reminderTimeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(55, 55, 55)
                                 .addComponent(searchPhysicianBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -939,6 +1004,7 @@ public class PatientGUI extends javax.swing.JFrame {
     }
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {
+       /*
         int index=jTable2.getSelectedRow();
         TableModel model=jTable2.getModel();
         jLabel6.setText(model.getValueAt(index,3).toString());
@@ -955,6 +1021,8 @@ public class PatientGUI extends javax.swing.JFrame {
                 selectedAppointment = appointment;
             }
         }
+
+        */
         // TODO add your handling code here:
     }
 
@@ -1039,7 +1107,7 @@ public class PatientGUI extends javax.swing.JFrame {
     private javax.swing.JLabel familyNameLbl;
     private javax.swing.JLabel familynameTxtfld;
     private javax.swing.JLabel framePicLbl;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> reminderTimeComboBox;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

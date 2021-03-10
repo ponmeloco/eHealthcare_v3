@@ -33,7 +33,7 @@ public class PhysicianGUI extends javax.swing.JFrame {
     public PhysicianGUI(Physician physician) {
 
 
-        setUndecorated(true);
+        setUndecorated(false);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 
         initComponents();
