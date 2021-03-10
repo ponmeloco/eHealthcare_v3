@@ -101,12 +101,12 @@ public class Mail {
 	 */
 
 
-	public void sendAppointmentRequest(Appointment appointment,Date alternativeDate1,String note,Date alternativeDate2){
+	public void sendAppointmentRequest(Appointment appointment,Date alternativeDate1,String note,Date alternativeDate2,String time1,String time2){
 
 		String senderName=appointment.getPhysician().getFirstName()+appointment.getPhysician().getLastName();
 		String receiverMail=appointment.getPatient().getEmailAddress();
 		String subject="Appointment request";
-		String message="You have a new appointment request  on : "+dateFormatter2.format(alternativeDate1)+" and alternatively on : "+dateFormatter2.format(alternativeDate2)+" at the same time.\n  Note :  "+note;
+		String message="You have a new appointment request  on : "+dateFormatter2.format(alternativeDate1)+" "+time1+" and alternatively on : "+dateFormatter2.format(alternativeDate2)+" "+time2+"\n  Note :  "+note;
 		Mail newMsg = new Mail();
 		newMsg.login();
 		try {
@@ -130,7 +130,7 @@ public class Mail {
 		String receiverMail=appointment.getPatient().getEmailAddress();
 		String subject="Appointment reschedule request";
 		String message="Due to some unforeseen circumstances , we are afraid that we will not be able to keep the appointment we made for the "+dateFormatter.format(appointment.getDate())+" ."+
-				       " Kindly reschedule the appointment to "+dateFormatter2.format(alternativeDate)+ " at the same time. I am really sorry for the inconvenience it may cause you. Let me know if the new date and time are suitable for your schedule."+note;
+				" Kindly reschedule the appointment to "+dateFormatter2.format(alternativeDate)+ " at the same time. I am really sorry for the inconvenience it may cause you. Let me know if the new date and time are suitable for your schedule."+note;
 
 		Mail newMsg = new Mail();
 		newMsg.login();
