@@ -18,12 +18,15 @@ import javax.swing.table.*;
 public class AdminGUI extends javax.swing.JFrame {
 
     Appointment [] appointments;
-
+    Physician   [] physicians;
+    Patient     [] patients;
     public AdminGUI() {
         setUndecorated(true);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         initComponents();
-        populateTable();
+        populateAllAppointmentTable();
+        populatePhysicianTable();
+        populatePatientTable();
     }
 
     /**
@@ -62,7 +65,7 @@ public class AdminGUI extends javax.swing.JFrame {
         searchTxtFldEditPhyPnl = new javax.swing.JTextField();
         editPatientPnl = new keeptoo.KGradientPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        patientTable_editPatientPnl = new javax.swing.JTable();
         pateintListLblEditPatintPnl = new javax.swing.JLabel();
         searchbtnEditPatintPnl = new keeptoo.KButton();
         SearchTexFealdEditPatintPnl = new javax.swing.JTextField();
@@ -286,19 +289,23 @@ public class AdminGUI extends javax.swing.JFrame {
         userMngPnlLayout.setHorizontalGroup(
                 userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userMngPnlLayout.createSequentialGroup()
-                                .addGap(156, 156, 156)
-                                .addComponent(physicianLblUserMngPnl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(patientLblUserMngPnl)
-                                .addGap(130, 130, 130))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userMngPnlLayout.createSequentialGroup()
                                 .addContainerGap(61, Short.MAX_VALUE)
                                 .addGroup(userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(choseCategoryLblUserMngPnl)
                                         .addGroup(userMngPnlLayout.createSequentialGroup()
-                                                .addComponent(physicianIconLblUserMngPnl)
-                                                .addGap(51, 51, 51)
-                                                .addComponent(patientIconLblUserMngPnl)))
+                                                .addGroup(userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(physicianIconLblUserMngPnl)
+                                                        .addGroup(userMngPnlLayout.createSequentialGroup()
+                                                                .addGap(90, 90, 90)
+                                                                .addComponent(physicianLblUserMngPnl)))
+                                                .addGroup(userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(userMngPnlLayout.createSequentialGroup()
+                                                                .addGap(51, 51, 51)
+                                                                .addComponent(patientIconLblUserMngPnl))
+                                                        .addGroup(userMngPnlLayout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(patientLblUserMngPnl)
+                                                                .addGap(99, 99, 99)))))
                                 .addGap(31, 31, 31))
         );
         userMngPnlLayout.setVerticalGroup(
@@ -310,11 +317,15 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addGroup(userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(physicianIconLblUserMngPnl)
                                         .addComponent(patientIconLblUserMngPnl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                                .addGroup(userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianLblUserMngPnl)
-                                        .addComponent(patientLblUserMngPnl))
-                                .addGap(64, 64, 64))
+                                .addGroup(userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(userMngPnlLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                                .addComponent(patientLblUserMngPnl)
+                                                .addGap(64, 64, 64))
+                                        .addGroup(userMngPnlLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(physicianLblUserMngPnl)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel3.add(userMngPnl, "card4");
@@ -331,7 +342,7 @@ public class AdminGUI extends javax.swing.JFrame {
 
                 },
                 new String [] {
-                        "ID", "First name", "Last name", "Specification", "E-Mail ", "Phone"
+                        "First name", "Last name", "Specialization", "E-Mail ", "Phone"
                 }
         ));
         jScrollPane2.setViewportView(adminPhysicianlisttable);
@@ -438,16 +449,16 @@ public class AdminGUI extends javax.swing.JFrame {
         editPatientPnl.setkEndColor(new java.awt.Color(255, 255, 255));
         editPatientPnl.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        jTable3.setBackground(new java.awt.Color(204, 204, 204));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        patientTable_editPatientPnl.setBackground(new java.awt.Color(204, 204, 204));
+        patientTable_editPatientPnl.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
                 },
                 new String [] {
-                        "ID", "First name", "Last name", "Address", "E-Mail ", "Phone"
+                        "First name", "Last name", "Insurance", "E-Mail ", "Phone"
                 }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(patientTable_editPatientPnl);
 
         pateintListLblEditPatintPnl.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         pateintListLblEditPatintPnl.setText("Patient list");
@@ -1036,16 +1047,16 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void SearchTexFealdEditPatintPnlKeyPressed(java.awt.event.KeyEvent evt) {
-        DefaultTableModel model=(DefaultTableModel)jTable3.getModel();
+        DefaultTableModel model=(DefaultTableModel)patientTable_editPatientPnl.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
-        jTable3.setRowSorter(tr);
+        patientTable_editPatientPnl.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(SearchTexFealdEditPatintPnl.getText().trim()));        // TODO add your handling code here:
     }
 
     private void SearchTexFealdEditPatintPnlKeyReleased(java.awt.event.KeyEvent evt) {
-        DefaultTableModel model=(DefaultTableModel)jTable3.getModel();
+        DefaultTableModel model=(DefaultTableModel)patientTable_editPatientPnl.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
-        jTable3.setRowSorter(tr);
+        patientTable_editPatientPnl.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(SearchTexFealdEditPatintPnl.getText().trim()));        // TODO add your handling code here:
     }
 
@@ -1058,14 +1069,48 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void deleteappointmentBtnEditAppPnlActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        //delete appointment button
+        DefaultTableModel model = (DefaultTableModel)EditAppointmentjTable1.getModel();
+
+        int index=EditAppointmentjTable1.getSelectedRow();
+        String PatientName=model.getValueAt(index,0).toString();
+        String PhysicaianName=model.getValueAt(index,1).toString();
+        String sDate1=model.getValueAt(index,2).toString();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
+
+
+        for(int i=0;i<appointments.length;i++){
+            if(appointments[i].getPatient().getLastName().equals(PatientName)&&appointments[i].getDate().equals(dateTime)){
+                try{
+
+                    Databaseconnection databaseconnection = new Databaseconnection();
+                    databaseconnection.deleteAppointment(appointments[i]);
+
+                }catch (Exception e) {
+                    System.out.println(e.getMessage());
+
+
+                }
+            }
+        }
+
+
+        //delete selected row in table
+        int[] rows = EditAppointmentjTable1.getSelectedRows();
+        for(int i=0;i<rows.length;i++){
+            model.removeRow(rows[i]-i);
+        }
+
+
     }
 
     private void deletepatientBtnEditPatintPnlActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void populateTable(){
+    private void populateAllAppointmentTable(){
 
 
         try{
@@ -1077,7 +1122,7 @@ public class AdminGUI extends javax.swing.JFrame {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 String formattedDateTime = dateTime.format(formatter);
                 model.addRow(new Object[]{appointment.getPatient().getLastName(),
-                        formattedDateTime, appointment.getPatient().getEmailAddress()});
+                        appointment.getPatient().getEmailAddress(),formattedDateTime});
             }
         }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -1086,6 +1131,40 @@ public class AdminGUI extends javax.swing.JFrame {
 
     }
 
+    private void populatePhysicianTable(){
+
+
+        try{
+            DefaultTableModel model = (DefaultTableModel)adminPhysicianlisttable.getModel();
+            Databaseconnection databaseconnection = new Databaseconnection();
+            physicians=databaseconnection.getAllPhysicians();
+            for (Physician physician : physicians) {
+                model.addRow(new Object[]{physician.getFirstName(),physician.getLastName(),
+                        physician.getSpecialization(),physician.getEmailAddress(),physician.getPhoneNUmber()});
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+
+    }
+
+    private void populatePatientTable(){
+
+        try{
+            DefaultTableModel model = (DefaultTableModel)patientTable_editPatientPnl.getModel();
+            Databaseconnection databaseconnection = new Databaseconnection();
+            patients=databaseconnection.getAllPatients();
+            for (Patient patient : patients) {
+                model.addRow(new Object[]{patient.getFirstName(),patient.getLastName(),
+                        patient.getInsuranceName(),patient.getEmailAddress(),patient.getPhoneNUmber()});
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+
+    }
 
 
     public static void main(String args[]) {
@@ -1159,7 +1238,6 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField2;
     private keeptoo.KButton logoutBtn;
     private keeptoo.KGradientPanel mainPnl;
@@ -1185,6 +1263,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JTextField patientPostalCodeTxtFldCreatePatientPnl;
     private javax.swing.JLabel patientStreetLblCreatePatientPnl;
     private javax.swing.JTextField patientStreetTxtFldCreatePatientPnl;
+    private javax.swing.JTable patientTable_editPatientPnl;
     private javax.swing.JLabel patientTitleLblCreatePatientPnl;
     private javax.swing.JTextField patientnameTxtFldCreatePatientPnl;
     private javax.swing.JLabel patientphoneLblCreatePatientPnl;
