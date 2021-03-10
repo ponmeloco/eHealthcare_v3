@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 public class testMain {
 
     public static void main(String[] args){
-/*
-        Databaseconnection databaseconnection = new Databaseconnection();
 
+        Databaseconnection databaseconnection = new Databaseconnection();
+    /*
         //test database!
         //test patientFunctions
 
@@ -33,6 +33,7 @@ public class testMain {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        */
         try{
             Physician physician = databaseconnection.getPhysician("Doctor");
             Physician test = new Physician("dtestmail", "Bruce", "Banner", "Berlin", "Hauptstraße", "2", "60001", "110", "Dr.", "abcd", physician.getSpecialization(), new LatLong(50.00000,8.00000));
@@ -46,7 +47,7 @@ public class testMain {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
+    /*
 
 
 
@@ -114,7 +115,14 @@ public class testMain {
             System.out.println(e.getMessage());
         }
 
-      */
+*/
+        try {
+            Patient patient = databaseconnection.getPatient("Patient");
+            databaseconnection.deleteUser(patient);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
 
         //END test database
 

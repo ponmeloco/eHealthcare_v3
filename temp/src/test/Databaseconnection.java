@@ -439,6 +439,16 @@ class Databaseconnection {
         }
     }
 
+    public void deleteUser(User user)throws SQLException, ClassNotFoundException{
+        if (connection == null) {
+            connect();
+        }
+        Statement statement = connection.createStatement();
+        int userID = statement.executeQuery("SELECT ID FROM User WHERE emailaddress = '"+ user.getEmailAddress()+"';").getInt(1);
+        statement.execute("DELETE FROM User WHERE ID = "+ userID +";");
+
+    }
+
     /**
      * Fetches an instance of the Patient class from the database uniquely identified by its email.
      * @param email The registered emailaddress of the User.
@@ -1175,6 +1185,8 @@ class Databaseconnection {
     public void connect() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         connection = DriverManager.getConnection("jdbc:sqlite:eHealthcareUsers.db");
+        Statement statement = connection.createStatement();
+        statement.execute("PRAGMA foreign_keys = ON;");
         initialise();
     }
 
@@ -1378,7 +1390,7 @@ class Databaseconnection {
                 "dateOfBirth DATE NOT NULL," +
                 "weight INT NOT NULL," +
                 "PRIMARY KEY(ID), " +
-                "FOREIGN KEY(ID) REFERENCES User(ID) ON DELETE RESTRICT ON UPDATE CASCADE," +
+                "FOREIGN KEY(ID) REFERENCES User(ID) ON DELETE CASCADE ON UPDATE CASCADE," +
                 "FOREIGN KEY(insuranceID) REFERENCES Insurance(ID) ON DELETE RESTRICT ON UPDATE CASCADE" +
                 ")");
 
@@ -1874,8 +1886,8 @@ class Databaseconnection {
                 "Hour INTEGER NOT NULL," +
                 "Minute INTEGER NOT NULL,"+
                 "Identifier INTEGER NOT NULL," +
-                "FOREIGN KEY (PatientID) REFERENCES User (UserID) ON DELETE CASCADE ON UPDATE CASCADE," +
-                "FOREIGN KEY (PhysicianID) REFERENCES User (UserID) ON DELETE CASCADE ON UPDATE CASCADE" +
+                "FOREIGN KEY (PatientID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE," +
+                "FOREIGN KEY (PhysicianID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE" +
                 " )");
         state.execute("INSERT INTO Appointment(" +
                 "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,02,22,18,35,1);");
