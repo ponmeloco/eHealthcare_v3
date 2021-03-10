@@ -1,4 +1,6 @@
 package test;
+import org.w3c.dom.ls.LSOutput;
+
 import java.sql.*;
 import java.time.LocalDateTime;
 
@@ -1218,6 +1220,7 @@ class Databaseconnection {
                 buildMedicationTable();
                 buildAppointmentTable();
                 buildSymptomSpecializationTable();
+                populateDatabase();
 
                 System.out.println("Database build. \n\n\n");
 
@@ -1249,48 +1252,7 @@ class Databaseconnection {
                 + "latitude DOUBLE NOT NULL" +
                 ")");
 
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO User (" +
-                "emailAddress," +
-                "password," +
-                "firstName," +
-                "lastName," +
-                "city," +
-                "street," +
-                "houseNumber," +
-                "postalCode," +
-                "phoneNumber," +
-                "title,"
-                + "longitude,"
-                + "latitude)" +
-                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
 
-        preparedStatement.setString(1, "Patient");
-        preparedStatement.setString(2, User.hashPassword("asd"));
-        preparedStatement.setString(3, "Test");
-        preparedStatement.setString(4, "Patient");
-        preparedStatement.setString(5, "Frankfurt");
-        preparedStatement.setString(6, "Ben-Gurion-Ring");
-        preparedStatement.setString(7, "48C");
-        preparedStatement.setString(8, "60437");
-        preparedStatement.setString(9, "015738340183");
-        preparedStatement.setString(10,"hobo");
-        preparedStatement.setString(11,"50.19161");
-        preparedStatement.setString(12,"8.66039");
-        preparedStatement.execute();
-
-        preparedStatement.setString(1, "Doctor");
-        preparedStatement.setString(2, User.hashPassword("asd"));
-        preparedStatement.setString(3, "Test");
-        preparedStatement.setString(4, "Doktor");
-        preparedStatement.setString(5, "Frankfurt");
-        preparedStatement.setString(6, "Ben-Gurion-Ring");
-        preparedStatement.setString(7, "48C");
-        preparedStatement.setString(8, "60437");
-        preparedStatement.setString(9, "015738340183");
-        preparedStatement.setString(10,"Dr.");
-        preparedStatement.setString(11,"50.19161");
-        preparedStatement.setString(12,"8.86039");
-        preparedStatement.execute();
 
         System.out.println("complete.");
     }
@@ -1366,12 +1328,7 @@ class Databaseconnection {
                 "PRIMARY KEY(ID), " +
                 "FOREIGN KEY(ID) REFERENCES User(ID) ON DELETE CASCADE ON UPDATE CASCADE" +
                 ")");
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Physician (" +
-                "ID) VALUES (?)");
 
-        /* Insert Test Physician */
-        preparedStatement.setString(1, "2");
-        preparedStatement.execute();
 
         System.out.println("complete.");
     }
@@ -1394,14 +1351,7 @@ class Databaseconnection {
                 "FOREIGN KEY(insuranceID) REFERENCES Insurance(ID) ON DELETE RESTRICT ON UPDATE CASCADE" +
                 ")");
 
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Patient (" +
-                "ID, dateOfBirth,weight, insuranceID) VALUES (?,?,?,?)");
 
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setString(2, "2020-01-15");
-        preparedStatement.setInt(3, 93);
-        preparedStatement.setInt(4, 1);
-        preparedStatement.execute();
 
         System.out.println("complete.");
     }
@@ -1584,21 +1534,6 @@ class Databaseconnection {
                 "FOREIGN KEY (PhysicianID) REFERENCES Physician(ID) ON DELETE CASCADE ON UPDATE CASCADE" +
                 ")");
 
-        {/* Insert Test SpecializationPhysician */
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO SpecializationPhysician(PhysicianID,SpecializationID) VALUES (?,?);");
-            preparedStatement.setInt(1, 2);
-            preparedStatement.setInt(2, 1);
-            preparedStatement.execute();
-            preparedStatement.setInt(1, 2);
-            preparedStatement.setInt(2, 2);
-            preparedStatement.execute();
-            preparedStatement.setInt(1, 2);
-            preparedStatement.setInt(2, 7);
-            preparedStatement.execute();
-            preparedStatement.setInt(1, 2);
-            preparedStatement.setInt(2, 24);
-            preparedStatement.execute();}
-
         System.out.println("complete.");
     }
 
@@ -1759,22 +1694,6 @@ class Databaseconnection {
                 "FOREIGN KEY (SeverenessID) REFERENCES Severeness(ID) ON DELETE CASCADE ON UPDATE CASCADE" +
                 ")");
         System.out.println("complete.");
-
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO SymptomPatient (" +
-                " PatientID,SymptomID) VALUES (?,?)");
-
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setInt(2, 1);
-        preparedStatement.execute();
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setInt(2, 2);
-        preparedStatement.execute();
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setInt(2, 3);
-        preparedStatement.execute();
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setInt(2, 6);
-        preparedStatement.execute();
     }
 
     /**
@@ -1848,24 +1767,6 @@ class Databaseconnection {
                 ")");
         System.out.println("complete.");
 
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Medication (" +
-                " PatientID,DrugID, Dosis, TimesPerDay) VALUES (?,?,?,?)");
-
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setInt(2, 1);
-        preparedStatement.setDouble(3, 50.3);
-        preparedStatement.setInt(4, 3);
-        preparedStatement.execute();
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setInt(2, 2);
-        preparedStatement.setDouble(3, 100.75);
-        preparedStatement.setInt(4, 1);
-        preparedStatement.execute();
-        preparedStatement.setInt(1, 1);
-        preparedStatement.setInt(2, 9);
-        preparedStatement.setDouble(3, 20);
-        preparedStatement.setInt(4, 15);
-        preparedStatement.execute();
     }
 
     /**
@@ -1889,17 +1790,6 @@ class Databaseconnection {
                 "FOREIGN KEY (PatientID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE," +
                 "FOREIGN KEY (PhysicianID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE" +
                 " )");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,02,22,18,35,1);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,02,22,09,35,2);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,02,25,09,35,3);");
-        state.execute("INSERT INTO Appointment(" +
-                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (1,2, 2020,03,25,09,35,4);");
-
-
-
         System.out.println("complete.");
     }
 
@@ -1971,6 +1861,406 @@ class Databaseconnection {
                 "SymptomID,SpecializationID) VALUES (25,45);");
         state.execute("INSERT INTO SymptomSpecialization(" +
                 "SymptomID,SpecializationID) VALUES (26,58);");
+
+    }
+
+    private void populateDatabase() throws SQLException{
+        System.out.println("populating database...");
+        System.out.println("creating Users...");
+
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO User (" +
+                "emailAddress," +
+                "password," +
+                "firstName," +
+                "lastName," +
+                "city," +
+                "street," +
+                "houseNumber," +
+                "postalCode," +
+                "phoneNumber," +
+                "title,"
+                + "longitude,"
+                + "latitude)" +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
+
+        preparedStatement.setString(1, "Patient1");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Achim");
+        preparedStatement.setString(4, "Glaesmann");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Ben-Gurion-Ring");
+        preparedStatement.setString(7, "48C");
+        preparedStatement.setString(8, "60437");
+        preparedStatement.setString(9, "015738340183");
+        preparedStatement.setString(10,"Mr.");
+        preparedStatement.setString(11,"50.19161");
+        preparedStatement.setString(12,"8.66039");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Patient2");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Sascha");
+        preparedStatement.setString(4, "Bichler");
+        preparedStatement.setString(5, "Hanau");
+        preparedStatement.setString(6, "Wetterauweg");
+        preparedStatement.setString(7, "30");
+        preparedStatement.setString(8, "63456");
+        preparedStatement.setString(9, "015738340183");
+        preparedStatement.setString(10,"Mr.");
+        preparedStatement.setString(11,"50.12018");
+        preparedStatement.setString(12,"8.90548");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Patient3");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Rebecca");
+        preparedStatement.setString(4, "Richly");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Ben-Gurion-Ring");
+        preparedStatement.setString(7, "48D");
+        preparedStatement.setString(8, "60437");
+        preparedStatement.setString(9, "015738340183");
+        preparedStatement.setString(10,"Ms.");
+        preparedStatement.setString(11,"50.19172");
+        preparedStatement.setString(12,"8.66155");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Patient4");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Lutz");
+        preparedStatement.setString(4, "Glaesmann");
+        preparedStatement.setString(5, "Hasselroth");
+        preparedStatement.setString(6, "Rheinstraße");
+        preparedStatement.setString(7, "18");
+        preparedStatement.setString(8, "63594");
+        preparedStatement.setString(9, "015738340183");
+        preparedStatement.setString(10,"Dipl.-Ing.");
+        preparedStatement.setString(11,"50.16338");
+        preparedStatement.setString(12,"9.08747");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Patient5");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Marko");
+        preparedStatement.setString(4, "Milovanovic");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Homburger Landstraße");
+        preparedStatement.setString(7, "73");
+        preparedStatement.setString(8, "60435");
+        preparedStatement.setString(9, "015738340183");
+        preparedStatement.setString(10,"Mr.");
+        preparedStatement.setString(11,"50.14497");
+        preparedStatement.setString(12,"8.69311");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Doctor1");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Ilja");
+        preparedStatement.setString(4, "Kleiman");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Hedderichstraße");
+        preparedStatement.setString(7, "55");
+        preparedStatement.setString(8, "60594");
+        preparedStatement.setString(9, "069/612882");
+        preparedStatement.setString(10,"Dr. med.");
+        preparedStatement.setString(11,"50.09949");
+        preparedStatement.setString(12,"8.68467");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Doctor2");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Thi");
+        preparedStatement.setString(4, "Nguyen");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "An der Hauptwache");
+        preparedStatement.setString(7, "7");
+        preparedStatement.setString(8, "60313");
+        preparedStatement.setString(9, "069/87008750");
+        preparedStatement.setString(10,"Dr.");
+        preparedStatement.setString(11,"50.11409");
+        preparedStatement.setString(12,"8.67819");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Doctor3");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Oliver");
+        preparedStatement.setString(4, "Stuhrmann");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Große Bockenheimer Straße");
+        preparedStatement.setString(7, "35");
+        preparedStatement.setString(8, "60313");
+        preparedStatement.setString(9, "069/80052323");
+        preparedStatement.setString(10,"Mr.");
+        preparedStatement.setString(11,"50.11457");
+        preparedStatement.setString(12,"8.67398");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Doctor4");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Hannes");
+        preparedStatement.setString(4, "Bürkle");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Schweizer Straße");
+        preparedStatement.setString(7, "47");
+        preparedStatement.setString(8, "60594");
+        preparedStatement.setString(9, "069/622083");
+        preparedStatement.setString(10,"Dr. med.");
+        preparedStatement.setString(11,"50.10244");
+        preparedStatement.setString(12,"8.68052");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "Doctor5");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Peter");
+        preparedStatement.setString(4, "Rubenwolf");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Hochstraße");
+        preparedStatement.setString(7, "49");
+        preparedStatement.setString(8, "60313");
+        preparedStatement.setString(9, "069/92020630");
+        preparedStatement.setString(10,"Prof. Dr.");
+        preparedStatement.setString(11,"50.11541");
+        preparedStatement.setString(12,"8.67372");
+        preparedStatement.execute();
+
+        System.out.println("\t users created..");
+        System.out.println("adding patient data..");
+
+        preparedStatement = connection.prepareStatement("INSERT INTO Patient (" +
+                "ID, dateOfBirth,weight, insuranceID) VALUES (?,?,?,?)");
+
+        preparedStatement.setInt(1, 1);
+        preparedStatement.setString(2, "1994-02-18");
+        preparedStatement.setInt(3, 93);
+        preparedStatement.setInt(4, 1);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 2);
+        preparedStatement.setString(2, "1994-01-23");
+        preparedStatement.setInt(3, 76);
+        preparedStatement.setInt(4, 2);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 3);
+        preparedStatement.setString(2, "1996-03-28");
+        preparedStatement.setInt(3, 62);
+        preparedStatement.setInt(4, 1);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 4);
+        preparedStatement.setString(2, "1952-07-14");
+        preparedStatement.setInt(3, 105);
+        preparedStatement.setInt(4, 1);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 5);
+        preparedStatement.setString(2, "1995-05-07");
+        preparedStatement.setInt(3, 12);
+        preparedStatement.setInt(4, 2);
+        preparedStatement.execute();
+
+        System.out.println("\t patient data added..");
+        System.out.println("adding physician data..");
+
+        preparedStatement = connection.prepareStatement("INSERT INTO Physician (" +
+                "ID) VALUES (?)");
+
+        /* Insert Test Physician */
+        preparedStatement.setString(1, "6");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "7");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "8");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "9");
+        preparedStatement.execute();
+
+        preparedStatement.setString(1, "10");
+        preparedStatement.execute();
+
+        System.out.println("\t physician data added..");
+        System.out.println("adding specializations to phyisicians...");
+
+        preparedStatement = connection.prepareStatement("INSERT INTO SpecializationPhysician(PhysicianID,SpecializationID) VALUES (?,?);");
+        preparedStatement.setInt(1, 6);
+        preparedStatement.setInt(2, 1);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 7);
+        preparedStatement.setInt(2, 33);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 8);
+        preparedStatement.setInt(2, 5);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 9);
+        preparedStatement.setInt(2, 13);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 10);
+        preparedStatement.setInt(2, 58);
+        preparedStatement.execute();
+
+        System.out.println("\t specializations added..");
+        System.out.println("adding symptoms to patients..");
+
+        preparedStatement = connection.prepareStatement("INSERT INTO SymptomPatient (" +
+                " PatientID,SymptomID) VALUES (?,?)");
+
+        preparedStatement.setInt(1, 1);
+        preparedStatement.setInt(2, 1);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 2);
+        preparedStatement.setInt(2, 2);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 3);
+        preparedStatement.setInt(2, 3);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 4);
+        preparedStatement.setInt(2, 6);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 5);
+        preparedStatement.setInt(2, 4);
+        preparedStatement.execute();
+
+        System.out.println("\t Symptoms added..");
+        System.out.println("adding medication to patients");
+
+        preparedStatement = connection.prepareStatement("INSERT INTO Medication (" +
+                " PatientID,DrugID, Dosis, TimesPerDay) VALUES (?,?,?,?)");
+
+        preparedStatement.setInt(1, 1);
+        preparedStatement.setInt(2, 1);
+        preparedStatement.setDouble(3, 50.3);
+        preparedStatement.setInt(4, 3);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 2);
+        preparedStatement.setInt(2, 2);
+        preparedStatement.setDouble(3, 100.75);
+        preparedStatement.setInt(4, 1);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 3);
+        preparedStatement.setInt(2, 6);
+        preparedStatement.setDouble(3, 20);
+        preparedStatement.setInt(4, 2);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 4);
+        preparedStatement.setInt(2, 5);
+        preparedStatement.setDouble(3, 20);
+        preparedStatement.setInt(4, 3);
+        preparedStatement.execute();
+        preparedStatement.setInt(1, 5);
+        preparedStatement.setInt(2, 4);
+        preparedStatement.setDouble(3, 20);
+        preparedStatement.setInt(4, 2);
+        preparedStatement.execute();
+
+        System.out.println("\t medication added..");
+        System.out.println("adding appointments..");
+        preparedStatement = connection.prepareStatement("INSERT INTO Appointment(" +
+                "PatientID,PhysicianID,Year, Month, Day, Hour, Minute, Identifier) VALUES (?,?,?,?,?,?,?,?);");
+
+        preparedStatement.setInt(1, 1);
+        preparedStatement.setInt(2, 6);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 3);
+        preparedStatement.setInt(5, 12);
+        preparedStatement.setInt(6, 9);
+        preparedStatement.setInt(7, 30);
+        preparedStatement.setInt(8, 1);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 2);
+        preparedStatement.setInt(2, 7);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 3);
+        preparedStatement.setInt(5, 13);
+        preparedStatement.setInt(6, 10);
+        preparedStatement.setInt(7, 35);
+        preparedStatement.setInt(8, 2);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 3);
+        preparedStatement.setInt(2, 8);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 3);
+        preparedStatement.setInt(5, 14);
+        preparedStatement.setInt(6, 11);
+        preparedStatement.setInt(7, 35);
+        preparedStatement.setInt(8, 3);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 4);
+        preparedStatement.setInt(2, 9);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 3);
+        preparedStatement.setInt(5, 15);
+        preparedStatement.setInt(6, 12);
+        preparedStatement.setInt(7, 45);
+        preparedStatement.setInt(8, 4);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 5);
+        preparedStatement.setInt(2, 10);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 3);
+        preparedStatement.setInt(5, 16);
+        preparedStatement.setInt(6, 13);
+        preparedStatement.setInt(7, 35);
+        preparedStatement.setInt(8, 5);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 1);
+        preparedStatement.setInt(2, 10);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 03);
+        preparedStatement.setInt(5, 12);
+        preparedStatement.setInt(6, 12);
+        preparedStatement.setInt(7, 45);
+        preparedStatement.setInt(8, 6);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 2);
+        preparedStatement.setInt(2, 9);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 4);
+        preparedStatement.setInt(5, 22);
+        preparedStatement.setInt(6, 18);
+        preparedStatement.setInt(7, 35);
+        preparedStatement.setInt(8, 7);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 3);
+        preparedStatement.setInt(2, 8);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 6);
+        preparedStatement.setInt(5, 12);
+        preparedStatement.setInt(6, 15);
+        preparedStatement.setInt(7, 35);
+        preparedStatement.setInt(8, 8);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 4);
+        preparedStatement.setInt(2, 7);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 10);
+        preparedStatement.setInt(5, 4);
+        preparedStatement.setInt(6, 14);
+        preparedStatement.setInt(7, 21);
+        preparedStatement.setInt(8, 9);
+        preparedStatement.execute();
+
+        preparedStatement.setInt(1, 5);
+        preparedStatement.setInt(2, 6);
+        preparedStatement.setInt(3, 2021);
+        preparedStatement.setInt(4, 5);
+        preparedStatement.setInt(5, 1);
+        preparedStatement.setInt(6, 13);
+        preparedStatement.setInt(7, 25);
+        preparedStatement.setInt(8, 10);
+        preparedStatement.execute();
+
+        System.out.println("\t appointments added..");
 
     }
 

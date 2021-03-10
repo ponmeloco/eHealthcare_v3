@@ -34,7 +34,7 @@ public class testMain {
             System.out.println(e.getMessage());
         }
         */
-        try{
+        /* try{
             Physician physician = databaseconnection.getPhysician("Doctor");
             Physician test = new Physician("dtestmail", "Bruce", "Banner", "Berlin", "Hauptstraße", "2", "60001", "110", "Dr.", "abcd", physician.getSpecialization(), new LatLong(50.00000,8.00000));
             databaseconnection.addUser(test);
@@ -47,6 +47,8 @@ public class testMain {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+
+         */
     /*
 
 
