@@ -439,6 +439,16 @@ class Databaseconnection {
         }
     }
 
+    public void deleteUser(User user)throws SQLException, ClassNotFoundException{
+        if (connection == null) {
+            connect();
+        }
+        Statement statement = connection.createStatement();
+        int userID = statement.executeQuery("SELECT ID FROM User WHERE emailaddress = '"+ user.getEmailAddress()+"';").getInt(1);
+        statement.execute("DELETE FROM User WHERE ID = "+ userID +";");
+
+    }
+
     /**
      * Fetches an instance of the Patient class from the database uniquely identified by its email.
      * @param email The registered emailaddress of the User.
@@ -1378,8 +1388,8 @@ class Databaseconnection {
                 "dateOfBirth DATE NOT NULL," +
                 "weight INT NOT NULL," +
                 "PRIMARY KEY(ID), " +
-                "FOREIGN KEY(ID) REFERENCES User(ID) ON DELETE RESTRICT ON UPDATE CASCADE," +
-                "FOREIGN KEY(insuranceID) REFERENCES Insurance(ID) ON DELETE RESTRICT ON UPDATE CASCADE" +
+                "FOREIGN KEY(ID) REFERENCES User(ID) ON DELETE CASCADE ON UPDATE CASCADE," +
+                "FOREIGN KEY(insuranceID) REFERENCES Insurance(ID) ON DELETE CASCADE ON UPDATE CASCADE" +
                 ")");
 
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Patient (" +
