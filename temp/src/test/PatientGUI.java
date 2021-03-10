@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class PatientGUI extends javax.swing.JFrame {
@@ -22,6 +24,7 @@ public class PatientGUI extends javax.swing.JFrame {
     Appointment [] appointments;
     Appointment selectedAppointment;
     Patient p;
+    Physician phy;
 
     public PatientGUI() {
 
@@ -102,13 +105,14 @@ public class PatientGUI extends javax.swing.JFrame {
         NewAppBtnMenuBar = new keeptoo.KButton();
         jPanel3 = new javax.swing.JPanel();
         p1 = new keeptoo.KGradientPanel();
-        printHealthInfkButton = new keeptoo.KButton();
+        DeleteAppointmentBtn_HomePnl = new keeptoo.KButton();
         patientAppointmentTable = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         yourAppointmenstLbl = new javax.swing.JLabel();
         reminderkButton = new keeptoo.KButton();
         setreminderComboBox_Homepnl = new javax.swing.JComboBox<>();
         reminderLbl_HomePnl = new javax.swing.JLabel();
+        printHealthInfkButton1 = new keeptoo.KButton();
         porfilePnl = new keeptoo.KGradientPanel();
         nameLbl = new javax.swing.JLabel();
         nameTxtLbl_ProfilPnl = new javax.swing.JLabel();
@@ -148,6 +152,14 @@ public class PatientGUI extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        addSymptomBtn_editProfile = new keeptoo.KButton();
+        severenessLbl_profilePnl = new javax.swing.JLabel();
+        nameOfSymptomsLbl_editProfile = new javax.swing.JLabel();
+        descriptionLbl_editProfile = new javax.swing.JLabel();
+        severenessTxtLbl_profilePnl = new javax.swing.JTextField();
+        nameOfSymptomsTxtFldl_editProfile = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        descriptionTxtFld_editProfile = new javax.swing.JTextArea();
         newAppPnl = new keeptoo.KGradientPanel();
         searchdistanceLbl_NewAppPnl = new javax.swing.JLabel();
         searchDistanceTexfld_NewAppPnl = new javax.swing.JTextField();
@@ -163,7 +175,8 @@ public class PatientGUI extends javax.swing.JFrame {
         descriptionLbl_NewAppPnl = new javax.swing.JLabel();
         severenessTxtFld_NewAppointmentPnl = new javax.swing.JLabel();
         symptomNameTxtFld_NewAppPnl = new javax.swing.JLabel();
-        descriptionTxtFld_NewAppPnl = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        descriptionTxtFld_NewAppPnl = new javax.swing.JTextArea();
         sendRequestPnl = new keeptoo.KGradientPanel();
         sendFirstAlternativejDateChooser = new com.toedter.calendar.JDateChooser();
         chooseFirstAterantivedateLbl = new javax.swing.JLabel();
@@ -177,6 +190,8 @@ public class PatientGUI extends javax.swing.JFrame {
         nameLbl_SendAltPnl = new javax.swing.JLabel();
         emailLbl_SendAltPnl = new javax.swing.JLabel();
         showEmailLbl_SendAltPnl = new javax.swing.JLabel();
+        firstTimeTxtFld_SendRequestPnl = new javax.swing.JTextField();
+        secondTimeTxtFld_SendRequestPnl = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -191,7 +206,9 @@ public class PatientGUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(framePicLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 891, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(framePicLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 918, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,19 +347,19 @@ public class PatientGUI extends javax.swing.JFrame {
         p1.setkEndColor(new java.awt.Color(255, 255, 255));
         p1.setkStartColor(new java.awt.Color(204, 255, 204));
 
-        printHealthInfkButton.setBorder(null);
-        printHealthInfkButton.setText("Print Healt Information");
-        printHealthInfkButton.setkEndColor(new java.awt.Color(102, 255, 102));
-        printHealthInfkButton.setkForeGround(new java.awt.Color(0, 0, 0));
-        printHealthInfkButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        printHealthInfkButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        printHealthInfkButton.setkHoverStartColor(new java.awt.Color(102, 255, 102));
-        printHealthInfkButton.setkPressedColor(new java.awt.Color(204, 255, 204));
-        printHealthInfkButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        printHealthInfkButton.setkStartColor(new java.awt.Color(255, 255, 255));
-        printHealthInfkButton.addActionListener(new java.awt.event.ActionListener() {
+        DeleteAppointmentBtn_HomePnl.setBorder(null);
+        DeleteAppointmentBtn_HomePnl.setText("Delete Appointment");
+        DeleteAppointmentBtn_HomePnl.setkEndColor(new java.awt.Color(102, 255, 102));
+        DeleteAppointmentBtn_HomePnl.setkForeGround(new java.awt.Color(0, 0, 0));
+        DeleteAppointmentBtn_HomePnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        DeleteAppointmentBtn_HomePnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        DeleteAppointmentBtn_HomePnl.setkHoverStartColor(new java.awt.Color(102, 255, 102));
+        DeleteAppointmentBtn_HomePnl.setkPressedColor(new java.awt.Color(204, 255, 204));
+        DeleteAppointmentBtn_HomePnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        DeleteAppointmentBtn_HomePnl.setkStartColor(new java.awt.Color(255, 255, 255));
+        DeleteAppointmentBtn_HomePnl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printHealthInfkButtonActionPerformed(evt);
+                DeleteAppointmentBtn_HomePnlActionPerformed(evt);
             }
         });
 
@@ -385,6 +402,22 @@ public class PatientGUI extends javax.swing.JFrame {
 
         reminderLbl_HomePnl.setText("Set reminder");
 
+        printHealthInfkButton1.setBorder(null);
+        printHealthInfkButton1.setText("Print Health Information");
+        printHealthInfkButton1.setkEndColor(new java.awt.Color(102, 255, 102));
+        printHealthInfkButton1.setkForeGround(new java.awt.Color(0, 0, 0));
+        printHealthInfkButton1.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        printHealthInfkButton1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        printHealthInfkButton1.setkHoverStartColor(new java.awt.Color(102, 255, 102));
+        printHealthInfkButton1.setkPressedColor(new java.awt.Color(204, 255, 204));
+        printHealthInfkButton1.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        printHealthInfkButton1.setkStartColor(new java.awt.Color(255, 255, 255));
+        printHealthInfkButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printHealthInfkButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
         p1.setLayout(p1Layout);
         p1Layout.setHorizontalGroup(
@@ -404,10 +437,18 @@ public class PatientGUI extends javax.swing.JFrame {
                                                                                 .addGap(69, 69, 69)
                                                                                 .addComponent(setreminderComboBox_Homepnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                         .addComponent(reminderkButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(printHealthInfkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(patientAppointmentTable, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE))
+                                                                .addGap(0, 0, Short.MAX_VALUE))
+                                                        .addComponent(patientAppointmentTable, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE))
                                                 .addGap(18, 18, 18))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(DeleteAppointmentBtn_HomePnl, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                                        .addContainerGap(474, Short.MAX_VALUE)
+                                        .addComponent(printHealthInfkButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8)))
         );
         p1Layout.setVerticalGroup(
                 p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,11 +461,16 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(setreminderComboBox_Homepnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(reminderLbl_HomePnl))
-                                .addGap(51, 51, 51)
-                                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(reminderkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(printHealthInfkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DeleteAppointmentBtn_HomePnl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(reminderkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39))
+                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                                        .addContainerGap(380, Short.MAX_VALUE)
+                                        .addComponent(printHealthInfkButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(29, 29, 29)))
         );
 
         jPanel3.add(p1, "card2");
@@ -577,6 +623,31 @@ public class PatientGUI extends javax.swing.JFrame {
             }
         });
 
+        addSymptomBtn_editProfile.setBorder(null);
+        addSymptomBtn_editProfile.setText("Add Symptom");
+        addSymptomBtn_editProfile.setkEndColor(new java.awt.Color(255, 255, 255));
+        addSymptomBtn_editProfile.setkForeGround(new java.awt.Color(0, 0, 0));
+        addSymptomBtn_editProfile.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        addSymptomBtn_editProfile.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        addSymptomBtn_editProfile.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        addSymptomBtn_editProfile.setkPressedColor(new java.awt.Color(51, 255, 51));
+        addSymptomBtn_editProfile.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        addSymptomBtn_editProfile.setkStartColor(new java.awt.Color(102, 255, 102));
+
+        severenessLbl_profilePnl.setText("Severeness");
+
+        nameOfSymptomsLbl_editProfile.setText(" Name of the symptom");
+
+        descriptionLbl_editProfile.setText("Description:");
+
+        severenessTxtLbl_profilePnl.setText("jTextField1");
+
+        nameOfSymptomsTxtFldl_editProfile.setText("jTextField2");
+
+        descriptionTxtFld_editProfile.setColumns(20);
+        descriptionTxtFld_editProfile.setRows(5);
+        jScrollPane3.setViewportView(descriptionTxtFld_editProfile);
+
         javax.swing.GroupLayout porfilePnlLayout = new javax.swing.GroupLayout(porfilePnl);
         porfilePnl.setLayout(porfilePnlLayout);
         porfilePnlLayout.setHorizontalGroup(
@@ -585,56 +656,96 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addGap(103, 103, 103)
                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(nameLbl)
-                                                        .addComponent(familyNameLbl_ProfilPnl))
-                                                .addGap(48, 48, 48)
+                                                        .addComponent(familyNameLbl_ProfilPnl)
+                                                        .addComponent(titleLbl_ProfilPnl)
+                                                        .addComponent(postalCodeLbl_ProfilPnl)
+                                                        .addComponent(weightLbl_ProfilPnl)
+                                                        .addComponent(dateOfBirthLbl_ProfilPnl)
+                                                        .addComponent(postalCodeLblEditProfilePln)
+                                                        .addComponent(emailLbl_ProfilPnl)
+                                                        .addComponent(phoneLbl_ProfilPnl))
+                                                .addGap(46, 46, 46)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(nameTxtLbl_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(familynameTxtLbl_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                                        .addComponent(familynameTxtLbl_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addGap(76, 76, 76))
+                                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                                        .addComponent(titleTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addGap(106, 106, 106))
+                                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                                        .addComponent(InsuranceTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                        .addComponent(jLabel25)
+                                                                                        .addGap(86, 86, 86))
+                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+                                                                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+                                                                                                        .addComponent(weightTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addComponent(jLabel26))
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+                                                                                                        .addComponent(dateOfBirthTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addComponent(jLabel22))
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+                                                                                                        .addComponent(postalCodeTxtFldEditProfilePln, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addComponent(jLabel21))
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, porfilePnlLayout.createSequentialGroup()
+                                                                                                        .addComponent(emailTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addComponent(jLabel23)))
+                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                                        .addComponent(nameOfSymptomsLbl_editProfile)
+                                                                                        .addGap(18, 18, 18)
+                                                                                        .addComponent(nameOfSymptomsTxtFldl_editProfile))
+                                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                                        .addComponent(severenessLbl_profilePnl)
+                                                                                        .addGap(83, 83, 83)
+                                                                                        .addComponent(severenessTxtLbl_profilePnl, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addComponent(descriptionLbl_editProfile)
+                                                                                .addComponent(addSymptomBtn_editProfile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                        .addComponent(phoneTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                                        .addGap(0, 0, Short.MAX_VALUE)
+                                                                                        .addComponent(saveChangesBtn_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                                        .addComponent(jLabel11)
+                                                                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                                         .addGroup(porfilePnlLayout.createSequentialGroup()
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(cityLbl_ProfilPnl)
                                                         .addComponent(InsuranceLbl_ProfilPnl)
                                                         .addComponent(houseNumberLbl_ProfilPnl)
-                                                        .addComponent(weightLbl_ProfilPnl)
-                                                        .addComponent(titleLbl_ProfilPnl)
-                                                        .addComponent(postalCodeLbl_ProfilPnl)
-                                                        .addComponent(dateOfBirthLbl_ProfilPnl)
-                                                        .addComponent(postalCodeLblEditProfilePln)
-                                                        .addComponent(emailLbl_ProfilPnl)
-                                                        .addComponent(phoneLbl_ProfilPnl)
                                                         .addComponent(streetLbl_ProfilPnl))
                                                 .addGap(38, 38, 38)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(InsuranceTxtFld_ProfilPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                                                        .addComponent(cityTxtFld_ProfilPnl, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(cityTxtFld_ProfilPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                                                         .addComponent(HouseNumberTxtFld_ProfilPnl, javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(streetTxtfld_ProfilPnl, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(weightTxtFld_ProfilPnl)
-                                                        .addComponent(postalCodeTxtFld_ProfilPnl)
-                                                        .addComponent(titleTxtfld_ProfilPnl)
-                                                        .addComponent(dateOfBirthTxtfld_ProfilPnl)
-                                                        .addComponent(postalCodeTxtFldEditProfilePln)
-                                                        .addComponent(emailTxtfld_ProfilPnl)
-                                                        .addComponent(phoneTxtfld_ProfilPnl))
+                                                        .addComponent(postalCodeTxtFld_ProfilPnl))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel25)
-                                                                .addComponent(jLabel26)
                                                                 .addComponent(jLabel20)
-                                                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(jLabel22)
-                                                                .addComponent(jLabel23)
-                                                                .addComponent(jLabel11)
-                                                                .addComponent(jLabel21)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
-                                                .addComponent(saveChangesBtn_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap())
+                                                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addContainerGap(12, Short.MAX_VALUE))
         );
         porfilePnlLayout.setVerticalGroup(
                 porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -646,16 +757,18 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(familyNameLbl_ProfilPnl)
-                                        .addComponent(familynameTxtLbl_ProfilPnl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(streetLbl_ProfilPnl)
-                                                .addComponent(streetTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(9, 9, 9)
+                                        .addComponent(familynameTxtLbl_ProfilPnl)
+                                        .addComponent(severenessLbl_profilePnl)
+                                        .addComponent(severenessTxtLbl_profilePnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(streetLbl_ProfilPnl)
+                                                                .addComponent(streetTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(6, 6, 6)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(HouseNumberTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(houseNumberLbl_ProfilPnl))
@@ -664,62 +777,71 @@ public class PatientGUI extends javax.swing.JFrame {
                                                         .addComponent(cityLbl_ProfilPnl)
                                                         .addComponent(cityTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                .addComponent(jLabel28)
-                                                .addGap(12, 12, 12)
-                                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(InsuranceTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(InsuranceLbl_ProfilPnl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                .addGap(7, 7, 7)
-                                                .addComponent(weightLbl_ProfilPnl)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(postalCodeLbl_ProfilPnl)
+                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                .addGap(32, 32, 32)
+                                                                .addComponent(jLabel28))
+                                                        .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                                .addGap(20, 20, 20)
+                                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(nameOfSymptomsLbl_editProfile)
+                                                                        .addComponent(nameOfSymptomsTxtFldl_editProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                 .addGap(15, 15, 15)
-                                                .addComponent(titleLbl_ProfilPnl))
+                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(descriptionLbl_editProfile))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(porfilePnlLayout.createSequentialGroup()
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(weightTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(InsuranceLbl_ProfilPnl)
+                                                        .addComponent(InsuranceTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(postalCodeTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(postalCodeLbl_ProfilPnl))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(titleLbl_ProfilPnl)
                                                         .addComponent(titleTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(dateOfBirthTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(dateOfBirthLbl_ProfilPnl))
-                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(postalCodeLblEditProfilePln)
-                                        .addComponent(postalCodeTxtFldEditProfilePln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(emailLbl_ProfilPnl))
-                                        .addGroup(porfilePnlLayout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
+                                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(emailTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(phoneLbl_ProfilPnl)
-                                        .addComponent(phoneTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(saveChangesBtn_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(94, Short.MAX_VALUE))
+                                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(weightTxtFld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(weightLbl_ProfilPnl))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(dateOfBirthTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(dateOfBirthLbl_ProfilPnl)
+                                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(postalCodeTxtFldEditProfilePln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(postalCodeLblEditProfilePln))
+                                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(emailLbl_ProfilPnl)
+                                                        .addComponent(emailTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(porfilePnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(phoneTxtfld_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(phoneLbl_ProfilPnl)
+                                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(106, 138, Short.MAX_VALUE))
+                                        .addGroup(porfilePnlLayout.createSequentialGroup()
+                                                .addGap(7, 7, 7)
+                                                .addComponent(jScrollPane3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(addSymptomBtn_editProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(saveChangesBtn_ProfilPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(113, 113, 113))))
         );
 
         jPanel3.add(porfilePnl, "card4");
@@ -750,12 +872,17 @@ public class PatientGUI extends javax.swing.JFrame {
         jTable1.setBackground(new java.awt.Color(204, 255, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-
+                        {"Doctor", null, null, "amaramko@live.com"}
                 },
                 new String [] {
                         "Last name", "Specification", "Distance", "E-Mail"
                 }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         physicianListLbl_NewAppPnl.setFont(new java.awt.Font("Baskerville Old Face", 2, 20)); // NOI18N
@@ -786,7 +913,9 @@ public class PatientGUI extends javax.swing.JFrame {
 
         symptomNameTxtFld_NewAppPnl.setText("symtom name");
 
-        descriptionTxtFld_NewAppPnl.setText("description");
+        descriptionTxtFld_NewAppPnl.setColumns(20);
+        descriptionTxtFld_NewAppPnl.setRows(5);
+        jScrollPane4.setViewportView(descriptionTxtFld_NewAppPnl);
 
         javax.swing.GroupLayout newAppPnlLayout = new javax.swing.GroupLayout(newAppPnl);
         newAppPnl.setLayout(newAppPnlLayout);
@@ -794,8 +923,12 @@ public class PatientGUI extends javax.swing.JFrame {
                 newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(newAppPnlLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane2)
+                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(newAppPnlLayout.createSequentialGroup()
+                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(sendRequeskBtn_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(newAppPnlLayout.createSequentialGroup()
                                                 .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(chooseSymptomLbl_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -806,23 +939,20 @@ public class PatientGUI extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(newAppPnlLayout.createSequentialGroup()
-                                                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                                .addComponent(chooseSymptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(severenessTxtFld_NewAppointmentPnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                        .addComponent(descriptionTxtFld_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                                                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newAppPnlLayout.createSequentialGroup()
-                                                                                .addComponent(searchdistanceLbl_NewAppPnl)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(searchDistanceTexfld_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addComponent(searchPhysicianBtn_NewAppPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(sendRequeskBtn_NewAppPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(chooseSymptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(searchdistanceLbl_NewAppPnl)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(searchDistanceTexfld_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(newAppPnlLayout.createSequentialGroup()
-                                                                .addComponent(symptomNameTxtFld_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                                .addContainerGap())))
+                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                .addComponent(searchPhysicianBtn_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(newAppPnlLayout.createSequentialGroup()
+                                                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(severenessTxtFld_NewAppointmentPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(symptomNameTxtFld_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addContainerGap(23, Short.MAX_VALUE))
         );
         newAppPnlLayout.setVerticalGroup(
                 newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -837,9 +967,13 @@ public class PatientGUI extends javax.swing.JFrame {
                                         .addComponent(searchDistanceTexfld_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(chooseSymptomLbl_NewAppPnl)
                                         .addComponent(chooseSymptomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(newAppPnlLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newAppPnlLayout.createSequentialGroup()
+                                                .addComponent(searchPhysicianBtn_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(sendRequeskBtn_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newAppPnlLayout.createSequentialGroup()
                                                 .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(severenessLbl_NewAppointmentPnl)
                                                         .addComponent(severenessTxtFld_NewAppointmentPnl))
@@ -848,15 +982,10 @@ public class PatientGUI extends javax.swing.JFrame {
                                                         .addComponent(symptomNameLbl_NewAppPnl)
                                                         .addComponent(symptomNameTxtFld_NewAppPnl))
                                                 .addGap(18, 18, 18)
-                                                .addGroup(newAppPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(descriptionLbl_NewAppPnl)
-                                                        .addComponent(descriptionTxtFld_NewAppPnl))
-                                                .addGap(87, 87, 87))
-                                        .addGroup(newAppPnlLayout.createSequentialGroup()
-                                                .addComponent(searchPhysicianBtn_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(sendRequeskBtn_NewAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(53, Short.MAX_VALUE))
+                                                .addComponent(descriptionLbl_NewAppPnl)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(31, 31, 31))
         );
 
         jPanel3.add(newAppPnl, "card2");
@@ -866,9 +995,9 @@ public class PatientGUI extends javax.swing.JFrame {
 
         sendFirstAlternativejDateChooser.setBackground(new java.awt.Color(204, 255, 204));
 
-        chooseFirstAterantivedateLbl.setText("Choose first alternative date:");
+        chooseFirstAterantivedateLbl.setText("Choose first alternative date and time:");
 
-        ChooseSecondAterantivedateLbl.setText("Choose second alternative date:");
+        ChooseSecondAterantivedateLbl.setText("Choose second alternative date and time:");
 
         sendSecondAlternativejDateChooser.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -895,7 +1024,7 @@ public class PatientGUI extends javax.swing.JFrame {
             }
         });
 
-        patientNameLbl_SendAltPnl.setText("Patient name");
+        patientNameLbl_SendAltPnl.setText("Physician name");
 
         nameLbl_SendAltPnl.setText("Name");
 
@@ -903,12 +1032,16 @@ public class PatientGUI extends javax.swing.JFrame {
 
         showEmailLbl_SendAltPnl.setText("example@live.com");
 
+        firstTimeTxtFld_SendRequestPnl.setText("11:00");
+
+        secondTimeTxtFld_SendRequestPnl.setText("15:30");
+
         javax.swing.GroupLayout sendRequestPnlLayout = new javax.swing.GroupLayout(sendRequestPnl);
         sendRequestPnl.setLayout(sendRequestPnlLayout);
         sendRequestPnlLayout.setHorizontalGroup(
                 sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(sendRequestPnlLayout.createSequentialGroup()
-                                .addContainerGap(176, Short.MAX_VALUE)
+                                .addContainerGap(228, Short.MAX_VALUE)
                                 .addGroup(sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(sendAppointmntRequestBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -931,7 +1064,11 @@ public class PatientGUI extends javax.swing.JFrame {
                                                         .addGroup(sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                                 .addComponent(sendFirstAlternativejDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                                                                 .addComponent(sendSecondAlternativejDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                                .addGap(90, 90, 90))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(secondTimeTxtFld_SendRequestPnl)
+                                        .addComponent(firstTimeTxtFld_SendRequestPnl))
+                                .addGap(20, 20, 20))
         );
         sendRequestPnlLayout.setVerticalGroup(
                 sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -939,11 +1076,13 @@ public class PatientGUI extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addGroup(sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(chooseFirstAterantivedateLbl)
-                                        .addComponent(sendFirstAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(sendFirstAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(firstTimeTxtFld_SendRequestPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(39, 39, 39)
                                 .addGroup(sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(ChooseSecondAterantivedateLbl)
-                                        .addComponent(sendSecondAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(sendSecondAlternativejDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(secondTimeTxtFld_SendRequestPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(sendRequestPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(patientNameLbl_SendAltPnl)
@@ -1006,7 +1145,7 @@ public class PatientGUI extends javax.swing.JFrame {
 
     }
 
-    private void printHealthInfkButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void DeleteAppointmentBtn_HomePnlActionPerformed(java.awt.event.ActionEvent evt) {
 
 
     }
@@ -1051,38 +1190,58 @@ public class PatientGUI extends javax.swing.JFrame {
     }
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {
-        int index=jTable1.getSelectedRow();
-        TableModel model=jTable1.getModel();
-        showEmailLbl_SendAltPnl.setText(model.getValueAt(index,3).toString());
-        nameLbl_SendAltPnl.setText(model.getValueAt(index,0).toString());
-        String sDate1=model.getValueAt(index,2).toString();
 
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
-
-
-        for(int i=0;i<appointments.length;i++){
-            if(appointments[i].getPatient().getLastName().equals(nameLbl_SendAltPnl.getText())&&appointments[i].getDate().equals(dateTime)){
-                selectedAppointment=appointments[i];
-            }
-        }
-        // TODO add your handling code here:
     }
 
     private void sendAppointmntRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {
+/*
         LocalDateTime now = LocalDateTime.now();
         Date date1 =(java.sql.Timestamp.valueOf(now));
         Date date2 =(sendFirstAlternativejDateChooser.getDate());
         Date date3 =(sendSecondAlternativejDateChooser.getDate());
 
 
+        Patient patient=new Patient();
+        patient.setLastName("PAtient 1");
+
+        //Physician physician = new Physician();
+
+
+
+        //convert date to string
+        DateFormat dateFormatter2 = new SimpleDateFormat("yyyy-MM-dd");
+        String str=dateFormatter2.format(date2)+" "+firstTimeTxtFld_SendRequestPnl.getText();
+
+
+        //convert string to dateTime
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+
+
+        try{
+
+            Databaseconnection databaseconnection = new Databaseconnection();
+            phy=databaseconnection.getPhysician("Doctor");
+
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+
+       Appointment appointment=new Appointment(patient,phy,dateTime);
+
+        //save the appointment in the database !!!
 
         if (date1.before(date2)&&date1.before(date3)) {
 
-            new Mail().sendAppointmentRequest(selectedAppointment,date2,addnoteTexFld.getText(),date3); }
+            new Mail().sendAppointmentRequest(appointment,date2,addnoteTexFld.getText(),date3,firstTimeTxtFld_SendRequestPnl.getText(),secondTimeTxtFld_SendRequestPnl.getText()); }
         else
             JOptionPane.showMessageDialog(this,"Appointment date cannot be set in the past !");
+
+
+
+*/
+
     }
 
     private void reminderkButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1115,6 +1274,26 @@ public class PatientGUI extends javax.swing.JFrame {
         porfilePnl.setVisible(false);
         sendRequestPnl.setVisible(true);
     }
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
+
+        int index=jTable1.getSelectedRow();
+        TableModel model=jTable1.getModel();
+        showEmailLbl_SendAltPnl.setText(model.getValueAt(index,3).toString());
+        nameLbl_SendAltPnl.setText(model.getValueAt(index,0).toString());
+
+
+
+    }
+
+    private void printHealthInfkButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+
+
+
+
     private void populateTable(Patient patient){
 
 
@@ -1213,11 +1392,13 @@ public class PatientGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify
     private javax.swing.JLabel ChooseSecondAterantivedateLbl;
+    private keeptoo.KButton DeleteAppointmentBtn_HomePnl;
     private javax.swing.JTextField HouseNumberTxtFld_ProfilPnl;
     private javax.swing.JLabel InsuranceLbl_ProfilPnl;
     private javax.swing.JTextField InsuranceTxtFld_ProfilPnl;
     private keeptoo.KButton NewAppBtnMenuBar;
     private javax.swing.JLabel addNotelbl;
+    private keeptoo.KButton addSymptomBtn_editProfile;
     private javax.swing.JTextArea addnoteTexFld;
     private javax.swing.JLabel chooseFirstAterantivedateLbl;
     private javax.swing.JComboBox<String> chooseSymptomComboBox;
@@ -1227,12 +1408,15 @@ public class PatientGUI extends javax.swing.JFrame {
     private javax.swing.JLabel dateOfBirthLbl_ProfilPnl;
     private javax.swing.JTextField dateOfBirthTxtfld_ProfilPnl;
     private javax.swing.JLabel descriptionLbl_NewAppPnl;
-    private javax.swing.JLabel descriptionTxtFld_NewAppPnl;
+    private javax.swing.JLabel descriptionLbl_editProfile;
+    private javax.swing.JTextArea descriptionTxtFld_NewAppPnl;
+    private javax.swing.JTextArea descriptionTxtFld_editProfile;
     private javax.swing.JLabel emailLbl_ProfilPnl;
     private javax.swing.JLabel emailLbl_SendAltPnl;
     private javax.swing.JTextField emailTxtfld_ProfilPnl;
     private javax.swing.JLabel familyNameLbl_ProfilPnl;
     private javax.swing.JLabel familynameTxtLbl_ProfilPnl;
+    private javax.swing.JTextField firstTimeTxtFld_SendRequestPnl;
     private javax.swing.JLabel framePicLbl;
     private javax.swing.JLabel houseNumberLbl_ProfilPnl;
     private javax.swing.JLabel jLabel11;
@@ -1251,6 +1435,8 @@ public class PatientGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private keeptoo.KGradientPanel mainPnl;
@@ -1260,6 +1446,8 @@ public class PatientGUI extends javax.swing.JFrame {
     private keeptoo.KButton menuBarLogoutBtn;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JLabel nameLbl_SendAltPnl;
+    private javax.swing.JLabel nameOfSymptomsLbl_editProfile;
+    private javax.swing.JTextField nameOfSymptomsTxtFldl_editProfile;
     private javax.swing.JLabel nameTxtLbl_ProfilPnl;
     private keeptoo.KGradientPanel newAppPnl;
     private keeptoo.KGradientPanel p1;
@@ -1273,13 +1461,14 @@ public class PatientGUI extends javax.swing.JFrame {
     private javax.swing.JLabel postalCodeLbl_ProfilPnl;
     private javax.swing.JTextField postalCodeTxtFldEditProfilePln;
     private javax.swing.JTextField postalCodeTxtFld_ProfilPnl;
-    private keeptoo.KButton printHealthInfkButton;
+    private keeptoo.KButton printHealthInfkButton1;
     private javax.swing.JLabel reminderLbl_HomePnl;
     private keeptoo.KButton reminderkButton;
     private keeptoo.KButton saveChangesBtn_ProfilPnl;
     private javax.swing.JTextField searchDistanceTexfld_NewAppPnl;
     private keeptoo.KButton searchPhysicianBtn_NewAppPnl;
     private javax.swing.JLabel searchdistanceLbl_NewAppPnl;
+    private javax.swing.JTextField secondTimeTxtFld_SendRequestPnl;
     private keeptoo.KButton sendAppointmntRequestBtn;
     private com.toedter.calendar.JDateChooser sendFirstAlternativejDateChooser;
     private keeptoo.KButton sendRequeskBtn_NewAppPnl;
@@ -1287,7 +1476,9 @@ public class PatientGUI extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser sendSecondAlternativejDateChooser;
     private javax.swing.JComboBox<String> setreminderComboBox_Homepnl;
     private javax.swing.JLabel severenessLbl_NewAppointmentPnl;
+    private javax.swing.JLabel severenessLbl_profilePnl;
     private javax.swing.JLabel severenessTxtFld_NewAppointmentPnl;
+    private javax.swing.JTextField severenessTxtLbl_profilePnl;
     private javax.swing.JLabel showEmailLbl_SendAltPnl;
     private javax.swing.JLabel streetLbl_ProfilPnl;
     private javax.swing.JTextField streetTxtfld_ProfilPnl;
