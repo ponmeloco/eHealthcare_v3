@@ -103,8 +103,8 @@ public class Mail {
 
 	public void sendAppointmentRequest(Appointment appointment,Date alternativeDate1,String note,Date alternativeDate2,String time1,String time2){
 
-		String senderName=appointment.getPhysician().getFirstName()+appointment.getPhysician().getLastName();
-		String receiverMail=appointment.getPatient().getEmailAddress();
+		String senderName=appointment.getPatient().getFirstName()+appointment.getPatient().getLastName();
+		String receiverMail=appointment.getPhysician().getEmailAddress();
 		String subject="Appointment request";
 		String message="You have a new appointment request  on : "+dateFormatter2.format(alternativeDate1)+" "+time1+" and alternatively on : "+dateFormatter2.format(alternativeDate2)+" "+time2+"\n  Note :  "+note;
 		Mail newMsg = new Mail();
