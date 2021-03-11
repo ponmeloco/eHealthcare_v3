@@ -6,10 +6,13 @@
 package test;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Objects;
 import javax.swing.*;
 import javax.swing.table.*;
@@ -24,12 +27,13 @@ public class AdminGUI extends javax.swing.JFrame {
     Physician   [] physicians;
     Patient     [] patients;
     public AdminGUI(Admin admin) {
-        setUndecorated(true);
+        setUndecorated(false);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         initComponents();
         populateAllAppointmentTable();
         populatePhysicianTable();
         populatePatientTable();
+        welcomenameLbl.setText(admin.getLastName());
 
     }
 
@@ -59,21 +63,21 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianLblUserMngPnl = new javax.swing.JLabel();
         patientLblUserMngPnl = new javax.swing.JLabel();
         editPhyPnl = new keeptoo.KGradientPanel();
-        physicianListlbl = new javax.swing.JLabel();
+        physicianListLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        adminPhysicianlisttable = new javax.swing.JTable();
-        searchBtnEditPhyPnl = new keeptoo.KButton();
-        deleteButtonEditPhyPnl = new keeptoo.KButton();
-        createPhysicianBtnEditPhyPnl = new keeptoo.KButton();
-        searchTxtFldEditPhyPnl = new javax.swing.JTextField();
-        editPhysicianButtonEditPhyPnl1 = new keeptoo.KButton();
+        adminPhysicianTable = new javax.swing.JTable();
+        physicianSearchButton = new keeptoo.KButton();
+        physicianDeleteButton = new keeptoo.KButton();
+        physicianCreateButtonMainPanel = new keeptoo.KButton();
+        physicianSearchTxtField = new javax.swing.JTextField();
+        physicianEditButton = new keeptoo.KButton();
         editPatientPnl = new keeptoo.KGradientPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        patientTable_editPatientPnl = new javax.swing.JTable();
+        adminPatientTable = new javax.swing.JTable();
         pateintListLblEditPatintPnl = new javax.swing.JLabel();
-        searchbtnEditPatintPnl = new keeptoo.KButton();
-        SearchTexFealdEditPatintPnl = new javax.swing.JTextField();
-        deletepatientBtnEditPatintPnl = new keeptoo.KButton();
+        patientSearchButton = new keeptoo.KButton();
+        patientSearchTextField = new javax.swing.JTextField();
+        patientDeleteButton = new keeptoo.KButton();
         createPatientBtnEditPatintPnl = new keeptoo.KButton();
         editPatienButtonEditPhyPnl2 = new keeptoo.KButton();
         editAppointmentPnl = new keeptoo.KGradientPanel();
@@ -107,32 +111,32 @@ public class AdminGUI extends javax.swing.JFrame {
         specializationComboBox1 = new javax.swing.JComboBox<>();
         createPatientPnl = new keeptoo.KGradientPanel();
         createpatientBtnCreatePatientPnl = new keeptoo.KButton();
-        patientnameTxtFldCreatePatientPnl = new javax.swing.JTextField();
+        patientCreateFirstNameTxtField = new javax.swing.JTextField();
         nameLblCreatePatientPnl = new javax.swing.JLabel();
-        patientFamilynameTxtFldCreatePatientPnl = new javax.swing.JTextField();
+        patientCreateLastNameTxtField = new javax.swing.JTextField();
         patientFamilyNameTxFldCreatePatientPnl = new javax.swing.JLabel();
         patientStreetLblCreatePatientPnl = new javax.swing.JLabel();
-        patientStreetTxtFldCreatePatientPnl = new javax.swing.JTextField();
+        patientCreateStreetTxtField = new javax.swing.JTextField();
         patientHousenumberLblCreatePatientPnl = new javax.swing.JLabel();
-        patientHouseNumberTxtFldCreatePatientPnl = new javax.swing.JTextField();
-        patientPostalCodeTxtFldCreatePatientPnl = new javax.swing.JTextField();
+        patientCreateHouseNumberTxtField = new javax.swing.JTextField();
+        patientCreatePostalCodeTxtField = new javax.swing.JTextField();
         patientPostalCodeLblCreatePatientPnl = new javax.swing.JLabel();
         patientCityLblCreatePatientPnl = new javax.swing.JLabel();
         patientTitleLblCreatePatientPnl = new javax.swing.JLabel();
         patientEmailLblCreatePatientPnl = new javax.swing.JLabel();
         patientphoneLblCreatePatientPnl = new javax.swing.JLabel();
-        patientPhoneTxtFld1CreatePatientPnl = new javax.swing.JTextField();
-        emailTxtFldCreatePatientPnl = new javax.swing.JTextField();
-        patienTtitleTxtFldCreatePatientPnl = new javax.swing.JTextField();
-        patientCityTxtFldCreatePatientPnl = new javax.swing.JTextField();
+        patientCreatePhoneNumberTxtField = new javax.swing.JTextField();
+        patientCreateEmailTxtField = new javax.swing.JTextField();
+        patientCreateTitleTxtField = new javax.swing.JTextField();
+        patientCreateCityTxtField = new javax.swing.JTextField();
         insurance_CreatepatientPnl = new javax.swing.JLabel();
         weightLbl_CreatepatientPnl = new javax.swing.JLabel();
-        weightTxtFld_CreatepatientPnl = new javax.swing.JTextField();
+        patientCreateWeightTxtField = new javax.swing.JTextField();
         dateOfBirthtLbl_CreatepatientPnl = new javax.swing.JLabel();
-        dateOfBirthTxtFld_CreatepatientPnl = new javax.swing.JTextField();
+        patientCreateDateOfBirthTxtField = new javax.swing.JTextField();
         paswordLbl_CreatepatientPnl = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        insuranceComboBox_createPatientPnl = new javax.swing.JComboBox<>();
+        patientCreatePasswordTxtField = new javax.swing.JTextField();
+        patientCreateInsuranceComboBox = new javax.swing.JComboBox<>();
         editPatientPnl1 = new keeptoo.KGradientPanel();
         createpatientBtnCreatePatientPnl1 = new keeptoo.KButton();
         patientnameTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
@@ -159,7 +163,7 @@ public class AdminGUI extends javax.swing.JFrame {
         dateOfBirthtLbl_CreatepatientPnl1 = new javax.swing.JLabel();
         dateOfBirthTxtFld_CreatepatientPnl1 = new javax.swing.JTextField();
         paswordLbl_CreatepatientPnl1 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField("NOT CHANGEABLE PATIENT");
         insuranceComboBox_createPatientPnl1 = new javax.swing.JComboBox<>();
         editPhysiciantPnl1 = new keeptoo.KGradientPanel();
         createphysiciantBtnCreatePhysiciantPnl1 = new keeptoo.KButton();
@@ -183,7 +187,7 @@ public class AdminGUI extends javax.swing.JFrame {
         eamilTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
         phoneTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
         passLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        passTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
+        passTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField("NOT CHANGEABLE PHYSICIAN EDIT");
         specializationComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -249,7 +253,7 @@ public class AdminGUI extends javax.swing.JFrame {
         welcomeLbl.setText("Welcome");
 
         welcomenameLbl.setFont(new java.awt.Font("Baskerville Old Face", 2, 20)); // NOI18N
-        welcomenameLbl.setText("Planincic");
+        welcomenameLbl.setText("empty");
 
         appointmenMenagmentBtn.setBorder(null);
         appointmenMenagmentBtn.setText("Appointment Management");
@@ -383,11 +387,11 @@ public class AdminGUI extends javax.swing.JFrame {
         editPhyPnl.setkEndColor(new java.awt.Color(255, 255, 255));
         editPhyPnl.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        physicianListlbl.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        physicianListlbl.setText("Physician list");
+        physicianListLabel.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        physicianListLabel.setText("Physician list");
 
-        adminPhysicianlisttable.setBackground(new java.awt.Color(204, 204, 204));
-        adminPhysicianlisttable.setModel(new javax.swing.table.DefaultTableModel(
+        adminPhysicianTable.setBackground(new java.awt.Color(204, 204, 204));
+        adminPhysicianTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
                 },
@@ -395,76 +399,104 @@ public class AdminGUI extends javax.swing.JFrame {
                         "First name", "Last name", "Specialization", "E-Mail ", "Phone"
                 }
         ));
-        jScrollPane2.setViewportView(adminPhysicianlisttable);
+        jScrollPane2.setViewportView(adminPhysicianTable);
 
-        searchBtnEditPhyPnl.setBorder(null);
-        searchBtnEditPhyPnl.setText("Search");
-        searchBtnEditPhyPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        searchBtnEditPhyPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        searchBtnEditPhyPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        searchBtnEditPhyPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        searchBtnEditPhyPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        searchBtnEditPhyPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        searchBtnEditPhyPnl.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianSearchButton.setBorder(null);
+        physicianSearchButton.setText("Search");
+        physicianSearchButton.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianSearchButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        physicianSearchButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        physicianSearchButton.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        physicianSearchButton.setkPressedColor(new java.awt.Color(0, 0, 0));
+        physicianSearchButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        physicianSearchButton.setkStartColor(new java.awt.Color(102, 102, 102));
 
-        deleteButtonEditPhyPnl.setBorder(null);
-        deleteButtonEditPhyPnl.setText("Delete Physician");
-        deleteButtonEditPhyPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        deleteButtonEditPhyPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        deleteButtonEditPhyPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        deleteButtonEditPhyPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        deleteButtonEditPhyPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        deleteButtonEditPhyPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        deleteButtonEditPhyPnl.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianDeleteButton.setBorder(null);
+        physicianDeleteButton.setText("Delete Physician");
+        physicianDeleteButton.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianDeleteButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        physicianDeleteButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        physicianDeleteButton.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        physicianDeleteButton.setkPressedColor(new java.awt.Color(0, 0, 0));
+        physicianDeleteButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        physicianDeleteButton.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianDeleteButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Databaseconnection data = new Databaseconnection();
+                if (adminPhysicianTable.getSelectedRow() != -1){
+                    try {
+                        JOptionPane.showMessageDialog(null, "Physician named: " + adminPhysicianTable.getValueAt(adminPhysicianTable.getSelectedRow(), 0) + " " + adminPhysicianTable.getValueAt(adminPhysicianTable.getSelectedRow(), 1) + " got deleted.");
+                        data.deleteUser(data.getPhysician((String) adminPhysicianTable.getValueAt(adminPhysicianTable.getSelectedRow(), 3)));
+                    } catch (SQLException | ClassNotFoundException throwables) {
+                        throwables.printStackTrace();
+                    }
+                    DefaultTableModel model = (DefaultTableModel) adminPhysicianTable.getModel();
+                    model.setRowCount(0);
+                } else {
+                    DefaultTableModel model = (DefaultTableModel) adminPhysicianTable.getModel();
+                    model.setRowCount(0);
+                }
+                populatePhysicianTable();
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {}
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            @Override
+            public void mouseExited(MouseEvent e) {}
+        });
 
-        createPhysicianBtnEditPhyPnl.setBorder(null);
-        createPhysicianBtnEditPhyPnl.setText("Create Physician");
-        createPhysicianBtnEditPhyPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        createPhysicianBtnEditPhyPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        createPhysicianBtnEditPhyPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        createPhysicianBtnEditPhyPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        createPhysicianBtnEditPhyPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        createPhysicianBtnEditPhyPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        createPhysicianBtnEditPhyPnl.setkStartColor(new java.awt.Color(102, 102, 102));
-        createPhysicianBtnEditPhyPnl.addActionListener(new java.awt.event.ActionListener() {
+        physicianCreateButtonMainPanel.setBorder(null);
+        physicianCreateButtonMainPanel.setText("Create Physician");
+        physicianCreateButtonMainPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonMainPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonMainPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonMainPanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        physicianCreateButtonMainPanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        physicianCreateButtonMainPanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonMainPanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianCreateButtonMainPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createPhysicianBtnEditPhyPnlActionPerformed(evt);
+                physicianCreateButtonPhysicianTablePanelActionPerformed(evt);
             }
         });
 
-        searchTxtFldEditPhyPnl.setForeground(new java.awt.Color(204, 204, 204));
-        searchTxtFldEditPhyPnl.setText("Type here to search...");
-        searchTxtFldEditPhyPnl.addMouseListener(new java.awt.event.MouseAdapter() {
+        physicianSearchTxtField.setForeground(new java.awt.Color(204, 204, 204));
+        physicianSearchTxtField.setText("Type here to search...");
+        physicianSearchTxtField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchTxtFldEditPhyPnlMouseClicked(evt);
+                physicianSearchTxtFieldMouseClicked(evt);
             }
         });
-        searchTxtFldEditPhyPnl.addActionListener(new java.awt.event.ActionListener() {
+        physicianSearchTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtFldEditPhyPnlActionPerformed(evt);
+                physicianSearchTxtFieldActionPerformed(evt);
             }
         });
-        searchTxtFldEditPhyPnl.addKeyListener(new java.awt.event.KeyAdapter() {
+        physicianSearchTxtField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                searchTxtFldEditPhyPnlKeyPressed(evt);
+                physicianSearchTxtFieldKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchTxtFldEditPhyPnlKeyReleased(evt);
+                physicianSearchTxtFieldKeyReleased(evt);
             }
         });
 
-        editPhysicianButtonEditPhyPnl1.setBorder(null);
-        editPhysicianButtonEditPhyPnl1.setText("Edit Physician");
-        editPhysicianButtonEditPhyPnl1.setkEndColor(new java.awt.Color(255, 255, 255));
-        editPhysicianButtonEditPhyPnl1.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        editPhysicianButtonEditPhyPnl1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        editPhysicianButtonEditPhyPnl1.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        editPhysicianButtonEditPhyPnl1.setkPressedColor(new java.awt.Color(0, 0, 0));
-        editPhysicianButtonEditPhyPnl1.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        editPhysicianButtonEditPhyPnl1.setkStartColor(new java.awt.Color(102, 102, 102));
-        editPhysicianButtonEditPhyPnl1.addActionListener(new java.awt.event.ActionListener() {
+        physicianEditButton.setBorder(null);
+        physicianEditButton.setText("Edit Physician");
+        physicianEditButton.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianEditButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        physicianEditButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        physicianEditButton.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        physicianEditButton.setkPressedColor(new java.awt.Color(0, 0, 0));
+        physicianEditButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        physicianEditButton.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editPhysicianButtonEditPhyPnl1ActionPerformed(evt);
+                physicianEditButtonActionPerformed(evt);
             }
         });
 
@@ -477,38 +509,38 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(editPhyPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(editPhyPnlLayout.createSequentialGroup()
-                                                .addComponent(physicianListlbl)
+                                                .addComponent(physicianListLabel)
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhyPnlLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addGroup(editPhyPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhyPnlLayout.createSequentialGroup()
-                                                                .addComponent(searchTxtFldEditPhyPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(physicianSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(18, 18, 18)
-                                                                .addComponent(searchBtnEditPhyPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(physicianSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhyPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                .addComponent(createPhysicianBtnEditPhyPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                                                                .addComponent(deleteButtonEditPhyPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                        .addComponent(editPhysicianButtonEditPhyPnl1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                .addComponent(physicianCreateButtonMainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                                                                .addComponent(physicianDeleteButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(physicianEditButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap())
         );
         editPhyPnlLayout.setVerticalGroup(
                 editPhyPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhyPnlLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(physicianListlbl)
+                                .addComponent(physicianListLabel)
                                 .addGap(22, 22, 22)
                                 .addGroup(editPhyPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(searchTxtFldEditPhyPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                                        .addComponent(searchBtnEditPhyPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                        .addComponent(physicianSearchTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                                        .addComponent(physicianSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40)
-                                .addComponent(deleteButtonEditPhyPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(createPhysicianBtnEditPhyPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianCreateButtonMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(editPhysicianButtonEditPhyPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianEditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -517,8 +549,8 @@ public class AdminGUI extends javax.swing.JFrame {
         editPatientPnl.setkEndColor(new java.awt.Color(255, 255, 255));
         editPatientPnl.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        patientTable_editPatientPnl.setBackground(new java.awt.Color(204, 204, 204));
-        patientTable_editPatientPnl.setModel(new javax.swing.table.DefaultTableModel(
+        adminPatientTable.setBackground(new java.awt.Color(204, 204, 204));
+        adminPatientTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
                 },
@@ -526,54 +558,84 @@ public class AdminGUI extends javax.swing.JFrame {
                         "First name", "Last name", "Insurance", "E-Mail ", "Phone"
                 }
         ));
-        jScrollPane3.setViewportView(patientTable_editPatientPnl);
+        jScrollPane3.setViewportView(adminPatientTable);
 
         pateintListLblEditPatintPnl.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         pateintListLblEditPatintPnl.setText("Patient list");
 
-        searchbtnEditPatintPnl.setBorder(null);
-        searchbtnEditPatintPnl.setText("Search");
-        searchbtnEditPatintPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        searchbtnEditPatintPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        searchbtnEditPatintPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        searchbtnEditPatintPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        searchbtnEditPatintPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        searchbtnEditPatintPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        searchbtnEditPatintPnl.setkStartColor(new java.awt.Color(102, 102, 102));
+        patientSearchButton.setBorder(null);
+        patientSearchButton.setText("Search");
+        patientSearchButton.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientSearchButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        patientSearchButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        patientSearchButton.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        patientSearchButton.setkPressedColor(new java.awt.Color(0, 0, 0));
+        patientSearchButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        patientSearchButton.setkStartColor(new java.awt.Color(102, 102, 102));
 
-        SearchTexFealdEditPatintPnl.setForeground(new java.awt.Color(204, 204, 204));
-        SearchTexFealdEditPatintPnl.setText("Type here to search...");
-        SearchTexFealdEditPatintPnl.addMouseListener(new java.awt.event.MouseAdapter() {
+        patientSearchTextField.setForeground(new java.awt.Color(204, 204, 204));
+        patientSearchTextField.setText("Type here to search...");
+        patientSearchTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SearchTexFealdEditPatintPnlMouseClicked(evt);
+                patientSearchTextFieldMouseClicked(evt);
             }
         });
-        SearchTexFealdEditPatintPnl.addActionListener(new java.awt.event.ActionListener() {
+        patientSearchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchTexFealdEditPatintPnlActionPerformed(evt);
+                patientSearchTextFieldActionPerformed(evt);
             }
         });
-        SearchTexFealdEditPatintPnl.addKeyListener(new java.awt.event.KeyAdapter() {
+        patientSearchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                SearchTexFealdEditPatintPnlKeyPressed(evt);
+                patientSearchTextFieldKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                SearchTexFealdEditPatintPnlKeyReleased(evt);
+                patientSearchTextFieldKeyReleased(evt);
             }
         });
 
-        deletepatientBtnEditPatintPnl.setBorder(null);
-        deletepatientBtnEditPatintPnl.setText("Delete Patient");
-        deletepatientBtnEditPatintPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        deletepatientBtnEditPatintPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        deletepatientBtnEditPatintPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        deletepatientBtnEditPatintPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        deletepatientBtnEditPatintPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        deletepatientBtnEditPatintPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        deletepatientBtnEditPatintPnl.setkStartColor(new java.awt.Color(102, 102, 102));
-        deletepatientBtnEditPatintPnl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletepatientBtnEditPatintPnlActionPerformed(evt);
+        patientDeleteButton.setBorder(null);
+        patientDeleteButton.setText("Delete Patient");
+        patientDeleteButton.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientDeleteButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        patientDeleteButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        patientDeleteButton.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        patientDeleteButton.setkPressedColor(new java.awt.Color(0, 0, 0));
+        patientDeleteButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        patientDeleteButton.setkStartColor(new java.awt.Color(102, 102, 102));
+        patientDeleteButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Databaseconnection data = new Databaseconnection();
+                try {
+                    JOptionPane.showMessageDialog(null,"Patient named: "+ adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(),0)+" "+ adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(),1)+" got deleted.");
+                    data.deleteUser(data.getPatient((String) adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(),3)));
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+                DefaultTableModel model = (DefaultTableModel) adminPatientTable.getModel();
+                model.setRowCount(0);
+                populatePatientTable();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
             }
         });
 
@@ -622,12 +684,12 @@ public class AdminGUI extends javax.swing.JFrame {
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addGroup(editPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPatientPnlLayout.createSequentialGroup()
-                                                                .addComponent(SearchTexFealdEditPatintPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(patientSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(29, 29, 29)
-                                                                .addComponent(searchbtnEditPatintPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(patientSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                                 .addComponent(createPatientBtnEditPatintPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(deletepatientBtnEditPatintPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(patientDeleteButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addComponent(editPatienButtonEditPhyPnl2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap())
         );
@@ -638,12 +700,12 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addComponent(pateintListLblEditPatintPnl)
                                 .addGap(8, 8, 8)
                                 .addGroup(editPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(SearchTexFealdEditPatintPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(searchbtnEditPatintPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(55, 55, 55)
-                                .addComponent(deletepatientBtnEditPatintPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(patientDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(createPatientBtnEditPatintPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -751,6 +813,7 @@ public class AdminGUI extends javax.swing.JFrame {
         cityLblCreatePhysiciantPnl.setText("City");
 
         physicianCreatePasswordLabel.setText("Password");
+
 
         specializationComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allgemeinmedizin", "Anästhesiologie", "Anatomie", "Arbeitsmedizin", "Augenheilkunde", "Biochemie", "Chirurgie", "Chirurgie_Allgemeine Chirurgie", "Forensische Psychiatrie", "Frauenheilkunde und Geburtshilfe", "Gefäßchirurgie", "Gynäkologische Onkologie", "Hals-Nasen-Ohrenheilkunde", "Haut- und Geschlechtskrankheiten", "Herzchirurgie", "Humangenetik", "Hygiene und Umweltmedizin", "Innere Medizin ", "Innere Medizin und Endokrinologie und Diabetologie", "Innere Medizin und Gastroenterologie", "Innere Medizin und Hämatologie und Onkologie", "Innere Medizin und Kardiologie", "Innere Medizin und Nephrologie", "Innere Medizin und Pneumologie", "Innere Medizin und Rheumatologie", "Kinder- und Jugendmedizin", "Kinder- und Jugendpsychiatrie und -psychotherapie", "Kinderchirurgie", "Kinderradiologie", "Klinische Pharmakologie", "Laboratoriumsmedizin", "Mikrobiologie, Virologie und Infektionsepidemiologie", "Mund-Kiefer-Gesichtschirurgie", "Neurochirurgie", "Neurologie", "Neuroradiologie", "Nuklearmedizin", "Orthopädie und Unfallchirurgie", "Pathologie ", "Pharmakologie und Toxikologie", "Phoniatrie und Pädaudiologie", "Physikalische und Rehabilitative Medizin", "Physiologie", "Plastische, Rekonstruktive und Ästhetische Chirurgie", "Psychiatrie und Psychotherapie", "Psychosomatische Medizin und Psychotherapie", "Radiologie", "Rechtsmedizin", "SP Gynäkologische Endokrinologie und Reproduktionsmedizin", "SP Kinder-Hämatologie und -Onkologie", "SP Kinder-Kardiologie", "SP Neonatologie", "SP Neuropädiatrie", "Spezielle Geburtshilfe und Perinatalmedizin", "Strahlentherapie", "Thoraxchirurgie", "Transfusionsmedizin", "Urologie", "Viszeralchirurgie", "Innere Medizin und Angiologie", "Öffentliches Gesundheitswesen", " ", " ", " " }));
 
@@ -891,7 +954,7 @@ public class AdminGUI extends javax.swing.JFrame {
 
         paswordLbl_CreatepatientPnl.setText("Password");
 
-        insuranceComboBox_createPatientPnl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "Techniker Krankenkasse", "Allianz" }));
+        patientCreateInsuranceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "Techniker Krankenkasse", "Allianz" }));
 
         javax.swing.GroupLayout createPatientPnlLayout = new javax.swing.GroupLayout(createPatientPnl);
         createPatientPnl.setLayout(createPatientPnlLayout);
@@ -926,18 +989,18 @@ public class AdminGUI extends javax.swing.JFrame {
                                                 .addComponent(patientphoneLblCreatePatientPnl)))
                                 .addGap(142, 142, 142)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientPhoneTxtFld1CreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(emailTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(patienTtitleTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientCreatePhoneNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientCreateEmailTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientCreateTitleTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(insuranceComboBox_createPatientPnl, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(patientnameTxtFldCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                        .addComponent(patientFamilynameTxtFldCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientStreetTxtFldCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientHouseNumberTxtFldCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientPostalCodeTxtFldCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientCityTxtFldCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING))
+                                                        .addComponent(patientCreateInsuranceComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(patientCreateFirstNameTxtField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                                        .addComponent(patientCreateLastNameTxtField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreateStreetTxtField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreateHouseNumberTxtField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreatePostalCodeTxtField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreateCityTxtField, javax.swing.GroupLayout.Alignment.LEADING))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(weightLbl_CreatepatientPnl)
@@ -945,9 +1008,9 @@ public class AdminGUI extends javax.swing.JFrame {
                                                         .addComponent(paswordLbl_CreatepatientPnl))
                                                 .addGap(14, 14, 14)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(weightTxtFld_CreatepatientPnl)
-                                                        .addComponent(dateOfBirthTxtFld_CreatepatientPnl)
-                                                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
+                                                        .addComponent(patientCreateWeightTxtField)
+                                                        .addComponent(patientCreateDateOfBirthTxtField)
+                                                        .addComponent(patientCreatePasswordTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         createPatientPnlLayout.setVerticalGroup(
@@ -958,55 +1021,55 @@ public class AdminGUI extends javax.swing.JFrame {
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(nameLblCreatePatientPnl)
-                                                        .addComponent(patientnameTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientCreateFirstNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(7, 7, 7)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(patientFamilyNameTxFldCreatePatientPnl)
-                                                        .addComponent(patientFamilynameTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientCreateLastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(patientStreetLblCreatePatientPnl)
-                                                        .addComponent(patientStreetTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(patientCreateStreetTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(weightLbl_CreatepatientPnl)
-                                                        .addComponent(weightTxtFld_CreatepatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientCreateWeightTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(dateOfBirthtLbl_CreatepatientPnl)
-                                                        .addComponent(dateOfBirthTxtFld_CreatepatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientCreateDateOfBirthTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(paswordLbl_CreatepatientPnl)
-                                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(patientCreatePasswordTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(patientHousenumberLblCreatePatientPnl)
-                                        .addComponent(patientHouseNumberTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCreateHouseNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(patientPostalCodeLblCreatePatientPnl)
-                                        .addComponent(patientPostalCodeTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCreatePostalCodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(patientCityLblCreatePatientPnl)
-                                        .addComponent(patientCityTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCreateCityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(4, 4, 4)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(insurance_CreatepatientPnl)
-                                        .addComponent(insuranceComboBox_createPatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCreateInsuranceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(9, 9, 9)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(patientTitleLblCreatePatientPnl)
-                                        .addComponent(patienTtitleTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCreateTitleTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(patientEmailLblCreatePatientPnl)
-                                        .addComponent(emailTxtFldCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCreateEmailTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(patientphoneLblCreatePatientPnl)
-                                        .addComponent(patientPhoneTxtFld1CreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCreatePhoneNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                                 .addComponent(createpatientBtnCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68))
@@ -1357,7 +1420,7 @@ public class AdminGUI extends javax.swing.JFrame {
         dispose();
         new LoginGUI().setVisible(true);
     }
-    
+
     private void physicianIconLblUserMngPnlMouseClicked(java.awt.event.MouseEvent evt) {
         editPatientPnl1.setVisible(false);
         editPhysiciantPnl1.setVisible(false);
@@ -1391,7 +1454,7 @@ public class AdminGUI extends javax.swing.JFrame {
         editAppointmentPnl.setVisible(true);
     }
 
-    private void createPhysicianBtnEditPhyPnlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void physicianCreateButtonPhysicianTablePanelActionPerformed(java.awt.event.ActionEvent evt) {
         editPatientPnl1.setVisible(false);
         editPhysiciantPnl1.setVisible(false);
         createPatientPnl.setVisible(false);
@@ -1402,13 +1465,13 @@ public class AdminGUI extends javax.swing.JFrame {
         createPhysiciantPnl.setVisible(true);
     }
 
-    private void searchTxtFldEditPhyPnlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void physicianSearchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void searchTxtFldEditPhyPnlMouseClicked(java.awt.event.MouseEvent evt) {
-        searchTxtFldEditPhyPnl.setText("");
-        searchTxtFldEditPhyPnl.setForeground(Color.black);
+    private void physicianSearchTxtFieldMouseClicked(java.awt.event.MouseEvent evt) {
+        physicianSearchTxtField.setText("");
+        physicianSearchTxtField.setForeground(Color.black);
     }
 
     private void createPatientBtnEditPatintPnlActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1422,46 +1485,67 @@ public class AdminGUI extends javax.swing.JFrame {
         createPatientPnl.setVisible(true);
     }
 
-    private void SearchTexFealdEditPatintPnlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void patientSearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void SearchTexFealdEditPatintPnlMouseClicked(java.awt.event.MouseEvent evt) {
-        SearchTexFealdEditPatintPnl.setText("");
-        SearchTexFealdEditPatintPnl.setForeground(Color.black);
+    private void patientSearchTextFieldMouseClicked(java.awt.event.MouseEvent evt) {
+        patientSearchTextField.setText("");
+        patientSearchTextField.setForeground(Color.black);
 
     }
 
-    private void searchTxtFldEditPhyPnlKeyPressed(java.awt.event.KeyEvent evt) {
-        DefaultTableModel model=(DefaultTableModel)adminPhysicianlisttable.getModel();
+    private void physicianSearchTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {
+        DefaultTableModel model=(DefaultTableModel) adminPhysicianTable.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
-        adminPhysicianlisttable.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(searchTxtFldEditPhyPnl.getText().trim()));
+        adminPhysicianTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(physicianSearchTxtField.getText().trim()));
     }
 
-    private void searchTxtFldEditPhyPnlKeyReleased(java.awt.event.KeyEvent evt) {
-        DefaultTableModel model=(DefaultTableModel)adminPhysicianlisttable.getModel();
+    private void physicianSearchTxtFieldKeyReleased(java.awt.event.KeyEvent evt) {
+        DefaultTableModel model=(DefaultTableModel) adminPhysicianTable.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
-        adminPhysicianlisttable.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(searchTxtFldEditPhyPnl.getText().trim()));
+        adminPhysicianTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(physicianSearchTxtField.getText().trim()));
     }
 
-    private void SearchTexFealdEditPatintPnlKeyPressed(java.awt.event.KeyEvent evt) {
-        DefaultTableModel model=(DefaultTableModel)patientTable_editPatientPnl.getModel();
+    private void patientSearchTextFieldKeyPressed(java.awt.event.KeyEvent evt) {
+        DefaultTableModel model=(DefaultTableModel) adminPatientTable.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
-        patientTable_editPatientPnl.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(SearchTexFealdEditPatintPnl.getText().trim()));        // TODO add your handling code here:
+        adminPatientTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(patientSearchTextField.getText().trim()));        // TODO add your handling code here:
     }
 
-    private void SearchTexFealdEditPatintPnlKeyReleased(java.awt.event.KeyEvent evt) {
-        DefaultTableModel model=(DefaultTableModel)patientTable_editPatientPnl.getModel();
+    private void patientSearchTextFieldKeyReleased(java.awt.event.KeyEvent evt) {
+        DefaultTableModel model=(DefaultTableModel) adminPatientTable.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
-        patientTable_editPatientPnl.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(SearchTexFealdEditPatintPnl.getText().trim()));        // TODO add your handling code here:
+        adminPatientTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(patientSearchTextField.getText().trim()));        // TODO add your handling code here:
     }
 
     private void createpatientBtnCreatePatientPnlActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        Databaseconnection data = new Databaseconnection();
+        try {
+            Patient patient = new Patient(
+                    patientCreateEmailTxtField.getText(),
+                    patientCreateFirstNameTxtField.getText(),
+                    patientCreateLastNameTxtField.getText(),
+                    patientCreateCityTxtField.getText(),
+                    patientCreateStreetTxtField.getText(),
+                    patientCreateHouseNumberTxtField.getText(),
+                    patientCreatePostalCodeTxtField.getText(),
+                    patientCreatePhoneNumberTxtField.getText(),
+                    patientCreateDateOfBirthTxtField.getText(),
+                    patientCreateTitleTxtField.getText(),
+                    patientCreatePasswordTxtField.getText(),
+                    Objects.requireNonNull(patientCreateInsuranceComboBox.getSelectedItem()).toString(),
+                    Integer.parseInt(patientCreateWeightTxtField.getText())
+            );
+            data.addUser(patient);
+        } catch (InterruptedException | IOException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(null,"Patient: "+ patientCreateFirstNameTxtField.getText() +" "+ patientCreateLastNameTxtField.getText()+" got created. \nThe Password you set it: "+ patientCreatePasswordTxtField.getText()+".");
     }
 
     private void createphysiciantBtnCreatePhysiciantPnlActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1569,7 +1653,7 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void deletepatientBtnEditPatintPnlActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+
     }
 
     private void createpatientBtnCreatePatientPnl1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1580,7 +1664,7 @@ public class AdminGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void editPhysicianButtonEditPhyPnl1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void physicianEditButtonActionPerformed(java.awt.event.ActionEvent evt) {
         userMngPnl.setVisible(false);
         editPhyPnl.setVisible(false);
         editPatientPnl.setVisible(false);
@@ -1589,6 +1673,9 @@ public class AdminGUI extends javax.swing.JFrame {
         createPatientPnl.setVisible(false);
         editPatientPnl1.setVisible(false);
         editPhysiciantPnl1.setVisible(true);        // TODO add your handling code here:
+
+
+
     }
 
     private void editPatienButtonEditPhyPnl2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1600,6 +1687,27 @@ public class AdminGUI extends javax.swing.JFrame {
         createPatientPnl.setVisible(false);
         editPhysiciantPnl1.setVisible(false);
         editPatientPnl1.setVisible(true);            // TODO add your handling code here:
+        Databaseconnection data = new Databaseconnection();
+        try {
+            Patient patient = data.getPatient((String) adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(),3));
+            patientnameTxtFldCreatePatientPnl1.setText(patient.getFirstName());
+            patientFamilynameTxtFldCreatePatientPnl1.setText(patient.getLastName());
+            patientStreetTxtFldCreatePatientPnl1.setText(patient.getStreet());
+            patientHouseNumberTxtFldCreatePatientPnl1.setText(patient.getHouseNumber());
+            patientPostalCodeTxtFldCreatePatientPnl1.setText(patient.getPostalCode());
+            patientCityTxtFldCreatePatientPnl1.setText(patient.getCity());
+            insuranceComboBox_createPatientPnl1.setSelectedItem(patient.getInsuranceName());
+            patienTtitleTxtFldCreatePatientPnl1.setText(patient.getTitle());
+            emailTxtFldCreatePatientPnl1.setText(patient.getEmailAddress());
+            patientPhoneTxtFld1CreatePatientPnl1.setText(patient.getPhoneNUmber());
+            weightTxtFld_CreatepatientPnl1.setText(String.valueOf(patient.getWeight()));
+            jTextField3.setText("NOT CHANGEABLE");
+            jTextField3.setEditable(false);
+
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     private void populateAllAppointmentTable(){
@@ -1627,12 +1735,12 @@ public class AdminGUI extends javax.swing.JFrame {
 
 
         try{
-            DefaultTableModel model = (DefaultTableModel)adminPhysicianlisttable.getModel();
+            DefaultTableModel model = (DefaultTableModel) adminPhysicianTable.getModel();
             Databaseconnection databaseconnection = new Databaseconnection();
             physicians=databaseconnection.getAllPhysicians();
             for (Physician physician : physicians) {
                 model.addRow(new Object[]{physician.getFirstName(),physician.getLastName(),
-                        physician.getSpecialization(),physician.getEmailAddress(),physician.getPhoneNUmber()});
+                        Arrays.toString(physician.getSpecialization()),physician.getEmailAddress(),physician.getPhoneNUmber()});
             }
         }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -1644,7 +1752,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private void populatePatientTable(){
 
         try{
-            DefaultTableModel model = (DefaultTableModel)patientTable_editPatientPnl.getModel();
+            DefaultTableModel model = (DefaultTableModel) adminPatientTable.getModel();
             Databaseconnection databaseconnection = new Databaseconnection();
             patients=databaseconnection.getAllPatients();
             for (Patient patient : patients) {
@@ -1660,10 +1768,10 @@ public class AdminGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify
     private javax.swing.JTable EditAppointmentjTable1;
-    private javax.swing.JTextField SearchTexFealdEditPatintPnl;
+    private javax.swing.JTextField patientSearchTextField;
     private javax.swing.JLabel StreetLblCreatePhysiciantPnl;
     private javax.swing.JLabel physicianCreateStreetLabel;
-    private javax.swing.JTable adminPhysicianlisttable;
+    private javax.swing.JTable adminPhysicianTable;
     private keeptoo.KButton appointmenMenagmentBtn;
     private javax.swing.JLabel choseCategoryLblUserMngPnl;
     private javax.swing.JLabel cityLblCreatePhysiciantPnl;
@@ -1672,19 +1780,19 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JTextField cityTxtFldCreatePhysiciantPnl1;
     private keeptoo.KButton createPatientBtnEditPatintPnl;
     private keeptoo.KGradientPanel createPatientPnl;
-    private keeptoo.KButton createPhysicianBtnEditPhyPnl;
+    private keeptoo.KButton physicianCreateButtonMainPanel;
     private keeptoo.KGradientPanel createPhysiciantPnl;
     private keeptoo.KButton createpatientBtnCreatePatientPnl;
     private keeptoo.KButton createpatientBtnCreatePatientPnl1;
     private keeptoo.KButton createphysiciantBtnCreatePhysiciantPnl;
     private keeptoo.KButton createphysiciantBtnCreatePhysiciantPnl1;
-    private javax.swing.JTextField dateOfBirthTxtFld_CreatepatientPnl;
+    private javax.swing.JTextField patientCreateDateOfBirthTxtField;
     private javax.swing.JTextField dateOfBirthTxtFld_CreatepatientPnl1;
     private javax.swing.JLabel dateOfBirthtLbl_CreatepatientPnl;
     private javax.swing.JLabel dateOfBirthtLbl_CreatepatientPnl1;
-    private keeptoo.KButton deleteButtonEditPhyPnl;
+    private keeptoo.KButton physicianDeleteButton;
     private keeptoo.KButton deleteappointmentBtnEditAppPnl;
-    private keeptoo.KButton deletepatientBtnEditPatintPnl;
+    private keeptoo.KButton patientDeleteButton;
     private javax.swing.JTextField eamilTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField eamilTxtFldCreatePhysiciantPnl1;
     private keeptoo.KGradientPanel editAppointmentPnl;
@@ -1692,11 +1800,11 @@ public class AdminGUI extends javax.swing.JFrame {
     private keeptoo.KGradientPanel editPatientPnl;
     private keeptoo.KGradientPanel editPatientPnl1;
     private keeptoo.KGradientPanel editPhyPnl;
-    private keeptoo.KButton editPhysicianButtonEditPhyPnl1;
+    private keeptoo.KButton physicianEditButton;
     private keeptoo.KGradientPanel editPhysiciantPnl1;
     private javax.swing.JLabel emailLblCreatePhysiciantPnl;
     private javax.swing.JLabel physicianCreateEmailLabel;
-    private javax.swing.JTextField emailTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreateEmailTxtField;
     private javax.swing.JTextField emailTxtFldCreatePatientPnl1;
     private keeptoo.KButton exitBtn;
     private javax.swing.JLabel familyNameLblCreatePhysiciantPnl;
@@ -1707,7 +1815,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JTextField houseNumberTxtFldCreatePhysiciantPnl1;
     private javax.swing.JLabel housenumberLblCreatePhysiciantPnl;
     private javax.swing.JLabel physicianCreateHouseNumberLabel;
-    private javax.swing.JComboBox<String> insuranceComboBox_createPatientPnl;
+    private javax.swing.JComboBox<String> patientCreateInsuranceComboBox;
     private javax.swing.JComboBox<String> insuranceComboBox_createPatientPnl1;
     private javax.swing.JLabel insurance_CreatepatientPnl;
     private javax.swing.JLabel insurance_CreatepatientPnl1;
@@ -1717,7 +1825,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField patientCreatePasswordTxtField;
     private javax.swing.JTextField jTextField3;
     private keeptoo.KButton logoutBtn;
     private keeptoo.KGradientPanel mainPnl;
@@ -1734,38 +1842,38 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JLabel paswordLbl_CreatepatientPnl;
     private javax.swing.JLabel paswordLbl_CreatepatientPnl1;
     private javax.swing.JLabel pateintListLblEditPatintPnl;
-    private javax.swing.JTextField patienTtitleTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreateTitleTxtField;
     private javax.swing.JTextField patienTtitleTxtFldCreatePatientPnl1;
     private javax.swing.JLabel patientCityLblCreatePatientPnl;
     private javax.swing.JLabel patientCityLblCreatePatientPnl1;
-    private javax.swing.JTextField patientCityTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreateCityTxtField;
     private javax.swing.JTextField patientCityTxtFldCreatePatientPnl1;
     private javax.swing.JLabel patientEmailLblCreatePatientPnl;
     private javax.swing.JLabel patientEmailLblCreatePatientPnl1;
     private javax.swing.JLabel patientFamilyNameTxFldCreatePatientPnl;
     private javax.swing.JLabel patientFamilyNameTxFldCreatePatientPnl1;
-    private javax.swing.JTextField patientFamilynameTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreateLastNameTxtField;
     private javax.swing.JTextField patientFamilynameTxtFldCreatePatientPnl1;
-    private javax.swing.JTextField patientHouseNumberTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreateHouseNumberTxtField;
     private javax.swing.JTextField patientHouseNumberTxtFldCreatePatientPnl1;
     private javax.swing.JLabel patientHousenumberLblCreatePatientPnl;
     private javax.swing.JLabel patientHousenumberLblCreatePatientPnl1;
     private javax.swing.JLabel patientIconLblUserMngPnl;
     private javax.swing.JLabel patientLblUserMngPnl;
-    private javax.swing.JTextField patientPhoneTxtFld1CreatePatientPnl;
+    private javax.swing.JTextField patientCreatePhoneNumberTxtField;
     private javax.swing.JTextField patientPhoneTxtFld1CreatePatientPnl1;
     private javax.swing.JLabel patientPostalCodeLblCreatePatientPnl;
     private javax.swing.JLabel patientPostalCodeLblCreatePatientPnl1;
-    private javax.swing.JTextField patientPostalCodeTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreatePostalCodeTxtField;
     private javax.swing.JTextField patientPostalCodeTxtFldCreatePatientPnl1;
     private javax.swing.JLabel patientStreetLblCreatePatientPnl;
     private javax.swing.JLabel patientStreetLblCreatePatientPnl1;
-    private javax.swing.JTextField patientStreetTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreateStreetTxtField;
     private javax.swing.JTextField patientStreetTxtFldCreatePatientPnl1;
-    private javax.swing.JTable patientTable_editPatientPnl;
+    private javax.swing.JTable adminPatientTable;
     private javax.swing.JLabel patientTitleLblCreatePatientPnl;
     private javax.swing.JLabel patientTitleLblCreatePatientPnl1;
-    private javax.swing.JTextField patientnameTxtFldCreatePatientPnl;
+    private javax.swing.JTextField patientCreateFirstNameTxtField;
     private javax.swing.JTextField patientnameTxtFldCreatePatientPnl1;
     private javax.swing.JLabel patientphoneLblCreatePatientPnl;
     private javax.swing.JLabel patientphoneLblCreatePatientPnl1;
@@ -1775,16 +1883,16 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JTextField phoneTxtFldCreatePhysiciantPnl1;
     private javax.swing.JLabel physicianIconLblUserMngPnl;
     private javax.swing.JLabel physicianLblUserMngPnl;
-    private javax.swing.JLabel physicianListlbl;
+    private javax.swing.JLabel physicianListLabel;
     private javax.swing.JLabel pictureLbl;
     private javax.swing.JPanel picturePanel;
     private javax.swing.JLabel postalCodeLblCreatePhysiciantPnl;
     private javax.swing.JLabel physicianCreatePostalCodeLabel;
     private javax.swing.JTextField postalCodeTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField postalCodeTxtFldCreatePhysiciantPnl1;
-    private keeptoo.KButton searchBtnEditPhyPnl;
-    private javax.swing.JTextField searchTxtFldEditPhyPnl;
-    private keeptoo.KButton searchbtnEditPatintPnl;
+    private keeptoo.KButton physicianSearchButton;
+    private javax.swing.JTextField physicianSearchTxtField;
+    private keeptoo.KButton patientSearchButton;
     private javax.swing.JLabel specialisationLblCreatePhysiciantPnl;
     private javax.swing.JLabel specialisationLblCreatePhysiciantPnl1;
     private javax.swing.JComboBox<String> specializationComboBox1;
@@ -1799,7 +1907,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private keeptoo.KGradientPanel userMngPnl;
     private javax.swing.JLabel weightLbl_CreatepatientPnl;
     private javax.swing.JLabel weightLbl_CreatepatientPnl1;
-    private javax.swing.JTextField weightTxtFld_CreatepatientPnl;
+    private javax.swing.JTextField patientCreateWeightTxtField;
     private javax.swing.JTextField weightTxtFld_CreatepatientPnl1;
     private javax.swing.JLabel welcomeLbl;
     private javax.swing.JLabel welcomenameLbl;
