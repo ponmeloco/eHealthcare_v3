@@ -728,7 +728,7 @@ public class AdminGUI extends javax.swing.JFrame {
 
                 },
                 new String [] {
-                        "Patient", "Physician", "Appointment date and time"
+                        "Patient", "Patient Email", "Appointment date and time", "Physician", "Id"
                 }
         ));
         jScrollPane1.setViewportView(appointmentTable);
@@ -744,7 +744,11 @@ public class AdminGUI extends javax.swing.JFrame {
         deleteAppointmentButton.setkStartColor(new java.awt.Color(102, 102, 102));
         deleteAppointmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteappointmentBtnEditAppPnlActionPerformed(evt);
+                try {
+                    deleteappointmentBtnEditAppPnlActionPerformed(evt);
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         });
 
@@ -1620,62 +1624,24 @@ public class AdminGUI extends javax.swing.JFrame {
         populatePhysicianTable();
     }
 
-    private void deleteappointmentBtnEditAppPnlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void deleteappointmentBtnEditAppPnlActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, ClassNotFoundException {
         //delete appointment button
         DefaultTableModel model = (DefaultTableModel) appointmentTable.getModel();
+        Databaseconnection data = new Databaseconnection();
 
         int index= appointmentTable.getSelectedRow();
-        String PatientName=model.getValueAt(index,0).toString();
-        String PhysicaianName=model.getValueAt(index,1).toString();
-        String sDate1=model.getValueAt(index,2).toString();
+        int AppointmentID = (int) model.getValueAt(index,4);
+        Appointment[] apps = data.getAllAppointments();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
-
-
-        for (Appointment value : appointments) {
-            if (value.getPatient().getLastName().equals(PatientName) && value.getDate().equals(dateTime)) {
-                try {
-
-                    Databaseconnection databaseconnection = new Databaseconnection();
-//            appointments=databaseconnection.getAppointment(patient.getEmailAddress());
-                    for (Appointment appointment : appointments) {
-
-                        String formattedDateTime = dateTime.format(formatter);
-                        model.addRow(new Object[]{appointment.getPatient().getLastName(),
-                                formattedDateTime, appointment.getPatient().getEmailAddress()});
-                    }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-
-
-                }
+        for(Appointment app : apps){
+            if (app.getIdentifier() == AppointmentID){
+                System.out.println(app.getIdentifier());
+                data.deleteAppointment(app);
+                JOptionPane.showMessageDialog(null,"Appointment deleted!");
             }
         }
-
-      /*
-      try{
-
-            Databaseconnection databaseconnection = new Databaseconnection();
-            appointments=databaseconnection.getAppointment(patient.getEmailAddress());
-            for (Appointment appointment : appointments) {
-                LocalDateTime dateTime = appointment.getDate();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                String formattedDateTime = dateTime.format(formatter);
-                model.addRow(new Object[]{appointment.getPatient().getLastName(),
-                        formattedDateTime, appointment.getPatient().getEmailAddress()});
-            }
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-
-
-        }*/
-
-        int[] rows = appointmentTable.getSelectedRows();
-        for(int i=0;i<rows.length;i++){
-            model.removeRow(rows[i]-i);
-        }
-
+        model.setRowCount(0);
+        populateAllAppointmentTable();
 
 
     }
@@ -1807,7 +1773,7 @@ public class AdminGUI extends javax.swing.JFrame {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 String formattedDateTime = dateTime.format(formatter);
                 model.addRow(new Object[]{appointment.getPatient().getLastName(),
-                        appointment.getPatient().getEmailAddress(),formattedDateTime});
+                        appointment.getPatient().getEmailAddress(),formattedDateTime, appointment.getPhysician().getLastName(), appointment.getIdentifier()});
             }
         }catch (Exception e) {
             System.out.println(e.getMessage());
