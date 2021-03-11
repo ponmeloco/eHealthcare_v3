@@ -6,8 +6,14 @@
 package test;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Arrays;
 import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -17,6 +23,7 @@ import javax.swing.table.TableModel;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class PatientGUI extends javax.swing.JFrame {
@@ -26,7 +33,7 @@ public class PatientGUI extends javax.swing.JFrame {
     Patient p;
     Physician phy;
 
-    public PatientGUI() {
+    public PatientGUI(Patient patient) throws SQLException, ClassNotFoundException {
 
          /*Patient test = new Patient("testmail", "Tessy",  "Test", "Berlin","Hauptstraße",  "1",  "60001",  "112",  "Dr.", "_password",
                  "2020-01-01",  "AOK",null, null, 12, new LatLong(50.22222,8.88888));*/
@@ -77,9 +84,10 @@ public class PatientGUI extends javax.swing.JFrame {
              phoneTxtfld_ProfilPnl.setEnabled(false);
 
         */
-
-        //populateTable(patient);
-        // populateEditProfilePnl(patient);
+        p = patient;
+        populateTable(patient);
+        populateEditProfilePnl(patient);
+        populateAppointmentTable(patient);
 
     }
 
@@ -199,7 +207,7 @@ public class PatientGUI extends javax.swing.JFrame {
         mainPnl.setkStartColor(new java.awt.Color(153, 204, 255));
         mainPnl.setLayout(new java.awt.BorderLayout());
 
-        framePicLbl.setIcon(new javax.swing.ImageIcon("C:\\Users\\Amar\\Desktop\\patient.png")); // NOI18N
+        framePicLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/patient.jpg"))); // NOI18N
         framePicLbl.setText("jLabel8");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -263,6 +271,7 @@ public class PatientGUI extends javax.swing.JFrame {
         menuBarLogoutBtn.setkPressedColor(new java.awt.Color(51, 255, 51));
         menuBarLogoutBtn.setkSelectedColor(new java.awt.Color(255, 255, 255));
         menuBarLogoutBtn.setkStartColor(new java.awt.Color(102, 255, 102));
+        menuBarLogoutBtn.addActionListener(this::menuBarLogoutBtnActionPerformed);
 
         menuBarExitBtn.setBorder(null);
         menuBarExitBtn.setkEndColor(new java.awt.Color(255, 255, 255));
@@ -392,9 +401,64 @@ public class PatientGUI extends javax.swing.JFrame {
         reminderkButton.setkPressedColor(new java.awt.Color(204, 255, 204));
         reminderkButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
         reminderkButton.setkStartColor(new java.awt.Color(255, 255, 255));
-        reminderkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reminderkButtonActionPerformed(evt);
+        reminderkButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int index =  jTable2.getSelectedRow();
+                String sDate1=jTable2.getValueAt(index,2).toString();
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
+                int y = dateTime.getYear();
+                int m = dateTime.getMonthValue()-1;
+                int d = dateTime.getDayOfMonth();
+                int h = dateTime.getHour();
+                int mm =  dateTime.getMinute();
+                int minutesBefore;
+                int indexReminderComboBox = setreminderComboBox_Homepnl.getSelectedIndex();
+                String timeInTextBefore;
+                switch (indexReminderComboBox) {
+                    case 0 -> {
+                        minutesBefore = 24 * 60 * 7;
+                        timeInTextBefore = Objects.requireNonNull(setreminderComboBox_Homepnl.getSelectedItem()).toString();//7 days
+                    }
+                    case 1 -> {
+                        minutesBefore = 24 * 60 * 3;
+                        timeInTextBefore = Objects.requireNonNull(setreminderComboBox_Homepnl.getSelectedItem()).toString();//3 days
+                    }
+                    case 2 -> {
+                        minutesBefore = 60;
+                        timeInTextBefore = Objects.requireNonNull(setreminderComboBox_Homepnl.getSelectedItem()).toString();//1 hour
+                    }
+                    case 3 -> {
+                        minutesBefore = 10;
+                        timeInTextBefore = Objects.requireNonNull(setreminderComboBox_Homepnl.getSelectedItem()).toString();//10 minutes
+                    }
+                    default -> throw new IllegalStateException("Unexpected value :-): " + indexReminderComboBox);
+                }
+
+                Appointment.reminder(y,m,d,h,mm,minutesBefore,timeInTextBefore);
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
             }
         });
 
@@ -1190,7 +1254,22 @@ public class PatientGUI extends javax.swing.JFrame {
     }
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {
+        int index=jTable1.getSelectedRow();
+        TableModel model=jTable1.getModel();
+        showEmailLbl_SendAltPnl.setText(model.getValueAt(index,3).toString());
+        nameLbl_SendAltPnl.setText(model.getValueAt(index,0).toString());
+        String sDate1=model.getValueAt(index,2).toString();
 
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
+
+
+        for(int i=0;i<appointments.length;i++){
+            if(appointments[i].getPatient().getLastName().equals(nameLbl_SendAltPnl.getText())&&appointments[i].getDate().equals(dateTime)){
+                selectedAppointment=appointments[i];
+            }
+        }
     }
 
     private void sendAppointmntRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1201,6 +1280,7 @@ public class PatientGUI extends javax.swing.JFrame {
         Date date3 =(sendSecondAlternativejDateChooser.getDate());
 
 
+    /*
         Patient patient=new Patient();
         patient.setLastName("PAtient 1");
 
@@ -1295,18 +1375,18 @@ public class PatientGUI extends javax.swing.JFrame {
 
 
     private void populateTable(Patient patient){
-
-
-        try{
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
             Databaseconnection databaseconnection = new Databaseconnection();
-            appointments=databaseconnection.getAppointment(patient.getEmailAddress());
+            appointments = databaseconnection.getAppointment(patient.getEmailAddress());
             for (Appointment appointment : appointments) {
                 LocalDateTime dateTime = appointment.getDate();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 String formattedDateTime = dateTime.format(formatter);
-                model.addRow(new Object[]{appointment.getPatient().getLastName(),
-                        formattedDateTime, appointment.getPatient().getEmailAddress()});
+                Physician appointmentPhysician = appointment.getPhysician();
+                model.addRow(new Object[]{appointmentPhysician.getLastName(), Arrays.toString(appointmentPhysician.getSpecialization()),
+                        formattedDateTime, appointmentPhysician.getEmailAddress()});
+
             }
         }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -1316,6 +1396,11 @@ public class PatientGUI extends javax.swing.JFrame {
 
 
 
+    }
+
+    private void menuBarLogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        dispose();
+        new LoginGUI().setVisible(true);
     }
 
     private void populateEditProfilePnl(Patient p){
@@ -1337,6 +1422,30 @@ public class PatientGUI extends javax.swing.JFrame {
 
     }
 
+    private void populateAppointmentTable(Patient p) throws SQLException, ClassNotFoundException {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Physician[] searchAppointmentPhysicians = Search.findPhysician(p.getEmailAddress());
+            for (Physician searchAppointmentPhysician : searchAppointmentPhysicians) {
+                model.addRow(new Object[]{searchAppointmentPhysician.getFirstName(), searchAppointmentPhysician.getLastName(),
+                        Arrays.toString(searchAppointmentPhysician.getSpecialization()), searchAppointmentPhysician.getCity(), (int) LatLong.distanceInKm(searchAppointmentPhysician.getGeolocation(), p.getGeolocation())
+                });
+                if (model.getRowCount() != 0) {
+                    //check if there is a duplicate row
+                    for (int y = 0; y < model.getRowCount() - 1; y++) {
+                        for (int row = 1; row < model.getRowCount(); row++) {
+                            if (model.getValueAt(y, 1).equals(model.getValueAt(row, 1))) {
+                                model.removeRow(row);
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+
+    }
+
     public void exportHealthInf(Patient patient) throws IOException{
 
         File file=new File("Health information.txt");
@@ -1349,45 +1458,6 @@ public class PatientGUI extends javax.swing.JFrame {
         }
 
         pw.close();
-    }
-
-
-
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PatientGUI().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify

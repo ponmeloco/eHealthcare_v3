@@ -941,6 +941,11 @@ public class LoginGUI extends javax.swing.JFrame {
                                 dispose();
                                 new PatientGUI(databaseconnection.getPatient(userEmailLoginTxdFld.getText())).setVisible(true);
                                 checkEmail = false;
+                            }else if(databaseconnection.checkAdmin(userEmailLoginTxdFld.getText())) {
+                                JOptionPane.showMessageDialog(loginPanel, "Login successful!");
+                                dispose();
+                                new AdminGUI(databaseconnection.getAdmin(userEmailLoginTxdFld.getText())).setVisible(true);
+                                checkEmail = false;
                             }
                         } else {
                             System.out.println(User.hashPassword(password));

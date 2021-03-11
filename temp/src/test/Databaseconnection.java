@@ -986,11 +986,6 @@ class Databaseconnection {
                 j++;
             }
         }
-
-        if(physicians[0] == null){
-            System.out.print("No Physician Found");
-            return null;
-        }
         return physicians;
     }
 
@@ -2023,6 +2018,20 @@ class Databaseconnection {
         preparedStatement.setString(12,"8.67372");
         preparedStatement.execute();
 
+        preparedStatement.setString(1, "Admin1");
+        preparedStatement.setString(2, User.hashPassword("asd"));
+        preparedStatement.setString(3, "Hacker");
+        preparedStatement.setString(4, "Hacker");
+        preparedStatement.setString(5, "Frankfurt");
+        preparedStatement.setString(6, "Hochstraße");
+        preparedStatement.setString(7, "49");
+        preparedStatement.setString(8, "60313");
+        preparedStatement.setString(9, "069/92020630");
+        preparedStatement.setString(10,"Dr.");
+        preparedStatement.setString(11,"50.11541");
+        preparedStatement.setString(12,"8.67372");
+        preparedStatement.execute();
+
         System.out.println("\t users created..");
         System.out.println("adding patient data..");
 
@@ -2082,7 +2091,16 @@ class Databaseconnection {
         preparedStatement.execute();
 
         System.out.println("\t physician data added..");
-        System.out.println("adding specializations to phyisicians...");
+        System.out.println("adding admin data...");
+
+        preparedStatement = connection.prepareStatement("INSERT INTO Admin (" +
+                "ID) VALUES (?)");
+
+        /* Insert Test Admin */
+        preparedStatement.setString(1, "11");
+        preparedStatement.execute();
+
+        System.out.println("\t admin data added..");
 
         preparedStatement = connection.prepareStatement("INSERT INTO SpecializationPhysician(PhysicianID,SpecializationID) VALUES (?,?);");
         preparedStatement.setInt(1, 6);
@@ -2213,7 +2231,7 @@ class Databaseconnection {
         preparedStatement.setInt(1, 1);
         preparedStatement.setInt(2, 10);
         preparedStatement.setInt(3, 2021);
-        preparedStatement.setInt(4, 03);
+        preparedStatement.setInt(4, 3);
         preparedStatement.setInt(5, 12);
         preparedStatement.setInt(6, 12);
         preparedStatement.setInt(7, 45);
@@ -2293,6 +2311,20 @@ class Databaseconnection {
         ResultSet res = statement.executeQuery("SELECT User.*, Patient.ID FROM (User JOIN Patient ON User.ID = Patient.ID) WHERE emailAddress ='" + email + "';");
 
 
+        return res.next();
+    }
+
+    /**
+     * checks if user is admin
+     * @throws SQLException a SQLException
+     * @throws ClassNotFoundException a ClassNotFoundException
+     */
+    public boolean checkAdmin(String email) throws SQLException, ClassNotFoundException {
+        if(connection == null){
+            connect();
+        }
+        Statement statement = connection.createStatement();
+        ResultSet res = statement.executeQuery("SELECT User.*, Admin.ID FROM (User JOIN Admin ON Admin.ID = Admin.ID) WHERE emailAddress ='" + email + "';");
         return res.next();
     }
 

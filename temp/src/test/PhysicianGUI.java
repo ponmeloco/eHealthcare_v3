@@ -822,7 +822,6 @@ public class PhysicianGUI extends javax.swing.JFrame {
         private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
         new LoginGUI().setVisible(true);
-
         }
 
         private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {

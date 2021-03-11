@@ -19,20 +19,15 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
-
-
-
 public class Mail {
 
 	protected Session mailSession;
-	private String username = "amaramkooooo@gmail.com";
+	private String username = "Amaramkooooo@gmail.com";
 	private   String password = "Mnb12345!";
 	private String smtpHost="smtp.gmail.com";
 	private String smtPort="587";
 	DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 	DateFormat dateFormatter2 = new SimpleDateFormat("dd-MM-yyyy");
-
-
 
 
 	/***
