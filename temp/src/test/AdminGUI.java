@@ -228,6 +228,7 @@ public class AdminGUI extends javax.swing.JFrame {
         logoutBtn.setkPressedColor(new java.awt.Color(0, 0, 0));
         logoutBtn.setkSelectedColor(new java.awt.Color(255, 255, 255));
         logoutBtn.setkStartColor(new java.awt.Color(102, 102, 102));
+        logoutBtn.addActionListener(this::logoutBtnActionPerformed);
 
         exitBtn.setBorder(null);
         exitBtn.setkEndColor(new java.awt.Color(255, 255, 255));
@@ -1347,6 +1348,12 @@ public class AdminGUI extends javax.swing.JFrame {
 
     }
 
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {
+
+        dispose();
+        new LoginGUI().setVisible(true);
+    }
+    
     private void physicianIconLblUserMngPnlMouseClicked(java.awt.event.MouseEvent evt) {
         editPatientPnl1.setVisible(false);
         editPhysiciantPnl1.setVisible(false);
