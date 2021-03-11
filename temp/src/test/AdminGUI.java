@@ -6,8 +6,11 @@
 package test;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -27,6 +30,7 @@ public class AdminGUI extends javax.swing.JFrame {
         populateAllAppointmentTable();
         populatePhysicianTable();
         populatePatientTable();
+
     }
 
     /**
@@ -98,7 +102,7 @@ public class AdminGUI extends javax.swing.JFrame {
         titleTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
         eamilTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
         phoneTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        passLblCreatePhysiciantPnl = new javax.swing.JLabel();
+        physicianCreatePasswordLabel = new javax.swing.JLabel();
         passTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
         specializationComboBox1 = new javax.swing.JComboBox<>();
         createPatientPnl = new keeptoo.KGradientPanel();
@@ -159,16 +163,16 @@ public class AdminGUI extends javax.swing.JFrame {
         insuranceComboBox_createPatientPnl1 = new javax.swing.JComboBox<>();
         editPhysiciantPnl1 = new keeptoo.KGradientPanel();
         createphysiciantBtnCreatePhysiciantPnl1 = new keeptoo.KButton();
-        phoneLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
+        physicianCreatePhoneNumberLabel = new javax.swing.JLabel();
         specialisationLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        titleLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        housenumberLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        emailLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        StreetLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        familyNameLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        nameLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        postalCodeLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        cityLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
+        physicianCreateTitleLabel = new javax.swing.JLabel();
+        physicianCreateHouseNumberLabel = new javax.swing.JLabel();
+        physicianCreateEmailLabel = new javax.swing.JLabel();
+        physicianCreateStreetLabel = new javax.swing.JLabel();
+        physicianCreateLastNameLabel = new javax.swing.JLabel();
+        physicianCreateFirstNameLabel = new javax.swing.JLabel();
+        physicianCreatePostalCodeLabel = new javax.swing.JLabel();
+        physicianCreateCityLabel = new javax.swing.JLabel();
         nameTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
         familynameTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
         streetTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
@@ -746,7 +750,7 @@ public class AdminGUI extends javax.swing.JFrame {
 
         cityLblCreatePhysiciantPnl.setText("City");
 
-        passLblCreatePhysiciantPnl.setText("Password");
+        physicianCreatePasswordLabel.setText("Password");
 
         specializationComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allgemeinmedizin", "Anästhesiologie", "Anatomie", "Arbeitsmedizin", "Augenheilkunde", "Biochemie", "Chirurgie", "Chirurgie_Allgemeine Chirurgie", "Forensische Psychiatrie", "Frauenheilkunde und Geburtshilfe", "Gefäßchirurgie", "Gynäkologische Onkologie", "Hals-Nasen-Ohrenheilkunde", "Haut- und Geschlechtskrankheiten", "Herzchirurgie", "Humangenetik", "Hygiene und Umweltmedizin", "Innere Medizin ", "Innere Medizin und Endokrinologie und Diabetologie", "Innere Medizin und Gastroenterologie", "Innere Medizin und Hämatologie und Onkologie", "Innere Medizin und Kardiologie", "Innere Medizin und Nephrologie", "Innere Medizin und Pneumologie", "Innere Medizin und Rheumatologie", "Kinder- und Jugendmedizin", "Kinder- und Jugendpsychiatrie und -psychotherapie", "Kinderchirurgie", "Kinderradiologie", "Klinische Pharmakologie", "Laboratoriumsmedizin", "Mikrobiologie, Virologie und Infektionsepidemiologie", "Mund-Kiefer-Gesichtschirurgie", "Neurochirurgie", "Neurologie", "Neuroradiologie", "Nuklearmedizin", "Orthopädie und Unfallchirurgie", "Pathologie ", "Pharmakologie und Toxikologie", "Phoniatrie und Pädaudiologie", "Physikalische und Rehabilitative Medizin", "Physiologie", "Plastische, Rekonstruktive und Ästhetische Chirurgie", "Psychiatrie und Psychotherapie", "Psychosomatische Medizin und Psychotherapie", "Radiologie", "Rechtsmedizin", "SP Gynäkologische Endokrinologie und Reproduktionsmedizin", "SP Kinder-Hämatologie und -Onkologie", "SP Kinder-Kardiologie", "SP Neonatologie", "SP Neuropädiatrie", "Spezielle Geburtshilfe und Perinatalmedizin", "Strahlentherapie", "Thoraxchirurgie", "Transfusionsmedizin", "Urologie", "Viszeralchirurgie", "Innere Medizin und Angiologie", "Öffentliches Gesundheitswesen", " ", " ", " " }));
 
@@ -772,7 +776,7 @@ public class AdminGUI extends javax.swing.JFrame {
                                         .addComponent(titleLblCreatePhysiciantPnl)
                                         .addComponent(emailLblCreatePhysiciantPnl)
                                         .addComponent(phoneLblCreatePhysiciantPnl)
-                                        .addComponent(passLblCreatePhysiciantPnl))
+                                        .addComponent(physicianCreatePasswordLabel))
                                 .addGap(142, 142, 142)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -834,7 +838,7 @@ public class AdminGUI extends javax.swing.JFrame {
                                         .addComponent(phoneTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(passLblCreatePhysiciantPnl)
+                                        .addComponent(physicianCreatePasswordLabel)
                                         .addComponent(passTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(17, 17, 17)
                                 .addComponent(createphysiciantBtnCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1195,25 +1199,25 @@ public class AdminGUI extends javax.swing.JFrame {
             }
         });
 
-        phoneLblCreatePhysiciantPnl1.setText("Phone");
+        physicianCreatePhoneNumberLabel.setText("Phone");
 
         specialisationLblCreatePhysiciantPnl1.setText("Specialisation");
 
-        titleLblCreatePhysiciantPnl1.setText("Title");
+        physicianCreateTitleLabel.setText("Title");
 
-        housenumberLblCreatePhysiciantPnl1.setText("House Number");
+        physicianCreateHouseNumberLabel.setText("House Number");
 
-        emailLblCreatePhysiciantPnl1.setText("E-Mail");
+        physicianCreateEmailLabel.setText("E-Mail");
 
-        StreetLblCreatePhysiciantPnl1.setText("Street");
+        physicianCreateStreetLabel.setText("Street");
 
-        familyNameLblCreatePhysiciantPnl1.setText("Family name");
+        physicianCreateLastNameLabel.setText("Family name");
 
-        nameLblCreatePhysiciantPnl1.setText("Name");
+        physicianCreateFirstNameLabel.setText("Name");
 
-        postalCodeLblCreatePhysiciantPnl1.setText("Postal code");
+        physicianCreatePostalCodeLabel.setText("Postal code");
 
-        cityLblCreatePhysiciantPnl1.setText("City");
+        physicianCreateCityLabel.setText("City");
 
         passLblCreatePhysiciantPnl1.setText("Password");
 
@@ -1230,17 +1234,17 @@ public class AdminGUI extends javax.swing.JFrame {
                         .addGroup(editPhysiciantPnl1Layout.createSequentialGroup()
                                 .addGap(124, 124, 124)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(nameLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreateFirstNameLabel)
                                         .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(StreetLblCreatePhysiciantPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(familyNameLblCreatePhysiciantPnl1, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addComponent(housenumberLblCreatePhysiciantPnl1)
-                                        .addComponent(postalCodeLblCreatePhysiciantPnl1)
-                                        .addComponent(cityLblCreatePhysiciantPnl1)
+                                                .addComponent(physicianCreateStreetLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(physicianCreateLastNameLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(physicianCreateHouseNumberLabel)
+                                        .addComponent(physicianCreatePostalCodeLabel)
+                                        .addComponent(physicianCreateCityLabel)
                                         .addComponent(specialisationLblCreatePhysiciantPnl1)
-                                        .addComponent(titleLblCreatePhysiciantPnl1)
-                                        .addComponent(emailLblCreatePhysiciantPnl1)
-                                        .addComponent(phoneLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreateTitleLabel)
+                                        .addComponent(physicianCreateEmailLabel)
+                                        .addComponent(physicianCreatePhoneNumberLabel)
                                         .addComponent(passLblCreatePhysiciantPnl1))
                                 .addGap(142, 142, 142)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1263,27 +1267,27 @@ public class AdminGUI extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhysiciantPnl1Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(nameLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreateFirstNameLabel)
                                         .addComponent(nameTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(7, 7, 7)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(familyNameLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreateLastNameLabel)
                                         .addComponent(familynameTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(streetTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(StreetLblCreatePhysiciantPnl1))
+                                        .addComponent(physicianCreateStreetLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(houseNumberTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(housenumberLblCreatePhysiciantPnl1))
+                                        .addComponent(physicianCreateHouseNumberLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(postalCodeTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(postalCodeLblCreatePhysiciantPnl1))
+                                        .addComponent(physicianCreatePostalCodeLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(cityLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreateCityLabel)
                                         .addComponent(cityTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1291,15 +1295,15 @@ public class AdminGUI extends javax.swing.JFrame {
                                         .addComponent(specializationComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(titleLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreateTitleLabel)
                                         .addComponent(titleTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(emailLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreateEmailLabel)
                                         .addComponent(eamilTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(phoneLblCreatePhysiciantPnl1)
+                                        .addComponent(physicianCreatePhoneNumberLabel)
                                         .addComponent(phoneTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1396,6 +1400,7 @@ public class AdminGUI extends javax.swing.JFrame {
         editPatientPnl.setVisible(false);
         editAppointmentPnl.setVisible(false);
         createPhysiciantPnl.setVisible(true);
+        System.out.println("eins");
     }
 
     private void searchTxtFldEditPhyPnlActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1461,6 +1466,44 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void createphysiciantBtnCreatePhysiciantPnlActionPerformed(java.awt.event.ActionEvent evt) {
+
+        try {
+            String [] spec = new String[1];
+            spec[0] = Objects.requireNonNull(specializationComboBox1.getSelectedItem()).toString();
+        Physician physi = new Physician(
+
+
+                physicianCreateEmailLabel.getText(),
+                physicianCreateFirstNameLabel.getText(),
+                physicianCreateLastNameLabel.getText(),
+                physicianCreateCityLabel.getText(),
+                physicianCreateStreetLabel.getText(),
+                physicianCreateHouseNumberLabel.getText(),
+                physicianCreatePostalCodeLabel.getText(),
+                physicianCreatePhoneNumberLabel.getText(),
+                physicianCreateTitleLabel.getText(),
+                physicianCreatePasswordLabel.getText(),
+                spec,
+                Geocoder.decode(physicianCreateCityLabel.getText()+" "+
+                        physicianCreateStreetLabel.getText()+" "+
+                        physicianCreateHouseNumberLabel.getText()+" "+
+                        physicianCreatePostalCodeLabel.getText())
+
+
+
+        );
+        Databaseconnection data = new Databaseconnection();
+        data.addUser(physi);
+        } catch (IOException | InterruptedException | ClassNotFoundException | SQLException ioException) {
+            ioException.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(null,"Physician: "+ physicianCreateFirstNameLabel.getText()+" "+ physicianCreateLastNameLabel.getText()+" got created.\nThe password is: "+ physicianCreatePasswordLabel.getText()+".");
+
+
+        passLblCreatePhysiciantPnl1.getText();
+        createPhysiciantPnl.setVisible(false);
+
+        System.out.println("zwei");
         // TODO add your handling code here:
     }
 
@@ -1618,12 +1661,12 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JTable EditAppointmentjTable1;
     private javax.swing.JTextField SearchTexFealdEditPatintPnl;
     private javax.swing.JLabel StreetLblCreatePhysiciantPnl;
-    private javax.swing.JLabel StreetLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreateStreetLabel;
     private javax.swing.JTable adminPhysicianlisttable;
     private keeptoo.KButton appointmenMenagmentBtn;
     private javax.swing.JLabel choseCategoryLblUserMngPnl;
     private javax.swing.JLabel cityLblCreatePhysiciantPnl;
-    private javax.swing.JLabel cityLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreateCityLabel;
     private javax.swing.JTextField cityTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField cityTxtFldCreatePhysiciantPnl1;
     private keeptoo.KButton createPatientBtnEditPatintPnl;
@@ -1651,18 +1694,18 @@ public class AdminGUI extends javax.swing.JFrame {
     private keeptoo.KButton editPhysicianButtonEditPhyPnl1;
     private keeptoo.KGradientPanel editPhysiciantPnl1;
     private javax.swing.JLabel emailLblCreatePhysiciantPnl;
-    private javax.swing.JLabel emailLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreateEmailLabel;
     private javax.swing.JTextField emailTxtFldCreatePatientPnl;
     private javax.swing.JTextField emailTxtFldCreatePatientPnl1;
     private keeptoo.KButton exitBtn;
     private javax.swing.JLabel familyNameLblCreatePhysiciantPnl;
-    private javax.swing.JLabel familyNameLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreateLastNameLabel;
     private javax.swing.JTextField familynameTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField familynameTxtFldCreatePhysiciantPnl1;
     private javax.swing.JTextField houseNumberTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField houseNumberTxtFldCreatePhysiciantPnl1;
     private javax.swing.JLabel housenumberLblCreatePhysiciantPnl;
-    private javax.swing.JLabel housenumberLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreateHouseNumberLabel;
     private javax.swing.JComboBox<String> insuranceComboBox_createPatientPnl;
     private javax.swing.JComboBox<String> insuranceComboBox_createPatientPnl1;
     private javax.swing.JLabel insurance_CreatepatientPnl;
@@ -1680,10 +1723,10 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JLabel nameLblCreatePatientPnl;
     private javax.swing.JLabel nameLblCreatePatientPnl1;
     private javax.swing.JLabel nameLblCreatePhysiciantPnl;
-    private javax.swing.JLabel nameLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreateFirstNameLabel;
     private javax.swing.JTextField nameTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField nameTxtFldCreatePhysiciantPnl1;
-    private javax.swing.JLabel passLblCreatePhysiciantPnl;
+    private javax.swing.JLabel physicianCreatePasswordLabel;
     private javax.swing.JLabel passLblCreatePhysiciantPnl1;
     private javax.swing.JTextField passTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField passTxtFldCreatePhysiciantPnl1;
@@ -1726,7 +1769,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JLabel patientphoneLblCreatePatientPnl;
     private javax.swing.JLabel patientphoneLblCreatePatientPnl1;
     private javax.swing.JLabel phoneLblCreatePhysiciantPnl;
-    private javax.swing.JLabel phoneLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreatePhoneNumberLabel;
     private javax.swing.JTextField phoneTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField phoneTxtFldCreatePhysiciantPnl1;
     private javax.swing.JLabel physicianIconLblUserMngPnl;
@@ -1735,7 +1778,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JLabel pictureLbl;
     private javax.swing.JPanel picturePanel;
     private javax.swing.JLabel postalCodeLblCreatePhysiciantPnl;
-    private javax.swing.JLabel postalCodeLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreatePostalCodeLabel;
     private javax.swing.JTextField postalCodeTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField postalCodeTxtFldCreatePhysiciantPnl1;
     private keeptoo.KButton searchBtnEditPhyPnl;
@@ -1748,7 +1791,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JTextField streetTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField streetTxtFldCreatePhysiciantPnl1;
     private javax.swing.JLabel titleLblCreatePhysiciantPnl;
-    private javax.swing.JLabel titleLblCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianCreateTitleLabel;
     private javax.swing.JTextField titleTxtFldCreatePhysiciantPnl;
     private javax.swing.JTextField titleTxtFldCreatePhysiciantPnl1;
     private keeptoo.KButton userMnagmentBtn;
