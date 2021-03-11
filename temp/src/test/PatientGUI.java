@@ -37,7 +37,7 @@ public class PatientGUI extends javax.swing.JFrame {
 
          /*Patient test = new Patient("testmail", "Tessy",  "Test", "Berlin","Hauptstraße",  "1",  "60001",  "112",  "Dr.", "_password",
                  "2020-01-01",  "AOK",null, null, 12, new LatLong(50.22222,8.88888));*/
-        setUndecorated(true);
+        setUndecorated(false);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         initComponents();
 
@@ -637,7 +637,11 @@ public class PatientGUI extends javax.swing.JFrame {
         saveChangesBtn_ProfilPnl.setkStartColor(new java.awt.Color(255, 255, 255));
         saveChangesBtn_ProfilPnl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveChangesBtn_ProfilPnlActionPerformed(evt);
+                try {
+                    saveChangesBtn_ProfilPnlActionPerformed(evt);
+                } catch (SQLException | ClassNotFoundException | IOException | InterruptedException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         });
 
@@ -655,11 +659,11 @@ public class PatientGUI extends javax.swing.JFrame {
 
         weightLbl_ProfilPnl.setText("Weight");
 
-        postalCodeTxtFld_ProfilPnl.setText("jTextField4");
+        postalCodeTxtFld_ProfilPnl.setText("Postal Code");
 
         postalCodeLbl_ProfilPnl.setText("Postal code");
 
-        weightTxtFld_ProfilPnl.setText("jTextField4");
+        weightTxtFld_ProfilPnl.setText("Weight");
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/edit.png"))); // NOI18N
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -982,9 +986,9 @@ public class PatientGUI extends javax.swing.JFrame {
 
         descriptionLbl_NewAppPnl.setText("Description");
 
-        severenessTxtFld_NewAppointmentPnl.setText("severness");
+        severenessTxtFld_NewAppointmentPnl.setText("Severness");
 
-        symptomNameTxtFld_NewAppPnl.setText("symtom name");
+        symptomNameTxtFld_NewAppPnl.setText("Symptom name");
 
         descriptionTxtFld_NewAppPnl.setColumns(20);
         descriptionTxtFld_NewAppPnl.setRows(5);
@@ -1275,8 +1279,27 @@ public class PatientGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void saveChangesBtn_ProfilPnlActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    private void saveChangesBtn_ProfilPnlActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
+
+        Databaseconnection data = new Databaseconnection();
+
+        Patient patient = new Patient(
+                emailTxtfld_ProfilPnl.getText(),
+                nameTxtLbl_ProfilPnl.getText(),
+                familyNameLbl_ProfilPnl.getText(),
+                cityTxtFld_ProfilPnl.getText(),
+                streetTxtfld_ProfilPnl.getText(),
+                HouseNumberTxtFld_ProfilPnl.getText(),
+                postalCodeTxtFld_ProfilPnl.getText(),
+                phoneTxtfld_ProfilPnl.getText(),
+                dateOfBirthTxtfld_ProfilPnl.getText(),
+                titleTxtfld_ProfilPnl.getText(),
+                InsuranceTxtFld_ProfilPnl.getText(),
+                Integer.parseInt(weightTxtFld_ProfilPnl.getText())
+        );
+        data.updateUser(patient);
+        JOptionPane.showMessageDialog(null,"Your personal information have been saved.");
+
     }
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {
