@@ -5,7 +5,7 @@
  */
 package test;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -166,7 +166,7 @@ public class AdminGUI extends javax.swing.JFrame {
         patientPasswordTextFieldEditPanel = new javax.swing.JTextField("NOT CHANGEABLE PATIENT");
         patientInsuranceComboBoxEditPanel = new javax.swing.JComboBox<>();
         physicianEditPanel = new keeptoo.KGradientPanel();
-        physicianCreateButtonEditPanel = new keeptoo.KButton();
+        physicianSaveChangesButtonEditPanel = new keeptoo.KButton();
         physicianPhoneNumberLabelEditPanel = new javax.swing.JLabel();
         physicianSpecializationComboBoxLabelEditPanel = new javax.swing.JLabel();
         physicianTitleLabelEditPanel = new javax.swing.JLabel();
@@ -496,7 +496,11 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianEditButton.setkStartColor(new java.awt.Color(102, 102, 102));
         physicianEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                physicianEditButtonActionPerformed(evt);
+                try {
+                    physicianEditButtonActionPerformed(evt);
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         });
 
@@ -665,7 +669,7 @@ public class AdminGUI extends javax.swing.JFrame {
         patientEditButtonMainPanel.setkStartColor(new java.awt.Color(102, 102, 102));
         patientEditButtonMainPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editPatienButtonEditPhyPnl2ActionPerformed(evt);
+                patientEditButtonActionPerformed(evt);
             }
         });
 
@@ -788,7 +792,7 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianCreateButtonCreatePanel.setkStartColor(new java.awt.Color(102, 102, 102));
         physicianCreateButtonCreatePanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createphysiciantBtnCreatePhysiciantPnlActionPerformed(evt);
+                physicianCreateButtonCreatePanelActionPerformed(evt);
             }
         });
 
@@ -1081,7 +1085,7 @@ public class AdminGUI extends javax.swing.JFrame {
         patientEditPanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
         patientEditPatientButtonEditPanel.setBorder(null);
-        patientEditPatientButtonEditPanel.setText("Create Patient testtest");
+        patientEditPatientButtonEditPanel.setText("Save changes");
         patientEditPatientButtonEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
         patientEditPatientButtonEditPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
         patientEditPatientButtonEditPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
@@ -1091,7 +1095,11 @@ public class AdminGUI extends javax.swing.JFrame {
         patientEditPatientButtonEditPanel.setkStartColor(new java.awt.Color(102, 102, 102));
         patientEditPatientButtonEditPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientEditPatientButtonEditPanelActionPerformed(evt);
+                try {
+                    patientEditPatientButtonEditPanelActionPerformed(evt);
+                } catch (IOException | InterruptedException | SQLException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -1247,18 +1255,22 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
         physicianEditPanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        physicianCreateButtonEditPanel.setBorder(null);
-        physicianCreateButtonEditPanel.setText("Create Physician");
-        physicianCreateButtonEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
-        physicianCreateButtonEditPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        physicianCreateButtonEditPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        physicianCreateButtonEditPanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        physicianCreateButtonEditPanel.setkPressedColor(new java.awt.Color(0, 0, 0));
-        physicianCreateButtonEditPanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        physicianCreateButtonEditPanel.setkStartColor(new java.awt.Color(102, 102, 102));
-        physicianCreateButtonEditPanel.addActionListener(new java.awt.event.ActionListener() {
+        physicianSaveChangesButtonEditPanel.setBorder(null);
+        physicianSaveChangesButtonEditPanel.setText("Save changes");
+        physicianSaveChangesButtonEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianSaveChangesButtonEditPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        physicianSaveChangesButtonEditPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        physicianSaveChangesButtonEditPanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        physicianSaveChangesButtonEditPanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        physicianSaveChangesButtonEditPanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        physicianSaveChangesButtonEditPanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianSaveChangesButtonEditPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                physicianCreateButtonEditPanelActionPerformed(evt);
+                try {
+                    physicianSaveChangesButtonEditPanelActionPerformed(evt);
+                } catch (IOException | InterruptedException | SQLException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -1292,7 +1304,7 @@ public class AdminGUI extends javax.swing.JFrame {
                 editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhysiciantPnl1Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(physicianCreateButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianSaveChangesButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                         .addGroup(editPhysiciantPnl1Layout.createSequentialGroup()
                                 .addGap(124, 124, 124)
@@ -1373,7 +1385,7 @@ public class AdminGUI extends javax.swing.JFrame {
                                         .addComponent(physicianPasswordLabelEditPanel)
                                         .addComponent(physicianPasswordTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(17, 17, 17)
-                                .addComponent(physicianCreateButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianSaveChangesButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
@@ -1513,14 +1525,14 @@ public class AdminGUI extends javax.swing.JFrame {
         DefaultTableModel model=(DefaultTableModel) adminPatientTable.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
         adminPatientTable.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(patientSearchTextField.getText().trim()));        // TODO add your handling code here:
+        tr.setRowFilter(RowFilter.regexFilter(patientSearchTextField.getText().trim()));
     }
 
     private void patientSearchTextFieldKeyReleased(java.awt.event.KeyEvent evt) {
         DefaultTableModel model=(DefaultTableModel) adminPatientTable.getModel();
         TableRowSorter<DefaultTableModel>tr= new TableRowSorter<DefaultTableModel>(model);
         adminPatientTable.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(patientSearchTextField.getText().trim()));        // TODO add your handling code here:
+        tr.setRowFilter(RowFilter.regexFilter(patientSearchTextField.getText().trim()));
     }
 
     private void patientCreateButtonCreatePanelActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1541,19 +1553,34 @@ public class AdminGUI extends javax.swing.JFrame {
                     Objects.requireNonNull(patientInsuranceComboBoxCreatePanel.getSelectedItem()).toString(),
                     Integer.parseInt(patientCreateWeightTextFieldCreatePanel.getText())
             );
+            JOptionPane.showMessageDialog(null,"Patient: "+ patientCreateFirstNameTextFieldCreatePanel.getText() +" "+ patientCreateLastNameTextFieldCreatePanel.getText()+" got created. \nThe Password you set it: "+ patientCreatePasswordTextFieldCreatePanel.getText()+".");
             data.addUser(patient);
         } catch (InterruptedException | IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        JOptionPane.showMessageDialog(null,"Patient: "+ patientCreateFirstNameTextFieldCreatePanel.getText() +" "+ patientCreateLastNameTextFieldCreatePanel.getText()+" got created. \nThe Password you set it: "+ patientCreatePasswordTextFieldCreatePanel.getText()+".");
+        patientCreateEmailTextFieldCreatePanel.setText("");
+        patientCreateFirstNameTextFieldCreatePanel.setText("");
+        patientCreateLastNameTextFieldCreatePanel.setText("");
+        patientCreateCityTextFieldCreatePanel.setText("");
+        patientCreateStreetTextFieldCreatePanel.setText("");
+        patientCreateHouseNumberTextFieldCreatePanel.setText("");
+        patientCreatePostalCodeTextFieldCreatePanel.setText("");
+        patientCreatePhoneNumberTextFieldCreatePanel.setText("");
+        patientCreateTitleTextFieldCreatePanel.setText("");
+        patientCreatePasswordTextFieldCreatePanel.setText("");
+        patientCreatePanel.setVisible(false);
+        patientManagementPanel.setVisible(true);
+        DefaultTableModel model = (DefaultTableModel) adminPatientTable.getModel();
+        model.setRowCount(0);
+        populatePatientTable();
     }
 
-    private void createphysiciantBtnCreatePhysiciantPnlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void physicianCreateButtonCreatePanelActionPerformed(java.awt.event.ActionEvent evt) {
 
         try {
             String [] spec = new String[1];
             spec[0] = Objects.requireNonNull(physicianSpecializationCreatePanelComboBox.getSelectedItem()).toString();
-        Physician physi = new Physician(
+            Physician physi = new Physician(
                 physicianCreateEmailTextFieldCreatePanel.getText(),
                 physicianNameTextFieldCreatePanel.getText(),
                 physicianFamilyNameTextFieldCreatePanel.getText(),
@@ -1569,12 +1596,10 @@ public class AdminGUI extends javax.swing.JFrame {
                         physicianStreetTextFieldCreatePanel.getText()+" "+
                         physicianHouseNumberTextFieldCreatePanel.getText()+" "+
                         physicianPostalCodeTextFieldCreatePanel.getText())
-
-
-
         );
         Databaseconnection data = new Databaseconnection();
         data.addUser(physi);
+        JOptionPane.showMessageDialog(null,"Patient: "+ physicianNameTextFieldCreatePanel.getText() +" "+ patientCreateLastNameTextFieldCreatePanel.getText()+" got created. \nThe Password you set it: "+ physicianPasswordTextFieldCreatePanel.getText()+".");
         } catch (IOException | InterruptedException | ClassNotFoundException | SQLException ioException) {
             ioException.printStackTrace();
         }
@@ -1589,7 +1614,10 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianTitleTextFieldCreatePanel.setText("");
         physicianPasswordTextFieldCreatePanel.setText("");
         physicianCreatePanel.setVisible(false);
-        // TODO add your handling code here:
+        physicianManagementPanel.setVisible(true);
+        DefaultTableModel model = (DefaultTableModel) adminPhysicianTable.getModel();
+        model.setRowCount(0);
+        populatePhysicianTable();
     }
 
     private void deleteappointmentBtnEditAppPnlActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1605,9 +1633,9 @@ public class AdminGUI extends javax.swing.JFrame {
         LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
 
 
-        for(int i=0;i<appointments.length;i++){
-            if(appointments[i].getPatient().getLastName().equals(PatientName)&&appointments[i].getDate().equals(dateTime)){
-                try{
+        for (Appointment value : appointments) {
+            if (value.getPatient().getLastName().equals(PatientName) && value.getDate().equals(dateTime)) {
+                try {
 
                     Databaseconnection databaseconnection = new Databaseconnection();
 //            appointments=databaseconnection.getAppointment(patient.getEmailAddress());
@@ -1617,7 +1645,7 @@ public class AdminGUI extends javax.swing.JFrame {
                         model.addRow(new Object[]{appointment.getPatient().getLastName(),
                                 formattedDateTime, appointment.getPatient().getEmailAddress()});
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
 
 
@@ -1656,15 +1684,65 @@ public class AdminGUI extends javax.swing.JFrame {
 
     }
 
-    private void patientEditPatientButtonEditPanelActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    private void patientEditPatientButtonEditPanelActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException, SQLException, ClassNotFoundException {
+        Databaseconnection data = new Databaseconnection();
+
+        Patient patient = new Patient(
+                patientEmailTextFieldEditPanel.getText(),
+                patientNameTextFieldEditPanel.getText(),
+                patientFamilyNameTextFieldEditPanel.getText(),
+                patientCityTextFieldEditPanel.getText(),
+                patientStreetTextFieldEditPanel.getText(),
+                patientHouseNumberTextFieldEditPanel.getText(),
+                patientPostalCodeTextFieldEditPanel.getText(),
+                patientPhoneNumberTextFieldEditPanel.getText(),
+                patientDateOfBirthTextFieldEditPanel.getText(),
+                patientTitleTextFieldEditPanel.getText(),
+                Objects.requireNonNull(patientInsuranceComboBoxEditPanel.getSelectedItem()).toString(),
+                Integer.parseInt(patientWeightTextFieldEditPanel.getText())
+        );
+        data.updateUser(patient);
+        JOptionPane.showMessageDialog(null,"The patients personal information have been saved.");
+        DefaultTableModel model = (DefaultTableModel) adminPatientTable.getModel();
+        model.setRowCount(0);
+        populatePatientTable();
+        patientEditPanel.setVisible(false);
+        patientManagementPanel.setVisible(true);
     }
 
-    private void physicianCreateButtonEditPanelActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    private void physicianSaveChangesButtonEditPanelActionPerformed(java.awt.event.ActionEvent evt) throws IOException, InterruptedException, SQLException, ClassNotFoundException {
+        Databaseconnection data = new Databaseconnection();
+        String [] spec = new String[1];
+        spec[0] = Objects.requireNonNull(physicianSpecializationComboBoxEditPanel.getSelectedItem()).toString();
+        Physician physi = new Physician(
+                physicianEmailTextFieldEditPanel.getText(),
+                physicianNameTextFieldEditPanel.getText(),
+                physicianFamilyNameTextFieldEditPanel.getText(),
+                physicianCityTextFieldEditPanel.getText(),
+                physicianStreetTextFieldEditPanel.getText(),
+                physicianHouseNumberTextFieldEditPanel.getText(),
+                physicianPostalCodeTextFieldEditPanel.getText(),
+                physicianPhoneNumberTextFieldEditPanel.getText(),
+                physicianTitleTextFieldEditPanel.getText(),
+                physicianPasswordTextFieldEditPanel.getText(),
+                spec,
+                Geocoder.decode(physicianCityTextFieldEditPanel.getText()+" "+
+                        physicianStreetTextFieldEditPanel.getText()+" "+
+                        physicianHouseNumberTextFieldEditPanel.getText()+" "+
+                        physicianPostalCodeTextFieldEditPanel.getText())
+        );
+        data.updateUser(physi);
+        JOptionPane.showMessageDialog(null,"The physician personal information have been saved.");
+        DefaultTableModel model = (DefaultTableModel) adminPhysicianTable.getModel();
+        model.setRowCount(0);
+        populatePhysicianTable();
+
+        physicianEditPanel.setVisible(false);
+        physicianManagementPanel.setVisible(true);
+
     }
 
-    private void physicianEditButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void physicianEditButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, ClassNotFoundException {
         userChooseManagementPanel.setVisible(false);
         physicianManagementPanel.setVisible(false);
         patientManagementPanel.setVisible(false);
@@ -1672,13 +1750,23 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianCreatePanel.setVisible(false);
         patientCreatePanel.setVisible(false);
         patientEditPanel.setVisible(false);
-        physicianEditPanel.setVisible(true);        // TODO add your handling code here:
+        physicianEditPanel.setVisible(true);
 
-
-
+        Databaseconnection data = new Databaseconnection();
+        Physician physician = data.getPhysician((String) adminPhysicianTable.getValueAt(adminPhysicianTable.getSelectedRow(),3));
+        physicianNameTextFieldEditPanel.setText(physician.getFirstName());
+        physicianFamilyNameTextFieldEditPanel.setText(physician.getLastName());
+        physicianStreetTextFieldEditPanel.setText(physician.getStreet());
+        physicianHouseNumberTextFieldEditPanel.setText(physician.getHouseNumber());
+        physicianPostalCodeTextFieldEditPanel.setText(physician.getPostalCode());
+        physicianCityTextFieldEditPanel.setText(physician.getCity());
+        physicianSpecializationComboBoxEditPanel.setSelectedItem(physician.getSpecialization());
+        physicianTitleTextFieldEditPanel.setText(physician.getTitle());
+        physicianEmailTextFieldEditPanel.setText(physician.getEmailAddress());
+        physicianPhoneNumberTextFieldEditPanel.setText(physician.getPhoneNUmber());
     }
 
-    private void editPatienButtonEditPhyPnl2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void patientEditButtonActionPerformed(java.awt.event.ActionEvent evt) {
         userChooseManagementPanel.setVisible(false);
         physicianManagementPanel.setVisible(false);
         patientManagementPanel.setVisible(false);
@@ -1686,7 +1774,7 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianCreatePanel.setVisible(false);
         patientCreatePanel.setVisible(false);
         physicianEditPanel.setVisible(false);
-        patientEditPanel.setVisible(true);            // TODO add your handling code here:
+        patientEditPanel.setVisible(true);
         Databaseconnection data = new Databaseconnection();
         try {
             Patient patient = data.getPatient((String) adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(),3));
@@ -1701,10 +1789,9 @@ public class AdminGUI extends javax.swing.JFrame {
             patientEmailTextFieldEditPanel.setText(patient.getEmailAddress());
             patientPhoneNumberTextFieldEditPanel.setText(patient.getPhoneNUmber());
             patientWeightTextFieldEditPanel.setText(String.valueOf(patient.getWeight()));
-            patientPasswordTextFieldEditPanel.setText("NOT CHANGEABLE edit pat");
+            patientDateOfBirthTextFieldEditPanel.setText(patient.getBirthday());
+            patientPasswordTextFieldEditPanel.setText("NOT CHANGEABLE");
             patientPasswordTextFieldEditPanel.setEditable(false);
-
-
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
@@ -1724,13 +1811,10 @@ public class AdminGUI extends javax.swing.JFrame {
             }
         }catch (Exception e) {
             System.out.println(e.getMessage());
-
         }
-
     }
 
     private void populatePhysicianTable(){
-
 
         try{
             DefaultTableModel model = (DefaultTableModel) adminPhysicianTable.getModel();
@@ -1783,7 +1867,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private keeptoo.KButton patientCreateButtonCreatePanel;
     private keeptoo.KButton patientEditPatientButtonEditPanel;
     private keeptoo.KButton physicianCreateButtonCreatePanel;
-    private keeptoo.KButton physicianCreateButtonEditPanel;
+    private keeptoo.KButton physicianSaveChangesButtonEditPanel;
     private javax.swing.JTextField patientCreateDateOfBirthTextFieldCreatePanel;
     private javax.swing.JTextField patientDateOfBirthTextFieldEditPanel;
     private javax.swing.JLabel patientDateOfBirthLabelCreatePanel;

@@ -31,6 +31,39 @@ class Patient extends User {
         setPasswordhash(_password);
         setGeolocation(_geolocation);
     }
+    Patient(String _emailAddress, String _firstName, String _lastName, String _city,
+            String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _dateOfBirth, String _title, String _insuranceName,String _password, int _weight, LatLong _geolocation) throws IOException, InterruptedException {
+        setEmailAddress(_emailAddress);
+        setFirstName(_firstName);
+        setLastName(_lastName);
+        setCity(_city);
+        setStreet(_street);
+        setHouseNumber(_houseNumber);
+        setPostalCode(_postalCode);
+        setPhoneNUmber(_phoneNumber);
+        setBirthday(_dateOfBirth);
+        setTitle(_title);
+        setInsuranceName(_insuranceName);
+        setPasswordhash(_password);
+        setWeight(_weight);
+        setGeolocation(_geolocation);
+    }
+    Patient(String _emailAddress, String _firstName, String _lastName, String _city,
+            String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _dateOfBirth, String _title, String _insuranceName, int _weight) throws IOException, InterruptedException {
+        setEmailAddress(_emailAddress);
+        setFirstName(_firstName);
+        setLastName(_lastName);
+        setCity(_city);
+        setStreet(_street);
+        setHouseNumber(_houseNumber);
+        setPostalCode(_postalCode);
+        setPhoneNUmber(_phoneNumber);
+        setBirthday(_dateOfBirth);
+        setTitle(_title);
+        setInsuranceName(_insuranceName);
+        setWeight(_weight);
+        setGeolocation(Geocoder.decode(_city+" "+_street+" "+_houseNumber+" "+_postalCode));
+    }
 
     Patient(String _emailAddress, String _firstName, String _lastName, String _city,
             String _street, String _houseNumber, String _postalCode, String _phoneNumber, String _dateOfBirth, String _title, String _password, String _insuranceName, int _weight) throws IOException, InterruptedException {

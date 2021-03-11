@@ -1,6 +1,7 @@
 package test;
 import org.w3c.dom.ls.LSOutput;
 
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 
@@ -274,8 +275,11 @@ class Databaseconnection {
                 System.out.println(e.getMessage());
             }
 
+            /*
             setSymptoms(patient.getEmailAddress(), patient.getSymptoms());
             setMedications(patient.getEmailAddress(), patient.getMedications());
+
+             */
 
         }else{
             throw new SQLException("User not registered yet. If you tried to change the Emailadress please note, \n  this address is used to uniquely identify each user.\n Please use the method changeEmail not updateuser.");
@@ -673,28 +677,28 @@ class Databaseconnection {
 
     }
 
-    public Patient[]   getAllPatients() throws SQLException,ClassNotFoundException{
+    public Patient[]   getAllPatients() throws SQLException, ClassNotFoundException, IOException, InterruptedException {
         if(connection == null){
             connect();
         }
         Statement statement = connection.createStatement();
-        ResultSet res = statement.executeQuery("SELECT * FROM USER AS u INNER JOIN Patient AS p ON u.ID = p.ID; ");
+        ResultSet res = statement.executeQuery("SELECT u.*,p.DateOfBirth,p.weight,i.name FROM User AS u JOIN (Patient AS p JOIN Insurance as i ON p.InsuranceID = i.ID) ON u.ID = p.ID;");
 
         if(!res.next()){
             throw new SQLException("Couldn't fetch patients. Does the database contain patients?");
         }
         else{
             int countPatient = 0;
-            res = statement.executeQuery("SELECT * FROM USER AS u INNER JOIN Patient AS p ON u.ID = p.ID; ");
+            res = statement.executeQuery("SELECT u.*,p.DateOfBirth,p.weight,i.name FROM User AS u JOIN (Patient AS p JOIN Insurance as i ON p.InsuranceID = i.ID) ON u.ID = p.ID; ");
             while(res.next()){
                 countPatient++;
             }
             Patient[] patients = new Patient[countPatient];
-            res = statement.executeQuery("SELECT * FROM USER AS u INNER JOIN Patient AS p ON u.ID = p.ID;");
+            res = statement.executeQuery("SELECT u.*,p.DateOfBirth,p.weight,i.name FROM User AS u JOIN (Patient AS p JOIN Insurance as i ON p.InsuranceID = i.ID) ON u.ID = p.ID;");
 
             for (int i = 0; res.next(); i++){
                 //String patientID =          res.getString(1);
-                String email =              res.getString(2);
+                String email=               res.getString(2);
                 String pwhash =             res.getString(3);
                 String firstName =          res.getString(4);
                 String lastName =           res.getString(5);
@@ -704,16 +708,16 @@ class Databaseconnection {
                 String postalCode =         res.getString(9);
                 String phoneNumber =        res.getString(10);
                 String title =              res.getString(11);
-                String dateOfBirth =        res.getString(12);
-                int weight =                res.getInt(13);
-                LatLong latlong =           new LatLong(res.getDouble(14), res.getDouble(13));
-                String insurancename =      res.getString(14);
+                String dateOfBirth =        res.getString(14);
+                LatLong latlong =           new LatLong(res.getDouble(13), res.getDouble(12));
+                int weight =                res.getInt(15);
+                String insurancename =      res.getString(16);
                 Medication[] medications =  getMedication(email);
                 Symptom[] symptoms =        getSymptoms(email);
 
 
-                patients[i] =  new Patient(email,firstName,lastName,city,street,houseNumber,postalCode,
-                        phoneNumber, title, pwhash, dateOfBirth, insurancename, symptoms, medications, weight,latlong);
+                patients[i]= new Patient(email,firstName,lastName,city,street,houseNumber,postalCode,
+                        phoneNumber, dateOfBirth, title, insurancename, pwhash, weight, latlong);
 
             }
 
