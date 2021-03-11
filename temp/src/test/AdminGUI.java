@@ -1400,7 +1400,6 @@ public class AdminGUI extends javax.swing.JFrame {
         editPatientPnl.setVisible(false);
         editAppointmentPnl.setVisible(false);
         createPhysiciantPnl.setVisible(true);
-        System.out.println("eins");
     }
 
     private void searchTxtFldEditPhyPnlActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1472,38 +1471,40 @@ public class AdminGUI extends javax.swing.JFrame {
             spec[0] = Objects.requireNonNull(specializationComboBox1.getSelectedItem()).toString();
         Physician physi = new Physician(
 
+                         eamilTxtFldCreatePhysiciantPnl.getText(),
+                        nameTxtFldCreatePhysiciantPnl.getText(),
+                        familynameTxtFldCreatePhysiciantPnl.getText(),
+                        cityTxtFldCreatePhysiciantPnl.getText(),
+                        streetTxtFldCreatePhysiciantPnl.getText(),
+                        houseNumberTxtFldCreatePhysiciantPnl.getText(),
+                        postalCodeTxtFldCreatePhysiciantPnl.getText(),
+                        phoneTxtFldCreatePhysiciantPnl.getText(),
+                        titleTxtFldCreatePhysiciantPnl.getText(),
+                        passTxtFldCreatePhysiciantPnl.getText(),
+                        spec,
+                Geocoder.decode(cityTxtFldCreatePhysiciantPnl.getText()+" "+
+                        streetTxtFldCreatePhysiciantPnl.getText()+" "+
+                        houseNumberTxtFldCreatePhysiciantPnl.getText()+" "+
+                        postalCodeTxtFldCreatePhysiciantPnl.getText())
 
-                physicianCreateEmailLabel.getText(),
-                physicianCreateFirstNameLabel.getText(),
-                physicianCreateLastNameLabel.getText(),
-                physicianCreateCityLabel.getText(),
-                physicianCreateStreetLabel.getText(),
-                physicianCreateHouseNumberLabel.getText(),
-                physicianCreatePostalCodeLabel.getText(),
-                physicianCreatePhoneNumberLabel.getText(),
-                physicianCreateTitleLabel.getText(),
-                physicianCreatePasswordLabel.getText(),
-                spec,
-                Geocoder.decode(physicianCreateCityLabel.getText()+" "+
-                        physicianCreateStreetLabel.getText()+" "+
-                        physicianCreateHouseNumberLabel.getText()+" "+
-                        physicianCreatePostalCodeLabel.getText())
+            );
 
-
-
-        );
         Databaseconnection data = new Databaseconnection();
         data.addUser(physi);
         } catch (IOException | InterruptedException | ClassNotFoundException | SQLException ioException) {
             ioException.printStackTrace();
         }
-        JOptionPane.showMessageDialog(null,"Physician: "+ physicianCreateFirstNameLabel.getText()+" "+ physicianCreateLastNameLabel.getText()+" got created.\nThe password is: "+ physicianCreatePasswordLabel.getText()+".");
-
-
-        passLblCreatePhysiciantPnl1.getText();
+                eamilTxtFldCreatePhysiciantPnl.setText("");
+                nameTxtFldCreatePhysiciantPnl.setText("");
+                familynameTxtFldCreatePhysiciantPnl.setText("");
+                cityTxtFldCreatePhysiciantPnl.setText("");
+                streetTxtFldCreatePhysiciantPnl.setText("");
+                houseNumberTxtFldCreatePhysiciantPnl.setText("");
+                postalCodeTxtFldCreatePhysiciantPnl.setText("");
+                phoneTxtFldCreatePhysiciantPnl.setText("");
+                titleTxtFldCreatePhysiciantPnl.setText("");
+                passTxtFldCreatePhysiciantPnl.setText("");
         createPhysiciantPnl.setVisible(false);
-
-        System.out.println("zwei");
         // TODO add your handling code here:
     }
 
