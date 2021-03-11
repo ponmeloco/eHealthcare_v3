@@ -56,13 +56,13 @@ public class AdminGUI extends javax.swing.JFrame {
         welcomenameLbl = new javax.swing.JLabel();
         appointmenMenagmentBtn = new keeptoo.KButton();
         jPanel3 = new javax.swing.JPanel();
-        userMngPnl = new keeptoo.KGradientPanel();
+        userChooseManagementPanel = new keeptoo.KGradientPanel();
         physicianIconLblUserMngPnl = new javax.swing.JLabel();
         patientIconLblUserMngPnl = new javax.swing.JLabel();
         choseCategoryLblUserMngPnl = new javax.swing.JLabel();
         physicianLblUserMngPnl = new javax.swing.JLabel();
         patientLblUserMngPnl = new javax.swing.JLabel();
-        editPhyPnl = new keeptoo.KGradientPanel();
+        physicianManagementPanel = new keeptoo.KGradientPanel();
         physicianListLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         adminPhysicianTable = new javax.swing.JTable();
@@ -71,124 +71,124 @@ public class AdminGUI extends javax.swing.JFrame {
         physicianCreateButtonMainPanel = new keeptoo.KButton();
         physicianSearchTxtField = new javax.swing.JTextField();
         physicianEditButton = new keeptoo.KButton();
-        editPatientPnl = new keeptoo.KGradientPanel();
+        patientManagementPanel = new keeptoo.KGradientPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         adminPatientTable = new javax.swing.JTable();
         pateintListLblEditPatintPnl = new javax.swing.JLabel();
         patientSearchButton = new keeptoo.KButton();
         patientSearchTextField = new javax.swing.JTextField();
         patientDeleteButton = new keeptoo.KButton();
-        createPatientBtnEditPatintPnl = new keeptoo.KButton();
-        editPatienButtonEditPhyPnl2 = new keeptoo.KButton();
+        patientCreateButtonMainPanel = new keeptoo.KButton();
+        patientEditButtonMainPanel = new keeptoo.KButton();
         editAppointmentPnl = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        EditAppointmentjTable1 = new javax.swing.JTable();
-        deleteappointmentBtnEditAppPnl = new keeptoo.KButton();
+        appointmentTable = new javax.swing.JTable();
+        deleteAppointmentButton = new keeptoo.KButton();
         jLabel1 = new javax.swing.JLabel();
-        createPhysiciantPnl = new keeptoo.KGradientPanel();
-        createphysiciantBtnCreatePhysiciantPnl = new keeptoo.KButton();
-        phoneLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        specialisationLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        titleLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        housenumberLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        emailLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        StreetLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        familyNameLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        nameLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        postalCodeLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        cityLblCreatePhysiciantPnl = new javax.swing.JLabel();
-        nameTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        familynameTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        streetTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        houseNumberTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        postalCodeTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        cityTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        titleTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        eamilTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        phoneTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        physicianCreatePasswordLabel = new javax.swing.JLabel();
-        passTxtFldCreatePhysiciantPnl = new javax.swing.JTextField();
-        specializationComboBox1 = new javax.swing.JComboBox<>();
-        createPatientPnl = new keeptoo.KGradientPanel();
-        createpatientBtnCreatePatientPnl = new keeptoo.KButton();
-        patientCreateFirstNameTxtField = new javax.swing.JTextField();
-        nameLblCreatePatientPnl = new javax.swing.JLabel();
-        patientCreateLastNameTxtField = new javax.swing.JTextField();
-        patientFamilyNameTxFldCreatePatientPnl = new javax.swing.JLabel();
-        patientStreetLblCreatePatientPnl = new javax.swing.JLabel();
-        patientCreateStreetTxtField = new javax.swing.JTextField();
-        patientHousenumberLblCreatePatientPnl = new javax.swing.JLabel();
-        patientCreateHouseNumberTxtField = new javax.swing.JTextField();
-        patientCreatePostalCodeTxtField = new javax.swing.JTextField();
-        patientPostalCodeLblCreatePatientPnl = new javax.swing.JLabel();
-        patientCityLblCreatePatientPnl = new javax.swing.JLabel();
-        patientTitleLblCreatePatientPnl = new javax.swing.JLabel();
-        patientEmailLblCreatePatientPnl = new javax.swing.JLabel();
-        patientphoneLblCreatePatientPnl = new javax.swing.JLabel();
-        patientCreatePhoneNumberTxtField = new javax.swing.JTextField();
-        patientCreateEmailTxtField = new javax.swing.JTextField();
-        patientCreateTitleTxtField = new javax.swing.JTextField();
-        patientCreateCityTxtField = new javax.swing.JTextField();
-        insurance_CreatepatientPnl = new javax.swing.JLabel();
-        weightLbl_CreatepatientPnl = new javax.swing.JLabel();
-        patientCreateWeightTxtField = new javax.swing.JTextField();
-        dateOfBirthtLbl_CreatepatientPnl = new javax.swing.JLabel();
-        patientCreateDateOfBirthTxtField = new javax.swing.JTextField();
-        paswordLbl_CreatepatientPnl = new javax.swing.JLabel();
-        patientCreatePasswordTxtField = new javax.swing.JTextField();
-        patientCreateInsuranceComboBox = new javax.swing.JComboBox<>();
-        editPatientPnl1 = new keeptoo.KGradientPanel();
-        createpatientBtnCreatePatientPnl1 = new keeptoo.KButton();
-        patientnameTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        nameLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientFamilynameTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        patientFamilyNameTxFldCreatePatientPnl1 = new javax.swing.JLabel();
-        patientStreetLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientStreetTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        patientHousenumberLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientHouseNumberTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        patientPostalCodeTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        patientPostalCodeLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientCityLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientTitleLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientEmailLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientphoneLblCreatePatientPnl1 = new javax.swing.JLabel();
-        patientPhoneTxtFld1CreatePatientPnl1 = new javax.swing.JTextField();
-        emailTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        patienTtitleTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        patientCityTxtFldCreatePatientPnl1 = new javax.swing.JTextField();
-        insurance_CreatepatientPnl1 = new javax.swing.JLabel();
-        weightLbl_CreatepatientPnl1 = new javax.swing.JLabel();
-        weightTxtFld_CreatepatientPnl1 = new javax.swing.JTextField();
-        dateOfBirthtLbl_CreatepatientPnl1 = new javax.swing.JLabel();
-        dateOfBirthTxtFld_CreatepatientPnl1 = new javax.swing.JTextField();
-        paswordLbl_CreatepatientPnl1 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField("NOT CHANGEABLE PATIENT");
-        insuranceComboBox_createPatientPnl1 = new javax.swing.JComboBox<>();
-        editPhysiciantPnl1 = new keeptoo.KGradientPanel();
-        createphysiciantBtnCreatePhysiciantPnl1 = new keeptoo.KButton();
-        physicianCreatePhoneNumberLabel = new javax.swing.JLabel();
-        specialisationLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        physicianCreateTitleLabel = new javax.swing.JLabel();
-        physicianCreateHouseNumberLabel = new javax.swing.JLabel();
-        physicianCreateEmailLabel = new javax.swing.JLabel();
-        physicianCreateStreetLabel = new javax.swing.JLabel();
-        physicianCreateLastNameLabel = new javax.swing.JLabel();
-        physicianCreateFirstNameLabel = new javax.swing.JLabel();
-        physicianCreatePostalCodeLabel = new javax.swing.JLabel();
-        physicianCreateCityLabel = new javax.swing.JLabel();
-        nameTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        familynameTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        streetTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        houseNumberTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        postalCodeTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        cityTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        titleTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        eamilTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        phoneTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField();
-        passLblCreatePhysiciantPnl1 = new javax.swing.JLabel();
-        passTxtFldCreatePhysiciantPnl1 = new javax.swing.JTextField("NOT CHANGEABLE PHYSICIAN EDIT");
-        specializationComboBox2 = new javax.swing.JComboBox<>();
+        physicianCreatePanel = new keeptoo.KGradientPanel();
+        physicianCreateButtonCreatePanel = new keeptoo.KButton();
+        physicianPhoneNumberCreatePanelLabel = new javax.swing.JLabel();
+        physicianSpecializationCreatePanelLabel = new javax.swing.JLabel();
+        physicianTitleCreatePanelLabel = new javax.swing.JLabel();
+        physicianHouseNumberLabelCreatePanel = new javax.swing.JLabel();
+        physicianEmailCreatePanelLabel = new javax.swing.JLabel();
+        physicianStreetCreatePanelLabel = new javax.swing.JLabel();
+        physicianFamilyNameLabelCreatePanel = new javax.swing.JLabel();
+        physicianNameCreatePanelLabel = new javax.swing.JLabel();
+        physicianPostalCodeCreatePanelLabel = new javax.swing.JLabel();
+        phyisicianCityCreatePanelLabel = new javax.swing.JLabel();
+        physicianNameTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianFamilyNameTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianStreetTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianHouseNumberTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianPostalCodeTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianCityTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianTitleTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianCreateEmailTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianPhoneNumberTextFieldCreatePanel = new javax.swing.JTextField();
+        phyisicianPasswortCreatePanelLabel = new javax.swing.JLabel();
+        physicianPasswordTextFieldCreatePanel = new javax.swing.JTextField();
+        physicianSpecializationCreatePanelComboBox = new javax.swing.JComboBox<>();
+        patientCreatePanel = new keeptoo.KGradientPanel();
+        patientCreateButtonCreatePanel = new keeptoo.KButton();
+        patientCreateFirstNameTextFieldCreatePanel = new javax.swing.JTextField();
+        patientNameLabelCreatePanel = new javax.swing.JLabel();
+        patientCreateLastNameTextFieldCreatePanel = new javax.swing.JTextField();
+        patientFamilyNameLabelCreatePanel = new javax.swing.JLabel();
+        patientStreetLabelCreatePanel = new javax.swing.JLabel();
+        patientCreateStreetTextFieldCreatePanel = new javax.swing.JTextField();
+        patientHousenumberLabelCreatePanel = new javax.swing.JLabel();
+        patientCreateHouseNumberTextFieldCreatePanel = new javax.swing.JTextField();
+        patientCreatePostalCodeTextFieldCreatePanel = new javax.swing.JTextField();
+        patientPostalCodeLabelCreatePanel = new javax.swing.JLabel();
+        patientCityLabelCreatePanel = new javax.swing.JLabel();
+        patientTitleLabelCreatePanel = new javax.swing.JLabel();
+        patientEmailLabelCreatePanel = new javax.swing.JLabel();
+        patientPhoneLabelCreatePanel = new javax.swing.JLabel();
+        patientCreatePhoneNumberTextFieldCreatePanel = new javax.swing.JTextField();
+        patientCreateEmailTextFieldCreatePanel = new javax.swing.JTextField();
+        patientCreateTitleTextFieldCreatePanel = new javax.swing.JTextField();
+        patientCreateCityTextFieldCreatePanel = new javax.swing.JTextField();
+        patientInsuranceComboBoxLabelCreatePanel = new javax.swing.JLabel();
+        patientWeightLabelCreatePanel = new javax.swing.JLabel();
+        patientCreateWeightTextFieldCreatePanel = new javax.swing.JTextField();
+        patientDateOfBirthLabelCreatePanel = new javax.swing.JLabel();
+        patientCreateDateOfBirthTextFieldCreatePanel = new javax.swing.JTextField();
+        patientPasswordLabelCreatePanel = new javax.swing.JLabel();
+        patientCreatePasswordTextFieldCreatePanel = new javax.swing.JTextField();
+        patientInsuranceComboBoxCreatePanel = new javax.swing.JComboBox<>();
+        patientEditPanel = new keeptoo.KGradientPanel();
+        patientEditPatientButtonEditPanel = new keeptoo.KButton();
+        patientNameTextFieldEditPanel = new javax.swing.JTextField();
+        patientNameLabelEditPanel = new javax.swing.JLabel();
+        patientFamilyNameTextFieldEditPanel = new javax.swing.JTextField();
+        patientFamilyNameLabelEditPanel = new javax.swing.JLabel();
+        patientStreetLabelEditPanel = new javax.swing.JLabel();
+        patientStreetTextFieldEditPanel = new javax.swing.JTextField();
+        patientHouseNumberLabelEditPanel = new javax.swing.JLabel();
+        patientHouseNumberTextFieldEditPanel = new javax.swing.JTextField();
+        patientPostalCodeTextFieldEditPanel = new javax.swing.JTextField();
+        patientPostalCodeLabelEditPanel = new javax.swing.JLabel();
+        patientCityLabelEditPanel = new javax.swing.JLabel();
+        patientTitleLabelEditPanel = new javax.swing.JLabel();
+        patientEmailLabelEditPanel = new javax.swing.JLabel();
+        patientPhoneNumberLabelEditPanel = new javax.swing.JLabel();
+        patientPhoneNumberTextFieldEditPanel = new javax.swing.JTextField();
+        patientEmailTextFieldEditPanel = new javax.swing.JTextField();
+        patientTitleTextFieldEditPanel = new javax.swing.JTextField();
+        patientCityTextFieldEditPanel = new javax.swing.JTextField();
+        patientInsuranceComboBoxLabelEditPanel = new javax.swing.JLabel();
+        patientWeightLabelEditPanel = new javax.swing.JLabel();
+        patientWeightTextFieldEditPanel = new javax.swing.JTextField();
+        patientDateOfBirthLabelEditPanel = new javax.swing.JLabel();
+        patientDateOfBirthTextFieldEditPanel = new javax.swing.JTextField();
+        patientPasswordLabelEditPanel = new javax.swing.JLabel();
+        patientPasswordTextFieldEditPanel = new javax.swing.JTextField("NOT CHANGEABLE PATIENT");
+        patientInsuranceComboBoxEditPanel = new javax.swing.JComboBox<>();
+        physicianEditPanel = new keeptoo.KGradientPanel();
+        physicianCreateButtonEditPanel = new keeptoo.KButton();
+        physicianPhoneNumberLabelEditPanel = new javax.swing.JLabel();
+        physicianSpecializationComboBoxLabelEditPanel = new javax.swing.JLabel();
+        physicianTitleLabelEditPanel = new javax.swing.JLabel();
+        physicianHouseNumberLabelEditPanel = new javax.swing.JLabel();
+        physicianEmailLabelEditPanel = new javax.swing.JLabel();
+        physicianStreetLabelEditPanel = new javax.swing.JLabel();
+        physicianLastNameLabelEditPanel = new javax.swing.JLabel();
+        physicianNameLabelEditPanel = new javax.swing.JLabel();
+        physicianPostalCodeLabelEditPanel = new javax.swing.JLabel();
+        physicianCityLabelEditPanel = new javax.swing.JLabel();
+        physicianNameTextFieldEditPanel = new javax.swing.JTextField();
+        physicianFamilyNameTextFieldEditPanel = new javax.swing.JTextField();
+        physicianStreetTextFieldEditPanel = new javax.swing.JTextField();
+        physicianHouseNumberTextFieldEditPanel = new javax.swing.JTextField();
+        physicianPostalCodeTextFieldEditPanel = new javax.swing.JTextField();
+        physicianCityTextFieldEditPanel = new javax.swing.JTextField();
+        physicianTitleTextFieldEditPanel = new javax.swing.JTextField();
+        physicianEmailTextFieldEditPanel = new javax.swing.JTextField();
+        physicianPhoneNumberTextFieldEditPanel = new javax.swing.JTextField();
+        physicianPasswordLabelEditPanel = new javax.swing.JLabel();
+        physicianPasswordTextFieldEditPanel = new javax.swing.JTextField("NOT CHANGEABLE PHYSICIAN EDIT");
+        physicianSpecializationComboBoxEditPanel = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -309,8 +309,8 @@ public class AdminGUI extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.CardLayout());
 
-        userMngPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        userMngPnl.setkStartColor(new java.awt.Color(153, 153, 153));
+        userChooseManagementPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        userChooseManagementPanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
         physicianIconLblUserMngPnl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/test/doctor-3552.png"))); // NOI18N
         physicianIconLblUserMngPnl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -338,8 +338,8 @@ public class AdminGUI extends javax.swing.JFrame {
         patientLblUserMngPnl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         patientLblUserMngPnl.setText("Patient");
 
-        javax.swing.GroupLayout userMngPnlLayout = new javax.swing.GroupLayout(userMngPnl);
-        userMngPnl.setLayout(userMngPnlLayout);
+        javax.swing.GroupLayout userMngPnlLayout = new javax.swing.GroupLayout(userChooseManagementPanel);
+        userChooseManagementPanel.setLayout(userMngPnlLayout);
         userMngPnlLayout.setHorizontalGroup(
                 userMngPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userMngPnlLayout.createSequentialGroup()
@@ -382,10 +382,10 @@ public class AdminGUI extends javax.swing.JFrame {
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        jPanel3.add(userMngPnl, "card4");
+        jPanel3.add(userChooseManagementPanel, "card4");
 
-        editPhyPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        editPhyPnl.setkStartColor(new java.awt.Color(153, 153, 153));
+        physicianManagementPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianManagementPanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
         physicianListLabel.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         physicianListLabel.setText("Physician list");
@@ -500,8 +500,8 @@ public class AdminGUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout editPhyPnlLayout = new javax.swing.GroupLayout(editPhyPnl);
-        editPhyPnl.setLayout(editPhyPnlLayout);
+        javax.swing.GroupLayout editPhyPnlLayout = new javax.swing.GroupLayout(physicianManagementPanel);
+        physicianManagementPanel.setLayout(editPhyPnlLayout);
         editPhyPnlLayout.setHorizontalGroup(
                 editPhyPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
@@ -544,10 +544,10 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        jPanel3.add(editPhyPnl, "card2");
+        jPanel3.add(physicianManagementPanel, "card2");
 
-        editPatientPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        editPatientPnl.setkStartColor(new java.awt.Color(153, 153, 153));
+        patientManagementPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientManagementPanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
         adminPatientTable.setBackground(new java.awt.Color(204, 204, 204));
         adminPatientTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -639,38 +639,38 @@ public class AdminGUI extends javax.swing.JFrame {
             }
         });
 
-        createPatientBtnEditPatintPnl.setBorder(null);
-        createPatientBtnEditPatintPnl.setText("Create Patient");
-        createPatientBtnEditPatintPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        createPatientBtnEditPatintPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        createPatientBtnEditPatintPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        createPatientBtnEditPatintPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        createPatientBtnEditPatintPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        createPatientBtnEditPatintPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        createPatientBtnEditPatintPnl.setkStartColor(new java.awt.Color(102, 102, 102));
-        createPatientBtnEditPatintPnl.addActionListener(new java.awt.event.ActionListener() {
+        patientCreateButtonMainPanel.setBorder(null);
+        patientCreateButtonMainPanel.setText("Create Patient");
+        patientCreateButtonMainPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientCreateButtonMainPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        patientCreateButtonMainPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        patientCreateButtonMainPanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        patientCreateButtonMainPanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        patientCreateButtonMainPanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        patientCreateButtonMainPanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        patientCreateButtonMainPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createPatientBtnEditPatintPnlActionPerformed(evt);
             }
         });
 
-        editPatienButtonEditPhyPnl2.setBorder(null);
-        editPatienButtonEditPhyPnl2.setText("Edit Patient");
-        editPatienButtonEditPhyPnl2.setkEndColor(new java.awt.Color(255, 255, 255));
-        editPatienButtonEditPhyPnl2.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        editPatienButtonEditPhyPnl2.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        editPatienButtonEditPhyPnl2.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        editPatienButtonEditPhyPnl2.setkPressedColor(new java.awt.Color(0, 0, 0));
-        editPatienButtonEditPhyPnl2.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        editPatienButtonEditPhyPnl2.setkStartColor(new java.awt.Color(102, 102, 102));
-        editPatienButtonEditPhyPnl2.addActionListener(new java.awt.event.ActionListener() {
+        patientEditButtonMainPanel.setBorder(null);
+        patientEditButtonMainPanel.setText("Edit Patient");
+        patientEditButtonMainPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientEditButtonMainPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        patientEditButtonMainPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        patientEditButtonMainPanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        patientEditButtonMainPanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        patientEditButtonMainPanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        patientEditButtonMainPanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        patientEditButtonMainPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editPatienButtonEditPhyPnl2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout editPatientPnlLayout = new javax.swing.GroupLayout(editPatientPnl);
-        editPatientPnl.setLayout(editPatientPnlLayout);
+        javax.swing.GroupLayout editPatientPnlLayout = new javax.swing.GroupLayout(patientManagementPanel);
+        patientManagementPanel.setLayout(editPatientPnlLayout);
         editPatientPnlLayout.setHorizontalGroup(
                 editPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(editPatientPnlLayout.createSequentialGroup()
@@ -688,9 +688,9 @@ public class AdminGUI extends javax.swing.JFrame {
                                                                 .addGap(29, 29, 29)
                                                                 .addComponent(patientSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                .addComponent(createPatientBtnEditPatintPnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(patientCreateButtonMainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 .addComponent(patientDeleteButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(editPatienButtonEditPhyPnl2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(patientEditButtonMainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap())
         );
         editPatientPnlLayout.setVerticalGroup(
@@ -707,19 +707,19 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addGap(55, 55, 55)
                                 .addComponent(patientDeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(createPatientBtnEditPatintPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(patientCreateButtonMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(editPatienButtonEditPhyPnl2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(patientEditButtonMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanel3.add(editPatientPnl, "card2");
+        jPanel3.add(patientManagementPanel, "card2");
 
         editAppointmentPnl.setkEndColor(new java.awt.Color(255, 255, 255));
         editAppointmentPnl.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        EditAppointmentjTable1.setBackground(new java.awt.Color(204, 204, 204));
-        EditAppointmentjTable1.setModel(new javax.swing.table.DefaultTableModel(
+        appointmentTable.setBackground(new java.awt.Color(204, 204, 204));
+        appointmentTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
                 },
@@ -727,18 +727,18 @@ public class AdminGUI extends javax.swing.JFrame {
                         "Patient", "Physician", "Appointment date and time"
                 }
         ));
-        jScrollPane1.setViewportView(EditAppointmentjTable1);
+        jScrollPane1.setViewportView(appointmentTable);
 
-        deleteappointmentBtnEditAppPnl.setBorder(null);
-        deleteappointmentBtnEditAppPnl.setText("Delete Appointment");
-        deleteappointmentBtnEditAppPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        deleteappointmentBtnEditAppPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        deleteappointmentBtnEditAppPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        deleteappointmentBtnEditAppPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        deleteappointmentBtnEditAppPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        deleteappointmentBtnEditAppPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        deleteappointmentBtnEditAppPnl.setkStartColor(new java.awt.Color(102, 102, 102));
-        deleteappointmentBtnEditAppPnl.addActionListener(new java.awt.event.ActionListener() {
+        deleteAppointmentButton.setBorder(null);
+        deleteAppointmentButton.setText("Delete Appointment");
+        deleteAppointmentButton.setkEndColor(new java.awt.Color(255, 255, 255));
+        deleteAppointmentButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        deleteAppointmentButton.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        deleteAppointmentButton.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        deleteAppointmentButton.setkPressedColor(new java.awt.Color(0, 0, 0));
+        deleteAppointmentButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        deleteAppointmentButton.setkStartColor(new java.awt.Color(102, 102, 102));
+        deleteAppointmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteappointmentBtnEditAppPnlActionPerformed(evt);
             }
@@ -754,7 +754,7 @@ public class AdminGUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editAppointmentPnlLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(deleteappointmentBtnEditAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(deleteAppointmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(editAppointmentPnlLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel1)
@@ -768,92 +768,92 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(deleteappointmentBtnEditAppPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteAppointmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52))
         );
 
         jPanel3.add(editAppointmentPnl, "card2");
 
-        createPhysiciantPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        createPhysiciantPnl.setkStartColor(new java.awt.Color(153, 153, 153));
+        physicianCreatePanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianCreatePanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        createphysiciantBtnCreatePhysiciantPnl.setBorder(null);
-        createphysiciantBtnCreatePhysiciantPnl.setText("Create Physician");
-        createphysiciantBtnCreatePhysiciantPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        createphysiciantBtnCreatePhysiciantPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        createphysiciantBtnCreatePhysiciantPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl.setkStartColor(new java.awt.Color(102, 102, 102));
-        createphysiciantBtnCreatePhysiciantPnl.addActionListener(new java.awt.event.ActionListener() {
+        physicianCreateButtonCreatePanel.setBorder(null);
+        physicianCreateButtonCreatePanel.setText("Create Physician");
+        physicianCreateButtonCreatePanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonCreatePanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonCreatePanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonCreatePanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        physicianCreateButtonCreatePanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        physicianCreateButtonCreatePanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonCreatePanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianCreateButtonCreatePanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createphysiciantBtnCreatePhysiciantPnlActionPerformed(evt);
             }
         });
 
-        phoneLblCreatePhysiciantPnl.setText("Phone");
+        physicianPhoneNumberCreatePanelLabel.setText("Phone Physician");
 
-        specialisationLblCreatePhysiciantPnl.setText("Specialisation");
+        physicianSpecializationCreatePanelLabel.setText("Specialisation");
 
-        titleLblCreatePhysiciantPnl.setText("Title");
+        physicianTitleCreatePanelLabel.setText("Title");
 
-        housenumberLblCreatePhysiciantPnl.setText("House Number");
+        physicianHouseNumberLabelCreatePanel.setText("House Number");
 
-        emailLblCreatePhysiciantPnl.setText("E-Mail");
+        physicianEmailCreatePanelLabel.setText("E-Mail");
 
-        StreetLblCreatePhysiciantPnl.setText("Street");
+        physicianStreetCreatePanelLabel.setText("Street");
 
-        familyNameLblCreatePhysiciantPnl.setText("Family name");
+        physicianFamilyNameLabelCreatePanel.setText("Family name");
 
-        nameLblCreatePhysiciantPnl.setText("Name");
+        physicianNameCreatePanelLabel.setText("Name");
 
-        postalCodeLblCreatePhysiciantPnl.setText("Postal code");
+        physicianPostalCodeCreatePanelLabel.setText("Postal code");
 
-        cityLblCreatePhysiciantPnl.setText("City");
+        phyisicianCityCreatePanelLabel.setText("City");
 
-        physicianCreatePasswordLabel.setText("Password");
+        phyisicianPasswortCreatePanelLabel.setText("Password");
 
 
-        specializationComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allgemeinmedizin", "Anästhesiologie", "Anatomie", "Arbeitsmedizin", "Augenheilkunde", "Biochemie", "Chirurgie", "Chirurgie_Allgemeine Chirurgie", "Forensische Psychiatrie", "Frauenheilkunde und Geburtshilfe", "Gefäßchirurgie", "Gynäkologische Onkologie", "Hals-Nasen-Ohrenheilkunde", "Haut- und Geschlechtskrankheiten", "Herzchirurgie", "Humangenetik", "Hygiene und Umweltmedizin", "Innere Medizin ", "Innere Medizin und Endokrinologie und Diabetologie", "Innere Medizin und Gastroenterologie", "Innere Medizin und Hämatologie und Onkologie", "Innere Medizin und Kardiologie", "Innere Medizin und Nephrologie", "Innere Medizin und Pneumologie", "Innere Medizin und Rheumatologie", "Kinder- und Jugendmedizin", "Kinder- und Jugendpsychiatrie und -psychotherapie", "Kinderchirurgie", "Kinderradiologie", "Klinische Pharmakologie", "Laboratoriumsmedizin", "Mikrobiologie, Virologie und Infektionsepidemiologie", "Mund-Kiefer-Gesichtschirurgie", "Neurochirurgie", "Neurologie", "Neuroradiologie", "Nuklearmedizin", "Orthopädie und Unfallchirurgie", "Pathologie ", "Pharmakologie und Toxikologie", "Phoniatrie und Pädaudiologie", "Physikalische und Rehabilitative Medizin", "Physiologie", "Plastische, Rekonstruktive und Ästhetische Chirurgie", "Psychiatrie und Psychotherapie", "Psychosomatische Medizin und Psychotherapie", "Radiologie", "Rechtsmedizin", "SP Gynäkologische Endokrinologie und Reproduktionsmedizin", "SP Kinder-Hämatologie und -Onkologie", "SP Kinder-Kardiologie", "SP Neonatologie", "SP Neuropädiatrie", "Spezielle Geburtshilfe und Perinatalmedizin", "Strahlentherapie", "Thoraxchirurgie", "Transfusionsmedizin", "Urologie", "Viszeralchirurgie", "Innere Medizin und Angiologie", "Öffentliches Gesundheitswesen", " ", " ", " " }));
+        physicianSpecializationCreatePanelComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allgemeinmedizin", "Anästhesiologie", "Anatomie", "Arbeitsmedizin", "Augenheilkunde", "Biochemie", "Chirurgie", "Chirurgie_Allgemeine Chirurgie", "Forensische Psychiatrie", "Frauenheilkunde und Geburtshilfe", "Gefäßchirurgie", "Gynäkologische Onkologie", "Hals-Nasen-Ohrenheilkunde", "Haut- und Geschlechtskrankheiten", "Herzchirurgie", "Humangenetik", "Hygiene und Umweltmedizin", "Innere Medizin ", "Innere Medizin und Endokrinologie und Diabetologie", "Innere Medizin und Gastroenterologie", "Innere Medizin und Hämatologie und Onkologie", "Innere Medizin und Kardiologie", "Innere Medizin und Nephrologie", "Innere Medizin und Pneumologie", "Innere Medizin und Rheumatologie", "Kinder- und Jugendmedizin", "Kinder- und Jugendpsychiatrie und -psychotherapie", "Kinderchirurgie", "Kinderradiologie", "Klinische Pharmakologie", "Laboratoriumsmedizin", "Mikrobiologie, Virologie und Infektionsepidemiologie", "Mund-Kiefer-Gesichtschirurgie", "Neurochirurgie", "Neurologie", "Neuroradiologie", "Nuklearmedizin", "Orthopädie und Unfallchirurgie", "Pathologie ", "Pharmakologie und Toxikologie", "Phoniatrie und Pädaudiologie", "Physikalische und Rehabilitative Medizin", "Physiologie", "Plastische, Rekonstruktive und Ästhetische Chirurgie", "Psychiatrie und Psychotherapie", "Psychosomatische Medizin und Psychotherapie", "Radiologie", "Rechtsmedizin", "SP Gynäkologische Endokrinologie und Reproduktionsmedizin", "SP Kinder-Hämatologie und -Onkologie", "SP Kinder-Kardiologie", "SP Neonatologie", "SP Neuropädiatrie", "Spezielle Geburtshilfe und Perinatalmedizin", "Strahlentherapie", "Thoraxchirurgie", "Transfusionsmedizin", "Urologie", "Viszeralchirurgie", "Innere Medizin und Angiologie", "Öffentliches Gesundheitswesen", " ", " ", " " }));
 
-        javax.swing.GroupLayout createPhysiciantPnlLayout = new javax.swing.GroupLayout(createPhysiciantPnl);
-        createPhysiciantPnl.setLayout(createPhysiciantPnlLayout);
+        javax.swing.GroupLayout createPhysiciantPnlLayout = new javax.swing.GroupLayout(physicianCreatePanel);
+        physicianCreatePanel.setLayout(createPhysiciantPnlLayout);
         createPhysiciantPnlLayout.setHorizontalGroup(
                 createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPhysiciantPnlLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(createphysiciantBtnCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianCreateButtonCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                         .addGroup(createPhysiciantPnlLayout.createSequentialGroup()
                                 .addGap(124, 124, 124)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(nameLblCreatePhysiciantPnl)
+                                        .addComponent(physicianNameCreatePanelLabel)
                                         .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(StreetLblCreatePhysiciantPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(familyNameLblCreatePhysiciantPnl, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addComponent(housenumberLblCreatePhysiciantPnl)
-                                        .addComponent(postalCodeLblCreatePhysiciantPnl)
-                                        .addComponent(cityLblCreatePhysiciantPnl)
-                                        .addComponent(specialisationLblCreatePhysiciantPnl)
-                                        .addComponent(titleLblCreatePhysiciantPnl)
-                                        .addComponent(emailLblCreatePhysiciantPnl)
-                                        .addComponent(phoneLblCreatePhysiciantPnl)
-                                        .addComponent(physicianCreatePasswordLabel))
+                                                .addComponent(physicianStreetCreatePanelLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(physicianFamilyNameLabelCreatePanel, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(physicianHouseNumberLabelCreatePanel)
+                                        .addComponent(physicianPostalCodeCreatePanelLabel)
+                                        .addComponent(phyisicianCityCreatePanelLabel)
+                                        .addComponent(physicianSpecializationCreatePanelLabel)
+                                        .addComponent(physicianTitleCreatePanelLabel)
+                                        .addComponent(physicianEmailCreatePanelLabel)
+                                        .addComponent(physicianPhoneNumberCreatePanelLabel)
+                                        .addComponent(phyisicianPasswortCreatePanelLabel))
                                 .addGap(142, 142, 142)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(phoneTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                .addComponent(nameTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                .addComponent(familynameTxtFldCreatePhysiciantPnl)
-                                                .addComponent(streetTxtFldCreatePhysiciantPnl)
-                                                .addComponent(houseNumberTxtFldCreatePhysiciantPnl)
-                                                .addComponent(postalCodeTxtFldCreatePhysiciantPnl)
-                                                .addComponent(cityTxtFldCreatePhysiciantPnl)
-                                                .addComponent(titleTxtFldCreatePhysiciantPnl)
-                                                .addComponent(eamilTxtFldCreatePhysiciantPnl)
-                                                .addComponent(passTxtFldCreatePhysiciantPnl))
-                                        .addComponent(specializationComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(physicianPhoneNumberTextFieldCreatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                                .addComponent(physicianNameTextFieldCreatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                                .addComponent(physicianFamilyNameTextFieldCreatePanel)
+                                                .addComponent(physicianStreetTextFieldCreatePanel)
+                                                .addComponent(physicianHouseNumberTextFieldCreatePanel)
+                                                .addComponent(physicianPostalCodeTextFieldCreatePanel)
+                                                .addComponent(physicianCityTextFieldCreatePanel)
+                                                .addComponent(physicianTitleTextFieldCreatePanel)
+                                                .addComponent(physicianCreateEmailTextFieldCreatePanel)
+                                                .addComponent(physicianPasswordTextFieldCreatePanel))
+                                        .addComponent(physicianSpecializationCreatePanelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(12, Short.MAX_VALUE))
         );
         createPhysiciantPnlLayout.setVerticalGroup(
@@ -861,156 +861,156 @@ public class AdminGUI extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPhysiciantPnlLayout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(nameLblCreatePhysiciantPnl)
-                                        .addComponent(nameTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianNameCreatePanelLabel)
+                                        .addComponent(physicianNameTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(7, 7, 7)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(familyNameLblCreatePhysiciantPnl)
-                                        .addComponent(familynameTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianFamilyNameLabelCreatePanel)
+                                        .addComponent(physicianFamilyNameTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(streetTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(StreetLblCreatePhysiciantPnl))
+                                        .addComponent(physicianStreetTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(physicianStreetCreatePanelLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(houseNumberTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(housenumberLblCreatePhysiciantPnl))
+                                        .addComponent(physicianHouseNumberTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(physicianHouseNumberLabelCreatePanel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(postalCodeTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(postalCodeLblCreatePhysiciantPnl))
+                                        .addComponent(physicianPostalCodeTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(physicianPostalCodeCreatePanelLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(cityLblCreatePhysiciantPnl)
-                                        .addComponent(cityTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(phyisicianCityCreatePanelLabel)
+                                        .addComponent(physicianCityTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(specialisationLblCreatePhysiciantPnl)
-                                        .addComponent(specializationComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianSpecializationCreatePanelLabel)
+                                        .addComponent(physicianSpecializationCreatePanelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(titleLblCreatePhysiciantPnl)
-                                        .addComponent(titleTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianTitleCreatePanelLabel)
+                                        .addComponent(physicianTitleTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(emailLblCreatePhysiciantPnl)
-                                        .addComponent(eamilTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianEmailCreatePanelLabel)
+                                        .addComponent(physicianCreateEmailTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(phoneLblCreatePhysiciantPnl)
-                                        .addComponent(phoneTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianPhoneNumberCreatePanelLabel)
+                                        .addComponent(physicianPhoneNumberTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPhysiciantPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianCreatePasswordLabel)
-                                        .addComponent(passTxtFldCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(phyisicianPasswortCreatePanelLabel)
+                                        .addComponent(physicianPasswordTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(17, 17, 17)
-                                .addComponent(createphysiciantBtnCreatePhysiciantPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianCreateButtonCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
-        jPanel3.add(createPhysiciantPnl, "card2");
+        jPanel3.add(physicianCreatePanel, "card2");
 
-        createPatientPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        createPatientPnl.setkStartColor(new java.awt.Color(153, 153, 153));
+        patientCreatePanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientCreatePanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        createpatientBtnCreatePatientPnl.setBorder(null);
-        createpatientBtnCreatePatientPnl.setText("Create Patient");
-        createpatientBtnCreatePatientPnl.setkEndColor(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        createpatientBtnCreatePatientPnl.setkPressedColor(new java.awt.Color(0, 0, 0));
-        createpatientBtnCreatePatientPnl.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl.setkStartColor(new java.awt.Color(102, 102, 102));
-        createpatientBtnCreatePatientPnl.addActionListener(new java.awt.event.ActionListener() {
+        patientCreateButtonCreatePanel.setBorder(null);
+        patientCreateButtonCreatePanel.setText("Create Patient");
+        patientCreateButtonCreatePanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientCreateButtonCreatePanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        patientCreateButtonCreatePanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        patientCreateButtonCreatePanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        patientCreateButtonCreatePanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        patientCreateButtonCreatePanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        patientCreateButtonCreatePanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        patientCreateButtonCreatePanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createpatientBtnCreatePatientPnlActionPerformed(evt);
+                patientCreateButtonCreatePanelActionPerformed(evt);
             }
         });
 
-        nameLblCreatePatientPnl.setText("Name");
+        patientNameLabelCreatePanel.setText("Name");
 
-        patientFamilyNameTxFldCreatePatientPnl.setText("Family name");
+        patientFamilyNameLabelCreatePanel.setText("Family name");
 
-        patientStreetLblCreatePatientPnl.setText("Street");
+        patientStreetLabelCreatePanel.setText("Street");
 
-        patientHousenumberLblCreatePatientPnl.setText("House Number");
+        patientHousenumberLabelCreatePanel.setText("House Number");
 
-        patientPostalCodeLblCreatePatientPnl.setText("Postal code");
+        patientPostalCodeLabelCreatePanel.setText("Postal code");
 
-        patientCityLblCreatePatientPnl.setText("City");
+        patientCityLabelCreatePanel.setText("City");
 
-        patientTitleLblCreatePatientPnl.setText("Title");
+        patientTitleLabelCreatePanel.setText("Title");
 
-        patientEmailLblCreatePatientPnl.setText("E-Mail");
+        patientEmailLabelCreatePanel.setText("E-Mail");
 
-        patientphoneLblCreatePatientPnl.setText("Phone");
+        patientPhoneLabelCreatePanel.setText("Phone");
 
-        insurance_CreatepatientPnl.setText("Insurance");
+        patientInsuranceComboBoxLabelCreatePanel.setText("Insurance");
 
-        weightLbl_CreatepatientPnl.setText("Weight");
+        patientWeightLabelCreatePanel.setText("Weight");
 
-        dateOfBirthtLbl_CreatepatientPnl.setText("Date of birth");
+        patientDateOfBirthLabelCreatePanel.setText("Date of birth");
 
-        paswordLbl_CreatepatientPnl.setText("Password");
+        patientPasswordLabelCreatePanel.setText("Password");
 
-        patientCreateInsuranceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "Techniker Krankenkasse", "Allianz" }));
+        patientInsuranceComboBoxCreatePanel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "Techniker Krankenkasse", "Allianz" }));
 
-        javax.swing.GroupLayout createPatientPnlLayout = new javax.swing.GroupLayout(createPatientPnl);
-        createPatientPnl.setLayout(createPatientPnlLayout);
+        javax.swing.GroupLayout createPatientPnlLayout = new javax.swing.GroupLayout(patientCreatePanel);
+        patientCreatePanel.setLayout(createPatientPnlLayout);
         createPatientPnlLayout.setHorizontalGroup(
                 createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPatientPnlLayout.createSequentialGroup()
                                 .addGap(0, 403, Short.MAX_VALUE)
-                                .addComponent(createpatientBtnCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(patientCreateButtonCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addGap(12, 12, 12)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(nameLblCreatePatientPnl)
+                                                        .addComponent(patientNameLabelCreatePanel)
                                                         .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                .addComponent(patientStreetLblCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(patientFamilyNameTxFldCreatePatientPnl, javax.swing.GroupLayout.Alignment.LEADING))
-                                                        .addComponent(patientHousenumberLblCreatePatientPnl)
-                                                        .addComponent(patientPostalCodeLblCreatePatientPnl)
-                                                        .addComponent(patientCityLblCreatePatientPnl)))
+                                                                .addComponent(patientStreetLabelCreatePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(patientFamilyNameLabelCreatePanel, javax.swing.GroupLayout.Alignment.LEADING))
+                                                        .addComponent(patientHousenumberLabelCreatePanel)
+                                                        .addComponent(patientPostalCodeLabelCreatePanel)
+                                                        .addComponent(patientCityLabelCreatePanel)))
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(insurance_CreatepatientPnl))
+                                                .addComponent(patientInsuranceComboBoxLabelCreatePanel))
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(patientTitleLblCreatePatientPnl))
+                                                .addComponent(patientTitleLabelCreatePanel))
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(patientEmailLblCreatePatientPnl))
+                                                .addComponent(patientEmailLabelCreatePanel))
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(patientphoneLblCreatePatientPnl)))
+                                                .addComponent(patientPhoneLabelCreatePanel)))
                                 .addGap(142, 142, 142)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientCreatePhoneNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(patientCreateEmailTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(patientCreateTitleTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientCreatePhoneNumberTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientCreateEmailTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientCreateTitleTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(patientCreateInsuranceComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(patientCreateFirstNameTxtField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                        .addComponent(patientCreateLastNameTxtField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientCreateStreetTxtField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientCreateHouseNumberTxtField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientCreatePostalCodeTxtField, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientCreateCityTxtField, javax.swing.GroupLayout.Alignment.LEADING))
+                                                        .addComponent(patientInsuranceComboBoxCreatePanel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(patientCreateFirstNameTextFieldCreatePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                                        .addComponent(patientCreateLastNameTextFieldCreatePanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreateStreetTextFieldCreatePanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreateHouseNumberTextFieldCreatePanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreatePostalCodeTextFieldCreatePanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCreateCityTextFieldCreatePanel, javax.swing.GroupLayout.Alignment.LEADING))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(weightLbl_CreatepatientPnl)
-                                                        .addComponent(dateOfBirthtLbl_CreatepatientPnl)
-                                                        .addComponent(paswordLbl_CreatepatientPnl))
+                                                        .addComponent(patientWeightLabelCreatePanel)
+                                                        .addComponent(patientDateOfBirthLabelCreatePanel)
+                                                        .addComponent(patientPasswordLabelCreatePanel))
                                                 .addGap(14, 14, 14)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(patientCreateWeightTxtField)
-                                                        .addComponent(patientCreateDateOfBirthTxtField)
-                                                        .addComponent(patientCreatePasswordTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
+                                                        .addComponent(patientCreateWeightTextFieldCreatePanel)
+                                                        .addComponent(patientCreateDateOfBirthTextFieldCreatePanel)
+                                                        .addComponent(patientCreatePasswordTextFieldCreatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         createPatientPnlLayout.setVerticalGroup(
@@ -1020,164 +1020,164 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(nameLblCreatePatientPnl)
-                                                        .addComponent(patientCreateFirstNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientNameLabelCreatePanel)
+                                                        .addComponent(patientCreateFirstNameTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(7, 7, 7)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(patientFamilyNameTxFldCreatePatientPnl)
-                                                        .addComponent(patientCreateLastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientFamilyNameLabelCreatePanel)
+                                                        .addComponent(patientCreateLastNameTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(patientStreetLblCreatePatientPnl)
-                                                        .addComponent(patientCreateStreetTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(patientStreetLabelCreatePanel)
+                                                        .addComponent(patientCreateStreetTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(createPatientPnlLayout.createSequentialGroup()
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(weightLbl_CreatepatientPnl)
-                                                        .addComponent(patientCreateWeightTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientWeightLabelCreatePanel)
+                                                        .addComponent(patientCreateWeightTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(dateOfBirthtLbl_CreatepatientPnl)
-                                                        .addComponent(patientCreateDateOfBirthTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientDateOfBirthLabelCreatePanel)
+                                                        .addComponent(patientCreateDateOfBirthTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(paswordLbl_CreatepatientPnl)
-                                                        .addComponent(patientCreatePasswordTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(patientPasswordLabelCreatePanel)
+                                                        .addComponent(patientCreatePasswordTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(patientHousenumberLblCreatePatientPnl)
-                                        .addComponent(patientCreateHouseNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientHousenumberLabelCreatePanel)
+                                        .addComponent(patientCreateHouseNumberTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(patientPostalCodeLblCreatePatientPnl)
-                                        .addComponent(patientCreatePostalCodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientPostalCodeLabelCreatePanel)
+                                        .addComponent(patientCreatePostalCodeTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(patientCityLblCreatePatientPnl)
-                                        .addComponent(patientCreateCityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCityLabelCreatePanel)
+                                        .addComponent(patientCreateCityTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(4, 4, 4)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(insurance_CreatepatientPnl)
-                                        .addComponent(patientCreateInsuranceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientInsuranceComboBoxLabelCreatePanel)
+                                        .addComponent(patientInsuranceComboBoxCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(9, 9, 9)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientTitleLblCreatePatientPnl)
-                                        .addComponent(patientCreateTitleTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientTitleLabelCreatePanel)
+                                        .addComponent(patientCreateTitleTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientEmailLblCreatePatientPnl)
-                                        .addComponent(patientCreateEmailTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientEmailLabelCreatePanel)
+                                        .addComponent(patientCreateEmailTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(createPatientPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientphoneLblCreatePatientPnl)
-                                        .addComponent(patientCreatePhoneNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientPhoneLabelCreatePanel)
+                                        .addComponent(patientCreatePhoneNumberTextFieldCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                                .addComponent(createpatientBtnCreatePatientPnl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(patientCreateButtonCreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68))
         );
 
-        jPanel3.add(createPatientPnl, "card2");
+        jPanel3.add(patientCreatePanel, "card2");
 
-        editPatientPnl1.setkEndColor(new java.awt.Color(255, 255, 255));
-        editPatientPnl1.setkStartColor(new java.awt.Color(153, 153, 153));
+        patientEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientEditPanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        createpatientBtnCreatePatientPnl1.setBorder(null);
-        createpatientBtnCreatePatientPnl1.setText("Create Patient");
-        createpatientBtnCreatePatientPnl1.setkEndColor(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl1.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl1.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        createpatientBtnCreatePatientPnl1.setkPressedColor(new java.awt.Color(0, 0, 0));
-        createpatientBtnCreatePatientPnl1.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        createpatientBtnCreatePatientPnl1.setkStartColor(new java.awt.Color(102, 102, 102));
-        createpatientBtnCreatePatientPnl1.addActionListener(new java.awt.event.ActionListener() {
+        patientEditPatientButtonEditPanel.setBorder(null);
+        patientEditPatientButtonEditPanel.setText("Create Patient testtest");
+        patientEditPatientButtonEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        patientEditPatientButtonEditPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        patientEditPatientButtonEditPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        patientEditPatientButtonEditPanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        patientEditPatientButtonEditPanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        patientEditPatientButtonEditPanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        patientEditPatientButtonEditPanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        patientEditPatientButtonEditPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createpatientBtnCreatePatientPnl1ActionPerformed(evt);
+                patientEditPatientButtonEditPanelActionPerformed(evt);
             }
         });
 
-        nameLblCreatePatientPnl1.setText("Name");
+        patientNameLabelEditPanel.setText("Name");
 
-        patientFamilyNameTxFldCreatePatientPnl1.setText("Family name");
+        patientFamilyNameLabelEditPanel.setText("Family name");
 
-        patientStreetLblCreatePatientPnl1.setText("Street");
+        patientStreetLabelEditPanel.setText("Street");
 
-        patientHousenumberLblCreatePatientPnl1.setText("House Number");
+        patientHouseNumberLabelEditPanel.setText("House Number");
 
-        patientPostalCodeLblCreatePatientPnl1.setText("Postal code");
+        patientPostalCodeLabelEditPanel.setText("Postal code");
 
-        patientCityLblCreatePatientPnl1.setText("City");
+        patientCityLabelEditPanel.setText("City");
 
-        patientTitleLblCreatePatientPnl1.setText("Title");
+        patientTitleLabelEditPanel.setText("Title");
 
-        patientEmailLblCreatePatientPnl1.setText("E-Mail");
+        patientEmailLabelEditPanel.setText("E-Mail");
 
-        patientphoneLblCreatePatientPnl1.setText("Phone");
+        patientPhoneNumberLabelEditPanel.setText("Phone");
 
-        insurance_CreatepatientPnl1.setText("Insurance");
+        patientInsuranceComboBoxLabelEditPanel.setText("Insurance");
 
-        weightLbl_CreatepatientPnl1.setText("Weight");
+        patientWeightLabelEditPanel.setText("Weight");
 
-        dateOfBirthtLbl_CreatepatientPnl1.setText("Date of birth");
+        patientDateOfBirthLabelEditPanel.setText("Date of birth");
 
-        paswordLbl_CreatepatientPnl1.setText("Password");
+        patientPasswordLabelEditPanel.setText("Password");
 
-        insuranceComboBox_createPatientPnl1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "Techniker Krankenkasse", "Allianz" }));
+        patientInsuranceComboBoxEditPanel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "Techniker Krankenkasse", "Allianz" }));
 
-        javax.swing.GroupLayout editPatientPnl1Layout = new javax.swing.GroupLayout(editPatientPnl1);
-        editPatientPnl1.setLayout(editPatientPnl1Layout);
+        javax.swing.GroupLayout editPatientPnl1Layout = new javax.swing.GroupLayout(patientEditPanel);
+        patientEditPanel.setLayout(editPatientPnl1Layout);
         editPatientPnl1Layout.setHorizontalGroup(
                 editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPatientPnl1Layout.createSequentialGroup()
                                 .addGap(0, 403, Short.MAX_VALUE)
-                                .addComponent(createpatientBtnCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(patientEditPatientButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addGap(12, 12, 12)
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(nameLblCreatePatientPnl1)
+                                                        .addComponent(patientNameLabelEditPanel)
                                                         .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                .addComponent(patientStreetLblCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(patientFamilyNameTxFldCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING))
-                                                        .addComponent(patientHousenumberLblCreatePatientPnl1)
-                                                        .addComponent(patientPostalCodeLblCreatePatientPnl1)
-                                                        .addComponent(patientCityLblCreatePatientPnl1)))
+                                                                .addComponent(patientStreetLabelEditPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(patientFamilyNameLabelEditPanel, javax.swing.GroupLayout.Alignment.LEADING))
+                                                        .addComponent(patientHouseNumberLabelEditPanel)
+                                                        .addComponent(patientPostalCodeLabelEditPanel)
+                                                        .addComponent(patientCityLabelEditPanel)))
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(insurance_CreatepatientPnl1))
+                                                .addComponent(patientInsuranceComboBoxLabelEditPanel))
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(patientTitleLblCreatePatientPnl1))
+                                                .addComponent(patientTitleLabelEditPanel))
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(patientEmailLblCreatePatientPnl1))
+                                                .addComponent(patientEmailLabelEditPanel))
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(patientphoneLblCreatePatientPnl1)))
+                                                .addComponent(patientPhoneNumberLabelEditPanel)))
                                 .addGap(142, 142, 142)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientPhoneTxtFld1CreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(emailTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(patienTtitleTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientPhoneNumberTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientEmailTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(patientTitleTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(insuranceComboBox_createPatientPnl1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(patientnameTxtFldCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                        .addComponent(patientFamilynameTxtFldCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientStreetTxtFldCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientHouseNumberTxtFldCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientPostalCodeTxtFldCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(patientCityTxtFldCreatePatientPnl1, javax.swing.GroupLayout.Alignment.LEADING))
+                                                        .addComponent(patientInsuranceComboBoxEditPanel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(patientNameTextFieldEditPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                                        .addComponent(patientFamilyNameTextFieldEditPanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientStreetTextFieldEditPanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientHouseNumberTextFieldEditPanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientPostalCodeTextFieldEditPanel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(patientCityTextFieldEditPanel, javax.swing.GroupLayout.Alignment.LEADING))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(weightLbl_CreatepatientPnl1)
-                                                        .addComponent(dateOfBirthtLbl_CreatepatientPnl1)
-                                                        .addComponent(paswordLbl_CreatepatientPnl1))
+                                                        .addComponent(patientWeightLabelEditPanel)
+                                                        .addComponent(patientDateOfBirthLabelEditPanel)
+                                                        .addComponent(patientPasswordLabelEditPanel))
                                                 .addGap(14, 14, 14)
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(weightTxtFld_CreatepatientPnl1)
-                                                        .addComponent(dateOfBirthTxtFld_CreatepatientPnl1)
-                                                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
+                                                        .addComponent(patientWeightTextFieldEditPanel)
+                                                        .addComponent(patientDateOfBirthTextFieldEditPanel)
+                                                        .addComponent(patientPasswordTextFieldEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         editPatientPnl1Layout.setVerticalGroup(
@@ -1187,142 +1187,142 @@ public class AdminGUI extends javax.swing.JFrame {
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(nameLblCreatePatientPnl1)
-                                                        .addComponent(patientnameTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientNameLabelEditPanel)
+                                                        .addComponent(patientNameTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(7, 7, 7)
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(patientFamilyNameTxFldCreatePatientPnl1)
-                                                        .addComponent(patientFamilynameTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientFamilyNameLabelEditPanel)
+                                                        .addComponent(patientFamilyNameTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(patientStreetLblCreatePatientPnl1)
-                                                        .addComponent(patientStreetTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(patientStreetLabelEditPanel)
+                                                        .addComponent(patientStreetTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(editPatientPnl1Layout.createSequentialGroup()
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(weightLbl_CreatepatientPnl1)
-                                                        .addComponent(weightTxtFld_CreatepatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientWeightLabelEditPanel)
+                                                        .addComponent(patientWeightTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(dateOfBirthtLbl_CreatepatientPnl1)
-                                                        .addComponent(dateOfBirthTxtFld_CreatepatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(patientDateOfBirthLabelEditPanel)
+                                                        .addComponent(patientDateOfBirthTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(paswordLbl_CreatepatientPnl1)
-                                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(patientPasswordLabelEditPanel)
+                                                        .addComponent(patientPasswordTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(patientHousenumberLblCreatePatientPnl1)
-                                        .addComponent(patientHouseNumberTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientHouseNumberLabelEditPanel)
+                                        .addComponent(patientHouseNumberTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(patientPostalCodeLblCreatePatientPnl1)
-                                        .addComponent(patientPostalCodeTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientPostalCodeLabelEditPanel)
+                                        .addComponent(patientPostalCodeTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(patientCityLblCreatePatientPnl1)
-                                        .addComponent(patientCityTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientCityLabelEditPanel)
+                                        .addComponent(patientCityTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(4, 4, 4)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(insurance_CreatepatientPnl1)
-                                        .addComponent(insuranceComboBox_createPatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientInsuranceComboBoxLabelEditPanel)
+                                        .addComponent(patientInsuranceComboBoxEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(9, 9, 9)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientTitleLblCreatePatientPnl1)
-                                        .addComponent(patienTtitleTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientTitleLabelEditPanel)
+                                        .addComponent(patientTitleTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientEmailLblCreatePatientPnl1)
-                                        .addComponent(emailTxtFldCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientEmailLabelEditPanel)
+                                        .addComponent(patientEmailTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(editPatientPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(patientphoneLblCreatePatientPnl1)
-                                        .addComponent(patientPhoneTxtFld1CreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(patientPhoneNumberLabelEditPanel)
+                                        .addComponent(patientPhoneNumberTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                                .addComponent(createpatientBtnCreatePatientPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(patientEditPatientButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68))
         );
 
-        jPanel3.add(editPatientPnl1, "card2");
+        jPanel3.add(patientEditPanel, "card2");
 
-        editPhysiciantPnl1.setkEndColor(new java.awt.Color(255, 255, 255));
-        editPhysiciantPnl1.setkStartColor(new java.awt.Color(153, 153, 153));
+        physicianEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianEditPanel.setkStartColor(new java.awt.Color(153, 153, 153));
 
-        createphysiciantBtnCreatePhysiciantPnl1.setBorder(null);
-        createphysiciantBtnCreatePhysiciantPnl1.setText("Create Physician");
-        createphysiciantBtnCreatePhysiciantPnl1.setkEndColor(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl1.setkHoverEndColor(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl1.setkHoverStartColor(new java.awt.Color(0, 0, 0));
-        createphysiciantBtnCreatePhysiciantPnl1.setkPressedColor(new java.awt.Color(0, 0, 0));
-        createphysiciantBtnCreatePhysiciantPnl1.setkSelectedColor(new java.awt.Color(255, 255, 255));
-        createphysiciantBtnCreatePhysiciantPnl1.setkStartColor(new java.awt.Color(102, 102, 102));
-        createphysiciantBtnCreatePhysiciantPnl1.addActionListener(new java.awt.event.ActionListener() {
+        physicianCreateButtonEditPanel.setBorder(null);
+        physicianCreateButtonEditPanel.setText("Create Physician");
+        physicianCreateButtonEditPanel.setkEndColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonEditPanel.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonEditPanel.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonEditPanel.setkHoverStartColor(new java.awt.Color(0, 0, 0));
+        physicianCreateButtonEditPanel.setkPressedColor(new java.awt.Color(0, 0, 0));
+        physicianCreateButtonEditPanel.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        physicianCreateButtonEditPanel.setkStartColor(new java.awt.Color(102, 102, 102));
+        physicianCreateButtonEditPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createphysiciantBtnCreatePhysiciantPnl1ActionPerformed(evt);
+                physicianCreateButtonEditPanelActionPerformed(evt);
             }
         });
 
-        physicianCreatePhoneNumberLabel.setText("Phone");
+        physicianPhoneNumberLabelEditPanel.setText("Phone");
 
-        specialisationLblCreatePhysiciantPnl1.setText("Specialisation");
+        physicianSpecializationComboBoxLabelEditPanel.setText("Specialization");
 
-        physicianCreateTitleLabel.setText("Title");
+        physicianTitleLabelEditPanel.setText("Title");
 
-        physicianCreateHouseNumberLabel.setText("House Number");
+        physicianHouseNumberLabelEditPanel.setText("House Number");
 
-        physicianCreateEmailLabel.setText("E-Mail");
+        physicianEmailLabelEditPanel.setText("E-Mail");
 
-        physicianCreateStreetLabel.setText("Street");
+        physicianStreetLabelEditPanel.setText("Street");
 
-        physicianCreateLastNameLabel.setText("Family name");
+        physicianLastNameLabelEditPanel.setText("Family name");
 
-        physicianCreateFirstNameLabel.setText("Name");
+        physicianNameLabelEditPanel.setText("Name");
 
-        physicianCreatePostalCodeLabel.setText("Postal code");
+        physicianPostalCodeLabelEditPanel.setText("Postal code");
 
-        physicianCreateCityLabel.setText("City");
+        physicianCityLabelEditPanel.setText("City");
 
-        passLblCreatePhysiciantPnl1.setText("Password");
+        physicianPasswordLabelEditPanel.setText("Password");
 
-        specializationComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allgemeinmedizin", "Anästhesiologie", "Anatomie", "Arbeitsmedizin", "Augenheilkunde", "Biochemie", "Chirurgie", "Chirurgie_Allgemeine Chirurgie", "Forensische Psychiatrie", "Frauenheilkunde und Geburtshilfe", "Gefäßchirurgie", "Gynäkologische Onkologie", "Hals-Nasen-Ohrenheilkunde", "Haut- und Geschlechtskrankheiten", "Herzchirurgie", "Humangenetik", "Hygiene und Umweltmedizin", "Innere Medizin ", "Innere Medizin und Endokrinologie und Diabetologie", "Innere Medizin und Gastroenterologie", "Innere Medizin und Hämatologie und Onkologie", "Innere Medizin und Kardiologie", "Innere Medizin und Nephrologie", "Innere Medizin und Pneumologie", "Innere Medizin und Rheumatologie", "Kinder- und Jugendmedizin", "Kinder- und Jugendpsychiatrie und -psychotherapie", "Kinderchirurgie", "Kinderradiologie", "Klinische Pharmakologie", "Laboratoriumsmedizin", "Mikrobiologie, Virologie und Infektionsepidemiologie", "Mund-Kiefer-Gesichtschirurgie", "Neurochirurgie", "Neurologie", "Neuroradiologie", "Nuklearmedizin", "Orthopädie und Unfallchirurgie", "Pathologie ", "Pharmakologie und Toxikologie", "Phoniatrie und Pädaudiologie", "Physikalische und Rehabilitative Medizin", "Physiologie", "Plastische, Rekonstruktive und Ästhetische Chirurgie", "Psychiatrie und Psychotherapie", "Psychosomatische Medizin und Psychotherapie", "Radiologie", "Rechtsmedizin", "SP Gynäkologische Endokrinologie und Reproduktionsmedizin", "SP Kinder-Hämatologie und -Onkologie", "SP Kinder-Kardiologie", "SP Neonatologie", "SP Neuropädiatrie", "Spezielle Geburtshilfe und Perinatalmedizin", "Strahlentherapie", "Thoraxchirurgie", "Transfusionsmedizin", "Urologie", "Viszeralchirurgie", "Innere Medizin und Angiologie", "Öffentliches Gesundheitswesen", " ", " ", " " }));
+        physicianSpecializationComboBoxEditPanel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allgemeinmedizin", "Anästhesiologie", "Anatomie", "Arbeitsmedizin", "Augenheilkunde", "Biochemie", "Chirurgie", "Chirurgie_Allgemeine Chirurgie", "Forensische Psychiatrie", "Frauenheilkunde und Geburtshilfe", "Gefäßchirurgie", "Gynäkologische Onkologie", "Hals-Nasen-Ohrenheilkunde", "Haut- und Geschlechtskrankheiten", "Herzchirurgie", "Humangenetik", "Hygiene und Umweltmedizin", "Innere Medizin ", "Innere Medizin und Endokrinologie und Diabetologie", "Innere Medizin und Gastroenterologie", "Innere Medizin und Hämatologie und Onkologie", "Innere Medizin und Kardiologie", "Innere Medizin und Nephrologie", "Innere Medizin und Pneumologie", "Innere Medizin und Rheumatologie", "Kinder- und Jugendmedizin", "Kinder- und Jugendpsychiatrie und -psychotherapie", "Kinderchirurgie", "Kinderradiologie", "Klinische Pharmakologie", "Laboratoriumsmedizin", "Mikrobiologie, Virologie und Infektionsepidemiologie", "Mund-Kiefer-Gesichtschirurgie", "Neurochirurgie", "Neurologie", "Neuroradiologie", "Nuklearmedizin", "Orthopädie und Unfallchirurgie", "Pathologie ", "Pharmakologie und Toxikologie", "Phoniatrie und Pädaudiologie", "Physikalische und Rehabilitative Medizin", "Physiologie", "Plastische, Rekonstruktive und Ästhetische Chirurgie", "Psychiatrie und Psychotherapie", "Psychosomatische Medizin und Psychotherapie", "Radiologie", "Rechtsmedizin", "SP Gynäkologische Endokrinologie und Reproduktionsmedizin", "SP Kinder-Hämatologie und -Onkologie", "SP Kinder-Kardiologie", "SP Neonatologie", "SP Neuropädiatrie", "Spezielle Geburtshilfe und Perinatalmedizin", "Strahlentherapie", "Thoraxchirurgie", "Transfusionsmedizin", "Urologie", "Viszeralchirurgie", "Innere Medizin und Angiologie", "Öffentliches Gesundheitswesen", " ", " ", " " }));
 
-        javax.swing.GroupLayout editPhysiciantPnl1Layout = new javax.swing.GroupLayout(editPhysiciantPnl1);
-        editPhysiciantPnl1.setLayout(editPhysiciantPnl1Layout);
+        javax.swing.GroupLayout editPhysiciantPnl1Layout = new javax.swing.GroupLayout(physicianEditPanel);
+        physicianEditPanel.setLayout(editPhysiciantPnl1Layout);
         editPhysiciantPnl1Layout.setHorizontalGroup(
                 editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhysiciantPnl1Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(createphysiciantBtnCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianCreateButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                         .addGroup(editPhysiciantPnl1Layout.createSequentialGroup()
                                 .addGap(124, 124, 124)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(physicianCreateFirstNameLabel)
+                                        .addComponent(physicianNameLabelEditPanel)
                                         .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(physicianCreateStreetLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(physicianCreateLastNameLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addComponent(physicianCreateHouseNumberLabel)
-                                        .addComponent(physicianCreatePostalCodeLabel)
-                                        .addComponent(physicianCreateCityLabel)
-                                        .addComponent(specialisationLblCreatePhysiciantPnl1)
-                                        .addComponent(physicianCreateTitleLabel)
-                                        .addComponent(physicianCreateEmailLabel)
-                                        .addComponent(physicianCreatePhoneNumberLabel)
-                                        .addComponent(passLblCreatePhysiciantPnl1))
+                                                .addComponent(physicianStreetLabelEditPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(physicianLastNameLabelEditPanel, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(physicianHouseNumberLabelEditPanel)
+                                        .addComponent(physicianPostalCodeLabelEditPanel)
+                                        .addComponent(physicianCityLabelEditPanel)
+                                        .addComponent(physicianSpecializationComboBoxLabelEditPanel)
+                                        .addComponent(physicianTitleLabelEditPanel)
+                                        .addComponent(physicianEmailLabelEditPanel)
+                                        .addComponent(physicianPhoneNumberLabelEditPanel)
+                                        .addComponent(physicianPasswordLabelEditPanel))
                                 .addGap(142, 142, 142)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(phoneTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                .addComponent(nameTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                                .addComponent(familynameTxtFldCreatePhysiciantPnl1)
-                                                .addComponent(streetTxtFldCreatePhysiciantPnl1)
-                                                .addComponent(houseNumberTxtFldCreatePhysiciantPnl1)
-                                                .addComponent(postalCodeTxtFldCreatePhysiciantPnl1)
-                                                .addComponent(cityTxtFldCreatePhysiciantPnl1)
-                                                .addComponent(titleTxtFldCreatePhysiciantPnl1)
-                                                .addComponent(eamilTxtFldCreatePhysiciantPnl1)
-                                                .addComponent(passTxtFldCreatePhysiciantPnl1))
-                                        .addComponent(specializationComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(physicianPhoneNumberTextFieldEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                                .addComponent(physicianNameTextFieldEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                                .addComponent(physicianFamilyNameTextFieldEditPanel)
+                                                .addComponent(physicianStreetTextFieldEditPanel)
+                                                .addComponent(physicianHouseNumberTextFieldEditPanel)
+                                                .addComponent(physicianPostalCodeTextFieldEditPanel)
+                                                .addComponent(physicianCityTextFieldEditPanel)
+                                                .addComponent(physicianTitleTextFieldEditPanel)
+                                                .addComponent(physicianEmailTextFieldEditPanel)
+                                                .addComponent(physicianPasswordTextFieldEditPanel))
+                                        .addComponent(physicianSpecializationComboBoxEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(12, Short.MAX_VALUE))
         );
         editPhysiciantPnl1Layout.setVerticalGroup(
@@ -1330,54 +1330,54 @@ public class AdminGUI extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPhysiciantPnl1Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianCreateFirstNameLabel)
-                                        .addComponent(nameTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianNameLabelEditPanel)
+                                        .addComponent(physicianNameTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(7, 7, 7)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianCreateLastNameLabel)
-                                        .addComponent(familynameTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianLastNameLabelEditPanel)
+                                        .addComponent(physicianFamilyNameTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(streetTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(physicianCreateStreetLabel))
+                                        .addComponent(physicianStreetTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(physicianStreetLabelEditPanel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(houseNumberTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(physicianCreateHouseNumberLabel))
+                                        .addComponent(physicianHouseNumberTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(physicianHouseNumberLabelEditPanel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(postalCodeTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(physicianCreatePostalCodeLabel))
+                                        .addComponent(physicianPostalCodeTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(physicianPostalCodeLabelEditPanel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianCreateCityLabel)
-                                        .addComponent(cityTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianCityLabelEditPanel)
+                                        .addComponent(physicianCityTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(specialisationLblCreatePhysiciantPnl1)
-                                        .addComponent(specializationComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianSpecializationComboBoxLabelEditPanel)
+                                        .addComponent(physicianSpecializationComboBoxEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianCreateTitleLabel)
-                                        .addComponent(titleTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianTitleLabelEditPanel)
+                                        .addComponent(physicianTitleTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianCreateEmailLabel)
-                                        .addComponent(eamilTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianEmailLabelEditPanel)
+                                        .addComponent(physicianEmailTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(physicianCreatePhoneNumberLabel)
-                                        .addComponent(phoneTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianPhoneNumberLabelEditPanel)
+                                        .addComponent(physicianPhoneNumberTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editPhysiciantPnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(passLblCreatePhysiciantPnl1)
-                                        .addComponent(passTxtFldCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(physicianPasswordLabelEditPanel)
+                                        .addComponent(physicianPasswordTextFieldEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(17, 17, 17)
-                                .addComponent(createphysiciantBtnCreatePhysiciantPnl1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(physicianCreateButtonEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
-        jPanel3.add(editPhysiciantPnl1, "card2");
+        jPanel3.add(physicianEditPanel, "card2");
 
         mainPnl.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -1399,14 +1399,14 @@ public class AdminGUI extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void userMnagmentBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        editPatientPnl1.setVisible(false);
-        editPhysiciantPnl1.setVisible(false);
-        editPatientPnl.setVisible(false);
-        editPhyPnl.setVisible(false);
+        patientEditPanel.setVisible(false);
+        physicianEditPanel.setVisible(false);
+        patientManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(false);
         editAppointmentPnl.setVisible(false);
-        createPhysiciantPnl.setVisible(false);
-        createPatientPnl.setVisible(false);
-        userMngPnl.setVisible(true);
+        physicianCreatePanel.setVisible(false);
+        patientCreatePanel.setVisible(false);
+        userChooseManagementPanel.setVisible(true);
     }
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1422,47 +1422,47 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void physicianIconLblUserMngPnlMouseClicked(java.awt.event.MouseEvent evt) {
-        editPatientPnl1.setVisible(false);
-        editPhysiciantPnl1.setVisible(false);
-        editPatientPnl.setVisible(false);
+        patientEditPanel.setVisible(false);
+        physicianEditPanel.setVisible(false);
+        patientManagementPanel.setVisible(false);
         editAppointmentPnl.setVisible(false);
-        createPhysiciantPnl.setVisible(false);
-        createPatientPnl.setVisible(false);
-        userMngPnl.setVisible(false);
-        editPhyPnl.setVisible(true);
+        physicianCreatePanel.setVisible(false);
+        patientCreatePanel.setVisible(false);
+        userChooseManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(true);
     }
 
     private void patientIconLblUserMngPnlMouseClicked(java.awt.event.MouseEvent evt) {
-        editPatientPnl1.setVisible(false);
-        editPhysiciantPnl1.setVisible(false);
+        patientEditPanel.setVisible(false);
+        physicianEditPanel.setVisible(false);
         editAppointmentPnl.setVisible(false);
-        createPhysiciantPnl.setVisible(false);
-        createPatientPnl.setVisible(false);
-        userMngPnl.setVisible(false);
-        editPhyPnl.setVisible(false);
-        editPatientPnl.setVisible(true);
+        physicianCreatePanel.setVisible(false);
+        patientCreatePanel.setVisible(false);
+        userChooseManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(false);
+        patientManagementPanel.setVisible(true);
     }
 
     private void appointmenMenagmentBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        editPatientPnl1.setVisible(false);
-        editPhysiciantPnl1.setVisible(false);
-        createPhysiciantPnl.setVisible(false);
-        createPatientPnl.setVisible(false);
-        userMngPnl.setVisible(false);
-        editPhyPnl.setVisible(false);
-        editPatientPnl.setVisible(false);
+        patientEditPanel.setVisible(false);
+        physicianEditPanel.setVisible(false);
+        physicianCreatePanel.setVisible(false);
+        patientCreatePanel.setVisible(false);
+        userChooseManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(false);
+        patientManagementPanel.setVisible(false);
         editAppointmentPnl.setVisible(true);
     }
 
     private void physicianCreateButtonPhysicianTablePanelActionPerformed(java.awt.event.ActionEvent evt) {
-        editPatientPnl1.setVisible(false);
-        editPhysiciantPnl1.setVisible(false);
-        createPatientPnl.setVisible(false);
-        userMngPnl.setVisible(false);
-        editPhyPnl.setVisible(false);
-        editPatientPnl.setVisible(false);
+        patientEditPanel.setVisible(false);
+        physicianEditPanel.setVisible(false);
+        patientCreatePanel.setVisible(false);
+        userChooseManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(false);
+        patientManagementPanel.setVisible(false);
         editAppointmentPnl.setVisible(false);
-        createPhysiciantPnl.setVisible(true);
+        physicianCreatePanel.setVisible(true);
     }
 
     private void physicianSearchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1475,14 +1475,14 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void createPatientBtnEditPatintPnlActionPerformed(java.awt.event.ActionEvent evt) {
-        editPatientPnl1.setVisible(false);
-        editPhysiciantPnl1.setVisible(false);
-        userMngPnl.setVisible(false);
-        editPhyPnl.setVisible(false);
-        editPatientPnl.setVisible(false);
+        patientEditPanel.setVisible(false);
+        physicianEditPanel.setVisible(false);
+        userChooseManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(false);
+        patientManagementPanel.setVisible(false);
         editAppointmentPnl.setVisible(false);
-        createPhysiciantPnl.setVisible(false);
-        createPatientPnl.setVisible(true);
+        physicianCreatePanel.setVisible(false);
+        patientCreatePanel.setVisible(true);
     }
 
     private void patientSearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1523,80 +1523,80 @@ public class AdminGUI extends javax.swing.JFrame {
         tr.setRowFilter(RowFilter.regexFilter(patientSearchTextField.getText().trim()));        // TODO add your handling code here:
     }
 
-    private void createpatientBtnCreatePatientPnlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void patientCreateButtonCreatePanelActionPerformed(java.awt.event.ActionEvent evt) {
         Databaseconnection data = new Databaseconnection();
         try {
             Patient patient = new Patient(
-                    patientCreateEmailTxtField.getText(),
-                    patientCreateFirstNameTxtField.getText(),
-                    patientCreateLastNameTxtField.getText(),
-                    patientCreateCityTxtField.getText(),
-                    patientCreateStreetTxtField.getText(),
-                    patientCreateHouseNumberTxtField.getText(),
-                    patientCreatePostalCodeTxtField.getText(),
-                    patientCreatePhoneNumberTxtField.getText(),
-                    patientCreateDateOfBirthTxtField.getText(),
-                    patientCreateTitleTxtField.getText(),
-                    patientCreatePasswordTxtField.getText(),
-                    Objects.requireNonNull(patientCreateInsuranceComboBox.getSelectedItem()).toString(),
-                    Integer.parseInt(patientCreateWeightTxtField.getText())
+                    patientCreateEmailTextFieldCreatePanel.getText(),
+                    patientCreateFirstNameTextFieldCreatePanel.getText(),
+                    patientCreateLastNameTextFieldCreatePanel.getText(),
+                    patientCreateCityTextFieldCreatePanel.getText(),
+                    patientCreateStreetTextFieldCreatePanel.getText(),
+                    patientCreateHouseNumberTextFieldCreatePanel.getText(),
+                    patientCreatePostalCodeTextFieldCreatePanel.getText(),
+                    patientCreatePhoneNumberTextFieldCreatePanel.getText(),
+                    patientCreateDateOfBirthTextFieldCreatePanel.getText(),
+                    patientCreateTitleTextFieldCreatePanel.getText(),
+                    patientCreatePasswordTextFieldCreatePanel.getText(),
+                    Objects.requireNonNull(patientInsuranceComboBoxCreatePanel.getSelectedItem()).toString(),
+                    Integer.parseInt(patientCreateWeightTextFieldCreatePanel.getText())
             );
             data.addUser(patient);
         } catch (InterruptedException | IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        JOptionPane.showMessageDialog(null,"Patient: "+ patientCreateFirstNameTxtField.getText() +" "+ patientCreateLastNameTxtField.getText()+" got created. \nThe Password you set it: "+ patientCreatePasswordTxtField.getText()+".");
+        JOptionPane.showMessageDialog(null,"Patient: "+ patientCreateFirstNameTextFieldCreatePanel.getText() +" "+ patientCreateLastNameTextFieldCreatePanel.getText()+" got created. \nThe Password you set it: "+ patientCreatePasswordTextFieldCreatePanel.getText()+".");
     }
 
     private void createphysiciantBtnCreatePhysiciantPnlActionPerformed(java.awt.event.ActionEvent evt) {
 
         try {
             String [] spec = new String[1];
-            spec[0] = Objects.requireNonNull(specializationComboBox1.getSelectedItem()).toString();
+            spec[0] = Objects.requireNonNull(physicianSpecializationCreatePanelComboBox.getSelectedItem()).toString();
         Physician physi = new Physician(
+                physicianCreateEmailTextFieldCreatePanel.getText(),
+                physicianNameTextFieldCreatePanel.getText(),
+                physicianFamilyNameTextFieldCreatePanel.getText(),
+                physicianCityTextFieldCreatePanel.getText(),
+                physicianStreetTextFieldCreatePanel.getText(),
+                physicianHouseNumberTextFieldCreatePanel.getText(),
+                physicianPostalCodeTextFieldCreatePanel.getText(),
+                physicianPhoneNumberTextFieldCreatePanel.getText(),
+                physicianTitleTextFieldCreatePanel.getText(),
+                physicianPasswordTextFieldCreatePanel.getText(),
+                spec,
+                Geocoder.decode(physicianCityTextFieldCreatePanel.getText()+" "+
+                        physicianStreetTextFieldCreatePanel.getText()+" "+
+                        physicianHouseNumberTextFieldCreatePanel.getText()+" "+
+                        physicianPostalCodeTextFieldCreatePanel.getText())
 
-                         eamilTxtFldCreatePhysiciantPnl.getText(),
-                        nameTxtFldCreatePhysiciantPnl.getText(),
-                        familynameTxtFldCreatePhysiciantPnl.getText(),
-                        cityTxtFldCreatePhysiciantPnl.getText(),
-                        streetTxtFldCreatePhysiciantPnl.getText(),
-                        houseNumberTxtFldCreatePhysiciantPnl.getText(),
-                        postalCodeTxtFldCreatePhysiciantPnl.getText(),
-                        phoneTxtFldCreatePhysiciantPnl.getText(),
-                        titleTxtFldCreatePhysiciantPnl.getText(),
-                        passTxtFldCreatePhysiciantPnl.getText(),
-                        spec,
-                Geocoder.decode(cityTxtFldCreatePhysiciantPnl.getText()+" "+
-                        streetTxtFldCreatePhysiciantPnl.getText()+" "+
-                        houseNumberTxtFldCreatePhysiciantPnl.getText()+" "+
-                        postalCodeTxtFldCreatePhysiciantPnl.getText())
 
-            );
 
+        );
         Databaseconnection data = new Databaseconnection();
         data.addUser(physi);
         } catch (IOException | InterruptedException | ClassNotFoundException | SQLException ioException) {
             ioException.printStackTrace();
         }
-                eamilTxtFldCreatePhysiciantPnl.setText("");
-                nameTxtFldCreatePhysiciantPnl.setText("");
-                familynameTxtFldCreatePhysiciantPnl.setText("");
-                cityTxtFldCreatePhysiciantPnl.setText("");
-                streetTxtFldCreatePhysiciantPnl.setText("");
-                houseNumberTxtFldCreatePhysiciantPnl.setText("");
-                postalCodeTxtFldCreatePhysiciantPnl.setText("");
-                phoneTxtFldCreatePhysiciantPnl.setText("");
-                titleTxtFldCreatePhysiciantPnl.setText("");
-                passTxtFldCreatePhysiciantPnl.setText("");
-        createPhysiciantPnl.setVisible(false);
+        physicianCreateEmailTextFieldCreatePanel.setText("");
+        physicianNameTextFieldCreatePanel.setText("");
+        physicianFamilyNameTextFieldCreatePanel.setText("");
+        physicianCityTextFieldCreatePanel.setText("");
+        physicianStreetTextFieldCreatePanel.setText("");
+        physicianHouseNumberTextFieldCreatePanel.setText("");
+        physicianPostalCodeTextFieldCreatePanel.setText("");
+        physicianPhoneNumberTextFieldCreatePanel.setText("");
+        physicianTitleTextFieldCreatePanel.setText("");
+        physicianPasswordTextFieldCreatePanel.setText("");
+        physicianCreatePanel.setVisible(false);
         // TODO add your handling code here:
     }
 
     private void deleteappointmentBtnEditAppPnlActionPerformed(java.awt.event.ActionEvent evt) {
         //delete appointment button
-        DefaultTableModel model = (DefaultTableModel)EditAppointmentjTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) appointmentTable.getModel();
 
-        int index=EditAppointmentjTable1.getSelectedRow();
+        int index= appointmentTable.getSelectedRow();
         String PatientName=model.getValueAt(index,0).toString();
         String PhysicaianName=model.getValueAt(index,1).toString();
         String sDate1=model.getValueAt(index,2).toString();
@@ -1643,7 +1643,7 @@ public class AdminGUI extends javax.swing.JFrame {
 
         }*/
 
-        int[] rows = EditAppointmentjTable1.getSelectedRows();
+        int[] rows = appointmentTable.getSelectedRows();
         for(int i=0;i<rows.length;i++){
             model.removeRow(rows[i]-i);
         }
@@ -1656,53 +1656,53 @@ public class AdminGUI extends javax.swing.JFrame {
 
     }
 
-    private void createpatientBtnCreatePatientPnl1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void patientEditPatientButtonEditPanelActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void createphysiciantBtnCreatePhysiciantPnl1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void physicianCreateButtonEditPanelActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
     private void physicianEditButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        userMngPnl.setVisible(false);
-        editPhyPnl.setVisible(false);
-        editPatientPnl.setVisible(false);
+        userChooseManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(false);
+        patientManagementPanel.setVisible(false);
         editAppointmentPnl.setVisible(false);
-        createPhysiciantPnl.setVisible(false);
-        createPatientPnl.setVisible(false);
-        editPatientPnl1.setVisible(false);
-        editPhysiciantPnl1.setVisible(true);        // TODO add your handling code here:
+        physicianCreatePanel.setVisible(false);
+        patientCreatePanel.setVisible(false);
+        patientEditPanel.setVisible(false);
+        physicianEditPanel.setVisible(true);        // TODO add your handling code here:
 
 
 
     }
 
     private void editPatienButtonEditPhyPnl2ActionPerformed(java.awt.event.ActionEvent evt) {
-        userMngPnl.setVisible(false);
-        editPhyPnl.setVisible(false);
-        editPatientPnl.setVisible(false);
+        userChooseManagementPanel.setVisible(false);
+        physicianManagementPanel.setVisible(false);
+        patientManagementPanel.setVisible(false);
         editAppointmentPnl.setVisible(false);
-        createPhysiciantPnl.setVisible(false);
-        createPatientPnl.setVisible(false);
-        editPhysiciantPnl1.setVisible(false);
-        editPatientPnl1.setVisible(true);            // TODO add your handling code here:
+        physicianCreatePanel.setVisible(false);
+        patientCreatePanel.setVisible(false);
+        physicianEditPanel.setVisible(false);
+        patientEditPanel.setVisible(true);            // TODO add your handling code here:
         Databaseconnection data = new Databaseconnection();
         try {
             Patient patient = data.getPatient((String) adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(),3));
-            patientnameTxtFldCreatePatientPnl1.setText(patient.getFirstName());
-            patientFamilynameTxtFldCreatePatientPnl1.setText(patient.getLastName());
-            patientStreetTxtFldCreatePatientPnl1.setText(patient.getStreet());
-            patientHouseNumberTxtFldCreatePatientPnl1.setText(patient.getHouseNumber());
-            patientPostalCodeTxtFldCreatePatientPnl1.setText(patient.getPostalCode());
-            patientCityTxtFldCreatePatientPnl1.setText(patient.getCity());
-            insuranceComboBox_createPatientPnl1.setSelectedItem(patient.getInsuranceName());
-            patienTtitleTxtFldCreatePatientPnl1.setText(patient.getTitle());
-            emailTxtFldCreatePatientPnl1.setText(patient.getEmailAddress());
-            patientPhoneTxtFld1CreatePatientPnl1.setText(patient.getPhoneNUmber());
-            weightTxtFld_CreatepatientPnl1.setText(String.valueOf(patient.getWeight()));
-            jTextField3.setText("NOT CHANGEABLE");
-            jTextField3.setEditable(false);
+            patientNameTextFieldEditPanel.setText(patient.getFirstName());
+            patientFamilyNameTextFieldEditPanel.setText(patient.getLastName());
+            patientStreetTextFieldEditPanel.setText(patient.getStreet());
+            patientHouseNumberTextFieldEditPanel.setText(patient.getHouseNumber());
+            patientPostalCodeTextFieldEditPanel.setText(patient.getPostalCode());
+            patientCityTextFieldEditPanel.setText(patient.getCity());
+            patientInsuranceComboBoxEditPanel.setSelectedItem(patient.getInsuranceName());
+            patientTitleTextFieldEditPanel.setText(patient.getTitle());
+            patientEmailTextFieldEditPanel.setText(patient.getEmailAddress());
+            patientPhoneNumberTextFieldEditPanel.setText(patient.getPhoneNUmber());
+            patientWeightTextFieldEditPanel.setText(String.valueOf(patient.getWeight()));
+            patientPasswordTextFieldEditPanel.setText("NOT CHANGEABLE edit pat");
+            patientPasswordTextFieldEditPanel.setEditable(false);
 
 
         } catch (SQLException | ClassNotFoundException throwables) {
@@ -1711,10 +1711,8 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     private void populateAllAppointmentTable(){
-
-
         try{
-            DefaultTableModel model = (DefaultTableModel)EditAppointmentjTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel) appointmentTable.getModel();
             Databaseconnection databaseconnection = new Databaseconnection();
             appointments=databaseconnection.getAllAppointments();
             for (Appointment appointment : appointments) {
@@ -1767,148 +1765,148 @@ public class AdminGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JTable EditAppointmentjTable1;
+    private javax.swing.JTable appointmentTable;
     private javax.swing.JTextField patientSearchTextField;
-    private javax.swing.JLabel StreetLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreateStreetLabel;
+    private javax.swing.JLabel physicianStreetCreatePanelLabel;
+    private javax.swing.JLabel physicianStreetLabelEditPanel;
     private javax.swing.JTable adminPhysicianTable;
     private keeptoo.KButton appointmenMenagmentBtn;
     private javax.swing.JLabel choseCategoryLblUserMngPnl;
-    private javax.swing.JLabel cityLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreateCityLabel;
-    private javax.swing.JTextField cityTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField cityTxtFldCreatePhysiciantPnl1;
-    private keeptoo.KButton createPatientBtnEditPatintPnl;
-    private keeptoo.KGradientPanel createPatientPnl;
+    private javax.swing.JLabel phyisicianCityCreatePanelLabel;
+    private javax.swing.JLabel physicianCityLabelEditPanel;
+    private javax.swing.JTextField physicianCityTextFieldCreatePanel;
+    private javax.swing.JTextField physicianCityTextFieldEditPanel;
+    private keeptoo.KButton patientCreateButtonMainPanel;
+    private keeptoo.KGradientPanel patientCreatePanel;
     private keeptoo.KButton physicianCreateButtonMainPanel;
-    private keeptoo.KGradientPanel createPhysiciantPnl;
-    private keeptoo.KButton createpatientBtnCreatePatientPnl;
-    private keeptoo.KButton createpatientBtnCreatePatientPnl1;
-    private keeptoo.KButton createphysiciantBtnCreatePhysiciantPnl;
-    private keeptoo.KButton createphysiciantBtnCreatePhysiciantPnl1;
-    private javax.swing.JTextField patientCreateDateOfBirthTxtField;
-    private javax.swing.JTextField dateOfBirthTxtFld_CreatepatientPnl1;
-    private javax.swing.JLabel dateOfBirthtLbl_CreatepatientPnl;
-    private javax.swing.JLabel dateOfBirthtLbl_CreatepatientPnl1;
+    private keeptoo.KGradientPanel physicianCreatePanel;
+    private keeptoo.KButton patientCreateButtonCreatePanel;
+    private keeptoo.KButton patientEditPatientButtonEditPanel;
+    private keeptoo.KButton physicianCreateButtonCreatePanel;
+    private keeptoo.KButton physicianCreateButtonEditPanel;
+    private javax.swing.JTextField patientCreateDateOfBirthTextFieldCreatePanel;
+    private javax.swing.JTextField patientDateOfBirthTextFieldEditPanel;
+    private javax.swing.JLabel patientDateOfBirthLabelCreatePanel;
+    private javax.swing.JLabel patientDateOfBirthLabelEditPanel;
     private keeptoo.KButton physicianDeleteButton;
-    private keeptoo.KButton deleteappointmentBtnEditAppPnl;
+    private keeptoo.KButton deleteAppointmentButton;
     private keeptoo.KButton patientDeleteButton;
-    private javax.swing.JTextField eamilTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField eamilTxtFldCreatePhysiciantPnl1;
+    private javax.swing.JTextField physicianCreateEmailTextFieldCreatePanel;
+    private javax.swing.JTextField physicianEmailTextFieldEditPanel;
     private keeptoo.KGradientPanel editAppointmentPnl;
-    private keeptoo.KButton editPatienButtonEditPhyPnl2;
-    private keeptoo.KGradientPanel editPatientPnl;
-    private keeptoo.KGradientPanel editPatientPnl1;
-    private keeptoo.KGradientPanel editPhyPnl;
+    private keeptoo.KButton patientEditButtonMainPanel;
+    private keeptoo.KGradientPanel patientManagementPanel;
+    private keeptoo.KGradientPanel patientEditPanel;
+    private keeptoo.KGradientPanel physicianManagementPanel;
     private keeptoo.KButton physicianEditButton;
-    private keeptoo.KGradientPanel editPhysiciantPnl1;
-    private javax.swing.JLabel emailLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreateEmailLabel;
-    private javax.swing.JTextField patientCreateEmailTxtField;
-    private javax.swing.JTextField emailTxtFldCreatePatientPnl1;
+    private keeptoo.KGradientPanel physicianEditPanel;
+    private javax.swing.JLabel physicianEmailCreatePanelLabel;
+    private javax.swing.JLabel physicianEmailLabelEditPanel;
+    private javax.swing.JTextField patientCreateEmailTextFieldCreatePanel;
+    private javax.swing.JTextField patientEmailTextFieldEditPanel;
     private keeptoo.KButton exitBtn;
-    private javax.swing.JLabel familyNameLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreateLastNameLabel;
-    private javax.swing.JTextField familynameTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField familynameTxtFldCreatePhysiciantPnl1;
-    private javax.swing.JTextField houseNumberTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField houseNumberTxtFldCreatePhysiciantPnl1;
-    private javax.swing.JLabel housenumberLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreateHouseNumberLabel;
-    private javax.swing.JComboBox<String> patientCreateInsuranceComboBox;
-    private javax.swing.JComboBox<String> insuranceComboBox_createPatientPnl1;
-    private javax.swing.JLabel insurance_CreatepatientPnl;
-    private javax.swing.JLabel insurance_CreatepatientPnl1;
+    private javax.swing.JLabel physicianFamilyNameLabelCreatePanel;
+    private javax.swing.JLabel physicianLastNameLabelEditPanel;
+    private javax.swing.JTextField physicianFamilyNameTextFieldCreatePanel;
+    private javax.swing.JTextField physicianFamilyNameTextFieldEditPanel;
+    private javax.swing.JTextField physicianHouseNumberTextFieldCreatePanel;
+    private javax.swing.JTextField physicianHouseNumberTextFieldEditPanel;
+    private javax.swing.JLabel physicianHouseNumberLabelCreatePanel;
+    private javax.swing.JLabel physicianHouseNumberLabelEditPanel;
+    private javax.swing.JComboBox<String> patientInsuranceComboBoxCreatePanel;
+    private javax.swing.JComboBox<String> patientInsuranceComboBoxEditPanel;
+    private javax.swing.JLabel patientInsuranceComboBoxLabelCreatePanel;
+    private javax.swing.JLabel patientInsuranceComboBoxLabelEditPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField patientCreatePasswordTxtField;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField patientCreatePasswordTextFieldCreatePanel;
+    private javax.swing.JTextField patientPasswordTextFieldEditPanel;
     private keeptoo.KButton logoutBtn;
     private keeptoo.KGradientPanel mainPnl;
-    private javax.swing.JLabel nameLblCreatePatientPnl;
-    private javax.swing.JLabel nameLblCreatePatientPnl1;
-    private javax.swing.JLabel nameLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreateFirstNameLabel;
-    private javax.swing.JTextField nameTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField nameTxtFldCreatePhysiciantPnl1;
-    private javax.swing.JLabel physicianCreatePasswordLabel;
-    private javax.swing.JLabel passLblCreatePhysiciantPnl1;
-    private javax.swing.JTextField passTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField passTxtFldCreatePhysiciantPnl1;
-    private javax.swing.JLabel paswordLbl_CreatepatientPnl;
-    private javax.swing.JLabel paswordLbl_CreatepatientPnl1;
+    private javax.swing.JLabel patientNameLabelCreatePanel;
+    private javax.swing.JLabel patientNameLabelEditPanel;
+    private javax.swing.JLabel physicianNameCreatePanelLabel;
+    private javax.swing.JLabel physicianNameLabelEditPanel;
+    private javax.swing.JTextField physicianNameTextFieldCreatePanel;
+    private javax.swing.JTextField physicianNameTextFieldEditPanel;
+    private javax.swing.JLabel phyisicianPasswortCreatePanelLabel;
+    private javax.swing.JLabel physicianPasswordLabelEditPanel;
+    private javax.swing.JTextField physicianPasswordTextFieldCreatePanel;
+    private javax.swing.JTextField physicianPasswordTextFieldEditPanel;
+    private javax.swing.JLabel patientPasswordLabelCreatePanel;
+    private javax.swing.JLabel patientPasswordLabelEditPanel;
     private javax.swing.JLabel pateintListLblEditPatintPnl;
-    private javax.swing.JTextField patientCreateTitleTxtField;
-    private javax.swing.JTextField patienTtitleTxtFldCreatePatientPnl1;
-    private javax.swing.JLabel patientCityLblCreatePatientPnl;
-    private javax.swing.JLabel patientCityLblCreatePatientPnl1;
-    private javax.swing.JTextField patientCreateCityTxtField;
-    private javax.swing.JTextField patientCityTxtFldCreatePatientPnl1;
-    private javax.swing.JLabel patientEmailLblCreatePatientPnl;
-    private javax.swing.JLabel patientEmailLblCreatePatientPnl1;
-    private javax.swing.JLabel patientFamilyNameTxFldCreatePatientPnl;
-    private javax.swing.JLabel patientFamilyNameTxFldCreatePatientPnl1;
-    private javax.swing.JTextField patientCreateLastNameTxtField;
-    private javax.swing.JTextField patientFamilynameTxtFldCreatePatientPnl1;
-    private javax.swing.JTextField patientCreateHouseNumberTxtField;
-    private javax.swing.JTextField patientHouseNumberTxtFldCreatePatientPnl1;
-    private javax.swing.JLabel patientHousenumberLblCreatePatientPnl;
-    private javax.swing.JLabel patientHousenumberLblCreatePatientPnl1;
+    private javax.swing.JTextField patientCreateTitleTextFieldCreatePanel;
+    private javax.swing.JTextField patientTitleTextFieldEditPanel;
+    private javax.swing.JLabel patientCityLabelCreatePanel;
+    private javax.swing.JLabel patientCityLabelEditPanel;
+    private javax.swing.JTextField patientCreateCityTextFieldCreatePanel;
+    private javax.swing.JTextField patientCityTextFieldEditPanel;
+    private javax.swing.JLabel patientEmailLabelCreatePanel;
+    private javax.swing.JLabel patientEmailLabelEditPanel;
+    private javax.swing.JLabel patientFamilyNameLabelCreatePanel;
+    private javax.swing.JLabel patientFamilyNameLabelEditPanel;
+    private javax.swing.JTextField patientCreateLastNameTextFieldCreatePanel;
+    private javax.swing.JTextField patientFamilyNameTextFieldEditPanel;
+    private javax.swing.JTextField patientCreateHouseNumberTextFieldCreatePanel;
+    private javax.swing.JTextField patientHouseNumberTextFieldEditPanel;
+    private javax.swing.JLabel patientHousenumberLabelCreatePanel;
+    private javax.swing.JLabel patientHouseNumberLabelEditPanel;
     private javax.swing.JLabel patientIconLblUserMngPnl;
     private javax.swing.JLabel patientLblUserMngPnl;
-    private javax.swing.JTextField patientCreatePhoneNumberTxtField;
-    private javax.swing.JTextField patientPhoneTxtFld1CreatePatientPnl1;
-    private javax.swing.JLabel patientPostalCodeLblCreatePatientPnl;
-    private javax.swing.JLabel patientPostalCodeLblCreatePatientPnl1;
-    private javax.swing.JTextField patientCreatePostalCodeTxtField;
-    private javax.swing.JTextField patientPostalCodeTxtFldCreatePatientPnl1;
-    private javax.swing.JLabel patientStreetLblCreatePatientPnl;
-    private javax.swing.JLabel patientStreetLblCreatePatientPnl1;
-    private javax.swing.JTextField patientCreateStreetTxtField;
-    private javax.swing.JTextField patientStreetTxtFldCreatePatientPnl1;
+    private javax.swing.JTextField patientCreatePhoneNumberTextFieldCreatePanel;
+    private javax.swing.JTextField patientPhoneNumberTextFieldEditPanel;
+    private javax.swing.JLabel patientPostalCodeLabelCreatePanel;
+    private javax.swing.JLabel patientPostalCodeLabelEditPanel;
+    private javax.swing.JTextField patientCreatePostalCodeTextFieldCreatePanel;
+    private javax.swing.JTextField patientPostalCodeTextFieldEditPanel;
+    private javax.swing.JLabel patientStreetLabelCreatePanel;
+    private javax.swing.JLabel patientStreetLabelEditPanel;
+    private javax.swing.JTextField patientCreateStreetTextFieldCreatePanel;
+    private javax.swing.JTextField patientStreetTextFieldEditPanel;
     private javax.swing.JTable adminPatientTable;
-    private javax.swing.JLabel patientTitleLblCreatePatientPnl;
-    private javax.swing.JLabel patientTitleLblCreatePatientPnl1;
-    private javax.swing.JTextField patientCreateFirstNameTxtField;
-    private javax.swing.JTextField patientnameTxtFldCreatePatientPnl1;
-    private javax.swing.JLabel patientphoneLblCreatePatientPnl;
-    private javax.swing.JLabel patientphoneLblCreatePatientPnl1;
-    private javax.swing.JLabel phoneLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreatePhoneNumberLabel;
-    private javax.swing.JTextField phoneTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField phoneTxtFldCreatePhysiciantPnl1;
+    private javax.swing.JLabel patientTitleLabelCreatePanel;
+    private javax.swing.JLabel patientTitleLabelEditPanel;
+    private javax.swing.JTextField patientCreateFirstNameTextFieldCreatePanel;
+    private javax.swing.JTextField patientNameTextFieldEditPanel;
+    private javax.swing.JLabel patientPhoneLabelCreatePanel;
+    private javax.swing.JLabel patientPhoneNumberLabelEditPanel;
+    private javax.swing.JLabel physicianPhoneNumberCreatePanelLabel;
+    private javax.swing.JLabel physicianPhoneNumberLabelEditPanel;
+    private javax.swing.JTextField physicianPhoneNumberTextFieldCreatePanel;
+    private javax.swing.JTextField physicianPhoneNumberTextFieldEditPanel;
     private javax.swing.JLabel physicianIconLblUserMngPnl;
     private javax.swing.JLabel physicianLblUserMngPnl;
     private javax.swing.JLabel physicianListLabel;
     private javax.swing.JLabel pictureLbl;
     private javax.swing.JPanel picturePanel;
-    private javax.swing.JLabel postalCodeLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreatePostalCodeLabel;
-    private javax.swing.JTextField postalCodeTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField postalCodeTxtFldCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianPostalCodeCreatePanelLabel;
+    private javax.swing.JLabel physicianPostalCodeLabelEditPanel;
+    private javax.swing.JTextField physicianPostalCodeTextFieldCreatePanel;
+    private javax.swing.JTextField physicianPostalCodeTextFieldEditPanel;
     private keeptoo.KButton physicianSearchButton;
     private javax.swing.JTextField physicianSearchTxtField;
     private keeptoo.KButton patientSearchButton;
-    private javax.swing.JLabel specialisationLblCreatePhysiciantPnl;
-    private javax.swing.JLabel specialisationLblCreatePhysiciantPnl1;
-    private javax.swing.JComboBox<String> specializationComboBox1;
-    private javax.swing.JComboBox<String> specializationComboBox2;
-    private javax.swing.JTextField streetTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField streetTxtFldCreatePhysiciantPnl1;
-    private javax.swing.JLabel titleLblCreatePhysiciantPnl;
-    private javax.swing.JLabel physicianCreateTitleLabel;
-    private javax.swing.JTextField titleTxtFldCreatePhysiciantPnl;
-    private javax.swing.JTextField titleTxtFldCreatePhysiciantPnl1;
+    private javax.swing.JLabel physicianSpecializationCreatePanelLabel;
+    private javax.swing.JLabel physicianSpecializationComboBoxLabelEditPanel;
+    private javax.swing.JComboBox<String> physicianSpecializationCreatePanelComboBox;
+    private javax.swing.JComboBox<String> physicianSpecializationComboBoxEditPanel;
+    private javax.swing.JTextField physicianStreetTextFieldCreatePanel;
+    private javax.swing.JTextField physicianStreetTextFieldEditPanel;
+    private javax.swing.JLabel physicianTitleCreatePanelLabel;
+    private javax.swing.JLabel physicianTitleLabelEditPanel;
+    private javax.swing.JTextField physicianTitleTextFieldCreatePanel;
+    private javax.swing.JTextField physicianTitleTextFieldEditPanel;
     private keeptoo.KButton userMnagmentBtn;
-    private keeptoo.KGradientPanel userMngPnl;
-    private javax.swing.JLabel weightLbl_CreatepatientPnl;
-    private javax.swing.JLabel weightLbl_CreatepatientPnl1;
-    private javax.swing.JTextField patientCreateWeightTxtField;
-    private javax.swing.JTextField weightTxtFld_CreatepatientPnl1;
+    private keeptoo.KGradientPanel userChooseManagementPanel;
+    private javax.swing.JLabel patientWeightLabelCreatePanel;
+    private javax.swing.JLabel patientWeightLabelEditPanel;
+    private javax.swing.JTextField patientCreateWeightTextFieldCreatePanel;
+    private javax.swing.JTextField patientWeightTextFieldEditPanel;
     private javax.swing.JLabel welcomeLbl;
     private javax.swing.JLabel welcomenameLbl;
     // End of variables declaration
