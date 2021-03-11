@@ -270,7 +270,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
         firstNameLblPhysician.setFont(new java.awt.Font("Californian FB", Font.PLAIN, 18)); // NOI18N
         firstNameLblPhysician.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameLblPhysician.setText("Frist name");
+        firstNameLblPhysician.setText("First name");
 
         lastNameLblPhysician.setFont(new java.awt.Font("Californian FB", Font.PLAIN, 18)); // NOI18N
         lastNameLblPhysician.setForeground(new java.awt.Color(255, 255, 255));
@@ -658,7 +658,7 @@ public class LoginGUI extends javax.swing.JFrame {
         weightLblPatient.setText("Weight");
 
         InsuranceComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        InsuranceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "KKH", "TK", "Allianz" }));
+        InsuranceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AOK", "TK", "Allianz" }));
 
         javax.swing.GroupLayout registerPatientTransparentPnlLayout = new javax.swing.GroupLayout(registerPatientTransparentPnl);
         registerPatientTransparentPnl.setLayout(registerPatientTransparentPnlLayout);

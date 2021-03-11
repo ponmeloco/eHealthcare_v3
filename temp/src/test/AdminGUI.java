@@ -1741,25 +1741,27 @@ public class AdminGUI extends javax.swing.JFrame {
         patientCreatePanel.setVisible(false);
         physicianEditPanel.setVisible(false);
         patientEditPanel.setVisible(true);
-        Databaseconnection data = new Databaseconnection();
-        try {
-            Patient patient = data.getPatient((String) adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(),3));
-            patientNameTextFieldEditPanel.setText(patient.getFirstName());
-            patientFamilyNameTextFieldEditPanel.setText(patient.getLastName());
-            patientStreetTextFieldEditPanel.setText(patient.getStreet());
-            patientHouseNumberTextFieldEditPanel.setText(patient.getHouseNumber());
-            patientPostalCodeTextFieldEditPanel.setText(patient.getPostalCode());
-            patientCityTextFieldEditPanel.setText(patient.getCity());
-            patientInsuranceComboBoxEditPanel.setSelectedItem(patient.getInsuranceName());
-            patientTitleTextFieldEditPanel.setText(patient.getTitle());
-            patientEmailTextFieldEditPanel.setText(patient.getEmailAddress());
-            patientPhoneNumberTextFieldEditPanel.setText(patient.getPhoneNUmber());
-            patientWeightTextFieldEditPanel.setText(String.valueOf(patient.getWeight()));
-            patientDateOfBirthTextFieldEditPanel.setText(patient.getBirthday());
-            patientPasswordTextFieldEditPanel.setText("NOT CHANGEABLE");
-            patientPasswordTextFieldEditPanel.setEditable(false);
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
+        if(adminPatientTable.getSelectedRow() != -1) {
+            Databaseconnection data = new Databaseconnection();
+            try {
+                Patient patient = data.getPatient((String) adminPatientTable.getValueAt(adminPatientTable.getSelectedRow(), 3));
+                patientNameTextFieldEditPanel.setText(patient.getFirstName());
+                patientFamilyNameTextFieldEditPanel.setText(patient.getLastName());
+                patientStreetTextFieldEditPanel.setText(patient.getStreet());
+                patientHouseNumberTextFieldEditPanel.setText(patient.getHouseNumber());
+                patientPostalCodeTextFieldEditPanel.setText(patient.getPostalCode());
+                patientCityTextFieldEditPanel.setText(patient.getCity());
+                patientInsuranceComboBoxEditPanel.setSelectedItem(patient.getInsuranceName());
+                patientTitleTextFieldEditPanel.setText(patient.getTitle());
+                patientEmailTextFieldEditPanel.setText(patient.getEmailAddress());
+                patientPhoneNumberTextFieldEditPanel.setText(patient.getPhoneNUmber());
+                patientWeightTextFieldEditPanel.setText(String.valueOf(patient.getWeight()));
+                patientDateOfBirthTextFieldEditPanel.setText(patient.getBirthday());
+                patientPasswordTextFieldEditPanel.setText("NOT CHANGEABLE");
+                patientPasswordTextFieldEditPanel.setEditable(false);
+            } catch (SQLException | ClassNotFoundException throwables) {
+                throwables.printStackTrace();
+            }
         }
     }
 
