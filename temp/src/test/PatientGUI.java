@@ -478,7 +478,11 @@ public class PatientGUI extends javax.swing.JFrame {
         printHealthInfkButton1.setkStartColor(new java.awt.Color(255, 255, 255));
         printHealthInfkButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printHealthInfkButton1ActionPerformed(evt);
+                try {
+                    printHealthInfkButton1ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -1366,8 +1370,9 @@ public class PatientGUI extends javax.swing.JFrame {
 
     }
 
-    private void printHealthInfkButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    private void printHealthInfkButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
+        exportHealthInf(p);
+        JOptionPane.showMessageDialog(this,"Health information exported!");
     }
 
 

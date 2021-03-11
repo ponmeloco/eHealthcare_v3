@@ -292,6 +292,12 @@ public class PhysicianGUI extends javax.swing.JFrame {
         confirmkButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
         confirmkButton.setkStartColor(new java.awt.Color(255, 255, 255));
 
+        confirmkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmkButtonActionPerformed(evt);
+            }
+        });
+
         jTable1.setBackground(new java.awt.Color(153, 204, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
@@ -814,6 +820,7 @@ public class PhysicianGUI extends javax.swing.JFrame {
 
         for (Appointment appointment : appointments) {
         if (appointment.getPatient().getLastName().equals(jLabel4.getText()) && appointment.getDate().equals(dateTime)) {
+            ;
         selectedAppointment = appointment;
         }
         }
@@ -851,10 +858,31 @@ public class PhysicianGUI extends javax.swing.JFrame {
         houseNumberTxtFld.setOpaque(true);
     }
 
+    private void confirmkButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        int index=jTable1.getSelectedRow();
+        TableModel model=jTable1.getModel();
+        jLabel6.setText(model.getValueAt(index,2).toString());
+        jLabel4.setText(model.getValueAt(index,0).toString());
+        String sDate1=model.getValueAt(index,1).toString();
+
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(sDate1, formatter);
+
+
+        for (Appointment appointment : appointments) {
+            if (appointment.getPatient().getLastName().equals(jLabel4.getText()) && appointment.getDate().equals(dateTime)) {
+                ;
+                selectedAppointment = appointment;
+            }
+        }
+        new Mail().sendAppointmentConfirm(selectedAppointment);
+
+    }
 
 
 
-        // Variables declaration - do not modify
+    // Variables declaration - do not modify
         private javax.swing.JLabel FamilyNameTexfld;
         private keeptoo.KButton SaveButton;
         private javax.swing.JLabel SpecificationLbl;
